@@ -7,10 +7,18 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  mode: 'development',
   plugins: [
     new HtmlWebpackPlugin({
-        title: 'To-Do List',
-        template: 'index.html'
+        template: './src/index.html'
       })
   ]
 };

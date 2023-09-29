@@ -2,9 +2,10 @@
   "name": "to-do-list",
   "version": "1.0.0",
   "description": "odin project #11",
-  "private": "true",
+  "private": true,
   "scripts": {
     "watch": "webpack --watch",
+    "build": "webpack",
     "publish": "git subtree push --prefix dist origin gh-pages"
   },
   "keywords": [],
