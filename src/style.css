@@ -4,6 +4,8 @@
     padding: 0;
 }
 
+/* ELEMENTS */
+
 body {
     background-color: black;
     display: grid;
@@ -12,16 +14,6 @@ body {
     min-height: 100vh;
     min-width: 100vw;
 
-}
-
-#wrapper {
-    padding: 10px;
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-column: 2/4;
-    background-color: white;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-areas: 'header header' 'main main' 'footer footer';
 }
 
 header {
@@ -62,11 +54,31 @@ footer button {
     width: 100px;
 }
 
+footer form {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 2;
+    background-color: white;
+}
+
 /* IDS */
 
 #reminder-modal {
     background-color: rgba(0,0,0,0.5);
-    
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#wrapper {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 2/4;
+    background-color: white;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 'header header' 'main main' 'footer footer';
 }
 
 /* CLASSES */
