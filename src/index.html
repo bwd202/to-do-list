@@ -17,11 +17,17 @@
             <div id="completed" class="card button"><p>completed</p></div>
             <article>
                 <h2>My Lists</h2>
-                <div id="reminders" class="card button">Reminders</div>
+                <div id="reminders" class="button banner">Reminders</div>
             </article>
             </main>
            <footer>
             <button id="new-reminder" class="button">New Reminder</button>
+            <div id="reminder-modal" hidden>
+                <form action="#">
+                    <label for="title">Title</label>
+                    <input type="text" id="title">
+                </form>
+            </div>
             <button id="add-list" class="button">Add List</button>
            </footer>
     </div>
