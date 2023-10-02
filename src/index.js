@@ -20,15 +20,28 @@ let newReminderBtnFn = function() {
     reminderModal.classList.add('visible')
 }
 
-newReminderBtn.addEventListener('click', newReminderBtnFn)
-
 let reminderModal = document.querySelector('#reminder-modal')
 
-window.onclick = function (e) {
-    if (e.target === reminderModal) {
-      reminderModal.classList.remove('visible');
-      reminderModal.classList.add('hidden');
-    }
-  }
+let modalCloseBtnFn = function() {
+    reminderModal.classList.remove('visible');
+    reminderModal.classList.add('hidden');
+}
 
-  reminderModal.hidden = false
+let modalCloseBtn = document.querySelector('#modal-close-btn')
+
+// EVENT LISTENERS
+
+modalCloseBtn.addEventListener('click', modalCloseBtnFn)
+
+newReminderBtn.addEventListener('click', newReminderBtnFn)
+
+window.addEventListener('click', (e) => {
+    if (e.target === reminderModal) {
+      modalCloseBtnFn()
+    }
+})
+
+
+
+//   reminderModal.hidden = false
+
