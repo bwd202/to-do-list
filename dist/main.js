@@ -116,7 +116,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nclass Reminder {\n\n    constructor(title, notes, dueDate, priority) {\n        this.title = title\n        this.notes = notes\n        this.dueDate = dueDate\n        this.priority = priority\n    }\n}\n\n// console.log(new Reminder('helo',new Date(), 3))\n\nlet newReminderBtn = document.querySelector('#new-reminder')\n\n// newReminderBtn.addEventListener('click', ()=> console.log('helo'))\n\nlet reminderModal = document.querySelector('#reminder-modal')\n\nreminderModal.hidden = false\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nclass Reminder {\n\n    constructor(title, notes, dueDate, dueTime, priority) {\n        this.title = title\n        this.notes = notes\n        this.dueDate = dueDate\n        this.dueTime = dueTime\n        this.priority = priority\n    }\n}\n\n// console.log(new Reminder('helo',new Date(), 3))\n\nlet newReminderBtn = document.querySelector('#new-reminder')\n\n// newReminderBtn.addEventListener('click', ()=> console.log('helo'))\n\nlet reminderModal = document.querySelector('#reminder-modal')\n\nreminderModal.hidden = false\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
 
 /***/ })
 

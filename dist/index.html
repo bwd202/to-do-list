@@ -24,10 +24,16 @@
             <button id="new-reminder" class="button">New Reminder</button>
             <div id="reminder-modal" hidden>
                 <form action="#">
-                    <input type="text" id="title" placeholder="Title">
-                    <input type="text" id="notes" placeholder="Notes">
-                    <input type="date">
-                    <input type="list">
+                    <label for="">Title<input type="text" id="title" placeholder="take dogs for a walk" name="reminderTitle"></label>
+                    <label for="">Notes<input type="text" id="notes" placeholder="bring poop bags" name="reminderNotes"></label>
+                    <label for="">Due Date<input type="date" id="dueDate" name="reminderDueDate"></label>
+                    <label for="">Due Time<input type="time" id="dueTime" name="reminderDueTime"></label>
+                    <label for="priority">Priority<select name="" id="priority" name="reminderPriority">
+                        <option value="1">low</option>
+                        <option value="2">medium</option>
+                        <option value="3">high</option>
+                    </select></label>
+                    
                 </form>
             </div>
             <button id="add-list" class="button">Add List</button>

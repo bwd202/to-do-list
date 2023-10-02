@@ -2,10 +2,11 @@ import './style.css'
 
 class Reminder {
 
-    constructor(title, notes, dueDate, priority) {
+    constructor(title, notes, dueDate, dueTime, priority) {
         this.title = title
         this.notes = notes
         this.dueDate = dueDate
+        this.dueTime = dueTime
         this.priority = priority
     }
 }
