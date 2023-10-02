@@ -15,14 +15,16 @@ class Reminder {
 
 let newReminderBtn = document.querySelector('#new-reminder')
 
-let newReminderBtnFn = function() {
+let reminderModal = document.querySelector('#reminder-modal')
+
+reminderModal.classList.add('hidden')
+
+let openModal = function() {
     reminderModal.classList.remove('hidden')
     reminderModal.classList.add('visible')
 }
 
-let reminderModal = document.querySelector('#reminder-modal')
-
-let modalCloseBtnFn = function() {
+let closeModal = function() {
     reminderModal.classList.remove('visible');
     reminderModal.classList.add('hidden');
 }
@@ -31,17 +33,13 @@ let modalCloseBtn = document.querySelector('#modal-close-btn')
 
 // EVENT LISTENERS
 
-modalCloseBtn.addEventListener('click', modalCloseBtnFn)
+modalCloseBtn.addEventListener('click', closeModal)
 
-newReminderBtn.addEventListener('click', newReminderBtnFn)
+newReminderBtn.addEventListener('click', openModal)
 
 window.addEventListener('click', (e) => {
     if (e.target === reminderModal) {
-      modalCloseBtnFn()
+      closeModal()
     }
 })
-
-
-
-//   reminderModal.hidden = false
 

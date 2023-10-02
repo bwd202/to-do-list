@@ -80,7 +80,7 @@ footer form {
     grid-template-columns: subgrid;
     grid-column: 2/4;
     background-color: white;
-    grid-template-rows: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
     grid-template-areas: 'header header' 'main main' 'footer footer';
 }
 
