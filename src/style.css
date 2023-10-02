@@ -7,14 +7,30 @@
 body {
     background-color: black;
     display: grid;
-    grid-template-columns: 500px minmax() 500px;
+    grid-template-columns: repeat(4, 400px);
+    justify-content: center;
     min-height: 100vh;
     min-width: 100vw;
 
 }
 
 #wrapper {
+    display: grid;
     grid-template-columns: subgrid;
-    grid-column: 2;
+    grid-column: 2/4;
     background-color: white;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 'header header' 'main main' 'footer footer';
+}
+
+header {
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
 }
