@@ -58,6 +58,7 @@ footer form {
     display: grid;
     grid-template-columns: subgrid;
     grid-template-rows: repeat(4, 100px);
+    grid-auto-rows: 100px;
     grid-column: 2;
     align-items: center;
     background-color: white;
@@ -96,4 +97,12 @@ footer form {
 
 .banner {
     border: 1px solid red;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    display: grid;
 }

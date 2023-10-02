@@ -15,8 +15,20 @@ class Reminder {
 
 let newReminderBtn = document.querySelector('#new-reminder')
 
-// newReminderBtn.addEventListener('click', ()=> console.log('helo'))
+let newReminderBtnFn = function() {
+    reminderModal.classList.remove('hidden')
+    reminderModal.classList.add('visible')
+}
+
+newReminderBtn.addEventListener('click', newReminderBtnFn)
 
 let reminderModal = document.querySelector('#reminder-modal')
 
-reminderModal.hidden = false
+window.onclick = function (e) {
+    if (e.target === reminderModal) {
+      reminderModal.classList.remove('visible');
+      reminderModal.classList.add('hidden');
+    }
+  }
+
+  reminderModal.hidden = false
