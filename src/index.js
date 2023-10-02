@@ -31,6 +31,10 @@ let closeModal = function() {
 
 let modalCloseBtn = document.querySelector('#modal-close-btn')
 
+let listModal = document.querySelector('#list-modal')
+
+listModal.hidden = false
+
 // EVENT LISTENERS
 
 modalCloseBtn.addEventListener('click', closeModal)

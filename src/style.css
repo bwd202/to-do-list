@@ -71,13 +71,6 @@ footer form {
 
 /* IDS */
 
-#reminder-modal {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
 #wrapper {
     /* overflow: hidden; */
     padding: 10px;
@@ -118,5 +111,9 @@ footer form {
 }
 
 .modal {
+    grid-template-columns: repeat(3, 1fr);
     background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    inset: 0;
+    display: grid;
 }
