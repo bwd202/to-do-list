@@ -30,6 +30,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 /* ELEMENTS */
 
 body {
+    position: relative;
     background-color: black;
     display: grid;
     grid-template-columns: repeat(4, 400px);
@@ -50,14 +51,12 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
-    /* grid-template-areas: 'card card' 'card card' 'article article'; */
 }
 
 article {
     display: grid;
     grid-template-columns: subgrid;
     grid-column: span 2;
-    /* grid-area: article; */
 }
 
 article > div {
@@ -117,7 +116,6 @@ footer form {
 /* CLASSES */
 
 .card {
-    /* grid-area: card; */
     border: 1px solid black;
 }
 
@@ -135,7 +133,7 @@ footer form {
 
 .visible {
     display: grid;
-}`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;AACd;;AAEA,aAAa;;AAEb;IACI,uBAAuB;IACvB,aAAa;IACb,uCAAuC;IACvC,uBAAuB;IACvB,iBAAiB;IACjB,gBAAgB;;AAEpB;;AAEA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,SAAS;IACT,oEAAoE;AACxE;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,mBAAmB;IACnB,wBAAwB;AAC5B;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,oBAAoB;IACpB,kBAAkB;IAClB,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,qBAAqB;IACrB,cAAc;IACd,mBAAmB;IACnB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA,QAAQ;;AAER;IACI,iCAAiC;IACjC,kBAAkB;IAClB,QAAQ;IACR,aAAa;IACb,qCAAqC;AACzC;;AAEA;IACI,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,gBAAgB;IAChB,uBAAuB;IACvB,kCAAkC;IAClC,gEAAgE;AACpE;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,OAAO;AACX;;AAEA,YAAY;;AAEZ;IACI,qBAAqB;IACrB,uBAAuB;AAC3B;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,aAAa;AACjB","sourcesContent":["* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n}\n\n/* ELEMENTS */\n\nbody {\n    background-color: black;\n    display: grid;\n    grid-template-columns: repeat(4, 400px);\n    justify-content: center;\n    min-height: 100vh;\n    min-width: 100vw;\n\n}\n\nheader {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 10px;\n    /* grid-template-areas: 'card card' 'card card' 'article article'; */\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: span 2;\n    /* grid-area: article; */\n}\n\narticle > div {\n    grid-column: 1/span 2;\n}\n\nfooter {\n    grid-area: footer;\n    display: grid;\n    justify-content: end;\n    align-content: end; \n    grid-auto-flow: column;\n    gap: 10px;\n}\n\nfooter button {\n    width: 100px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: repeat(4, 100px);\n    grid-auto-rows: 100px;\n    grid-column: 2;\n    align-items: center;\n    background-color: white;\n    position: relative;\n}\n\n/* IDS */\n\n#reminder-modal {\n    background-color: rgba(0,0,0,0.5);\n    position: absolute;\n    inset: 0;\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n}\n\n#wrapper {\n    padding: 10px;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2/4;\n    background-color: white;\n    grid-template-rows: repeat(3, 1fr);\n    grid-template-areas: 'header header' 'main main' 'footer footer';\n}\n\n#modal-close-btn {\n    position: absolute;\n    right: -0;\n    top: -0;\n}\n\n/* CLASSES */\n\n.card {\n    /* grid-area: card; */\n    border: 1px solid black;\n}\n\n.button {\n    cursor: pointer;\n}\n\n.banner {\n    border: 1px solid red;\n}\n\n.hidden {\n    visibility: hidden;\n}\n\n.visible {\n    display: grid;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;AACd;;AAEA,aAAa;;AAEb;IACI,kBAAkB;IAClB,uBAAuB;IACvB,aAAa;IACb,uCAAuC;IACvC,uBAAuB;IACvB,iBAAiB;IACjB,gBAAgB;;AAEpB;;AAEA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,SAAS;AACb;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,mBAAmB;AACvB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,oBAAoB;IACpB,kBAAkB;IAClB,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,qBAAqB;IACrB,cAAc;IACd,mBAAmB;IACnB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA,QAAQ;;AAER;IACI,iCAAiC;IACjC,kBAAkB;IAClB,QAAQ;IACR,aAAa;IACb,qCAAqC;AACzC;;AAEA;IACI,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,gBAAgB;IAChB,uBAAuB;IACvB,kCAAkC;IAClC,gEAAgE;AACpE;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,OAAO;AACX;;AAEA,YAAY;;AAEZ;IACI,uBAAuB;AAC3B;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,aAAa;AACjB","sourcesContent":["* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n}\n\n/* ELEMENTS */\n\nbody {\n    position: relative;\n    background-color: black;\n    display: grid;\n    grid-template-columns: repeat(4, 400px);\n    justify-content: center;\n    min-height: 100vh;\n    min-width: 100vw;\n\n}\n\nheader {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 10px;\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: span 2;\n}\n\narticle > div {\n    grid-column: 1/span 2;\n}\n\nfooter {\n    grid-area: footer;\n    display: grid;\n    justify-content: end;\n    align-content: end; \n    grid-auto-flow: column;\n    gap: 10px;\n}\n\nfooter button {\n    width: 100px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: repeat(4, 100px);\n    grid-auto-rows: 100px;\n    grid-column: 2;\n    align-items: center;\n    background-color: white;\n    position: relative;\n}\n\n/* IDS */\n\n#reminder-modal {\n    background-color: rgba(0,0,0,0.5);\n    position: absolute;\n    inset: 0;\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n}\n\n#wrapper {\n    padding: 10px;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2/4;\n    background-color: white;\n    grid-template-rows: repeat(3, 1fr);\n    grid-template-areas: 'header header' 'main main' 'footer footer';\n}\n\n#modal-close-btn {\n    position: absolute;\n    right: -0;\n    top: -0;\n}\n\n/* CLASSES */\n\n.card {\n    border: 1px solid black;\n}\n\n.button {\n    cursor: pointer;\n}\n\n.banner {\n    border: 1px solid red;\n}\n\n.hidden {\n    visibility: hidden;\n}\n\n.visible {\n    display: grid;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
