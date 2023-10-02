@@ -15,10 +15,11 @@ body {
     display: grid;
     grid-template-columns: repeat(4, max(300px, 25%));
     height: 100vh;
-    min-width: 100%;
+    width: 100%;
+    min-width: 800px;
     justify-content: center;
     min-height: 500px;
-    /* using both heigh props because cont was getting "squeezed" with smaller viewport heights */
+    /* using both heigh props because cont was getting "squeezed" with smaller viewport heights; ditto for weight, except the problem was cont getting "cut off" */
 }
 
 header {
