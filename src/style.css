@@ -72,7 +72,6 @@ footer form {
 /* IDS */
 
 #reminder-modal {
-    background-color: rgba(0,0,0,0.5);
     position: absolute;
     inset: 0;
     display: grid;
@@ -116,4 +115,8 @@ footer form {
 
 .visible {
     display: grid;
+}
+
+.modal {
+    background-color: rgba(0,0,0,0.5);
 }
