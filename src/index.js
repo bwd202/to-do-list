@@ -46,8 +46,6 @@ window.addEventListener('click', (e) => {
 
     } else if(modal.id === 'list-modal') {
 
-        // console.log(closeModal(listModal)())
-
         closeModal(listModal)() //invokes the "inner" function
     }
 })
