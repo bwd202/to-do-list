@@ -590,7 +590,8 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   closeModal: () => (/* binding */ closeModal)
+/* harmony export */   closeModal: () => (/* binding */ closeModal),
+/* harmony export */   openModal: () => (/* binding */ openModal)
 /* harmony export */ });
 
 
@@ -600,13 +601,17 @@ function closeModal(modal) {//returns fn for eventHandler
 
         console.log(e)
 
-        // if(e.target.id === "reminder-modal" || e.target.id === "list-modal" ) {
-        //  closeModal()
-        // }
-
         modal.classList.remove('visible')
     }
    
+}
+
+function openModal(modal) {
+
+    return function() {
+        modal.classList.add('visible')
+    }
+
 }
 
 /***/ })
@@ -709,30 +714,38 @@ class Reminder {
 
 let newReminderBtn = document.querySelector('#new-reminder')
 
+let addListBtn = document.querySelector('#add-list')
+
 let reminderModal = document.querySelector('#reminder-modal')
-
-// reminderModal.classList.add('hidden')
-
-let openModal = function() {
-    // reminderModal.classList.remove('hidden')
-    reminderModal.classList.add('visible')
-}
 
 let reminderModalCloseBtn = document.querySelector('#reminder-modal-close-btn')
 
 let listModal = document.querySelector('#list-modal')
 
+let listModalCloseBtn = document.querySelector('#reminder-modal-close-btn')
+
 // EVENT LISTENERS
 
 reminderModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.closeModal)(reminderModal))
 
-newReminderBtn.addEventListener('click', openModal)
+listModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.closeModal)(listModal))
+
+newReminderBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.openModal)(reminderModal))
 
 window.addEventListener('click', (e) => {
-    if (e.target === reminderModal || e.target === listModal) {
-      (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.closeModal)()
+
+    if(e.target.id === "reminder-modal" || e.target.id === "list-modal") {
+        
+        if(e.target.id === 'reminder-modal') {
+
+            (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.closeModal)(reminderModal)
+
+        } else (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.closeModal)(listModal)
+         
     }
 })
+
+
 })();
 
 /******/ })()
