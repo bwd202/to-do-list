@@ -711,6 +711,8 @@ class Reminder {
     }
 }
 
+// UIs
+
 let newReminderBtn = document.querySelector('#new-reminder')
 
 let addListBtn = document.querySelector('#add-list')
@@ -735,16 +737,18 @@ addListBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_1
 
 window.addEventListener('click', (e) => {
 
-    if(e.target.id === "reminder-modal" || e.target.id === "list-modal") {
-        
-        if(e.target.id === 'reminder-modal') {
+    let modal = e.target
 
-            (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.closeModal)(reminderModal)
+    if(modal.id === "reminder-modal") {
 
-        } else (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.closeModal)(listModal)
-         
+        (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.closeModal)(reminderModal)()
+
+    } else if(modal.id === 'list-modal') {
+
+        (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.closeModal)(listModal)()
     }
 })
+
 
 
 })();
