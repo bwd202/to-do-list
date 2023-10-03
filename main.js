@@ -745,8 +745,6 @@ window.addEventListener('click', (e) => {
 
     } else if(modal.id === 'list-modal') {
 
-        // console.log(closeModal(listModal)())
-
         (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.closeModal)(listModal)() //invokes the "inner" function
     }
 })
