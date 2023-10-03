@@ -2,9 +2,7 @@ export {closeModal, openModal}
 
 function closeModal(modal) {//returns fn for eventHandler
 
-    return function(e) {
-
-        console.log(e)
+    return function() {
 
         modal.classList.remove('visible')
     }
@@ -14,6 +12,7 @@ function closeModal(modal) {//returns fn for eventHandler
 function openModal(modal) {
 
     return function() {
+
         modal.classList.add('visible')
     }
 

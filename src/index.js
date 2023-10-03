@@ -22,7 +22,7 @@ let reminderModalCloseBtn = document.querySelector('#reminder-modal-close-btn')
 
 let listModal = document.querySelector('#list-modal')
 
-let listModalCloseBtn = document.querySelector('#reminder-modal-close-btn')
+let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
 // EVENT LISTENERS
 
