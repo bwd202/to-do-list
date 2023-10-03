@@ -1,5 +1,5 @@
 import './style.css'
-// import { closeModal } from './modalControl'
+import { closeModal } from './modalControl'
 
 class Reminder {
 
@@ -23,31 +23,13 @@ let openModal = function() {
     reminderModal.classList.add('visible')
 }
 
-function closeModal(modal) {
-
-    return function(e) {
-        console.log(e)
-        modal.classList.remove('visible')
-    }
-   
-}
-
-// let closeModal = function() {
-
-//     return function(e) {
-//         // modal.classlist.remove('visible')
-//         e.target.classlist.remove('visible')
-//     }
-   
-// }
-
-let modalCloseBtn = document.querySelector('#modal-close-btn')
+let reminderModalCloseBtn = document.querySelector('#reminder-modal-close-btn')
 
 let listModal = document.querySelector('#list-modal')
 
 // EVENT LISTENERS
 
-modalCloseBtn.addEventListener('click', closeModal(reminderModal))
+reminderModalCloseBtn.addEventListener('click', closeModal(reminderModal))
 
 newReminderBtn.addEventListener('click', openModal)
 
@@ -56,5 +38,3 @@ window.addEventListener('click', (e) => {
       closeModal()
     }
 })
-
-// window.addEventListener('click', closeModal)

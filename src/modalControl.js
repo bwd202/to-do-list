@@ -1,10 +1,16 @@
 export {closeModal}
 
-function closeModal(modal) {
+function closeModal(modal) {//returns fn for eventHandler
 
     return function(e) {
-        // modal.classlist.remove('visible')
-        modal.classlist.remove('visible')
+
+        console.log(e)
+
+        // if(e.target.id === "reminder-modal" || e.target.id === "list-modal" ) {
+        //  closeModal()
+        // }
+
+        modal.classList.remove('visible')
     }
    
 }

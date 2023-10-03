@@ -82,12 +82,6 @@ footer form {
     grid-template-areas: 'header header' 'main main' 'footer footer';
 }
 
-#modal-close-btn {
-    position: absolute;
-    right: -0;
-    top: -0;
-}
-
 /* CLASSES */
 
 .card {
@@ -98,13 +92,15 @@ footer form {
     cursor: pointer;
 }
 
+.modal-btn {
+    position: absolute;
+    right: -0;
+    top: -0;
+}
+
 .banner {
     border: 1px solid red;
 }
-
-/* .hidden {
-    visibility: hidden;
-} */
 
 .visible {
     display: grid;
