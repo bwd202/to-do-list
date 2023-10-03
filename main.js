@@ -56,8 +56,6 @@ main {
     display: grid;
     grid-template-columns: subgrid;
     grid-auto-rows: 200px ;
-    /* justify-items: center; */
-    /* align-items: center; */
     gap: 10px;
 }
 
@@ -98,7 +96,6 @@ footer form {
 /* IDS */
 
 #wrapper {
-    /* overflow: hidden; */
     padding: 10px;
     display: grid;
     grid-template-columns: subgrid;
@@ -111,9 +108,8 @@ footer form {
 /* CLASSES */
 
 .card {
+    display: grid;
     border: 1px solid black;
-    /* width: 100px; */
-    /* height: 100px; */
 }
 
 .button {
@@ -140,7 +136,7 @@ footer form {
     background-color: rgba(0,0,0,0.5);
     position: absolute;
     inset: 0;
-}`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;AACd;AACA,kBAAkB;;AAElB,6BAA6B;;AAE7B,aAAa;;AAEb;IACI,kBAAkB;IAClB,uBAAuB;IACvB,aAAa;IACb,iDAAiD;IACjD,aAAa;IACb,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,iBAAiB;IACjB,8JAA8J;AAClK;;AAEA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,sBAAsB;IACtB,2BAA2B;IAC3B,yBAAyB;IACzB,SAAS;AACb;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,mBAAmB;AACvB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,oBAAoB;IACpB,kBAAkB;IAClB,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,qBAAqB;IACrB,cAAc;IACd,mBAAmB;IACnB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA,QAAQ;;AAER;IACI,sBAAsB;IACtB,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,uBAAuB;IACvB,mCAAmC;IACnC,gEAAgE;AACpE;;AAEA,YAAY;;AAEZ;IACI,uBAAuB;IACvB,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,OAAO;AACX;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,qCAAqC;IACrC,iCAAiC;IACjC,kBAAkB;IAClB,QAAQ;AACZ","sourcesContent":["* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n}\n/* MEDIA QUERIES */\n\n/* at screen 1200px or less */\n\n/* ELEMENTS */\n\nbody {\n    position: relative;\n    background-color: black;\n    display: grid;\n    grid-template-columns: repeat(4, max(300px, 25%));\n    height: 100vh;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    min-height: 500px;\n    /* using both heigh props because cont was getting \"squeezed\" with smaller viewport heights; ditto for weight, except the problem was cont getting \"cut off\" */\n}\n\nheader {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-auto-rows: 200px ;\n    /* justify-items: center; */\n    /* align-items: center; */\n    gap: 10px;\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: span 2;\n}\n\narticle > div {\n    grid-column: inherit;\n}\n\nfooter {\n    grid-area: footer;\n    display: grid;\n    justify-content: end;\n    align-content: end; \n    grid-auto-flow: column;\n    gap: 10px;\n}\n\nfooter button {\n    width: 100px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: repeat(4, 100px);\n    grid-auto-rows: 100px;\n    grid-column: 2;\n    align-items: center;\n    background-color: white;\n    position: relative;\n}\n\n/* IDS */\n\n#wrapper {\n    /* overflow: hidden; */\n    padding: 10px;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    background-color: white;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' 'main main' 'footer footer';\n}\n\n/* CLASSES */\n\n.card {\n    border: 1px solid black;\n    /* width: 100px; */\n    /* height: 100px; */\n}\n\n.button {\n    cursor: pointer;\n}\n\n.modal-btn {\n    position: absolute;\n    right: -0;\n    top: -0;\n}\n\n.banner {\n    border: 1px solid red;\n}\n\n.visible {\n    display: grid;\n}\n\n.modal {\n    /* display: grid; */\n    grid-template-columns: repeat(3, 1fr);\n    background-color: rgba(0,0,0,0.5);\n    position: absolute;\n    inset: 0;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;AACd;AACA,kBAAkB;;AAElB,6BAA6B;;AAE7B,aAAa;;AAEb;IACI,kBAAkB;IAClB,uBAAuB;IACvB,aAAa;IACb,iDAAiD;IACjD,aAAa;IACb,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,iBAAiB;IACjB,8JAA8J;AAClK;;AAEA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,mBAAmB;AACvB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,oBAAoB;IACpB,kBAAkB;IAClB,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,qBAAqB;IACrB,cAAc;IACd,mBAAmB;IACnB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA,QAAQ;;AAER;IACI,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,uBAAuB;IACvB,mCAAmC;IACnC,gEAAgE;AACpE;;AAEA,YAAY;;AAEZ;IACI,aAAa;IACb,uBAAuB;AAC3B;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,OAAO;AACX;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,qCAAqC;IACrC,iCAAiC;IACjC,kBAAkB;IAClB,QAAQ;AACZ","sourcesContent":["* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n}\n/* MEDIA QUERIES */\n\n/* at screen 1200px or less */\n\n/* ELEMENTS */\n\nbody {\n    position: relative;\n    background-color: black;\n    display: grid;\n    grid-template-columns: repeat(4, max(300px, 25%));\n    height: 100vh;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    min-height: 500px;\n    /* using both heigh props because cont was getting \"squeezed\" with smaller viewport heights; ditto for weight, except the problem was cont getting \"cut off\" */\n}\n\nheader {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-auto-rows: 200px ;\n    gap: 10px;\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: span 2;\n}\n\narticle > div {\n    grid-column: inherit;\n}\n\nfooter {\n    grid-area: footer;\n    display: grid;\n    justify-content: end;\n    align-content: end; \n    grid-auto-flow: column;\n    gap: 10px;\n}\n\nfooter button {\n    width: 100px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: repeat(4, 100px);\n    grid-auto-rows: 100px;\n    grid-column: 2;\n    align-items: center;\n    background-color: white;\n    position: relative;\n}\n\n/* IDS */\n\n#wrapper {\n    padding: 10px;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    background-color: white;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' 'main main' 'footer footer';\n}\n\n/* CLASSES */\n\n.card {\n    display: grid;\n    border: 1px solid black;\n}\n\n.button {\n    cursor: pointer;\n}\n\n.modal-btn {\n    position: absolute;\n    right: -0;\n    top: -0;\n}\n\n.banner {\n    border: 1px solid red;\n}\n\n.visible {\n    display: grid;\n}\n\n.modal {\n    /* display: grid; */\n    grid-template-columns: repeat(3, 1fr);\n    background-color: rgba(0,0,0,0.5);\n    position: absolute;\n    inset: 0;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
