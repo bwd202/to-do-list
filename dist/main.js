@@ -732,6 +732,8 @@ listModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_M
 
 newReminderBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.openModal)(reminderModal))
 
+addListBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_1__.openModal)(listModal))
+
 window.addEventListener('click', (e) => {
 
     if(e.target.id === "reminder-modal" || e.target.id === "list-modal") {

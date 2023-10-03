@@ -32,6 +32,8 @@ listModalCloseBtn.addEventListener('click', closeModal(listModal))
 
 newReminderBtn.addEventListener('click', openModal(reminderModal))
 
+addListBtn.addEventListener('click', openModal(listModal))
+
 window.addEventListener('click', (e) => {
 
     if(e.target.id === "reminder-modal" || e.target.id === "list-modal") {
