@@ -1,4 +1,5 @@
 import './style.css'
+// import { closeModal } from './modalControl'
 
 class Reminder {
 
@@ -11,39 +12,49 @@ class Reminder {
     }
 }
 
-// console.log(new Reminder('helo',new Date(), 3))
-
 let newReminderBtn = document.querySelector('#new-reminder')
 
 let reminderModal = document.querySelector('#reminder-modal')
 
-reminderModal.classList.add('hidden')
+// reminderModal.classList.add('hidden')
 
 let openModal = function() {
-    reminderModal.classList.remove('hidden')
+    // reminderModal.classList.remove('hidden')
     reminderModal.classList.add('visible')
 }
 
-let closeModal = function() {
-    reminderModal.classList.remove('visible');
-    reminderModal.classList.add('hidden');
+function closeModal(modal) {
+
+    return function(e) {
+        console.log(e)
+        modal.classList.remove('visible')
+    }
+   
 }
+
+// let closeModal = function() {
+
+//     return function(e) {
+//         // modal.classlist.remove('visible')
+//         e.target.classlist.remove('visible')
+//     }
+   
+// }
 
 let modalCloseBtn = document.querySelector('#modal-close-btn')
 
 let listModal = document.querySelector('#list-modal')
 
-listModal.hidden = false
-
 // EVENT LISTENERS
 
-modalCloseBtn.addEventListener('click', closeModal)
+modalCloseBtn.addEventListener('click', closeModal(reminderModal))
 
 newReminderBtn.addEventListener('click', openModal)
 
 window.addEventListener('click', (e) => {
-    if (e.target === reminderModal) {
+    if (e.target === reminderModal || e.target === listModal) {
       closeModal()
     }
 })
 
+// window.addEventListener('click', closeModal)
