@@ -280,12 +280,18 @@ var ___HTML_LOADER_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(
 var ___HTML_LOADER_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./icons/calendar-clock.svg */ "./src/icons/calendar-clock.svg"), __webpack_require__.b);
 var ___HTML_LOADER_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ./icons/calendar-multiselect.svg */ "./src/icons/calendar-multiselect.svg"), __webpack_require__.b);
 var ___HTML_LOADER_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ./icons/calendar-multiple-check.svg */ "./src/icons/calendar-multiple-check.svg"), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg"), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_5___ = new URL(/* asset import */ __webpack_require__(/*! ./icons/calendar-plus.svg */ "./src/icons/calendar-plus.svg"), __webpack_require__.b);
+var ___HTML_LOADER_IMPORT_6___ = new URL(/* asset import */ __webpack_require__(/*! ./icons/calendar-start.svg */ "./src/icons/calendar-start.svg"), __webpack_require__.b);
 // Module
 var ___HTML_LOADER_REPLACEMENT_0___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_0___);
 var ___HTML_LOADER_REPLACEMENT_1___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_1___);
 var ___HTML_LOADER_REPLACEMENT_2___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_2___);
 var ___HTML_LOADER_REPLACEMENT_3___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_3___);
-var code = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To-Do List</title>\n</head>\n<body>\n    <div id=\"wrapper\">\n        <header>\n            <input id=\"search\" type=\"text\">\n           </header>\n           <main>\n            <div id=\"today\" class=\"card button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>today</p><span>0</span></div>\n            <div id=\"scheduled\" class=\"card button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>scheduled</p><span>0</span></div>\n            <div id=\"all\" class=\"card button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>all</p><span>0</span></div>\n            <div id=\"completed\" class=\"card button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>completed</p></div>\n            <article>\n                <h2>My Lists</h2>\n                <div id=\"reminders\" class=\"button banner\">Reminders</div>\n            </article>\n            </main>\n           <footer>\n            <button id=\"new-reminder\" class=\"button\">New Reminder</button>\n            <div id=\"reminder-modal\" class=\"modal\" hidden>\n                <form action=\"/\">\n                    <span id=\"reminder-modal-close-btn\" class=\"button modal-btn\">&times;</span>\n                    <label for=\"\">Title<input type=\"text\" id=\"title\" placeholder=\"take dogs for a walk\" name=\"reminderTitle\"></label>\n                    <label for=\"\">Notes<input type=\"text\" id=\"notes\" placeholder=\"bring poop bags\" name=\"reminderNotes\"></label>\n                    <label for=\"\">Due Date<input type=\"date\" id=\"dueDate\" name=\"reminderDueDate\"></label>\n                    <label for=\"\">Due Time<input type=\"time\" id=\"dueTime\" name=\"reminderDueTime\"></label>\n                    <label for=\"priority\">Priority<select name=\"\" id=\"priority\" name=\"reminderPriority\">\n                        <option value=\"1\">low</option>\n                        <option value=\"2\" selected>medium</option>\n                        <option value=\"3\">high</option>\n                    </select></label>\n                    \n                </form>\n            </div>\n            <button id=\"add-list\" class=\"button\">Add List</button>\n            <div id=\"list-modal\" class=\"modal\" hidden>\n                <form action=\"/\">\n                    <span id=\"list-modal-close-btn\" class=\"button modal-btn\">&times;</span>\n                    <input type=\"text\" placeholder=\"List name\">\n                    <input type=\"color\">\n                </form>\n            </div>\n           </footer>\n    </div>\n</body>\n</html>";
+var ___HTML_LOADER_REPLACEMENT_4___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_4___);
+var ___HTML_LOADER_REPLACEMENT_5___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_5___);
+var ___HTML_LOADER_REPLACEMENT_6___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_6___);
+var code = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To-Do List</title>\n</head>\n<body>\n    <div id=\"wrapper\">\n        <header>\n            <input id=\"search\" type=\"text\">\n           </header>\n           <main>\n            <div id=\"today\" class=\"card button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>today</p><span>0</span></div>\n            <div id=\"scheduled\" class=\"card button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>scheduled</p><span>0</span></div>\n            <div id=\"all\" class=\"card button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>all</p><span>0</span></div>\n            <div id=\"completed\" class=\"card button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>completed</p></div>\n            <article>\n                <h2>My Lists</h2>\n                <div id=\"reminders\" class=\"button banner\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\"><p>Reminders</p><span>0</span></div>\n            </article>\n            </main>\n           <footer>\n            <button id=\"new-reminder\" class=\"button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\">New Reminder</button>\n            <div id=\"reminder-modal\" class=\"modal\" hidden>\n                <form action=\"/\">\n                    <span id=\"reminder-modal-close-btn\" class=\"button modal-btn\">&times;</span>\n                    <label for=\"\">Title<input type=\"text\" id=\"title\" placeholder=\"take dogs for a walk\" name=\"reminderTitle\"></label>\n                    <label for=\"\">Notes<input type=\"text\" id=\"notes\" placeholder=\"bring poop bags\" name=\"reminderNotes\"></label>\n                    <label for=\"\">Due Date<input type=\"date\" id=\"dueDate\" name=\"reminderDueDate\"></label>\n                    <label for=\"\">Due Time<input type=\"time\" id=\"dueTime\" name=\"reminderDueTime\"></label>\n                    <label for=\"priority\">Priority<select name=\"\" id=\"priority\" name=\"reminderPriority\">\n                        <option value=\"1\">low</option>\n                        <option value=\"2\" selected>medium</option>\n                        <option value=\"3\">high</option>\n                    </select></label>\n                    \n                </form>\n            </div>\n            <button id=\"add-list\" class=\"button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_6___ + "\" width=\"50\" height=\"50\" alt=\"\">Add List</button>\n            <div id=\"list-modal\" class=\"modal\" hidden>\n                <form action=\"/\">\n                    <span id=\"list-modal-close-btn\" class=\"button modal-btn\">&times;</span>\n                    <input type=\"text\" placeholder=\"List name\">\n                    <input type=\"color\">\n                </form>\n            </div>\n           </footer>\n    </div>\n</body>\n</html>";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
@@ -717,6 +723,36 @@ module.exports = __webpack_require__.p + "61238fdaf03dcdcfb315.svg";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "7c08cb4f6d6cfe3d09d7.svg";
+
+/***/ }),
+
+/***/ "./src/icons/calendar-plus.svg":
+/*!*************************************!*\
+  !*** ./src/icons/calendar-plus.svg ***!
+  \*************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "ab58307c4579e18946a8.svg";
+
+/***/ }),
+
+/***/ "./src/icons/calendar-start.svg":
+/*!**************************************!*\
+  !*** ./src/icons/calendar-start.svg ***!
+  \**************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "3e5472897c5ccf310fa2.svg";
+
+/***/ }),
+
+/***/ "./src/icons/calendar-text.svg":
+/*!*************************************!*\
+  !*** ./src/icons/calendar-text.svg ***!
+  \*************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "219cb3f5774dc4da59ea.svg";
 
 /***/ })
 
