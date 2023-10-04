@@ -86,9 +86,12 @@ footer form {
 
 /* CLASSES */
 
+.border {
+    border: 1px solid black;
+}
+
 .card {
     display: grid;
-    border: 1px solid black;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
 }
@@ -106,7 +109,6 @@ footer form {
 .banner {
     display: grid;
     grid-auto-flow: column;
-    border: 1px solid red;
 }
 
 .visible {
