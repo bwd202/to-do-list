@@ -22,6 +22,15 @@ body {
     /* using both heigh props because cont was getting "squeezed" with smaller viewport heights; ditto for weight, except the problem was cont getting "cut off" */
 }
 
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+
 header {
     display: grid;
     grid-area: header;
@@ -96,11 +105,6 @@ footer form {
 
 /* CLASSES */
 
-.form {
-    font-family: inherit;
-    font-size: 100%;
-}
-
 .border {
     border: 1px solid black;
 }
@@ -131,7 +135,7 @@ footer form {
 }
 
 .modal {
-    display: grid;
+    /* display: grid; */
     grid-template-columns: repeat(3, 1fr);
     background-color: rgba(0,0,0,0.5);
     position: absolute;
