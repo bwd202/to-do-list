@@ -71,7 +71,7 @@ footer button {
     align-items: center;
     border: 0;
     border-radius: 14px;
-    padding: 5px;
+    padding: 8px;
 }
 
 footer form {
@@ -110,12 +110,20 @@ footer form {
 
 .border {
     border: 1px solid black;
+    border-radius: 14px;
+}
+
+.banner {
+    display: grid;
+    grid-auto-flow: column;
+    padding: 10px;
 }
 
 .card {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    padding: 10px;
 }
 
 .button {
@@ -126,11 +134,6 @@ footer form {
     position: absolute;
     right: -0;
     top: -0;
-}
-
-.banner {
-    display: grid;
-    grid-auto-flow: column;
 }
 
 .visible {
