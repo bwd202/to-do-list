@@ -37,10 +37,6 @@ header {
     align-items: start;
 }
 
-header [placeholder] {
-    /* font-size: 2em; */
-}
-
 main {
     grid-area: main;
     display: grid;
@@ -73,6 +69,9 @@ footer button {
     display: grid;
     grid-auto-flow: column;
     align-items: center;
+    border: 0;
+    border-radius: 14px;
+    padding: 5px;
 }
 
 footer form {
@@ -97,6 +96,10 @@ footer form {
     background-color: white;
     grid-template-rows: 100px 1fr 100px;
     grid-template-areas: 'header header' 'main main' 'footer footer';
+}
+
+#reminder-modal input {
+    width: 150px;
 }
 
 /* #list-modal {
