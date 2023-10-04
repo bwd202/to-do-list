@@ -49,14 +49,16 @@ article > div {
 footer {
     grid-area: footer;
     display: grid;
-    justify-content: end;
-    align-content: end; 
     grid-auto-flow: column;
+    justify-content: space-between;
+    align-content: end; 
     gap: 10px;
 }
 
 footer button {
-    width: 100px;
+    width: 200px;
+    display: grid;
+    grid-auto-flow: column;
 }
 
 footer form {
@@ -87,6 +89,8 @@ footer form {
 .card {
     display: grid;
     border: 1px solid black;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 .button {
@@ -100,6 +104,8 @@ footer form {
 }
 
 .banner {
+    display: grid;
+    grid-auto-flow: column;
     border: 1px solid red;
 }
 
