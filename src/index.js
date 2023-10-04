@@ -1,3 +1,4 @@
+import './index.html'
 import './style.css'
 import { closeModal, openModal } from './modalControl'
 
