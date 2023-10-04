@@ -1,3 +1,7 @@
+:root {
+   /*  */
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -128,6 +132,22 @@ footer form {
 
 .button {
     cursor: pointer;
+}
+
+.filter-blue {
+    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);
+}
+
+.filter-red {
+    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);
+}
+
+.filter-gray {
+    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);
+}
+
+.filter-green {
+    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);
 }
 
 .modal-btn {
