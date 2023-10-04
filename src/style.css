@@ -107,6 +107,9 @@ footer form {
 
 #search {
     background-color: lightgrey;
+    border: 0;
+    padding: 6px;
+    border-radius: 14px;
 }
 
 /* #list-modal {
@@ -116,7 +119,7 @@ footer form {
 /* CLASSES */
 
 .border {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 14px;
 }
 
@@ -163,6 +166,8 @@ footer form {
     background-color: rgba(0,0,0,0.5);
     position: absolute;
     inset: 0;
+    z-index: 10;
+    /* fixes issue with add list button icon showing on top of reminder modal */
 }
 
 .modal-btn {
