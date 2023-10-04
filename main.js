@@ -21,10 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `:root {
-   /*  */
-}
-
+___CSS_LOADER_EXPORT___.push([module.id, `
 * {
     box-sizing: border-box;
     margin: 0;
@@ -123,6 +120,7 @@ footer form {
     background-color: white;
     grid-template-rows: 100px 1fr 100px;
     grid-template-areas: 'header header' 'main main' 'footer footer';
+    background-color: lightgray;
 }
 
 #reminder-modal input {
@@ -144,6 +142,11 @@ footer form {
     display: grid;
     grid-auto-flow: column;
     padding: 10px;
+    background-color: white;
+}
+
+.button {
+    cursor: pointer;
 }
 
 .card {
@@ -151,10 +154,7 @@ footer form {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     padding: 10px;
-}
-
-.button {
-    cursor: pointer;
+    background-color: white;
 }
 
 .filter-blue {
@@ -173,6 +173,14 @@ footer form {
     filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);
 }
 
+.modal {
+    /* display: grid; */
+    grid-template-columns: repeat(3, 1fr);
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    inset: 0;
+}
+
 .modal-btn {
     position: absolute;
     right: -0;
@@ -181,15 +189,7 @@ footer form {
 
 .visible {
     display: grid;
-}
-
-.modal {
-    /* display: grid; */
-    grid-template-columns: repeat(3, 1fr);
-    background-color: rgba(0,0,0,0.5);
-    position: absolute;
-    inset: 0;
-}`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;GACG,KAAK;AACR;;AAEA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;AACd;AACA,kBAAkB;;AAElB,6BAA6B;;AAE7B,aAAa;;AAEb;IACI,kBAAkB;IAClB,uBAAuB;IACvB,aAAa;IACb,iDAAiD;IACjD,aAAa;IACb,iBAAiB;IACjB,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,8JAA8J;AAClK;;AAEA;;;;EAIE,oBAAoB;EACpB,eAAe;AACjB;;;AAGA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,mBAAmB;AACvB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,kBAAkB;IAClB,SAAS;AACb;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,SAAS;IACT,mBAAmB;IACnB,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,qBAAqB;IACrB,cAAc;IACd,mBAAmB;IACnB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA,QAAQ;;AAER;IACI,kBAAkB;IAClB,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,uBAAuB;IACvB,mCAAmC;IACnC,gEAAgE;AACpE;;AAEA;IACI,YAAY;AAChB;;AAEA;;GAEG;;AAEH,YAAY;;AAEZ;IACI,uBAAuB;IACvB,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,2BAA2B;IAC3B,aAAa;AACjB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,iGAAiG;AACrG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,OAAO;AACX;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,qCAAqC;IACrC,iCAAiC;IACjC,kBAAkB;IAClB,QAAQ;AACZ","sourcesContent":[":root {\n   /*  */\n}\n\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n}\n/* MEDIA QUERIES */\n\n/* at screen 1200px or less */\n\n/* ELEMENTS */\n\nbody {\n    position: relative;\n    background-color: black;\n    display: grid;\n    grid-template-columns: repeat(4, max(300px, 25%));\n    height: 100vh;\n    min-height: 500px;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    /* using both heigh props because cont was getting \"squeezed\" with smaller viewport heights; ditto for weight, except the problem was cont getting \"cut off\" */\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n}\n\n\nheader {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-auto-rows: 200px ;\n    gap: 10px;\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: span 2;\n}\n\narticle > div {\n    grid-column: inherit;\n}\n\nfooter {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-content: end; \n    gap: 10px;\n}\n\nfooter button {\n    width: 200px;\n    display: grid;\n    grid-auto-flow: column;\n    align-items: center;\n    border: 0;\n    border-radius: 14px;\n    padding: 8px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: repeat(4, 100px);\n    grid-auto-rows: 100px;\n    grid-column: 2;\n    align-items: center;\n    background-color: white;\n    position: relative;\n}\n\n/* IDS */\n\n#wrapper {\n    /* height: 100%; */\n    padding: 10px;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    background-color: white;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' 'main main' 'footer footer';\n}\n\n#reminder-modal input {\n    width: 150px;\n}\n\n/* #list-modal {\n    z-index: -1;\n} */\n\n/* CLASSES */\n\n.border {\n    border: 1px solid black;\n    border-radius: 14px;\n}\n\n.banner {\n    display: grid;\n    grid-auto-flow: column;\n    padding: 10px;\n}\n\n.card {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 1fr 1fr;\n    padding: 10px;\n}\n\n.button {\n    cursor: pointer;\n}\n\n.filter-blue {\n    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);\n}\n\n.filter-red {\n    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);\n}\n\n.filter-gray {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.filter-green {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.modal-btn {\n    position: absolute;\n    right: -0;\n    top: -0;\n}\n\n.visible {\n    display: grid;\n}\n\n.modal {\n    /* display: grid; */\n    grid-template-columns: repeat(3, 1fr);\n    background-color: rgba(0,0,0,0.5);\n    position: absolute;\n    inset: 0;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":";AACA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;AACd;AACA,kBAAkB;;AAElB,6BAA6B;;AAE7B,aAAa;;AAEb;IACI,kBAAkB;IAClB,uBAAuB;IACvB,aAAa;IACb,iDAAiD;IACjD,aAAa;IACb,iBAAiB;IACjB,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,8JAA8J;AAClK;;AAEA;;;;EAIE,oBAAoB;EACpB,eAAe;AACjB;;;AAGA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,mBAAmB;AACvB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,kBAAkB;IAClB,SAAS;AACb;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,SAAS;IACT,mBAAmB;IACnB,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,qBAAqB;IACrB,cAAc;IACd,mBAAmB;IACnB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA,QAAQ;;AAER;IACI,kBAAkB;IAClB,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,uBAAuB;IACvB,mCAAmC;IACnC,gEAAgE;IAChE,2BAA2B;AAC/B;;AAEA;IACI,YAAY;AAChB;;AAEA;;GAEG;;AAEH,YAAY;;AAEZ;IACI,uBAAuB;IACvB,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,uBAAuB;AAC3B;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,2BAA2B;IAC3B,aAAa;IACb,uBAAuB;AAC3B;;AAEA;IACI,iGAAiG;AACrG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,mBAAmB;IACnB,qCAAqC;IACrC,iCAAiC;IACjC,kBAAkB;IAClB,QAAQ;AACZ;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,OAAO;AACX;;AAEA;IACI,aAAa;AACjB","sourcesContent":["\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n}\n/* MEDIA QUERIES */\n\n/* at screen 1200px or less */\n\n/* ELEMENTS */\n\nbody {\n    position: relative;\n    background-color: black;\n    display: grid;\n    grid-template-columns: repeat(4, max(300px, 25%));\n    height: 100vh;\n    min-height: 500px;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    /* using both heigh props because cont was getting \"squeezed\" with smaller viewport heights; ditto for weight, except the problem was cont getting \"cut off\" */\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n}\n\n\nheader {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-auto-rows: 200px ;\n    gap: 10px;\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: span 2;\n}\n\narticle > div {\n    grid-column: inherit;\n}\n\nfooter {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-content: end; \n    gap: 10px;\n}\n\nfooter button {\n    width: 200px;\n    display: grid;\n    grid-auto-flow: column;\n    align-items: center;\n    border: 0;\n    border-radius: 14px;\n    padding: 8px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: repeat(4, 100px);\n    grid-auto-rows: 100px;\n    grid-column: 2;\n    align-items: center;\n    background-color: white;\n    position: relative;\n}\n\n/* IDS */\n\n#wrapper {\n    /* height: 100%; */\n    padding: 10px;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    background-color: white;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' 'main main' 'footer footer';\n    background-color: lightgray;\n}\n\n#reminder-modal input {\n    width: 150px;\n}\n\n/* #list-modal {\n    z-index: -1;\n} */\n\n/* CLASSES */\n\n.border {\n    border: 1px solid black;\n    border-radius: 14px;\n}\n\n.banner {\n    display: grid;\n    grid-auto-flow: column;\n    padding: 10px;\n    background-color: white;\n}\n\n.button {\n    cursor: pointer;\n}\n\n.card {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 1fr 1fr;\n    padding: 10px;\n    background-color: white;\n}\n\n.filter-blue {\n    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);\n}\n\n.filter-red {\n    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);\n}\n\n.filter-gray {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.filter-green {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.modal {\n    /* display: grid; */\n    grid-template-columns: repeat(3, 1fr);\n    background-color: rgba(0,0,0,0.5);\n    position: absolute;\n    inset: 0;\n}\n\n.modal-btn {\n    position: absolute;\n    right: -0;\n    top: -0;\n}\n\n.visible {\n    display: grid;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
