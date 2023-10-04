@@ -73,6 +73,7 @@ footer button {
     border: 0;
     border-radius: 14px;
     padding: 8px;
+    color: blue;
 }
 
 footer form {
@@ -97,11 +98,15 @@ footer form {
     background-color: white;
     grid-template-rows: 100px 1fr 100px;
     grid-template-areas: 'header header' 'main main' 'footer footer';
-    background-color: lightgray;
+    background-color: whitesmoke;
 }
 
 #reminder-modal input {
     width: 150px;
+}
+
+#search {
+    background-color: lightgrey;
 }
 
 /* #list-modal {
