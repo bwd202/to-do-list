@@ -1,5 +1,7 @@
 import './index.html'
 import './main.css'
+import './main-content.css'
+import './classes.css'
 import { closeModal, openModal } from './modalControl'
 
 class Reminder {
