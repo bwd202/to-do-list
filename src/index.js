@@ -1,10 +1,10 @@
 import './index.html'
-import './style.css'
+import './main.css'
 import { closeModal, openModal } from './modalControl'
 
 class Reminder {
 
-    constructor(title, notes, dueDate, dueTime, priority) {
+    constructor({title, notes, dueDate, dueTime, priority} = {}) {
         this.title = title
         this.notes = notes
         this.dueDate = dueDate

@@ -101,6 +101,12 @@ footer form {
     background-color: whitesmoke;
 }
 
+#reminder-list {
+    display: grid;
+    grid-template-columns: 50px 1fr 100px;
+    grid-template-areas: 'list-name' 'list-name' 'list-name';
+}
+
 #reminder-modal input {
     width: 150px;
 }
