@@ -56,7 +56,7 @@ article > div {
 }
 
 #reminders {
-    display: grid;
+    /* display: grid; */
     grid-template-columns: 50px 1fr 100px;
     grid-template-rows: max-content 1fr;
     grid-template-areas: 'heading heading .' 'checkbox item .';

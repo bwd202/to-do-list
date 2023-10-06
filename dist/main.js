@@ -273,7 +273,7 @@ article > div {
 }
 
 #reminders {
-    display: grid;
+    /* display: grid; */
     grid-template-columns: 50px 1fr 100px;
     grid-template-rows: max-content 1fr;
     grid-template-areas: 'heading heading .' 'checkbox item .';
@@ -289,7 +289,7 @@ article > div {
 
 #reminders p {
     grid-area: item;
-}`, "",{"version":3,"sources":["webpack://./src/main.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;AACd;;AAEA;IACI,kBAAkB;IAClB,uBAAuB;IACvB,aAAa;IACb,iDAAiD;IACjD,aAAa;IACb,iBAAiB;IACjB,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,8JAA8J;AAClK;;AAEA;;;;EAIE,oBAAoB;EACpB,eAAe;AACjB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,uBAAuB;IACvB,mCAAmC;IACnC,gEAAgE;IAChE,4BAA4B;AAChC;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,mBAAmB;AACvB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,aAAa;IACb,qCAAqC;IACrC,mCAAmC;IACnC,0DAA0D;AAC9D;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB","sourcesContent":["* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n}\n\nbody {\n    position: relative;\n    background-color: black;\n    display: grid;\n    grid-template-columns: repeat(4, max(300px, 25%));\n    height: 100vh;\n    min-height: 500px;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    /* using both heigh props because cont was getting \"squeezed\" with smaller viewport heights; ditto for weight, except the problem was cont getting \"cut off\" */\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-auto-rows: 200px ;\n    gap: 10px;\n}\n\n#wrapper {\n    /* height: 100%; */\n    padding: 10px;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    background-color: white;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' 'main main' 'footer footer';\n    background-color: whitesmoke;\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: span 2;\n}\n\narticle > div {\n    grid-column: inherit;\n}\n\n#reminders {\n    display: grid;\n    grid-template-columns: 50px 1fr 100px;\n    grid-template-rows: max-content 1fr;\n    grid-template-areas: 'heading heading .' 'checkbox item .';\n}\n\n#reminders h2 {\n    grid-area: heading;\n}\n\n#reminders [type='checkbox'] {\n    grid-area: checkbox;\n}\n\n#reminders p {\n    grid-area: item;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/main.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;AACd;;AAEA;IACI,kBAAkB;IAClB,uBAAuB;IACvB,aAAa;IACb,iDAAiD;IACjD,aAAa;IACb,iBAAiB;IACjB,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,8JAA8J;AAClK;;AAEA;;;;EAIE,oBAAoB;EACpB,eAAe;AACjB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,uBAAuB;IACvB,mCAAmC;IACnC,gEAAgE;IAChE,4BAA4B;AAChC;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,mBAAmB;AACvB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,mBAAmB;IACnB,qCAAqC;IACrC,mCAAmC;IACnC,0DAA0D;AAC9D;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB","sourcesContent":["* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n}\n\nbody {\n    position: relative;\n    background-color: black;\n    display: grid;\n    grid-template-columns: repeat(4, max(300px, 25%));\n    height: 100vh;\n    min-height: 500px;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    /* using both heigh props because cont was getting \"squeezed\" with smaller viewport heights; ditto for weight, except the problem was cont getting \"cut off\" */\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-auto-rows: 200px ;\n    gap: 10px;\n}\n\n#wrapper {\n    /* height: 100%; */\n    padding: 10px;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    background-color: white;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' 'main main' 'footer footer';\n    background-color: whitesmoke;\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: span 2;\n}\n\narticle > div {\n    grid-column: inherit;\n}\n\n#reminders {\n    /* display: grid; */\n    grid-template-columns: 50px 1fr 100px;\n    grid-template-rows: max-content 1fr;\n    grid-template-areas: 'heading heading .' 'checkbox item .';\n}\n\n#reminders h2 {\n    grid-area: heading;\n}\n\n#reminders [type='checkbox'] {\n    grid-area: checkbox;\n}\n\n#reminders p {\n    grid-area: item;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -977,7 +977,8 @@ module.exports = styleTagTransform;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   closeModal: () => (/* binding */ closeModal),
-/* harmony export */   openModal: () => (/* binding */ openModal)
+/* harmony export */   openModal: () => (/* binding */ openModal),
+/* harmony export */   toggleModal: () => (/* binding */ toggleModal)
 /* harmony export */ });
 
 
@@ -997,6 +998,12 @@ function openModal(modal) {
         modal.classList.add('visible')
     }
 
+}
+
+function toggleModal(modal) {
+    return function() {
+        modal.classList.toggle('visible')
+    }
 }
 
 /***/ }),
@@ -1241,7 +1248,9 @@ class Reminder {
 
 // UIs
 
-let reminderList = document.querySelector('#reminders')
+let reminderList = document.querySelector('#reminder-list')
+
+let reminders = document.querySelector('#reminders')
 
 let newReminderBtn = document.querySelector('#new-reminder')
 
@@ -1256,6 +1265,8 @@ let listModal = document.querySelector('#list-modal')
 let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
 // EVENT LISTENERS
+
+reminderList.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.toggleModal)(reminders))
 
 reminderModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.closeModal)(reminderModal))
 

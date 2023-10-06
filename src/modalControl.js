@@ -1,4 +1,4 @@
-export {closeModal, openModal}
+export {closeModal, openModal, toggleModal}
 
 function closeModal(modal) {//returns fn for eventHandler
 
@@ -16,4 +16,10 @@ function openModal(modal) {
         modal.classList.add('visible')
     }
 
+}
+
+function toggleModal(modal) {
+    return function() {
+        modal.classList.toggle('visible')
+    }
 }

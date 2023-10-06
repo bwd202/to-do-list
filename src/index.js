@@ -3,7 +3,7 @@ import './classes.css'
 import './header.css'
 import './main.css'
 import './footer.css'
-import { closeModal, openModal } from './modalControl'
+import { closeModal, openModal, toggleModal} from './modalControl'
 
 class Reminder {
 
@@ -18,7 +18,9 @@ class Reminder {
 
 // UIs
 
-let reminderList = document.querySelector('#reminders')
+let reminderList = document.querySelector('#reminder-list')
+
+let reminders = document.querySelector('#reminders')
 
 let newReminderBtn = document.querySelector('#new-reminder')
 
@@ -33,6 +35,8 @@ let listModal = document.querySelector('#list-modal')
 let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
 // EVENT LISTENERS
+
+reminderList.addEventListener('click', toggleModal(reminders))
 
 reminderModalCloseBtn.addEventListener('click', closeModal(reminderModal))
 
