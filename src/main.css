@@ -2,10 +2,15 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* border: 1px dotted red; */
 }
 
+/* html {
+    overflow: hidden;
+} */
+
 body {
-    position: relative;
+    /* position: relative; */
     background-color: black;
     display: grid;
     grid-template-columns: repeat(4, max(300px, 25%));
@@ -14,7 +19,7 @@ body {
     width: 100%;
     min-width: 800px;
     justify-content: center;
-    /* using both heigh props because cont was getting "squeezed" with smaller viewport heights; ditto for weight, except the problem was cont getting "cut off" */
+    /* using both heigh props because cont was getting "squeezed" with smaller viewport heights; ditto for width, except the problem was cont getting "cut off" */
 }
 
 button,
@@ -48,6 +53,8 @@ main {
 article {
     display: grid;
     grid-template-columns: subgrid;
+    grid-template-rows: min-content 60px;
+    grid-auto-rows: 60px;
     grid-column: span 2;
 }
 
