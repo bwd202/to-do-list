@@ -1,0 +1,14 @@
+header {
+    display: grid;
+    grid-area: header;
+    align-items: start;
+}
+
+/* SEARCH BAR */
+
+#search {
+    background-color: lightgrey;
+    border: 0;
+    padding: 6px;
+    border-radius: 14px;
+}
