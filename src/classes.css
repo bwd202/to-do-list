@@ -22,6 +22,12 @@
     background-color: white;
 }
 
+.drop-down {
+    background-color: white;
+    border: 1px solid black;
+
+}
+
 .filter-blue {
     filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);
 }
