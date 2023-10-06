@@ -18,6 +18,8 @@ class Reminder {
 
 // UIs
 
+let reminderList = document.querySelector('#reminders')
+
 let newReminderBtn = document.querySelector('#new-reminder')
 
 let addListBtn = document.querySelector('#add-list')

@@ -55,21 +55,21 @@ article > div {
     grid-column: inherit;
 }
 
-#reminder-list {
+#reminders {
     display: grid;
     grid-template-columns: 50px 1fr 100px;
     grid-template-rows: max-content 1fr;
     grid-template-areas: 'heading heading .' 'checkbox item .';
 }
 
-#reminder-list h2 {
+#reminders h2 {
     grid-area: heading;
 }
 
-#reminder-list [type='checkbox'] {
+#reminders [type='checkbox'] {
     grid-area: checkbox;
 }
 
-#reminder-list p {
+#reminders p {
     grid-area: item;
 }
