@@ -1,5 +1,0 @@
-export {createReminderHTML}
-
-function createReminderHTML() {
-    
-}
