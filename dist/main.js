@@ -158,19 +158,44 @@ footer button {
     padding: 5px 40px;
     color: blue;
 }
-
-/* FOOTER MODALS */
+/* REMINDER MODAL */
 
 #reminder-modal {
-    /* display: grid; */
+    display: grid;
+}
+
+#reminder-modal form {
+    grid-template-areas: 'title title title title' 'notes notes notes notes' '. date date .' '. time time .' '. priority priority .';
+}
+
+#reminder-modal label:first-of-type {
+    grid-area: title;
+}
+
+#reminder-modal label:nth-of-type(2) {
+    grid-area: notes;
+}
+
+#reminder-modal label:nth-of-type(3) {
+    grid-area: date;
+}
+
+#reminder-modal label:nth-of-type(4) {
+    grid-area: time;
+}
+
+#reminder-modal label:nth-of-type(5) {
+    grid-area: priority;
 }
 
 #reminder-modal input {
     width: 150px;
 }
 
+/* LIST MODALS */
+
 #list-modal {
-    display: grid;
+    /* display: grid; */
 }
 
 #list-modal form {
@@ -193,7 +218,7 @@ footer button {
 
 #list-modal button:last-of-type {
     grid-area: reset;
-}`, "",{"version":3,"sources":["webpack://./src/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,kBAAkB;IAClB,SAAS;AACb;;AAEA;IACI,aAAa;IACb,qCAAqC;IACrC,oCAAoC;IACpC,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;AACzB;;AAEA;IACI,SAAS;IACT,mBAAmB;IACnB,iBAAiB;IACjB,WAAW;AACf;;AAEA,kBAAkB;;AAElB;IACI,mBAAmB;AACvB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,gFAAgF;IAChF,SAAS;AACb;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-content: end; \n    gap: 10px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    grid-template-rows: repeat(4, 100px);\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n}\n\nfooter button {\n    border: 0;\n    border-radius: 14px;\n    padding: 5px 40px;\n    color: blue;\n}\n\n/* FOOTER MODALS */\n\n#reminder-modal {\n    /* display: grid; */\n}\n\n#reminder-modal input {\n    width: 150px;\n}\n\n#list-modal {\n    display: grid;\n}\n\n#list-modal form {\n    grid-template-areas: '. input input .' '. color color .' 'done done reset reset';\n    gap: 10px;\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,kBAAkB;IAClB,SAAS;AACb;;AAEA;IACI,aAAa;IACb,qCAAqC;IACrC,oCAAoC;IACpC,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;AACzB;;AAEA;IACI,SAAS;IACT,mBAAmB;IACnB,iBAAiB;IACjB,WAAW;AACf;AACA,mBAAmB;;AAEnB;IACI,aAAa;AACjB;;AAEA;IACI,gIAAgI;AACpI;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,YAAY;AAChB;;AAEA,gBAAgB;;AAEhB;IACI,mBAAmB;AACvB;;AAEA;IACI,gFAAgF;IAChF,SAAS;AACb;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-content: end; \n    gap: 10px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    grid-template-rows: repeat(4, 100px);\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n}\n\nfooter button {\n    border: 0;\n    border-radius: 14px;\n    padding: 5px 40px;\n    color: blue;\n}\n/* REMINDER MODAL */\n\n#reminder-modal {\n    display: grid;\n}\n\n#reminder-modal form {\n    grid-template-areas: 'title title title title' 'notes notes notes notes' '. date date .' '. time time .' '. priority priority .';\n}\n\n#reminder-modal label:first-of-type {\n    grid-area: title;\n}\n\n#reminder-modal label:nth-of-type(2) {\n    grid-area: notes;\n}\n\n#reminder-modal label:nth-of-type(3) {\n    grid-area: date;\n}\n\n#reminder-modal label:nth-of-type(4) {\n    grid-area: time;\n}\n\n#reminder-modal label:nth-of-type(5) {\n    grid-area: priority;\n}\n\n#reminder-modal input {\n    width: 150px;\n}\n\n/* LIST MODALS */\n\n#list-modal {\n    /* display: grid; */\n}\n\n#list-modal form {\n    grid-template-areas: '. input input .' '. color color .' 'done done reset reset';\n    gap: 10px;\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -22,19 +22,44 @@ footer button {
     padding: 5px 40px;
     color: blue;
 }
-
-/* FOOTER MODALS */
+/* REMINDER MODAL */
 
 #reminder-modal {
-    /* display: grid; */
+    display: grid;
+}
+
+#reminder-modal form {
+    grid-template-areas: 'title title title title' 'notes notes notes notes' '. date date .' '. time time .' '. priority priority .';
+}
+
+#reminder-modal label:first-of-type {
+    grid-area: title;
+}
+
+#reminder-modal label:nth-of-type(2) {
+    grid-area: notes;
+}
+
+#reminder-modal label:nth-of-type(3) {
+    grid-area: date;
+}
+
+#reminder-modal label:nth-of-type(4) {
+    grid-area: time;
+}
+
+#reminder-modal label:nth-of-type(5) {
+    grid-area: priority;
 }
 
 #reminder-modal input {
     width: 150px;
 }
 
+/* LIST MODALS */
+
 #list-modal {
-    display: grid;
+    /* display: grid; */
 }
 
 #list-modal form {
