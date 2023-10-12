@@ -8,6 +8,7 @@
     grid-auto-flow: column;
     padding: 10px;
     background-color: white;
+    grid-template-columns: max-content 1fr max-content;
 }
 
 .button {
@@ -53,7 +54,6 @@
 
 .list-wrapper {
     display: grid;
-    grid-auto-rows: 1fr;
 }
 
 .modal {
