@@ -75,6 +75,10 @@ article > div {
     place-self: center;
 }
 
+.banner span:last-of-type:hover {
+    color: red;
+}
+
 #reminders h2 {
     grid-area: heading;
 }

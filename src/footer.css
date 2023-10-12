@@ -18,29 +18,18 @@ footer button {
     color: blue;
 }
 
-footer form {
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-template-rows: repeat(4, 100px);
-    grid-auto-rows: 100px;
-    grid-column: 2;
-    align-items: center;
-    background-color: white;
-    position: relative;
-}
-
 /* FOOTER MODALS */
 
-/* #reminder-modal {
-} */
+#reminder-modal {
+    /* display: grid; */
+}
 
 #reminder-modal input {
     width: 150px;
 }
 
 #list-modal {
-    /* z-index: -1; */
-    /* display: grid; */
+    display: grid;
 }
 
 #list-modal input:first-of-type {
