@@ -1363,6 +1363,10 @@ openListModal.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODUL
 
 addList.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_6__["default"])
 
+let testEvent = new Event('click')
+
+addList.dispatchEvent(testEvent)
+
 window.addEventListener('click', (e) => {
 
     let modal = e.target

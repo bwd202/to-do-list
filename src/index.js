@@ -37,6 +37,10 @@ openListModal.addEventListener('click', openModal(listModal))
 
 addList.addEventListener('click', addListFn)
 
+let testEvent = new Event('click')
+
+addList.dispatchEvent(testEvent)
+
 window.addEventListener('click', (e) => {
 
     let modal = e.target
