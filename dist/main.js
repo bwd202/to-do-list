@@ -996,7 +996,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   listHtml: () => (/* binding */ listHtml)
 /* harmony export */ });
+/* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
 
+;
 
 class List {
     constructor({name = 'new list', color = '#000'}={}) {
@@ -1009,16 +1011,29 @@ let listHtml = function() {
 
     let wrapper = new DocumentFragment()
 
+    let icon = new Image(50,50)
+    icon.src = _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__
+
     let h3 = document.createElement('h3')
+
+    let listName = document.querySelector("[placeholder='List name']").value
+
+    let color = document.querySelector("[type='color']").value
 
     let count = document.createElement('p')
 
     let closeBtn = document.createElement('span')
     closeBtn.innerHTML = '&times;'
 
-    wrapper.append(h3, count, closeBtn)
+    h3.append(listName)
+
+    wrapper.append(icon, h3, count, closeBtn)
 
     return wrapper
+}
+
+let addList = function() {
+
 }
 
 /***/ }),
