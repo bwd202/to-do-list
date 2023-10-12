@@ -160,7 +160,7 @@ footer form {
 
 #list-modal {
     /* z-index: -1; */
-    display: grid;
+    /* display: grid; */
 }
 
 #list-modal input:first-of-type {
@@ -169,7 +169,7 @@ footer form {
 
 #list-modal * {
     justify-self: center;
-}`, "",{"version":3,"sources":["webpack://./src/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,kBAAkB;IAClB,SAAS;AACb;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,SAAS;IACT,mBAAmB;IACnB,YAAY;IACZ,WAAW;AACf;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,qBAAqB;IACrB,cAAc;IACd,mBAAmB;IACnB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA,kBAAkB;;AAElB;GACG;;AAEH;IACI,YAAY;AAChB;;AAEA;IACI,iBAAiB;IACjB,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-content: end; \n    gap: 10px;\n}\n\nfooter button {\n    width: 200px;\n    display: grid;\n    grid-auto-flow: column;\n    align-items: center;\n    border: 0;\n    border-radius: 14px;\n    padding: 8px;\n    color: blue;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: repeat(4, 100px);\n    grid-auto-rows: 100px;\n    grid-column: 2;\n    align-items: center;\n    background-color: white;\n    position: relative;\n}\n\n/* FOOTER MODALS */\n\n/* #reminder-modal {\n} */\n\n#reminder-modal input {\n    width: 150px;\n}\n\n#list-modal {\n    /* z-index: -1; */\n    display: grid;\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n}\n\n#list-modal * {\n    justify-self: center;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,kBAAkB;IAClB,SAAS;AACb;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,SAAS;IACT,mBAAmB;IACnB,YAAY;IACZ,WAAW;AACf;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,qBAAqB;IACrB,cAAc;IACd,mBAAmB;IACnB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA,kBAAkB;;AAElB;GACG;;AAEH;IACI,YAAY;AAChB;;AAEA;IACI,iBAAiB;IACjB,mBAAmB;AACvB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-content: end; \n    gap: 10px;\n}\n\nfooter button {\n    width: 200px;\n    display: grid;\n    grid-auto-flow: column;\n    align-items: center;\n    border: 0;\n    border-radius: 14px;\n    padding: 8px;\n    color: blue;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: repeat(4, 100px);\n    grid-auto-rows: 100px;\n    grid-column: 2;\n    align-items: center;\n    background-color: white;\n    position: relative;\n}\n\n/* FOOTER MODALS */\n\n/* #reminder-modal {\n} */\n\n#reminder-modal input {\n    width: 150px;\n}\n\n#list-modal {\n    /* z-index: -1; */\n    /* display: grid; */\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n}\n\n#list-modal * {\n    justify-self: center;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -462,7 +462,7 @@ var ___HTML_LOADER_REPLACEMENT_3___ = _node_modules_html_loader_dist_runtime_get
 var ___HTML_LOADER_REPLACEMENT_4___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_4___);
 var ___HTML_LOADER_REPLACEMENT_5___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_5___);
 var ___HTML_LOADER_REPLACEMENT_6___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_6___);
-var code = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To-Do List</title>\n</head>\n<body>\n    <div id=\"wrapper\">\n        <header>\n            <input id=\"search\" type=\"text\" placeholder=\"&#x1F50D; Search\" class=\"input\">\n           </header>\n           <main>\n            <div id=\"today\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\"><p>today</p><span>0</span></div>\n            <div id=\"scheduled\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\"><p>scheduled</p><span>0</span></div>\n            <div id=\"all\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>all</p><span>0</span></div>\n            <div id=\"completed\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\"><p>completed</p></div>\n            <article>\n                <h2>My Lists</h2>\n                <div id=\"reminder-list\" class=\"button banner border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\"><p>Reminders</p><span>0</span></div>\n                <div id=\"reminders\" class=\"drop-down\" hidden>\n                    <h2>List name</h2>\n                    <input type=\"checkbox\">\n                </div>\n            </article>\n            </main>\n           <footer>\n            <button id=\"new-reminder\" class=\"button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\">New Reminder</button>\n            <div id=\"reminder-modal\" class=\"modal \" hidden>\n                <form action=\"/\">\n                    <span id=\"reminder-modal-close-btn\" class=\"button modal-btn\">&times;</span>\n                    <label for=\"\">Title<input type=\"text\" id=\"title\" placeholder=\"take dogs for a walk\" name=\"reminderTitle\" class=\"input\"></label>\n                    <label for=\"\">Notes<input type=\"text\" id=\"notes\" placeholder=\"bring poop bags\" name=\"reminderNotes\" class=\"input\"></label>\n                    <label for=\"\">Due Date<input type=\"date\" id=\"dueDate\" name=\"reminderDueDate\" class=\"\"></label>\n                    <label for=\"\">Due Time<input type=\"time\" id=\"dueTime\" name=\"reminderDueTime\" class=\"\"></label>\n                    <label for=\"priority\">Priority<select name=\"\" id=\"priority\" name=\"reminderPriority\" class=\"\">\n                        <option value=\"1\">low</option>\n                        <option value=\"2\" selected>medium</option>\n                        <option value=\"3\">high</option>\n                    </select></label>\n                    \n                </form>\n            </div>\n            <button id=\"add-list\" class=\"button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_6___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\">Add List</button>\n            <div id=\"list-modal\" class=\"modal\" hidden>\n                <form action=\"/\">\n                    <span id=\"list-modal-close-btn\" class=\"button modal-btn\">&times;</span>\n                    <input type=\"text\" placeholder=\"List name\" class=\"input\">\n                    <input type=\"color\" class=\"\">\n                    <button type=\"button\">Done</button>\n                </form>\n            </div>\n           </footer>\n    </div>\n</body>\n</html>";
+var code = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To-Do List</title>\n</head>\n<body>\n    <div id=\"wrapper\">\n        <header>\n            <input id=\"search\" type=\"text\" placeholder=\"&#x1F50D; Search\" class=\"input\">\n           </header>\n           <main>\n            <div id=\"today\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\"><p>today</p><span>0</span></div>\n            <div id=\"scheduled\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\"><p>scheduled</p><span>0</span></div>\n            <div id=\"all\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>all</p><span>0</span></div>\n            <div id=\"completed\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\"><p>completed</p></div>\n            <article>\n                <h2>My Lists</h2>\n                <div id=\"reminder-list\" class=\"button banner border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\"><p>Reminders</p><span>0</span></div>\n                <div id=\"reminders\" class=\"drop-down\" hidden>\n                    <h2>List name</h2>\n                    <input type=\"checkbox\">\n                </div>\n            </article>\n            </main>\n           <footer>\n            <button id=\"new-reminder\" class=\"button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\">New Reminder</button>\n            <div id=\"reminder-modal\" class=\"modal \" hidden>\n                <form action=\"/\">\n                    <span id=\"reminder-modal-close-btn\" class=\"button modal-btn\">&times;</span>\n                    <label for=\"\">Title<input type=\"text\" id=\"title\" placeholder=\"take dogs for a walk\" name=\"reminderTitle\" class=\"input\"></label>\n                    <label for=\"\">Notes<input type=\"text\" id=\"notes\" placeholder=\"bring poop bags\" name=\"reminderNotes\" class=\"input\"></label>\n                    <label for=\"\">Due Date<input type=\"date\" id=\"dueDate\" name=\"reminderDueDate\" class=\"\"></label>\n                    <label for=\"\">Due Time<input type=\"time\" id=\"dueTime\" name=\"reminderDueTime\" class=\"\"></label>\n                    <label for=\"priority\">Priority<select name=\"\" id=\"priority\" name=\"reminderPriority\" class=\"\">\n                        <option value=\"1\">low</option>\n                        <option value=\"2\" selected>medium</option>\n                        <option value=\"3\">high</option>\n                    </select></label>\n                    \n                </form>\n            </div>\n            <button id=\"openListModal\" class=\"button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_6___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\">Add List</button>\n            <div id=\"list-modal\" class=\"modal\" hidden>\n                <form action=\"/\">\n                    <span id=\"list-modal-close-btn\" class=\"button modal-btn\">&times;</span>\n                    <input type=\"text\" placeholder=\"List name\" class=\"input\">\n                    <input type=\"color\" class=\"\">\n                    <button id=\"addList\" type=\"button\">Done</button>\n                </form>\n            </div>\n           </footer>\n    </div>\n</body>\n</html>";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
@@ -994,11 +994,15 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   listHtml: () => (/* binding */ listHtml)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
-
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addList);
 ;
+
+// UI
+
+// let addListBtn = document.querySelector('')
 
 class List {
     constructor({name = 'new list', color = '#000'}={}) {
@@ -1032,8 +1036,8 @@ let listHtml = function() {
     return wrapper
 }
 
-let addList = function() {
-
+function addList() {
+    console.log('helo 2')
 }
 
 /***/ }),
@@ -1315,8 +1319,6 @@ let reminders = document.querySelector('#reminders')
 
 let newReminderBtn = document.querySelector('#new-reminder')
 
-let addListBtn = document.querySelector('#add-list')
-
 let reminderModal = document.querySelector('#reminder-modal')
 
 let reminderModalCloseBtn = document.querySelector('#reminder-modal-close-btn')
@@ -1335,7 +1337,10 @@ listModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_M
 
 newReminderBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.openModal)(reminderModal))
 
-addListBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.openModal)(listModal))
+// from Html id
+openListModal.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.openModal)(listModal))
+
+addList.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_6__["default"])
 
 window.addEventListener('click', (e) => {
 

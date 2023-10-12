@@ -40,7 +40,7 @@ footer form {
 
 #list-modal {
     /* z-index: -1; */
-    display: grid;
+    /* display: grid; */
 }
 
 #list-modal input:first-of-type {

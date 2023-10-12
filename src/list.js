@@ -1,5 +1,9 @@
-export {listHtml}
+export default addList
 import listIcon from './icons/calendar-text.svg'
+
+// UI
+
+// let addListBtn = document.querySelector('')
 
 class List {
     constructor({name = 'new list', color = '#000'}={}) {
@@ -33,6 +37,6 @@ let listHtml = function() {
     return wrapper
 }
 
-let addList = function() {
-
+function addList() {
+    console.log('helo 2')
 }
