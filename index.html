@@ -30,28 +30,33 @@
            <footer>
             <button id="new-reminder" class="button"><img src="ab58307c4579e18946a8.svg" width="50" height="50" alt="" class="filter-blue">New Reminder</button>
             <div id="reminder-modal" class="modal " hidden>
-                <form action="/">
-                    <span id="reminder-modal-close-btn" class="button modal-btn">&times;</span>
-                    <label for="">Title<input type="text" id="title" placeholder="take dogs for a walk" name="reminderTitle" class="input"></label>
-                    <label for="">Notes<input type="text" id="notes" placeholder="bring poop bags" name="reminderNotes" class="input"></label>
-                    <label for="">Due Date<input type="date" id="dueDate" name="reminderDueDate" class=""></label>
-                    <label for="">Due Time<input type="time" id="dueTime" name="reminderDueTime" class=""></label>
-                    <label for="priority">Priority<select name="" id="priority" name="reminderPriority" class="">
-                        <option value="1">low</option>
-                        <option value="2" selected>medium</option>
-                        <option value="3">high</option>
-                    </select></label>
-                    
-                </form>
+                <div class="form-wrapper">
+                    <form action="/">
+                        <span id="reminder-modal-close-btn" class="button modal-btn">&times;</span>
+                        <label for="">Title<input type="text" id="title" placeholder="take dogs for a walk" name="reminderTitle" class="input"></label>
+                        <label for="">Notes<input type="text" id="notes" placeholder="bring poop bags" name="reminderNotes" class="input"></label>
+                        <label for="">Due Date<input type="date" id="dueDate" name="reminderDueDate" class=""></label>
+                        <label for="">Due Time<input type="time" id="dueTime" name="reminderDueTime" class=""></label>
+                        <label for="priority">Priority<select name="" id="priority" name="reminderPriority" class="">
+                            <option value="1">low</option>
+                            <option value="2" selected>medium</option>
+                            <option value="3">high</option>
+                        </select></label>  
+                    </form>
+                </div>
+                
             </div>
             <button id="openListModal" class="button"><img src="3e5472897c5ccf310fa2.svg" width="50" height="50" alt="" class="filter-blue">Add List</button>
             <div id="list-modal" class="modal" hidden>
-                <form action="/">
-                    <span id="list-modal-close-btn" class="button modal-btn">&times;</span>
-                    <input type="text" placeholder="List name" class="input">
-                    <input type="color" class="">
-                    <button id="addList" type="button">Done</button>
-                </form>
+                <div class="form-wrapper">
+                    <form action="/">
+                        <span id="list-modal-close-btn" class="button modal-btn">&times;</span>
+                        <input type="text" placeholder="List name" class="input">
+                        <input type="color" class="">
+                        <button id="addList" type="button">Done</button>
+                        <button type="reset">Reset</button>
+                    </form>
+                </div>
             </div>
            </footer>
     </div>
