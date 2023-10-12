@@ -1037,7 +1037,10 @@ let listHtml = function() {
 }
 
 function addList() {
-    console.log('helo 2')
+
+    let article = document.querySelector('article')
+
+    article.append(listHtml())
 }
 
 /***/ }),
