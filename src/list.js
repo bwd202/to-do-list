@@ -35,12 +35,14 @@ let listHtml = function() {
 
     // let color = document.querySelector("[type='color']").value
 
-    let count = document.createElement('p')
+    let count = document.createElement('span')
 
-    let closeBtn = document.createElement('span')
-    closeBtn.innerHTML = '&times;'
+    count.innerHTML = 0
 
-    container.append(icon, h3, count, closeBtn)
+    // let closeBtn = document.createElement('span')
+    // closeBtn.innerHTML = '&times;'
+
+    container.append(icon, h3, count)
 
     listWrapper.append(container)
 

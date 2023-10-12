@@ -9,6 +9,8 @@
     padding: 10px;
     background-color: white;
     grid-template-columns: max-content 1fr max-content;
+    align-items: center;
+    gap: 5px;
 }
 
 .button {
