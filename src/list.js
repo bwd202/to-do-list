@@ -39,10 +39,11 @@ let listHtml = function() {
 
     count.innerHTML = 0
 
-    // let closeBtn = document.createElement('span')
-    // closeBtn.innerHTML = '&times;'
+    let closeBtn = document.createElement('span')
+    closeBtn.innerHTML = '&times;'
+    closeBtn.addEventListener('click', () => container.remove())
 
-    container.append(icon, h3, count)
+    container.append(icon, h3, count, closeBtn)
 
     listWrapper.append(container)
 

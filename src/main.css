@@ -70,6 +70,11 @@ article > div {
     padding: 10px;
 }
 
+/* list item count */
+.banner span:nth-of-type(1) {
+    place-self: center;
+}
+
 #reminders h2 {
     grid-area: heading;
 }
