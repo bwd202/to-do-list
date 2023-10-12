@@ -51,6 +51,11 @@
     border-radius: 14px;
 }
 
+.list-wrapper {
+    display: grid;
+    grid-auto-rows: 1fr;
+}
+
 .modal {
     /* display: grid; */
     grid-template-columns: repeat(3, 1fr);

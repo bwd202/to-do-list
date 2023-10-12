@@ -8,7 +8,7 @@ import addListFn from './list'
 
 // UIs
 
-let reminderList = document.querySelector('#reminder-list')
+let defaultList = document.querySelector('div.list-wrapper:first-of-type')
 
 let reminders = document.querySelector('#reminders')
 
@@ -24,7 +24,7 @@ let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
 // EVENT LISTENERS
 
-reminderList.addEventListener('click', toggleModal(reminders))
+defaultList.addEventListener('click', toggleModal(reminders))
 
 reminderModalCloseBtn.addEventListener('click', closeModal(reminderModal))
 

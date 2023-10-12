@@ -16,6 +16,14 @@ let listHtml = function() {
 
     let wrapper = new DocumentFragment()
 
+    let listWrapper = document.createElement('div')
+    
+    listWrapper.classList.add('list-wrapper')
+
+    let container = document.createElement('div')
+
+    container.classList.add('banner','button','border')
+
     let icon = new Image(50,50)
     icon.src = listIcon
 
@@ -23,16 +31,20 @@ let listHtml = function() {
 
     let listName = document.querySelector("[placeholder='List name']").value
 
-    let color = document.querySelector("[type='color']").value
+    h3.append(listName)
+
+    // let color = document.querySelector("[type='color']").value
 
     let count = document.createElement('p')
 
     let closeBtn = document.createElement('span')
     closeBtn.innerHTML = '&times;'
 
-    h3.append(listName)
+    container.append(icon, h3, count, closeBtn)
 
-    wrapper.append(icon, h3, count, closeBtn)
+    listWrapper.append(container)
+
+    wrapper.append(listWrapper)
 
     return wrapper
 }
