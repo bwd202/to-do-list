@@ -41,7 +41,12 @@ footer form {
 #list-modal {
     /* z-index: -1; */
     display: grid;
-    justify-items: center;
 }
 
-#list-modal
+#list-modal input:first-of-type {
+    width: 250px;
+}
+
+#list-modal * {
+    justify-self: center;
+}
