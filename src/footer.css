@@ -11,6 +11,7 @@ footer form {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 100px);
+    grid-auto-rows: 100px;
     grid-auto-flow: column;
     align-items: center;
     justify-items: center;
@@ -29,7 +30,7 @@ footer button {
 }
 
 #reminder-modal form {
-    grid-template-areas: 'title title title title' 'notes notes notes notes' '. date date .' '. time time .' '. priority priority .';
+    grid-template-areas: 'title title title title' 'notes notes notes notes' '. date date .' '. time time .' '. priority priority .' '. done reset .';
 }
 
 #reminder-modal label:first-of-type {
@@ -54,6 +55,14 @@ footer button {
 
 #reminder-modal input {
     width: 150px;
+}
+
+#reminder-modal button:first-of-type {
+    grid-area: done;
+}
+
+#reminder-modal button:last-of-type {
+    grid-area: reset;
 }
 
 /* LIST MODALS */
