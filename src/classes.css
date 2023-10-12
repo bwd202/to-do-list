@@ -44,6 +44,13 @@
     filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);
 }
 
+.input {
+    background-color: lightgrey;
+    border: 0;
+    padding: 6px;
+    border-radius: 14px;
+}
+
 .modal {
     /* display: grid; */
     grid-template-columns: repeat(3, 1fr);

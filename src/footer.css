@@ -38,6 +38,10 @@ footer form {
     width: 150px;
 }
 
-/* #list-modal {
-    z-index: -1;
-} */
+#list-modal {
+    /* z-index: -1; */
+    display: grid;
+    justify-items: center;
+}
+
+#list-modal
