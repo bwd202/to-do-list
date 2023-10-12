@@ -7,6 +7,13 @@ footer {
     gap: 10px;
 }
 
+footer form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 100px);
+    align-items: center;
+}
+
 footer button {
     width: 200px;
     display: grid;
@@ -32,10 +39,14 @@ footer button {
     display: grid;
 }
 
+#list-modal form {
+    
+}
+
 #list-modal input:first-of-type {
     width: 250px;
 }
 
 #list-modal * {
-    justify-self: center;
+    /* justify-self: center; */
 }
