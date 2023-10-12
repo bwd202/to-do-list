@@ -986,6 +986,43 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/list.js":
+/*!*********************!*\
+  !*** ./src/list.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   listHtml: () => (/* binding */ listHtml)
+/* harmony export */ });
+
+
+class List {
+    constructor({name = 'new list', color = '#000'}={}) {
+        this.name = name
+        this.color = color
+    }
+}
+
+let listHtml = function() {
+
+    let wrapper = new DocumentFragment()
+
+    let h3 = document.createElement('h3')
+
+    let count = document.createElement('p')
+
+    let closeBtn = document.createElement('span')
+    closeBtn.innerHTML = '&times;'
+
+    wrapper.append(h3, count, closeBtn)
+
+    return wrapper
+}
+
+/***/ }),
+
 /***/ "./src/modalControl.js":
 /*!*****************************!*\
   !*** ./src/modalControl.js ***!
@@ -1246,6 +1283,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./main.css */ "./src/main.css");
 /* harmony import */ var _footer_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./footer.css */ "./src/footer.css");
 /* harmony import */ var _modalControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modalControl */ "./src/modalControl.js");
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./list */ "./src/list.js");
 
 
 
@@ -1253,16 +1291,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-class Reminder {
-
-    constructor({title, notes, dueDate, dueTime, priority} = {}) {
-        this.title = title
-        this.notes = notes
-        this.dueDate = dueDate
-        this.dueTime = dueTime
-        this.priority = priority
-    }
-}
 
 // UIs
 

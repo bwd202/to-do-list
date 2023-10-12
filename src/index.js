@@ -4,17 +4,7 @@ import './header.css'
 import './main.css'
 import './footer.css'
 import { closeModal, openModal, toggleModal} from './modalControl'
-
-class Reminder {
-
-    constructor({title, notes, dueDate, dueTime, priority} = {}) {
-        this.title = title
-        this.notes = notes
-        this.dueDate = dueDate
-        this.dueTime = dueTime
-        this.priority = priority
-    }
-}
+import { listHtml } from './list'
 
 // UIs
 

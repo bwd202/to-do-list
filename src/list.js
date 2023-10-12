@@ -1,3 +1,4 @@
+export {listHtml}
 
 class List {
     constructor({name = 'new list', color = '#000'}={}) {
@@ -7,6 +8,7 @@ class List {
 }
 
 let listHtml = function() {
+
     let wrapper = new DocumentFragment()
 
     let h3 = document.createElement('h3')
@@ -14,8 +16,9 @@ let listHtml = function() {
     let count = document.createElement('p')
 
     let closeBtn = document.createElement('span')
-
     closeBtn.innerHTML = '&times;'
+
+    wrapper.append(h3, count, closeBtn)
 
     return wrapper
 }
