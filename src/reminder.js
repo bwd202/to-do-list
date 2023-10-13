@@ -26,3 +26,18 @@ function reminderInputs() {
 
     return new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority})
 }
+
+function reminderHtml(obj) {
+
+    let checkbox = document.createElement('input')
+    
+    checkbox.setAttribute('type','checkbox')
+
+    let reminderTitle = document.createElement('h4')
+
+    reminderTitle.innerHTML = obj.title
+
+    let reminderNotes = document.createElement('p')
+
+    
+}

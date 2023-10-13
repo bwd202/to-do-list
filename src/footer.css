@@ -42,7 +42,7 @@ button#openListModal {
 /* REMINDER MODAL */
 
 #reminder-modal {   /* for debugging */
-    display: grid;
+    /* display: grid; */
 }
 
 #reminder-modal form {
