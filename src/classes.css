@@ -21,8 +21,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'icon count' 'title .';
+    align-items: center;
     padding: 10px;
     background-color: white;
+    gap: 5px;
 }
 
 .drop-down {

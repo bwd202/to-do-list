@@ -5,10 +5,6 @@
     /* border: 1px dotted red; */
 }
 
-/* html {
-    overflow: hidden;
-} */
-
 body {
     /* position: relative; */
     background-color: black;
@@ -48,6 +44,26 @@ main {
     grid-template-rows: 100px 1fr 100px;
     grid-template-areas: 'header header' 'main main' 'footer footer';
     background-color: whitesmoke;
+}
+
+/* CARDS */
+
+.card img {
+    grid-area: icon;
+    align-self: end;
+}
+
+.card span {
+    grid-area: count;
+    align-self: start;
+    justify-self: end;
+    padding: 10px;
+}
+
+.card p {
+    grid-area: title;
+    align-self: start;
+    padding: 5px;   /* to align with icon */
 }
 
 article {
