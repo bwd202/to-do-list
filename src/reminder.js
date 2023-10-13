@@ -1,4 +1,4 @@
-export default reminderInputs
+export default publishReminder
 
 class Reminder {
 
@@ -55,7 +55,13 @@ function reminderHtml(obj) {
 
     reminderPriority.innerHTML = obj.reminderPriority
 
+    reminder.push(checkbox,reminderTitle,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
+
+    return reminder
+}
+
+function publishReminder() {
     let container = document.querySelector('div#reminders')
 
-    container.append()
+    container.append(...reminderHtml(reminderInputs))
 }

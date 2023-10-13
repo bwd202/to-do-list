@@ -1211,7 +1211,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (reminderInputs);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (publishReminder);
 
 class Reminder {
 
@@ -1268,9 +1268,15 @@ function reminderHtml(obj) {
 
     reminderPriority.innerHTML = obj.reminderPriority
 
+    reminder.push(checkbox,reminderTitle,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
+
+    return reminder
+}
+
+function publishReminder() {
     let container = document.querySelector('div#reminders')
 
-    container.append()
+    container.append(...reminderHtml(reminderInputs))
 }
 
 /***/ }),
