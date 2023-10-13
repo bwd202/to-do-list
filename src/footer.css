@@ -3,7 +3,7 @@ footer {
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
-    align-content: end; 
+    align-items: end; 
     gap: 10px;
 }
 
@@ -20,16 +20,28 @@ footer form {
 footer > button {
     border: 0;
     border-radius: 14px;
-    padding: 5px 40px;
+    padding: 10px;
+    width: 200px;
     color: blue;
     display: grid;
-    grid-template-columns: max-content 1fr;
     align-items: center;
+    justify-items: start;
     gap: 5px;
 }
+
+button#new-reminder {
+    grid-template-columns: max-content 1fr;
+
+}
+
+button#openListModal {
+    height: 70px;
+    justify-items: center;
+}
+
 /* REMINDER MODAL */
 
-#reminder-modal {
+#reminder-modal {   /* for debugging */
     /* display: grid; */
 }
 
@@ -71,7 +83,7 @@ footer > button {
 
 /* LIST MODALS */
 
-#list-modal {
+#list-modal { /* for debugging */
     /* display: grid; */
 }
 
