@@ -1201,6 +1201,47 @@ function toggleModal(modal) {
 
 /***/ }),
 
+/***/ "./src/reminder.js":
+/*!*************************!*\
+  !*** ./src/reminder.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (reminderInputs);
+
+class Reminder {
+
+    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium"} = {}) {
+        this.title = title
+        this.notes = notes
+        this.dueDate = dueDate
+        this.dueTime = dueTime
+        this.priority = priority
+    }
+
+}
+
+function reminderInputs() {
+
+    let reminderTitle = document.querySelector('input#title').value
+
+    let reminderNotes = document.querySelector('input#notes').value
+
+    let reminderDueDate = document.querySelector('input#dueDate').value
+
+    let reminderDueTime = document.querySelector('input#dueTime').value
+
+    let reminderPriority = document.querySelector('select#priority').value
+
+    return new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority})
+}
+
+/***/ }),
+
 /***/ "./src/icons/calendar-badge.svg":
 /*!**************************************!*\
   !*** ./src/icons/calendar-badge.svg ***!
@@ -1412,6 +1453,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _footer_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./footer.css */ "./src/footer.css");
 /* harmony import */ var _modalControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modalControl */ "./src/modalControl.js");
 /* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./list */ "./src/list.js");
+/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
 
 
 
@@ -1419,6 +1461,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+// testing
+
+console.log((0,_reminder_js__WEBPACK_IMPORTED_MODULE_7__["default"])())
 
 // UIs
 
@@ -1469,9 +1516,6 @@ window.addEventListener('click', (e) => {
         (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.closeModal)(listModal)() //invokes the "inner" function
     }
 })
-
-
-
 })();
 
 /******/ })()
