@@ -1,4 +1,4 @@
-
+export default reminderInputs
 
 class Reminder {
 
@@ -12,9 +12,7 @@ class Reminder {
 
 }
 
-let reminderHtml = function() {
-
-    let wrapper = new DocumentFragment()
+function reminderInputs() {
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -26,5 +24,5 @@ let reminderHtml = function() {
 
     let reminderPriority = document.querySelector('select#priority').value
 
-    return wrapper
+    return new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority})
 }

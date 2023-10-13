@@ -5,6 +5,11 @@ import './main.css'
 import './footer.css'
 import { closeModal, openModal, toggleModal} from './modalControl'
 import addListFn from './list'
+import test from './reminder.js'
+
+// testing
+
+console.log(test())
 
 // UIs
 
@@ -55,5 +60,3 @@ window.addEventListener('click', (e) => {
         closeModal(listModal)() //invokes the "inner" function
     }
 })
-
-
