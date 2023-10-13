@@ -22,10 +22,9 @@ let reminderHtml = function() {
 
     let reminderDueDate = document.querySelector('input#dueDate').value
 
+    let reminderDueTime = document.querySelector('input#dueTime').value
 
-
-
-
+    let reminderPriority = document.querySelector('select#priority').value
 
     return wrapper
 }
