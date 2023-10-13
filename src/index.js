@@ -37,6 +37,7 @@ openListModal.addEventListener('click', openModal(listModal))
 
 addList.addEventListener('click', addListFn)
 
+// testing
 let testEvent = new Event('click')
 
 addList.dispatchEvent(testEvent)
