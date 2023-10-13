@@ -1242,6 +1242,8 @@ function reminderInputs() {
 
 function reminderHtml(obj) {
 
+    let reminder = []
+
     let checkbox = document.createElement('input')
     
     checkbox.setAttribute('type','checkbox')
@@ -1252,7 +1254,23 @@ function reminderHtml(obj) {
 
     let reminderNotes = document.createElement('p')
 
-    
+    reminderNotes.innerHTML = obj.notes
+
+    let reminderDueDate = document.createElement('p')
+
+    reminderDueDate.innerHTML = obj.dueDate
+
+    let reminderDueTime = document.createElement('p')
+
+    reminderDueTime.innerHTML = obj.dueTime
+
+    let reminderPriority = document.createElement('p')
+
+    reminderPriority.innerHTML = obj.reminderPriority
+
+    let container = document.querySelector('div#reminders')
+
+    container.append()
 }
 
 /***/ }),
