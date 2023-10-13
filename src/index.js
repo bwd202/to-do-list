@@ -5,11 +5,7 @@ import './main.css'
 import './footer.css'
 import { closeModal, openModal, toggleModal} from './modalControl'
 import addListFn from './list'
-import test from './reminder.js'
-
-// testing
-
-console.log(test())
+import reminderFn from './reminder.js'
 
 // UIs
 
@@ -28,6 +24,10 @@ let listModal = document.querySelector('#list-modal')
 let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
 // EVENT LISTENERS
+
+// Reminder Modal
+
+document.querySelector('button#publishReminder').addEventListener('click', reminderFn)
 
 defaultList.addEventListener('click', toggleModal(reminders))
 

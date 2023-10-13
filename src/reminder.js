@@ -12,7 +12,7 @@ class Reminder {
 
 }
 
-function reminderInputs() {
+function getReminderData() {
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -61,7 +61,8 @@ function reminderHtml(obj) {
 }
 
 function publishReminder() {
+
     let container = document.querySelector('div#reminders')
 
-    container.append(...reminderHtml(reminderInputs))
+    container.append(...reminderHtml(getReminderData()))
 }
