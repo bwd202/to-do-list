@@ -24,6 +24,8 @@ function getReminderData() {
 
     let reminderPriority = document.querySelector('select#priority').value
 
+    console.log(reminderPriority)
+
     return new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority})
 }
 
@@ -53,9 +55,11 @@ function reminderHtml(obj) {
 
     let reminderPriority = document.createElement('p')
 
-    reminderPriority.innerHTML = obj.reminderPriority
+    reminderPriority.innerHTML = obj.priority
 
     reminder.push(checkbox,reminderTitle,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
+
+    console.log(reminder)
 
     return reminder
 }
