@@ -43,7 +43,7 @@ function reminderHtml(obj) {
 
     let closeBtn = document.createElement('span')
 
-    closeBtn.classList.add('button')
+    closeBtn.classList.add('button','close-btn')
 
     closeBtn.innerHTML = '&times;'
 

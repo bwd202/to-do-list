@@ -17,6 +17,17 @@
     cursor: pointer;
 }
 
+.close-btn {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding: 0 2px;
+}
+
+.close-btn:hover {
+    scale: 1.2;
+}
+
 .card {
     display: grid;
     grid-template-columns: 1fr 1fr;
