@@ -25,10 +25,15 @@ let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
 // EVENT LISTENERS
 
-// Reminder Modal
+// Reminder drop-down
 
 document.querySelector('button#publishReminder').addEventListener('click', reminderFn)
 
+// testing
+let testEvent = new Event('click')
+
+document.querySelector('button#publishReminder').dispatchEvent(testEvent)
+// 
 defaultList.addEventListener('click', toggleModal(reminders))
 
 reminderModalCloseBtn.addEventListener('click', closeModal(reminderModal))
@@ -42,10 +47,7 @@ openListModal.addEventListener('click', openModal(listModal))
 
 addList.addEventListener('click', addListFn)
 
-// testing
-let testEvent = new Event('click')
-
-addList.dispatchEvent(testEvent)
+// addList.dispatchEvent('click')
 
 window.addEventListener('click', (e) => {
 

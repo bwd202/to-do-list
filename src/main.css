@@ -80,7 +80,7 @@ article > div {
 
 #reminders {    /* aka dropdown */
     display: grid;
-    grid-template-columns: 50px 1fr max-content;
+    grid-template-columns: 50px 1fr 1fr;
     grid-template-rows: max-content repeat(3, 1fr);
     grid-template-areas: 'heading heading heading heading' 'checkbox title title title' '. notes notes notes' '. dueDate dueTime priority';
     padding: 10px;
