@@ -24,6 +24,15 @@
     padding: 0 2px;
 }
 
+.close-btn-2 {
+    color: var(--input);
+}
+
+.close-btn-2:hover {
+    scale: 1.5;
+    color: red;
+}
+
 .close-btn:hover {
     scale: 1.2;
 }
