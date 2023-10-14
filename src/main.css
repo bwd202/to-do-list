@@ -78,11 +78,11 @@ article > div {
     grid-column: inherit;
 }
 
-#reminders {
-    /* display: grid; */
-    grid-template-columns: 50px 1fr 100px;
-    grid-template-rows: max-content 1fr;
-    grid-template-areas: 'heading heading .' 'checkbox item .';
+#reminders {    /* aka dropdown */
+    display: grid;
+    grid-template-columns: 50px 1fr max-content;
+    grid-template-rows: max-content repeat(3, 1fr);
+    grid-template-areas: 'heading heading . .' 'checkbox item . .';
     padding: 10px;
 }
 
