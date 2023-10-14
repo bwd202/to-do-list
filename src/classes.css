@@ -7,7 +7,7 @@
     display: grid;
     grid-auto-flow: column;
     padding: 10px;
-    background-color: white;
+    background-color: var(--card);
     grid-template-columns: max-content 1fr 100px max-content;
     align-items: center;
     gap: 5px;
@@ -24,12 +24,12 @@
     grid-template-areas: 'icon count' 'title .';
     align-items: center;
     padding: 10px;
-    background-color: white;
+    background-color: var(--card);
     gap: 5px;
 }
 
 .drop-down {
-    background-color: white;
+    background-color: var(--card);
     border-top: 1px solid darkgrey;
 
 }
@@ -55,12 +55,12 @@
     grid-template-columns: subgrid;
     grid-template-rows: max-content 1fr;
     grid-column: 2;
-    background-color: white;
+    background-color: var(--card);
     position: relative;
 }
 
 .input {
-    background-color: lightgrey;
+    background-color: var(--input);
     border: 0;
     padding: 6px;
     border-radius: 14px;
@@ -73,7 +73,7 @@
 .modal {
     /* display: grid; */
     grid-template-columns: repeat(3, 1fr);
-    background-color: rgba(0,0,0,0.5);
+    background-color: var(--modal-background);
     position: absolute;
     inset: 0;
     z-index: 10;

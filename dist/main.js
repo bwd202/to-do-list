@@ -30,7 +30,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.border {
     display: grid;
     grid-auto-flow: column;
     padding: 10px;
-    background-color: white;
+    background-color: var(--card);
     grid-template-columns: max-content 1fr 100px max-content;
     align-items: center;
     gap: 5px;
@@ -47,12 +47,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.border {
     grid-template-areas: 'icon count' 'title .';
     align-items: center;
     padding: 10px;
-    background-color: white;
+    background-color: var(--card);
     gap: 5px;
 }
 
 .drop-down {
-    background-color: white;
+    background-color: var(--card);
     border-top: 1px solid darkgrey;
 
 }
@@ -78,12 +78,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.border {
     grid-template-columns: subgrid;
     grid-template-rows: max-content 1fr;
     grid-column: 2;
-    background-color: white;
+    background-color: var(--card);
     position: relative;
 }
 
 .input {
-    background-color: lightgrey;
+    background-color: var(--input);
     border: 0;
     padding: 6px;
     border-radius: 14px;
@@ -96,7 +96,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.border {
 .modal {
     /* display: grid; */
     grid-template-columns: repeat(3, 1fr);
-    background-color: rgba(0,0,0,0.5);
+    background-color: var(--modal-background);
     position: absolute;
     inset: 0;
     z-index: 10;
@@ -111,7 +111,37 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.border {
 
 .visible {
     display: grid;
-}`, "",{"version":3,"sources":["webpack://./src/classes.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,uBAAuB;IACvB,wDAAwD;IACxD,mBAAmB;IACnB,QAAQ;AACZ;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,2BAA2B;IAC3B,2CAA2C;IAC3C,mBAAmB;IACnB,aAAa;IACb,uBAAuB;IACvB,QAAQ;AACZ;;AAEA;IACI,uBAAuB;IACvB,8BAA8B;;AAElC;;AAEA;IACI,iGAAiG;AACrG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,6FAA6F;AACjG;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,mCAAmC;IACnC,cAAc;IACd,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA;IACI,2BAA2B;IAC3B,SAAS;IACT,YAAY;IACZ,mBAAmB;AACvB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,qCAAqC;IACrC,iCAAiC;IACjC,kBAAkB;IAClB,QAAQ;IACR,WAAW;IACX,2EAA2E;AAC/E;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,OAAO;AACX;;AAEA;IACI,aAAa;AACjB","sourcesContent":[".border {\n    /* border: 1px solid black; */\n    border-radius: 14px;\n}\n\n.banner {\n    display: grid;\n    grid-auto-flow: column;\n    padding: 10px;\n    background-color: white;\n    grid-template-columns: max-content 1fr 100px max-content;\n    align-items: center;\n    gap: 5px;\n}\n\n.button {\n    cursor: pointer;\n}\n\n.card {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 1fr 1fr;\n    grid-template-areas: 'icon count' 'title .';\n    align-items: center;\n    padding: 10px;\n    background-color: white;\n    gap: 5px;\n}\n\n.drop-down {\n    background-color: white;\n    border-top: 1px solid darkgrey;\n\n}\n\n.filter-blue {\n    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);\n}\n\n.filter-red {\n    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);\n}\n\n.filter-gray {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.filter-green {\n    filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);\n}\n\n.form-wrapper {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: max-content 1fr;\n    grid-column: 2;\n    background-color: white;\n    position: relative;\n}\n\n.input {\n    background-color: lightgrey;\n    border: 0;\n    padding: 6px;\n    border-radius: 14px;\n}\n\n.list-wrapper {\n    display: grid;\n}\n\n.modal {\n    /* display: grid; */\n    grid-template-columns: repeat(3, 1fr);\n    background-color: rgba(0,0,0,0.5);\n    position: absolute;\n    inset: 0;\n    z-index: 10;\n    /* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.modal-btn {\n    position: absolute;\n    right: -0;\n    top: -0;\n}\n\n.visible {\n    display: grid;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/classes.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,6BAA6B;IAC7B,wDAAwD;IACxD,mBAAmB;IACnB,QAAQ;AACZ;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,2BAA2B;IAC3B,2CAA2C;IAC3C,mBAAmB;IACnB,aAAa;IACb,6BAA6B;IAC7B,QAAQ;AACZ;;AAEA;IACI,6BAA6B;IAC7B,8BAA8B;;AAElC;;AAEA;IACI,iGAAiG;AACrG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,6FAA6F;AACjG;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,mCAAmC;IACnC,cAAc;IACd,6BAA6B;IAC7B,kBAAkB;AACtB;;AAEA;IACI,8BAA8B;IAC9B,SAAS;IACT,YAAY;IACZ,mBAAmB;AACvB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,qCAAqC;IACrC,yCAAyC;IACzC,kBAAkB;IAClB,QAAQ;IACR,WAAW;IACX,2EAA2E;AAC/E;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,OAAO;AACX;;AAEA;IACI,aAAa;AACjB","sourcesContent":[".border {\n    /* border: 1px solid black; */\n    border-radius: 14px;\n}\n\n.banner {\n    display: grid;\n    grid-auto-flow: column;\n    padding: 10px;\n    background-color: var(--card);\n    grid-template-columns: max-content 1fr 100px max-content;\n    align-items: center;\n    gap: 5px;\n}\n\n.button {\n    cursor: pointer;\n}\n\n.card {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 1fr 1fr;\n    grid-template-areas: 'icon count' 'title .';\n    align-items: center;\n    padding: 10px;\n    background-color: var(--card);\n    gap: 5px;\n}\n\n.drop-down {\n    background-color: var(--card);\n    border-top: 1px solid darkgrey;\n\n}\n\n.filter-blue {\n    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);\n}\n\n.filter-red {\n    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);\n}\n\n.filter-gray {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.filter-green {\n    filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);\n}\n\n.form-wrapper {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: max-content 1fr;\n    grid-column: 2;\n    background-color: var(--card);\n    position: relative;\n}\n\n.input {\n    background-color: var(--input);\n    border: 0;\n    padding: 6px;\n    border-radius: 14px;\n}\n\n.list-wrapper {\n    display: grid;\n}\n\n.modal {\n    /* display: grid; */\n    grid-template-columns: repeat(3, 1fr);\n    background-color: var(--modal-background);\n    position: absolute;\n    inset: 0;\n    z-index: 10;\n    /* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.modal-btn {\n    position: absolute;\n    right: -0;\n    top: -0;\n}\n\n.visible {\n    display: grid;\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/colors.css":
+/*!**************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/colors.css ***!
+  \**************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `:root {
+    --card: white;
+    --modal-background: rgba(0,0,0,0.5);
+    --input: lightgrey;
+}`, "",{"version":3,"sources":["webpack://./src/colors.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,mCAAmC;IACnC,kBAAkB;AACtB","sourcesContent":[":root {\n    --card: white;\n    --modal-background: rgba(0,0,0,0.5);\n    --input: lightgrey;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -386,7 +416,10 @@ article > div {
     display: grid;
     grid-template-columns: 50px 100px 1fr max-content;
     grid-template-rows: max-content repeat(3, 1fr);
-    grid-template-areas: 'heading heading heading heading' 'checkbox title title closeBtn' '. notes notes notes' '. dueDate dueTime priority';
+    grid-template-areas: 'heading heading heading heading' 
+                        'checkbox title title closeBtn' 
+                        '. notes notes notes' 
+                        '. dueDate dueTime priority';
     padding: 10px;
 }
 
@@ -430,7 +463,7 @@ article > div {
 
 #reminders p:nth-of-type(4) {
     grid-area: priority;
-}`, "",{"version":3,"sources":["webpack://./src/main.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;IACV,4BAA4B;AAChC;;AAEA;IACI,wBAAwB;IACxB,uBAAuB;IACvB,aAAa;IACb,iDAAiD;IACjD,aAAa;IACb,iBAAiB;IACjB,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,6JAA6J;AACjK;;AAEA;;;;EAIE,oBAAoB;EACpB,eAAe;AACjB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,uBAAuB;IACvB,mCAAmC;IACnC,gEAAgE;IAChE,4BAA4B;AAChC;;AAEA,UAAU;;AAEV;IACI,eAAe;IACf,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,iBAAiB;IACjB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,YAAY,IAAI,uBAAuB;AAC3C;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,mCAAmC;IACnC,mBAAmB;IACnB,SAAS;AACb;;AAEA;IACI,oBAAoB;AACxB;;AAEA,gBAAgB,iBAAiB;IAC7B,aAAa;IACb,iDAAiD;IACjD,8CAA8C;IAC9C,yIAAyI;IACzI,aAAa;AACjB;;AAEA,oBAAoB;AACpB;IACI,kBAAkB;AACtB;;AAEA;IACI,UAAU;;AAEd;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,mBAAmB;AACvB","sourcesContent":["* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    /* border: 1px dotted red; */\n}\n\nbody {\n    /* position: relative; */\n    background-color: black;\n    display: grid;\n    grid-template-columns: repeat(4, max(300px, 25%));\n    height: 100vh;\n    min-height: 500px;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    /* using both heigh props because cont was getting \"squeezed\" with smaller viewport heights; ditto for width, except the problem was cont getting \"cut off\" */\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-auto-rows: 200px ;\n    gap: 10px;\n}\n\n#wrapper {\n    /* height: 100%; */\n    padding: 10px;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    background-color: white;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' 'main main' 'footer footer';\n    background-color: whitesmoke;\n}\n\n/* CARDS */\n\n.card img {\n    grid-area: icon;\n    align-self: end;\n}\n\n.card span {\n    grid-area: count;\n    align-self: start;\n    justify-self: end;\n    padding: 10px;\n}\n\n.card p {\n    grid-area: title;\n    align-self: start;\n    padding: 5px;   /* to align with icon */\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: min-content 1fr;\n    grid-column: span 2;\n    gap: 10px;\n}\n\narticle > div {\n    grid-column: inherit;\n}\n\n#reminders {    /* aka dropdown */\n    display: grid;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' 'checkbox title title closeBtn' '. notes notes notes' '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n/* list item count */\n.banner span:nth-of-type(1) {\n    place-self: center;\n}\n\n.banner span:last-of-type:hover {\n    color: red;\n    \n}\n\n#reminders h2 {\n    grid-area: heading;\n}\n\n#reminders [type='checkbox'] {\n    grid-area: checkbox;\n}\n\n#reminders h4 {\n    grid-area: title;\n}\n\n#reminders span {\n    grid-area: closeBtn;\n}\n\n#reminders p:nth-of-type(1) {\n    grid-area: notes;\n}\n\n#reminders p:nth-of-type(2) {\n    grid-area: dueDate; \n}\n\n#reminders p:nth-of-type(3) {\n    grid-area: dueTime;\n}\n\n#reminders p:nth-of-type(4) {\n    grid-area: priority;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/main.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;IACV,4BAA4B;AAChC;;AAEA;IACI,wBAAwB;IACxB,uBAAuB;IACvB,aAAa;IACb,iDAAiD;IACjD,aAAa;IACb,iBAAiB;IACjB,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,6JAA6J;AACjK;;AAEA;;;;EAIE,oBAAoB;EACpB,eAAe;AACjB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,sBAAsB;IACtB,SAAS;AACb;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,uBAAuB;IACvB,mCAAmC;IACnC,gEAAgE;IAChE,4BAA4B;AAChC;;AAEA,UAAU;;AAEV;IACI,eAAe;IACf,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,iBAAiB;IACjB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,YAAY,IAAI,uBAAuB;AAC3C;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,mCAAmC;IACnC,mBAAmB;IACnB,SAAS;AACb;;AAEA;IACI,oBAAoB;AACxB;;AAEA,gBAAgB,iBAAiB;IAC7B,aAAa;IACb,iDAAiD;IACjD,8CAA8C;IAC9C;;;oDAGgD;IAChD,aAAa;AACjB;;AAEA,oBAAoB;AACpB;IACI,kBAAkB;AACtB;;AAEA;IACI,UAAU;;AAEd;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,mBAAmB;AACvB","sourcesContent":["* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    /* border: 1px dotted red; */\n}\n\nbody {\n    /* position: relative; */\n    background-color: black;\n    display: grid;\n    grid-template-columns: repeat(4, max(300px, 25%));\n    height: 100vh;\n    min-height: 500px;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    /* using both heigh props because cont was getting \"squeezed\" with smaller viewport heights; ditto for width, except the problem was cont getting \"cut off\" */\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-auto-rows: 200px ;\n    gap: 10px;\n}\n\n#wrapper {\n    /* height: 100%; */\n    padding: 10px;\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    background-color: white;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' 'main main' 'footer footer';\n    background-color: whitesmoke;\n}\n\n/* CARDS */\n\n.card img {\n    grid-area: icon;\n    align-self: end;\n}\n\n.card span {\n    grid-area: count;\n    align-self: start;\n    justify-self: end;\n    padding: 10px;\n}\n\n.card p {\n    grid-area: title;\n    align-self: start;\n    padding: 5px;   /* to align with icon */\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: min-content 1fr;\n    grid-column: span 2;\n    gap: 10px;\n}\n\narticle > div {\n    grid-column: inherit;\n}\n\n#reminders {    /* aka dropdown */\n    display: grid;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' \n                        'checkbox title title closeBtn' \n                        '. notes notes notes' \n                        '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n/* list item count */\n.banner span:nth-of-type(1) {\n    place-self: center;\n}\n\n.banner span:last-of-type:hover {\n    color: red;\n    \n}\n\n#reminders h2 {\n    grid-area: heading;\n}\n\n#reminders [type='checkbox'] {\n    grid-area: checkbox;\n}\n\n#reminders h4 {\n    grid-area: title;\n}\n\n#reminders span {\n    grid-area: closeBtn;\n}\n\n#reminders p:nth-of-type(1) {\n    grid-area: notes;\n}\n\n#reminders p:nth-of-type(2) {\n    grid-area: dueDate; \n}\n\n#reminders p:nth-of-type(3) {\n    grid-area: dueTime;\n}\n\n#reminders p:nth-of-type(4) {\n    grid-area: priority;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -674,6 +707,60 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_classes_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_classes_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_classes_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/colors.css":
+/*!************************!*\
+  !*** ./src/colors.css ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_colors_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./colors.css */ "./node_modules/css-loader/dist/cjs.js!./src/colors.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_colors_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_colors_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_colors_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_colors_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -1517,13 +1604,15 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.html */ "./src/index.html");
-/* harmony import */ var _classes_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./classes.css */ "./src/classes.css");
-/* harmony import */ var _header_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header.css */ "./src/header.css");
-/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./main.css */ "./src/main.css");
-/* harmony import */ var _footer_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./footer.css */ "./src/footer.css");
-/* harmony import */ var _modalControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modalControl */ "./src/modalControl.js");
-/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./list */ "./src/list.js");
-/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
+/* harmony import */ var _colors_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./colors.css */ "./src/colors.css");
+/* harmony import */ var _classes_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./classes.css */ "./src/classes.css");
+/* harmony import */ var _header_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./header.css */ "./src/header.css");
+/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./main.css */ "./src/main.css");
+/* harmony import */ var _footer_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./footer.css */ "./src/footer.css");
+/* harmony import */ var _modalControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modalControl */ "./src/modalControl.js");
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./list */ "./src/list.js");
+/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
+
 
 
 
@@ -1553,25 +1642,25 @@ let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
 // Reminder drop-down
 
-document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_7__["default"])
+document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_8__["default"])
 
 // testing
 let testEvent = new Event('click')
 
 document.querySelector('button#publishReminder').dispatchEvent(testEvent)
 // 
-defaultList.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.toggleModal)(reminders))
+defaultList.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.toggleModal)(reminders))
 
-reminderModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.closeModal)(reminderModal))
+reminderModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.closeModal)(reminderModal))
 
-listModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.closeModal)(listModal))
+listModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.closeModal)(listModal))
 
-newReminderBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.openModal)(reminderModal))
+newReminderBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.openModal)(reminderModal))
 
 // from Html id
-openListModal.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.openModal)(listModal))
+openListModal.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.openModal)(listModal))
 
-addList.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_6__["default"])
+addList.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_7__["default"])
 
 // addList.dispatchEvent('click')
 
@@ -1581,11 +1670,11 @@ window.addEventListener('click', (e) => {
 
     if(modal.id === "reminder-modal") {
 
-        (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.closeModal)(reminderModal)()
+        (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.closeModal)(reminderModal)()
 
     } else if(modal.id === 'list-modal') {
 
-        (0,_modalControl__WEBPACK_IMPORTED_MODULE_5__.closeModal)(listModal)() //invokes the "inner" function
+        (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.closeModal)(listModal)() //invokes the "inner" function
     }
 })
 })();

@@ -1,4 +1,5 @@
 import './index.html'
+import './colors.css'
 import './classes.css'
 import './header.css'
 import './main.css'
