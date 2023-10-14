@@ -40,6 +40,7 @@ let listHtml = function() {
     count.innerHTML = 0
 
     let closeBtn = document.createElement('span')
+    closeBtn.classList.add('close-btn-2')
     closeBtn.innerHTML = '&times;'
     closeBtn.addEventListener('click', () => container.remove())
 
