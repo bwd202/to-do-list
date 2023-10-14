@@ -41,6 +41,12 @@ function reminderHtml(obj) {
 
     reminderTitle.innerHTML = obj.title
 
+    let closeBtn = document.createElement('span')
+
+    closeBtn.classList.add('button')
+
+    closeBtn.innerHTML = '&times;'
+
     let reminderNotes = document.createElement('p')
 
     reminderNotes.innerHTML = obj.notes
@@ -57,9 +63,9 @@ function reminderHtml(obj) {
 
     reminderPriority.innerHTML = obj.priority
 
-    reminder.push(checkbox,reminderTitle,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
+    reminder.push(checkbox,reminderTitle,closeBtn,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
 
-    console.log(reminder)
+    // console.log(reminder)
 
     return reminder
 }
