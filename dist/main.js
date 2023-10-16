@@ -1644,7 +1644,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // UIs
 
-let defaultList = document.querySelector('div.list-wrapper:first-of-type')
+let defaultList = document.querySelector('div#reminder-list')
 
 let reminders = document.querySelector('#reminders')
 

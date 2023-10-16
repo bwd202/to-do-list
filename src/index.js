@@ -10,7 +10,7 @@ import reminderFn from './reminder.js'
 
 // UIs
 
-let defaultList = document.querySelector('div.list-wrapper:first-of-type')
+let defaultList = document.querySelector('div#reminder-list')
 
 let reminders = document.querySelector('#reminders')
 
