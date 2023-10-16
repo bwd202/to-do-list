@@ -41,10 +41,6 @@ button#openListModal {
 
 /* REMINDER MODAL */
 
-#reminder-modal {   /* for debugging */
-    /* display: grid; */
-}
-
 #reminder-modal form {
     grid-template-areas: 'title title title title' 'notes notes notes notes' '. date date .' '. time time .' '. priority priority .' '. done reset .';
 }

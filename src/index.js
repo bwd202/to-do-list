@@ -26,33 +26,39 @@ let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
 // EVENT LISTENERS
 
-// Drop-Down
+// Reminder Object HTML (drop-down container)
+
+// document.querySelector('#reminders').classList.add('visible')
 
 document.querySelector('button#publishReminder').addEventListener('click', reminderFn)
 
-// TESTING
+let clickEvent = new Event('click')
 
-// document.querySelector('#reminders').classList.add('visible')
-document.querySelector('#list-modal').classList.add('visible')
+document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
-// let testEvent = new Event('click')
+// New Reminder Modal Controls
 
-// document.querySelector('button#publishReminder').dispatchEvent(testEvent)
+// document.querySelector('#reminder-modal').classList.add('visible')
 
 defaultList.addEventListener('click', toggleModal(reminders))
 
+newReminderBtn.addEventListener('click', openModal(reminderModal))
+
 reminderModalCloseBtn.addEventListener('click', closeModal(reminderModal))
+
+// List Modal Controls
+
+// document.querySelector('#list-modal').classList.add('visible')
+
+openListModal.addEventListener('click', openModal(listModal))  //html id
 
 listModalCloseBtn.addEventListener('click', closeModal(listModal))
 
-newReminderBtn.addEventListener('click', openModal(reminderModal))
-
-// from Html id
-openListModal.addEventListener('click', openModal(listModal))
-
 addList.addEventListener('click', addListFn)
 
-// addList.dispatchEvent('click')
+addList.dispatchEvent(clickEvent)   //testing
+
+// Window
 
 window.addEventListener('click', (e) => {
 
