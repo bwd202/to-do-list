@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* border: 1px dotted red; */
+    border: 1px dotted red;
 }
 
 body {
@@ -10,7 +10,7 @@ body {
     background-color: black;
     display: grid;
     grid-template-columns: repeat(4, max(300px, 25%));
-    height: 100vh;
+    /* height: 100vh; */
     min-height: 500px;
     width: 100%;
     min-width: 800px;

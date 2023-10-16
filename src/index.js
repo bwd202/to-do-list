@@ -33,6 +33,7 @@ document.querySelector('button#publishReminder').addEventListener('click', remin
 // TESTING
 
 // document.querySelector('#reminders').classList.add('visible')
+document.querySelector('#list-modal').classList.add('visible')
 
 // let testEvent = new Event('click')
 
