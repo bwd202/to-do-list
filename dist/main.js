@@ -1352,7 +1352,7 @@ class Reminder {
 
 }
 
-function getReminderData() {
+function getReminderData() { //organizes user input from modal into object
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -1369,7 +1369,7 @@ function getReminderData() {
     return new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority})
 }
 
-function reminderHtml(obj) {
+function reminderHtml(obj) {  //makes reminder html from object
 
     let reminder = []
 
@@ -1410,7 +1410,7 @@ function reminderHtml(obj) {
     return reminder
 }
 
-function publishReminder() {
+function publishReminder() { //shows reminder on the page
 
     let container = document.querySelector('div#reminders')
 
