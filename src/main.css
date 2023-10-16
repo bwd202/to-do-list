@@ -2,7 +2,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    border: 1px dotted red;
+    /* border: 1px dotted red; */
+}
+
+html {
+    /* min-height: max-content; */
 }
 
 body {
@@ -10,8 +14,10 @@ body {
     background-color: black;
     display: grid;
     grid-template-columns: repeat(4, max(300px, 25%));
-    /* height: 100vh; */
-    min-height: 500px;
+    height: max-content;
+    min-height: 100%;
+    /* overflow: scroll; */
+    /* min-height: 500px; */
     width: 100%;
     min-width: 800px;
     justify-content: center;
@@ -26,24 +32,24 @@ textarea {
   font-size: 100%;
 }
 
+#wrapper {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 2 / span 2;
+    grid-template-rows: max-content 1fr max-content;
+    grid-template-areas: 'header header' 
+                        'main main' 
+                        'footer footer';
+    padding: 10px;
+    background-color: white;
+    background-color: var(--wrapper);
+}
+
 main {
     grid-area: main;
     display: grid;
     grid-template-columns: subgrid;
-    grid-auto-rows: 200px ;
     gap: 10px;
-}
-
-#wrapper {
-    /* height: 100%; */
-    padding: 10px;
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-column: 2 / span 2;
-    background-color: white;
-    grid-template-rows: 100px 1fr 100px;
-    grid-template-areas: 'header header' 'main main' 'footer footer';
-    background-color: var(--wrapper);
 }
 
 /* CARDS */
@@ -69,7 +75,7 @@ main {
 article {
     display: grid;
     grid-template-columns: subgrid;
-    grid-template-rows: min-content 1fr;
+    grid-template-rows: 30px 1fr;
     grid-column: span 2;
     gap: 10px;
 }

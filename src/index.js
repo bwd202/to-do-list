@@ -56,7 +56,12 @@ listModalCloseBtn.addEventListener('click', closeModal(listModal))
 
 addList.addEventListener('click', addListFn)
 
-addList.dispatchEvent(clickEvent)   //testing
+// testing
+addList.dispatchEvent(clickEvent)
+
+addList.dispatchEvent(clickEvent)
+
+addList.dispatchEvent(clickEvent)
 
 // Window
 
