@@ -46,7 +46,7 @@ function listHtml() {
 
     let iconColor = CssFilterConverter.hexToFilter(list.color).color
 
-    let h3 = document.createElement('h3')
+    let p = document.createElement('p')
 
     let listName = list.name
 
@@ -54,7 +54,7 @@ function listHtml() {
 
     // console.log(iconColor)
 
-    h3.append(listName)
+    p.append(listName)
 
     let count = document.createElement('span')
 
@@ -65,7 +65,7 @@ function listHtml() {
     closeBtn.innerHTML = '&times;'
     closeBtn.addEventListener('click', () => container.remove())
 
-    container.append(icon, h3, count, closeBtn)
+    container.append(icon, p, count, closeBtn)
 
     listWrapper.append(container)
 
@@ -79,6 +79,10 @@ function addList() {
     let article = document.querySelector('article')
 
     article.append(listHtml())
+}
+
+function addListNameToNewReminderModal() {
+    
 }
 
 // funtion that adds newly created list name to list options in reminder modal
