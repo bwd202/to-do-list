@@ -1,10 +1,8 @@
-export default addList
+export default addNewList
 import listIcon from './icons/calendar-text.svg'
 import CssFilterConverter from 'css-filter-converter'
 
 // UI
-
-// let addListBtn = document.querySelector('')
 
 class List {
     constructor({name = 'new list', color = '#0f0'}={}) {
@@ -12,8 +10,6 @@ class List {
         this.color = color
     }
 }
-
-// fn that "populates" list object
 
 function makeListObj() {
 
@@ -26,9 +22,9 @@ function makeListObj() {
     return new List({name, color})
 }
 
-function listHtml() {
+function listHtml(obj) {
 
-    let list = makeListObj()
+    // let list = makeListObj()
 
     let wrapper = new DocumentFragment()
 
@@ -44,11 +40,11 @@ function listHtml() {
 
     icon.src = listIcon
 
-    let iconColor = CssFilterConverter.hexToFilter(list.color).color
+    let iconColor = CssFilterConverter.hexToFilter(obj.color).color
 
     let p = document.createElement('p')
 
-    let listName = list.name
+    let listName = obj.name
 
     icon.style.filter = iconColor
 
@@ -74,15 +70,27 @@ function listHtml() {
     return wrapper
 }
 
-function addList() {
+function addNewList() {
+
+    let list = makeListObj()
+
+    addListToReminderModalOptions(list)
 
     let article = document.querySelector('article')
 
-    article.append(listHtml())
+    article.append(listHtml(list))
 }
 
-function addListNameToNewReminderModal() {
-    
-}
+function addListToReminderModalOptions(obj) {
 
-// funtion that adds newly created list name to list options in reminder modal
+    let container = document.querySelector('#selectList')
+
+    let newListOption = document.createElement('option')
+
+    newListOption.setAttribute('value', obj.name)
+
+    newListOption.innerHTML = obj.name
+
+    container.append(newListOption)
+
+}
