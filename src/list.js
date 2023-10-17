@@ -1,12 +1,13 @@
 export default addList
 import listIcon from './icons/calendar-text.svg'
+import CssFilterConverter from 'css-filter-converter'
 
 // UI
 
 // let addListBtn = document.querySelector('')
 
 class List {
-    constructor({name = 'new list', color = '#666'}={}) {
+    constructor({name = 'new list', color = '#0f0'}={}) {
         this.name = name
         this.color = color
     }
@@ -20,7 +21,9 @@ function makeListObj() {
 
     let color = document.querySelector("[type='color']").value
 
-    return new List(name, color)
+    // console.log(color)
+
+    return new List({name, color})
 }
 
 function listHtml() {
@@ -38,13 +41,18 @@ function listHtml() {
     container.classList.add('banner','button','border')
 
     let icon = new Image(50,50)
+
     icon.src = listIcon
+
+    let iconColor = CssFilterConverter.hexToFilter(list.color).color
 
     let h3 = document.createElement('h3')
 
     let listName = list.name
 
-    icon.style.color = list.color
+    icon.style.filter = iconColor
+
+    // console.log(iconColor)
 
     h3.append(listName)
 
