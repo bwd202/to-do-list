@@ -42,7 +42,7 @@ button#openListModal {
 /* REMINDER MODAL */
 
 #reminder-modal {
-    /* display: grid; */
+    display: grid;
 
 }
 
@@ -51,7 +51,13 @@ button#openListModal {
 }
 
 #reminder-modal form {
-    grid-template-areas: 'title title title title' 'notes notes notes notes' '. date date .' '. time time .' '. priority priority .' '. done reset .';
+    grid-template-areas: 'title title title title'
+                         'notes notes notes notes' 
+                         '. date date .' 
+                         '. time time .' 
+                         '. priority priority .'
+                         'list list list list' 
+                         '. done reset .';
 }
 
 #reminder-modal label:first-of-type {
@@ -74,6 +80,10 @@ button#openListModal {
     grid-area: priority;
 }
 
+#reminder-modal label:nth-of-type(6) {
+    grid-area: list;
+}
+
 #reminder-modal input {
     width: 150px;
 }
@@ -86,7 +96,7 @@ button#openListModal {
     grid-area: reset;
 }
 
-/* LIST MODALS */
+/* LIST MODAL */
 
 #list-modal form {
     grid-template-areas: '. input input .' '. color color .' '. done reset .';
