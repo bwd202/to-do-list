@@ -1241,13 +1241,26 @@ __webpack_require__.r(__webpack_exports__);
 // let addListBtn = document.querySelector('')
 
 class List {
-    constructor({name = 'new list', color = '#000'}={}) {
+    constructor({name = 'new list', color = '#666'}={}) {
         this.name = name
         this.color = color
     }
 }
 
-let listHtml = function() {
+// fn that "populates" list object
+
+function makeListObj() {
+
+    let name = document.querySelector("[placeholder='List name']").value
+
+    let color = document.querySelector("[type='color']").value
+
+    return new List(name, color)
+}
+
+function listHtml() {
+
+    let list = makeListObj()
 
     let wrapper = new DocumentFragment()
 
@@ -1264,11 +1277,11 @@ let listHtml = function() {
 
     let h3 = document.createElement('h3')
 
-    let listName = document.querySelector("[placeholder='List name']").value
+    let listName = list.name
+
+    icon.style.color = list.color
 
     h3.append(listName)
-
-    // let color = document.querySelector("[type='color']").value
 
     let count = document.createElement('span')
 
@@ -1294,6 +1307,8 @@ function addList() {
 
     article.append(listHtml())
 }
+
+// funtion that adds newly created list name to list options in reminder modal
 
 /***/ }),
 
@@ -1428,6 +1443,8 @@ function publishReminder() { //shows reminder on the page
 
     container.append(...reminderHtml(getReminderData()))
 }
+
+// function that pushes reminder to list depending on the value of list name
 
 /***/ }),
 
