@@ -79,3 +79,5 @@ function publishReminder() { //shows reminder on the page
 
     container.append(...reminderHtml(getReminderData()))
 }
+
+// function that pushes reminder to list depending on the value of list name
