@@ -233,7 +233,7 @@ button#openListModal {
 /* REMINDER MODAL */
 
 #reminder-modal {
-    display: grid;
+    /* display: grid; */
 
 }
 
@@ -309,7 +309,7 @@ button#openListModal {
 
 #list-modal button:last-of-type {
     grid-area: reset;
-}`, "",{"version":3,"sources":["webpack://./src/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,gBAAgB;IAChB,SAAS;AACb;;AAEA;IACI,aAAa;IACb,qCAAqC;IACrC,oCAAoC;IACpC,qBAAqB;IACrB,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;AACzB;;AAEA;IACI,SAAS;IACT,mBAAmB;IACnB,aAAa;IACb,YAAY;IACZ,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,oBAAoB;IACpB,QAAQ;AACZ;;AAEA;IACI,sCAAsC;;AAE1C;;AAEA;IACI,YAAY;IACZ,qBAAqB;AACzB;;AAEA,mBAAmB;;AAEnB;IACI,aAAa;;AAEjB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI;;;;;;yCAMqC;AACzC;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB;;AAEA,eAAe;;AAEf;IACI,yEAAyE;IACzE,SAAS;AACb;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-items: end; \n    gap: 10px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    grid-template-rows: repeat(4, 100px);\n    grid-auto-rows: 100px;\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n}\n\nfooter > button {\n    border: 0;\n    border-radius: 14px;\n    padding: 10px;\n    width: 200px;\n    color: blue;\n    display: grid;\n    align-items: center;\n    justify-items: start;\n    gap: 5px;\n}\n\nbutton#new-reminder {\n    grid-template-columns: max-content 1fr;\n\n}\n\nbutton#openListModal {\n    height: 70px;\n    justify-items: center;\n}\n\n/* REMINDER MODAL */\n\n#reminder-modal {\n    display: grid;\n\n}\n\n#reminder-modal .form-wrapper {\n    min-height: 100vh;\n}\n\n#reminder-modal form {\n    grid-template-areas: 'title title title title'\n                         'notes notes notes notes' \n                         '. date date .' \n                         '. time time .' \n                         '. priority priority .'\n                         'list list list list' \n                         '. done reset .';\n}\n\n#reminder-modal label:first-of-type {\n    grid-area: title;\n}\n\n#reminder-modal label:nth-of-type(2) {\n    grid-area: notes;\n}\n\n#reminder-modal label:nth-of-type(3) {\n    grid-area: date;\n}\n\n#reminder-modal label:nth-of-type(4) {\n    grid-area: time;\n}\n\n#reminder-modal label:nth-of-type(5) {\n    grid-area: priority;\n}\n\n#reminder-modal label:nth-of-type(6) {\n    grid-area: list;\n}\n\n#reminder-modal input {\n    width: 150px;\n}\n\n#reminder-modal button:first-of-type {\n    grid-area: done;\n}\n\n#reminder-modal button:last-of-type {\n    grid-area: reset;\n}\n\n/* LIST MODAL */\n\n#list-modal form {\n    grid-template-areas: '. input input .' '. color color .' '. done reset .';\n    gap: 10px;\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,gBAAgB;IAChB,SAAS;AACb;;AAEA;IACI,aAAa;IACb,qCAAqC;IACrC,oCAAoC;IACpC,qBAAqB;IACrB,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;AACzB;;AAEA;IACI,SAAS;IACT,mBAAmB;IACnB,aAAa;IACb,YAAY;IACZ,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,oBAAoB;IACpB,QAAQ;AACZ;;AAEA;IACI,sCAAsC;;AAE1C;;AAEA;IACI,YAAY;IACZ,qBAAqB;AACzB;;AAEA,mBAAmB;;AAEnB;IACI,mBAAmB;;AAEvB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI;;;;;;yCAMqC;AACzC;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB;;AAEA,eAAe;;AAEf;IACI,yEAAyE;IACzE,SAAS;AACb;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-items: end; \n    gap: 10px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    grid-template-rows: repeat(4, 100px);\n    grid-auto-rows: 100px;\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n}\n\nfooter > button {\n    border: 0;\n    border-radius: 14px;\n    padding: 10px;\n    width: 200px;\n    color: blue;\n    display: grid;\n    align-items: center;\n    justify-items: start;\n    gap: 5px;\n}\n\nbutton#new-reminder {\n    grid-template-columns: max-content 1fr;\n\n}\n\nbutton#openListModal {\n    height: 70px;\n    justify-items: center;\n}\n\n/* REMINDER MODAL */\n\n#reminder-modal {\n    /* display: grid; */\n\n}\n\n#reminder-modal .form-wrapper {\n    min-height: 100vh;\n}\n\n#reminder-modal form {\n    grid-template-areas: 'title title title title'\n                         'notes notes notes notes' \n                         '. date date .' \n                         '. time time .' \n                         '. priority priority .'\n                         'list list list list' \n                         '. done reset .';\n}\n\n#reminder-modal label:first-of-type {\n    grid-area: title;\n}\n\n#reminder-modal label:nth-of-type(2) {\n    grid-area: notes;\n}\n\n#reminder-modal label:nth-of-type(3) {\n    grid-area: date;\n}\n\n#reminder-modal label:nth-of-type(4) {\n    grid-area: time;\n}\n\n#reminder-modal label:nth-of-type(5) {\n    grid-area: priority;\n}\n\n#reminder-modal label:nth-of-type(6) {\n    grid-area: list;\n}\n\n#reminder-modal input {\n    width: 150px;\n}\n\n#reminder-modal button:first-of-type {\n    grid-area: done;\n}\n\n#reminder-modal button:last-of-type {\n    grid-area: reset;\n}\n\n/* LIST MODAL */\n\n#list-modal form {\n    grid-template-areas: '. input input .' '. color color .' '. done reset .';\n    gap: 10px;\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1351,12 +1351,13 @@ __webpack_require__.r(__webpack_exports__);
 
 class Reminder {
 
-    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium"} = {}) {
+    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium", list="default"} = {}) {
         this.title = title
         this.notes = notes
         this.dueDate = dueDate
         this.dueTime = dueTime
         this.priority = priority
+        this.list = list
     }
 
 }
@@ -1373,9 +1374,11 @@ function getReminderData() { //organizes user input from modal into object
 
     let reminderPriority = document.querySelector('select#priority').value
 
-    console.log(reminderPriority)
+    let reminderList = document.querySelector('select#selectList').value
 
-    return new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority})
+    // console.log(reminderPriority)
+
+    return new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
 }
 
 function reminderHtml(obj) {  //makes reminder html from object
@@ -1700,11 +1703,7 @@ listModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_M
 addList.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_7__["default"])
 
 // testing
-addList.dispatchEvent(clickEvent)
-
-addList.dispatchEvent(clickEvent)
-
-addList.dispatchEvent(clickEvent)
+// addList.dispatchEvent(clickEvent)
 
 // Window
 
