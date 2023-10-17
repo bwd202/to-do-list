@@ -2,12 +2,13 @@ export default publishReminder
 
 class Reminder {
 
-    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium"} = {}) {
+    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium", list="default"} = {}) {
         this.title = title
         this.notes = notes
         this.dueDate = dueDate
         this.dueTime = dueTime
         this.priority = priority
+        this.list = list
     }
 
 }
@@ -24,9 +25,11 @@ function getReminderData() { //organizes user input from modal into object
 
     let reminderPriority = document.querySelector('select#priority').value
 
-    console.log(reminderPriority)
+    let reminderList = document.querySelector('select#selectList').value
 
-    return new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority})
+    // console.log(reminderPriority)
+
+    return new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
 }
 
 function reminderHtml(obj) {  //makes reminder html from object
