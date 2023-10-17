@@ -36,11 +36,15 @@
                         <label for="">Notes<input type="text" id="notes" placeholder="bring poop bags" name="reminderNotes" class="input"></label>
                         <label for="">Due Date<input type="date" id="dueDate" name="reminderDueDate" class=""></label>
                         <label for="">Due Time<input type="time" id="dueTime" name="reminderDueTime" class=""></label>
-                        <label for="priority">Priority<select name="" id="priority" name="reminderPriority" class="">
+                        <label for="priority">Priority<select id="priority" name="reminderPriority" class="">
                             <option value="1">low</option>
                             <option value="2" selected>medium</option>
                             <option value="3">high</option>
                         </select></label>
+                        <label for="selectList">Select List<select id="selectList" name="reminderSelectList">
+                            <option value="default">Default</option>
+                        </select>
+                        </label>
                         <button id="publishReminder" type="button">Done</button>
                         <button type="reset">Reset</button> 
                     </form>
