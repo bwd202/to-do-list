@@ -4274,13 +4274,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_filter_converter__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addList);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addNewList);
 ;
 
 
 // UI
-
-// let addListBtn = document.querySelector('')
 
 class List {
     constructor({name = 'new list', color = '#0f0'}={}) {
@@ -4288,8 +4286,6 @@ class List {
         this.color = color
     }
 }
-
-// fn that "populates" list object
 
 function makeListObj() {
 
@@ -4302,9 +4298,9 @@ function makeListObj() {
     return new List({name, color})
 }
 
-function listHtml() {
+function listHtml(obj) {
 
-    let list = makeListObj()
+    // let list = makeListObj()
 
     let wrapper = new DocumentFragment()
 
@@ -4320,11 +4316,11 @@ function listHtml() {
 
     icon.src = _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__
 
-    let iconColor = css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default().hexToFilter(list.color).color
+    let iconColor = css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default().hexToFilter(obj.color).color
 
     let p = document.createElement('p')
 
-    let listName = list.name
+    let listName = obj.name
 
     icon.style.filter = iconColor
 
@@ -4350,18 +4346,30 @@ function listHtml() {
     return wrapper
 }
 
-function addList() {
+function addNewList() {
+
+    let list = makeListObj()
+
+    addListToReminderModalOptions(list)
 
     let article = document.querySelector('article')
 
-    article.append(listHtml())
+    article.append(listHtml(list))
 }
 
-function addListNameToNewReminderModal() {
-    
-}
+function addListToReminderModalOptions(obj) {
 
-// funtion that adds newly created list name to list options in reminder modal
+    let container = document.querySelector('#selectList')
+
+    let newListOption = document.createElement('option')
+
+    newListOption.setAttribute('value', obj.name)
+
+    newListOption.innerHTML = obj.name
+
+    container.append(newListOption)
+
+}
 
 /***/ }),
 
