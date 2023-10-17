@@ -12,6 +12,7 @@ body {
     width: 100%;
     min-width: 800px;
     justify-content: center;
+    position: relative;
 }
 
 button,
