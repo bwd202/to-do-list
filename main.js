@@ -1,6 +1,2245 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/color-convert/conversions.js":
+/*!***************************************************!*\
+  !*** ./node_modules/color-convert/conversions.js ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/* MIT license */
+/* eslint-disable no-mixed-operators */
+const cssKeywords = __webpack_require__(/*! color-name */ "./node_modules/color-name/index.js");
+
+// NOTE: conversions should only return primitive values (i.e. arrays, or
+//       values that give correct `typeof` results).
+//       do not use box values types (i.e. Number(), String(), etc.)
+
+const reverseKeywords = {};
+for (const key of Object.keys(cssKeywords)) {
+	reverseKeywords[cssKeywords[key]] = key;
+}
+
+const convert = {
+	rgb: {channels: 3, labels: 'rgb'},
+	hsl: {channels: 3, labels: 'hsl'},
+	hsv: {channels: 3, labels: 'hsv'},
+	hwb: {channels: 3, labels: 'hwb'},
+	cmyk: {channels: 4, labels: 'cmyk'},
+	xyz: {channels: 3, labels: 'xyz'},
+	lab: {channels: 3, labels: 'lab'},
+	lch: {channels: 3, labels: 'lch'},
+	hex: {channels: 1, labels: ['hex']},
+	keyword: {channels: 1, labels: ['keyword']},
+	ansi16: {channels: 1, labels: ['ansi16']},
+	ansi256: {channels: 1, labels: ['ansi256']},
+	hcg: {channels: 3, labels: ['h', 'c', 'g']},
+	apple: {channels: 3, labels: ['r16', 'g16', 'b16']},
+	gray: {channels: 1, labels: ['gray']}
+};
+
+module.exports = convert;
+
+// Hide .channels and .labels properties
+for (const model of Object.keys(convert)) {
+	if (!('channels' in convert[model])) {
+		throw new Error('missing channels property: ' + model);
+	}
+
+	if (!('labels' in convert[model])) {
+		throw new Error('missing channel labels property: ' + model);
+	}
+
+	if (convert[model].labels.length !== convert[model].channels) {
+		throw new Error('channel and label counts mismatch: ' + model);
+	}
+
+	const {channels, labels} = convert[model];
+	delete convert[model].channels;
+	delete convert[model].labels;
+	Object.defineProperty(convert[model], 'channels', {value: channels});
+	Object.defineProperty(convert[model], 'labels', {value: labels});
+}
+
+convert.rgb.hsl = function (rgb) {
+	const r = rgb[0] / 255;
+	const g = rgb[1] / 255;
+	const b = rgb[2] / 255;
+	const min = Math.min(r, g, b);
+	const max = Math.max(r, g, b);
+	const delta = max - min;
+	let h;
+	let s;
+
+	if (max === min) {
+		h = 0;
+	} else if (r === max) {
+		h = (g - b) / delta;
+	} else if (g === max) {
+		h = 2 + (b - r) / delta;
+	} else if (b === max) {
+		h = 4 + (r - g) / delta;
+	}
+
+	h = Math.min(h * 60, 360);
+
+	if (h < 0) {
+		h += 360;
+	}
+
+	const l = (min + max) / 2;
+
+	if (max === min) {
+		s = 0;
+	} else if (l <= 0.5) {
+		s = delta / (max + min);
+	} else {
+		s = delta / (2 - max - min);
+	}
+
+	return [h, s * 100, l * 100];
+};
+
+convert.rgb.hsv = function (rgb) {
+	let rdif;
+	let gdif;
+	let bdif;
+	let h;
+	let s;
+
+	const r = rgb[0] / 255;
+	const g = rgb[1] / 255;
+	const b = rgb[2] / 255;
+	const v = Math.max(r, g, b);
+	const diff = v - Math.min(r, g, b);
+	const diffc = function (c) {
+		return (v - c) / 6 / diff + 1 / 2;
+	};
+
+	if (diff === 0) {
+		h = 0;
+		s = 0;
+	} else {
+		s = diff / v;
+		rdif = diffc(r);
+		gdif = diffc(g);
+		bdif = diffc(b);
+
+		if (r === v) {
+			h = bdif - gdif;
+		} else if (g === v) {
+			h = (1 / 3) + rdif - bdif;
+		} else if (b === v) {
+			h = (2 / 3) + gdif - rdif;
+		}
+
+		if (h < 0) {
+			h += 1;
+		} else if (h > 1) {
+			h -= 1;
+		}
+	}
+
+	return [
+		h * 360,
+		s * 100,
+		v * 100
+	];
+};
+
+convert.rgb.hwb = function (rgb) {
+	const r = rgb[0];
+	const g = rgb[1];
+	let b = rgb[2];
+	const h = convert.rgb.hsl(rgb)[0];
+	const w = 1 / 255 * Math.min(r, Math.min(g, b));
+
+	b = 1 - 1 / 255 * Math.max(r, Math.max(g, b));
+
+	return [h, w * 100, b * 100];
+};
+
+convert.rgb.cmyk = function (rgb) {
+	const r = rgb[0] / 255;
+	const g = rgb[1] / 255;
+	const b = rgb[2] / 255;
+
+	const k = Math.min(1 - r, 1 - g, 1 - b);
+	const c = (1 - r - k) / (1 - k) || 0;
+	const m = (1 - g - k) / (1 - k) || 0;
+	const y = (1 - b - k) / (1 - k) || 0;
+
+	return [c * 100, m * 100, y * 100, k * 100];
+};
+
+function comparativeDistance(x, y) {
+	/*
+		See https://en.m.wikipedia.org/wiki/Euclidean_distance#Squared_Euclidean_distance
+	*/
+	return (
+		((x[0] - y[0]) ** 2) +
+		((x[1] - y[1]) ** 2) +
+		((x[2] - y[2]) ** 2)
+	);
+}
+
+convert.rgb.keyword = function (rgb) {
+	const reversed = reverseKeywords[rgb];
+	if (reversed) {
+		return reversed;
+	}
+
+	let currentClosestDistance = Infinity;
+	let currentClosestKeyword;
+
+	for (const keyword of Object.keys(cssKeywords)) {
+		const value = cssKeywords[keyword];
+
+		// Compute comparative distance
+		const distance = comparativeDistance(rgb, value);
+
+		// Check if its less, if so set as closest
+		if (distance < currentClosestDistance) {
+			currentClosestDistance = distance;
+			currentClosestKeyword = keyword;
+		}
+	}
+
+	return currentClosestKeyword;
+};
+
+convert.keyword.rgb = function (keyword) {
+	return cssKeywords[keyword];
+};
+
+convert.rgb.xyz = function (rgb) {
+	let r = rgb[0] / 255;
+	let g = rgb[1] / 255;
+	let b = rgb[2] / 255;
+
+	// Assume sRGB
+	r = r > 0.04045 ? (((r + 0.055) / 1.055) ** 2.4) : (r / 12.92);
+	g = g > 0.04045 ? (((g + 0.055) / 1.055) ** 2.4) : (g / 12.92);
+	b = b > 0.04045 ? (((b + 0.055) / 1.055) ** 2.4) : (b / 12.92);
+
+	const x = (r * 0.4124) + (g * 0.3576) + (b * 0.1805);
+	const y = (r * 0.2126) + (g * 0.7152) + (b * 0.0722);
+	const z = (r * 0.0193) + (g * 0.1192) + (b * 0.9505);
+
+	return [x * 100, y * 100, z * 100];
+};
+
+convert.rgb.lab = function (rgb) {
+	const xyz = convert.rgb.xyz(rgb);
+	let x = xyz[0];
+	let y = xyz[1];
+	let z = xyz[2];
+
+	x /= 95.047;
+	y /= 100;
+	z /= 108.883;
+
+	x = x > 0.008856 ? (x ** (1 / 3)) : (7.787 * x) + (16 / 116);
+	y = y > 0.008856 ? (y ** (1 / 3)) : (7.787 * y) + (16 / 116);
+	z = z > 0.008856 ? (z ** (1 / 3)) : (7.787 * z) + (16 / 116);
+
+	const l = (116 * y) - 16;
+	const a = 500 * (x - y);
+	const b = 200 * (y - z);
+
+	return [l, a, b];
+};
+
+convert.hsl.rgb = function (hsl) {
+	const h = hsl[0] / 360;
+	const s = hsl[1] / 100;
+	const l = hsl[2] / 100;
+	let t2;
+	let t3;
+	let val;
+
+	if (s === 0) {
+		val = l * 255;
+		return [val, val, val];
+	}
+
+	if (l < 0.5) {
+		t2 = l * (1 + s);
+	} else {
+		t2 = l + s - l * s;
+	}
+
+	const t1 = 2 * l - t2;
+
+	const rgb = [0, 0, 0];
+	for (let i = 0; i < 3; i++) {
+		t3 = h + 1 / 3 * -(i - 1);
+		if (t3 < 0) {
+			t3++;
+		}
+
+		if (t3 > 1) {
+			t3--;
+		}
+
+		if (6 * t3 < 1) {
+			val = t1 + (t2 - t1) * 6 * t3;
+		} else if (2 * t3 < 1) {
+			val = t2;
+		} else if (3 * t3 < 2) {
+			val = t1 + (t2 - t1) * (2 / 3 - t3) * 6;
+		} else {
+			val = t1;
+		}
+
+		rgb[i] = val * 255;
+	}
+
+	return rgb;
+};
+
+convert.hsl.hsv = function (hsl) {
+	const h = hsl[0];
+	let s = hsl[1] / 100;
+	let l = hsl[2] / 100;
+	let smin = s;
+	const lmin = Math.max(l, 0.01);
+
+	l *= 2;
+	s *= (l <= 1) ? l : 2 - l;
+	smin *= lmin <= 1 ? lmin : 2 - lmin;
+	const v = (l + s) / 2;
+	const sv = l === 0 ? (2 * smin) / (lmin + smin) : (2 * s) / (l + s);
+
+	return [h, sv * 100, v * 100];
+};
+
+convert.hsv.rgb = function (hsv) {
+	const h = hsv[0] / 60;
+	const s = hsv[1] / 100;
+	let v = hsv[2] / 100;
+	const hi = Math.floor(h) % 6;
+
+	const f = h - Math.floor(h);
+	const p = 255 * v * (1 - s);
+	const q = 255 * v * (1 - (s * f));
+	const t = 255 * v * (1 - (s * (1 - f)));
+	v *= 255;
+
+	switch (hi) {
+		case 0:
+			return [v, t, p];
+		case 1:
+			return [q, v, p];
+		case 2:
+			return [p, v, t];
+		case 3:
+			return [p, q, v];
+		case 4:
+			return [t, p, v];
+		case 5:
+			return [v, p, q];
+	}
+};
+
+convert.hsv.hsl = function (hsv) {
+	const h = hsv[0];
+	const s = hsv[1] / 100;
+	const v = hsv[2] / 100;
+	const vmin = Math.max(v, 0.01);
+	let sl;
+	let l;
+
+	l = (2 - s) * v;
+	const lmin = (2 - s) * vmin;
+	sl = s * vmin;
+	sl /= (lmin <= 1) ? lmin : 2 - lmin;
+	sl = sl || 0;
+	l /= 2;
+
+	return [h, sl * 100, l * 100];
+};
+
+// http://dev.w3.org/csswg/css-color/#hwb-to-rgb
+convert.hwb.rgb = function (hwb) {
+	const h = hwb[0] / 360;
+	let wh = hwb[1] / 100;
+	let bl = hwb[2] / 100;
+	const ratio = wh + bl;
+	let f;
+
+	// Wh + bl cant be > 1
+	if (ratio > 1) {
+		wh /= ratio;
+		bl /= ratio;
+	}
+
+	const i = Math.floor(6 * h);
+	const v = 1 - bl;
+	f = 6 * h - i;
+
+	if ((i & 0x01) !== 0) {
+		f = 1 - f;
+	}
+
+	const n = wh + f * (v - wh); // Linear interpolation
+
+	let r;
+	let g;
+	let b;
+	/* eslint-disable max-statements-per-line,no-multi-spaces */
+	switch (i) {
+		default:
+		case 6:
+		case 0: r = v;  g = n;  b = wh; break;
+		case 1: r = n;  g = v;  b = wh; break;
+		case 2: r = wh; g = v;  b = n; break;
+		case 3: r = wh; g = n;  b = v; break;
+		case 4: r = n;  g = wh; b = v; break;
+		case 5: r = v;  g = wh; b = n; break;
+	}
+	/* eslint-enable max-statements-per-line,no-multi-spaces */
+
+	return [r * 255, g * 255, b * 255];
+};
+
+convert.cmyk.rgb = function (cmyk) {
+	const c = cmyk[0] / 100;
+	const m = cmyk[1] / 100;
+	const y = cmyk[2] / 100;
+	const k = cmyk[3] / 100;
+
+	const r = 1 - Math.min(1, c * (1 - k) + k);
+	const g = 1 - Math.min(1, m * (1 - k) + k);
+	const b = 1 - Math.min(1, y * (1 - k) + k);
+
+	return [r * 255, g * 255, b * 255];
+};
+
+convert.xyz.rgb = function (xyz) {
+	const x = xyz[0] / 100;
+	const y = xyz[1] / 100;
+	const z = xyz[2] / 100;
+	let r;
+	let g;
+	let b;
+
+	r = (x * 3.2406) + (y * -1.5372) + (z * -0.4986);
+	g = (x * -0.9689) + (y * 1.8758) + (z * 0.0415);
+	b = (x * 0.0557) + (y * -0.2040) + (z * 1.0570);
+
+	// Assume sRGB
+	r = r > 0.0031308
+		? ((1.055 * (r ** (1.0 / 2.4))) - 0.055)
+		: r * 12.92;
+
+	g = g > 0.0031308
+		? ((1.055 * (g ** (1.0 / 2.4))) - 0.055)
+		: g * 12.92;
+
+	b = b > 0.0031308
+		? ((1.055 * (b ** (1.0 / 2.4))) - 0.055)
+		: b * 12.92;
+
+	r = Math.min(Math.max(0, r), 1);
+	g = Math.min(Math.max(0, g), 1);
+	b = Math.min(Math.max(0, b), 1);
+
+	return [r * 255, g * 255, b * 255];
+};
+
+convert.xyz.lab = function (xyz) {
+	let x = xyz[0];
+	let y = xyz[1];
+	let z = xyz[2];
+
+	x /= 95.047;
+	y /= 100;
+	z /= 108.883;
+
+	x = x > 0.008856 ? (x ** (1 / 3)) : (7.787 * x) + (16 / 116);
+	y = y > 0.008856 ? (y ** (1 / 3)) : (7.787 * y) + (16 / 116);
+	z = z > 0.008856 ? (z ** (1 / 3)) : (7.787 * z) + (16 / 116);
+
+	const l = (116 * y) - 16;
+	const a = 500 * (x - y);
+	const b = 200 * (y - z);
+
+	return [l, a, b];
+};
+
+convert.lab.xyz = function (lab) {
+	const l = lab[0];
+	const a = lab[1];
+	const b = lab[2];
+	let x;
+	let y;
+	let z;
+
+	y = (l + 16) / 116;
+	x = a / 500 + y;
+	z = y - b / 200;
+
+	const y2 = y ** 3;
+	const x2 = x ** 3;
+	const z2 = z ** 3;
+	y = y2 > 0.008856 ? y2 : (y - 16 / 116) / 7.787;
+	x = x2 > 0.008856 ? x2 : (x - 16 / 116) / 7.787;
+	z = z2 > 0.008856 ? z2 : (z - 16 / 116) / 7.787;
+
+	x *= 95.047;
+	y *= 100;
+	z *= 108.883;
+
+	return [x, y, z];
+};
+
+convert.lab.lch = function (lab) {
+	const l = lab[0];
+	const a = lab[1];
+	const b = lab[2];
+	let h;
+
+	const hr = Math.atan2(b, a);
+	h = hr * 360 / 2 / Math.PI;
+
+	if (h < 0) {
+		h += 360;
+	}
+
+	const c = Math.sqrt(a * a + b * b);
+
+	return [l, c, h];
+};
+
+convert.lch.lab = function (lch) {
+	const l = lch[0];
+	const c = lch[1];
+	const h = lch[2];
+
+	const hr = h / 360 * 2 * Math.PI;
+	const a = c * Math.cos(hr);
+	const b = c * Math.sin(hr);
+
+	return [l, a, b];
+};
+
+convert.rgb.ansi16 = function (args, saturation = null) {
+	const [r, g, b] = args;
+	let value = saturation === null ? convert.rgb.hsv(args)[2] : saturation; // Hsv -> ansi16 optimization
+
+	value = Math.round(value / 50);
+
+	if (value === 0) {
+		return 30;
+	}
+
+	let ansi = 30
+		+ ((Math.round(b / 255) << 2)
+		| (Math.round(g / 255) << 1)
+		| Math.round(r / 255));
+
+	if (value === 2) {
+		ansi += 60;
+	}
+
+	return ansi;
+};
+
+convert.hsv.ansi16 = function (args) {
+	// Optimization here; we already know the value and don't need to get
+	// it converted for us.
+	return convert.rgb.ansi16(convert.hsv.rgb(args), args[2]);
+};
+
+convert.rgb.ansi256 = function (args) {
+	const r = args[0];
+	const g = args[1];
+	const b = args[2];
+
+	// We use the extended greyscale palette here, with the exception of
+	// black and white. normal palette only has 4 greyscale shades.
+	if (r === g && g === b) {
+		if (r < 8) {
+			return 16;
+		}
+
+		if (r > 248) {
+			return 231;
+		}
+
+		return Math.round(((r - 8) / 247) * 24) + 232;
+	}
+
+	const ansi = 16
+		+ (36 * Math.round(r / 255 * 5))
+		+ (6 * Math.round(g / 255 * 5))
+		+ Math.round(b / 255 * 5);
+
+	return ansi;
+};
+
+convert.ansi16.rgb = function (args) {
+	let color = args % 10;
+
+	// Handle greyscale
+	if (color === 0 || color === 7) {
+		if (args > 50) {
+			color += 3.5;
+		}
+
+		color = color / 10.5 * 255;
+
+		return [color, color, color];
+	}
+
+	const mult = (~~(args > 50) + 1) * 0.5;
+	const r = ((color & 1) * mult) * 255;
+	const g = (((color >> 1) & 1) * mult) * 255;
+	const b = (((color >> 2) & 1) * mult) * 255;
+
+	return [r, g, b];
+};
+
+convert.ansi256.rgb = function (args) {
+	// Handle greyscale
+	if (args >= 232) {
+		const c = (args - 232) * 10 + 8;
+		return [c, c, c];
+	}
+
+	args -= 16;
+
+	let rem;
+	const r = Math.floor(args / 36) / 5 * 255;
+	const g = Math.floor((rem = args % 36) / 6) / 5 * 255;
+	const b = (rem % 6) / 5 * 255;
+
+	return [r, g, b];
+};
+
+convert.rgb.hex = function (args) {
+	const integer = ((Math.round(args[0]) & 0xFF) << 16)
+		+ ((Math.round(args[1]) & 0xFF) << 8)
+		+ (Math.round(args[2]) & 0xFF);
+
+	const string = integer.toString(16).toUpperCase();
+	return '000000'.substring(string.length) + string;
+};
+
+convert.hex.rgb = function (args) {
+	const match = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
+	if (!match) {
+		return [0, 0, 0];
+	}
+
+	let colorString = match[0];
+
+	if (match[0].length === 3) {
+		colorString = colorString.split('').map(char => {
+			return char + char;
+		}).join('');
+	}
+
+	const integer = parseInt(colorString, 16);
+	const r = (integer >> 16) & 0xFF;
+	const g = (integer >> 8) & 0xFF;
+	const b = integer & 0xFF;
+
+	return [r, g, b];
+};
+
+convert.rgb.hcg = function (rgb) {
+	const r = rgb[0] / 255;
+	const g = rgb[1] / 255;
+	const b = rgb[2] / 255;
+	const max = Math.max(Math.max(r, g), b);
+	const min = Math.min(Math.min(r, g), b);
+	const chroma = (max - min);
+	let grayscale;
+	let hue;
+
+	if (chroma < 1) {
+		grayscale = min / (1 - chroma);
+	} else {
+		grayscale = 0;
+	}
+
+	if (chroma <= 0) {
+		hue = 0;
+	} else
+	if (max === r) {
+		hue = ((g - b) / chroma) % 6;
+	} else
+	if (max === g) {
+		hue = 2 + (b - r) / chroma;
+	} else {
+		hue = 4 + (r - g) / chroma;
+	}
+
+	hue /= 6;
+	hue %= 1;
+
+	return [hue * 360, chroma * 100, grayscale * 100];
+};
+
+convert.hsl.hcg = function (hsl) {
+	const s = hsl[1] / 100;
+	const l = hsl[2] / 100;
+
+	const c = l < 0.5 ? (2.0 * s * l) : (2.0 * s * (1.0 - l));
+
+	let f = 0;
+	if (c < 1.0) {
+		f = (l - 0.5 * c) / (1.0 - c);
+	}
+
+	return [hsl[0], c * 100, f * 100];
+};
+
+convert.hsv.hcg = function (hsv) {
+	const s = hsv[1] / 100;
+	const v = hsv[2] / 100;
+
+	const c = s * v;
+	let f = 0;
+
+	if (c < 1.0) {
+		f = (v - c) / (1 - c);
+	}
+
+	return [hsv[0], c * 100, f * 100];
+};
+
+convert.hcg.rgb = function (hcg) {
+	const h = hcg[0] / 360;
+	const c = hcg[1] / 100;
+	const g = hcg[2] / 100;
+
+	if (c === 0.0) {
+		return [g * 255, g * 255, g * 255];
+	}
+
+	const pure = [0, 0, 0];
+	const hi = (h % 1) * 6;
+	const v = hi % 1;
+	const w = 1 - v;
+	let mg = 0;
+
+	/* eslint-disable max-statements-per-line */
+	switch (Math.floor(hi)) {
+		case 0:
+			pure[0] = 1; pure[1] = v; pure[2] = 0; break;
+		case 1:
+			pure[0] = w; pure[1] = 1; pure[2] = 0; break;
+		case 2:
+			pure[0] = 0; pure[1] = 1; pure[2] = v; break;
+		case 3:
+			pure[0] = 0; pure[1] = w; pure[2] = 1; break;
+		case 4:
+			pure[0] = v; pure[1] = 0; pure[2] = 1; break;
+		default:
+			pure[0] = 1; pure[1] = 0; pure[2] = w;
+	}
+	/* eslint-enable max-statements-per-line */
+
+	mg = (1.0 - c) * g;
+
+	return [
+		(c * pure[0] + mg) * 255,
+		(c * pure[1] + mg) * 255,
+		(c * pure[2] + mg) * 255
+	];
+};
+
+convert.hcg.hsv = function (hcg) {
+	const c = hcg[1] / 100;
+	const g = hcg[2] / 100;
+
+	const v = c + g * (1.0 - c);
+	let f = 0;
+
+	if (v > 0.0) {
+		f = c / v;
+	}
+
+	return [hcg[0], f * 100, v * 100];
+};
+
+convert.hcg.hsl = function (hcg) {
+	const c = hcg[1] / 100;
+	const g = hcg[2] / 100;
+
+	const l = g * (1.0 - c) + 0.5 * c;
+	let s = 0;
+
+	if (l > 0.0 && l < 0.5) {
+		s = c / (2 * l);
+	} else
+	if (l >= 0.5 && l < 1.0) {
+		s = c / (2 * (1 - l));
+	}
+
+	return [hcg[0], s * 100, l * 100];
+};
+
+convert.hcg.hwb = function (hcg) {
+	const c = hcg[1] / 100;
+	const g = hcg[2] / 100;
+	const v = c + g * (1.0 - c);
+	return [hcg[0], (v - c) * 100, (1 - v) * 100];
+};
+
+convert.hwb.hcg = function (hwb) {
+	const w = hwb[1] / 100;
+	const b = hwb[2] / 100;
+	const v = 1 - b;
+	const c = v - w;
+	let g = 0;
+
+	if (c < 1) {
+		g = (v - c) / (1 - c);
+	}
+
+	return [hwb[0], c * 100, g * 100];
+};
+
+convert.apple.rgb = function (apple) {
+	return [(apple[0] / 65535) * 255, (apple[1] / 65535) * 255, (apple[2] / 65535) * 255];
+};
+
+convert.rgb.apple = function (rgb) {
+	return [(rgb[0] / 255) * 65535, (rgb[1] / 255) * 65535, (rgb[2] / 255) * 65535];
+};
+
+convert.gray.rgb = function (args) {
+	return [args[0] / 100 * 255, args[0] / 100 * 255, args[0] / 100 * 255];
+};
+
+convert.gray.hsl = function (args) {
+	return [0, 0, args[0]];
+};
+
+convert.gray.hsv = convert.gray.hsl;
+
+convert.gray.hwb = function (gray) {
+	return [0, 100, gray[0]];
+};
+
+convert.gray.cmyk = function (gray) {
+	return [0, 0, 0, gray[0]];
+};
+
+convert.gray.lab = function (gray) {
+	return [gray[0], 0, 0];
+};
+
+convert.gray.hex = function (gray) {
+	const val = Math.round(gray[0] / 100 * 255) & 0xFF;
+	const integer = (val << 16) + (val << 8) + val;
+
+	const string = integer.toString(16).toUpperCase();
+	return '000000'.substring(string.length) + string;
+};
+
+convert.rgb.gray = function (rgb) {
+	const val = (rgb[0] + rgb[1] + rgb[2]) / 3;
+	return [val / 255 * 100];
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/color-convert/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/color-convert/index.js ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const conversions = __webpack_require__(/*! ./conversions */ "./node_modules/color-convert/conversions.js");
+const route = __webpack_require__(/*! ./route */ "./node_modules/color-convert/route.js");
+
+const convert = {};
+
+const models = Object.keys(conversions);
+
+function wrapRaw(fn) {
+	const wrappedFn = function (...args) {
+		const arg0 = args[0];
+		if (arg0 === undefined || arg0 === null) {
+			return arg0;
+		}
+
+		if (arg0.length > 1) {
+			args = arg0;
+		}
+
+		return fn(args);
+	};
+
+	// Preserve .conversion property if there is one
+	if ('conversion' in fn) {
+		wrappedFn.conversion = fn.conversion;
+	}
+
+	return wrappedFn;
+}
+
+function wrapRounded(fn) {
+	const wrappedFn = function (...args) {
+		const arg0 = args[0];
+
+		if (arg0 === undefined || arg0 === null) {
+			return arg0;
+		}
+
+		if (arg0.length > 1) {
+			args = arg0;
+		}
+
+		const result = fn(args);
+
+		// We're assuming the result is an array here.
+		// see notice in conversions.js; don't use box types
+		// in conversion functions.
+		if (typeof result === 'object') {
+			for (let len = result.length, i = 0; i < len; i++) {
+				result[i] = Math.round(result[i]);
+			}
+		}
+
+		return result;
+	};
+
+	// Preserve .conversion property if there is one
+	if ('conversion' in fn) {
+		wrappedFn.conversion = fn.conversion;
+	}
+
+	return wrappedFn;
+}
+
+models.forEach(fromModel => {
+	convert[fromModel] = {};
+
+	Object.defineProperty(convert[fromModel], 'channels', {value: conversions[fromModel].channels});
+	Object.defineProperty(convert[fromModel], 'labels', {value: conversions[fromModel].labels});
+
+	const routes = route(fromModel);
+	const routeModels = Object.keys(routes);
+
+	routeModels.forEach(toModel => {
+		const fn = routes[toModel];
+
+		convert[fromModel][toModel] = wrapRounded(fn);
+		convert[fromModel][toModel].raw = wrapRaw(fn);
+	});
+});
+
+module.exports = convert;
+
+
+/***/ }),
+
+/***/ "./node_modules/color-convert/route.js":
+/*!*********************************************!*\
+  !*** ./node_modules/color-convert/route.js ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const conversions = __webpack_require__(/*! ./conversions */ "./node_modules/color-convert/conversions.js");
+
+/*
+	This function routes a model to all other models.
+
+	all functions that are routed have a property `.conversion` attached
+	to the returned synthetic function. This property is an array
+	of strings, each with the steps in between the 'from' and 'to'
+	color models (inclusive).
+
+	conversions that are not possible simply are not included.
+*/
+
+function buildGraph() {
+	const graph = {};
+	// https://jsperf.com/object-keys-vs-for-in-with-closure/3
+	const models = Object.keys(conversions);
+
+	for (let len = models.length, i = 0; i < len; i++) {
+		graph[models[i]] = {
+			// http://jsperf.com/1-vs-infinity
+			// micro-opt, but this is simple.
+			distance: -1,
+			parent: null
+		};
+	}
+
+	return graph;
+}
+
+// https://en.wikipedia.org/wiki/Breadth-first_search
+function deriveBFS(fromModel) {
+	const graph = buildGraph();
+	const queue = [fromModel]; // Unshift -> queue -> pop
+
+	graph[fromModel].distance = 0;
+
+	while (queue.length) {
+		const current = queue.pop();
+		const adjacents = Object.keys(conversions[current]);
+
+		for (let len = adjacents.length, i = 0; i < len; i++) {
+			const adjacent = adjacents[i];
+			const node = graph[adjacent];
+
+			if (node.distance === -1) {
+				node.distance = graph[current].distance + 1;
+				node.parent = current;
+				queue.unshift(adjacent);
+			}
+		}
+	}
+
+	return graph;
+}
+
+function link(from, to) {
+	return function (args) {
+		return to(from(args));
+	};
+}
+
+function wrapConversion(toModel, graph) {
+	const path = [graph[toModel].parent, toModel];
+	let fn = conversions[graph[toModel].parent][toModel];
+
+	let cur = graph[toModel].parent;
+	while (graph[cur].parent) {
+		path.unshift(graph[cur].parent);
+		fn = link(conversions[graph[cur].parent][cur], fn);
+		cur = graph[cur].parent;
+	}
+
+	fn.conversion = path;
+	return fn;
+}
+
+module.exports = function (fromModel) {
+	const graph = deriveBFS(fromModel);
+	const conversion = {};
+
+	const models = Object.keys(graph);
+	for (let len = models.length, i = 0; i < len; i++) {
+		const toModel = models[i];
+		const node = graph[toModel];
+
+		if (node.parent === null) {
+			// No possible conversion, or this node is the source model.
+			continue;
+		}
+
+		conversion[toModel] = wrapConversion(toModel, graph);
+	}
+
+	return conversion;
+};
+
+
+
+/***/ }),
+
+/***/ "./node_modules/color-name/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/color-name/index.js ***!
+  \******************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+module.exports = {
+	"aliceblue": [240, 248, 255],
+	"antiquewhite": [250, 235, 215],
+	"aqua": [0, 255, 255],
+	"aquamarine": [127, 255, 212],
+	"azure": [240, 255, 255],
+	"beige": [245, 245, 220],
+	"bisque": [255, 228, 196],
+	"black": [0, 0, 0],
+	"blanchedalmond": [255, 235, 205],
+	"blue": [0, 0, 255],
+	"blueviolet": [138, 43, 226],
+	"brown": [165, 42, 42],
+	"burlywood": [222, 184, 135],
+	"cadetblue": [95, 158, 160],
+	"chartreuse": [127, 255, 0],
+	"chocolate": [210, 105, 30],
+	"coral": [255, 127, 80],
+	"cornflowerblue": [100, 149, 237],
+	"cornsilk": [255, 248, 220],
+	"crimson": [220, 20, 60],
+	"cyan": [0, 255, 255],
+	"darkblue": [0, 0, 139],
+	"darkcyan": [0, 139, 139],
+	"darkgoldenrod": [184, 134, 11],
+	"darkgray": [169, 169, 169],
+	"darkgreen": [0, 100, 0],
+	"darkgrey": [169, 169, 169],
+	"darkkhaki": [189, 183, 107],
+	"darkmagenta": [139, 0, 139],
+	"darkolivegreen": [85, 107, 47],
+	"darkorange": [255, 140, 0],
+	"darkorchid": [153, 50, 204],
+	"darkred": [139, 0, 0],
+	"darksalmon": [233, 150, 122],
+	"darkseagreen": [143, 188, 143],
+	"darkslateblue": [72, 61, 139],
+	"darkslategray": [47, 79, 79],
+	"darkslategrey": [47, 79, 79],
+	"darkturquoise": [0, 206, 209],
+	"darkviolet": [148, 0, 211],
+	"deeppink": [255, 20, 147],
+	"deepskyblue": [0, 191, 255],
+	"dimgray": [105, 105, 105],
+	"dimgrey": [105, 105, 105],
+	"dodgerblue": [30, 144, 255],
+	"firebrick": [178, 34, 34],
+	"floralwhite": [255, 250, 240],
+	"forestgreen": [34, 139, 34],
+	"fuchsia": [255, 0, 255],
+	"gainsboro": [220, 220, 220],
+	"ghostwhite": [248, 248, 255],
+	"gold": [255, 215, 0],
+	"goldenrod": [218, 165, 32],
+	"gray": [128, 128, 128],
+	"green": [0, 128, 0],
+	"greenyellow": [173, 255, 47],
+	"grey": [128, 128, 128],
+	"honeydew": [240, 255, 240],
+	"hotpink": [255, 105, 180],
+	"indianred": [205, 92, 92],
+	"indigo": [75, 0, 130],
+	"ivory": [255, 255, 240],
+	"khaki": [240, 230, 140],
+	"lavender": [230, 230, 250],
+	"lavenderblush": [255, 240, 245],
+	"lawngreen": [124, 252, 0],
+	"lemonchiffon": [255, 250, 205],
+	"lightblue": [173, 216, 230],
+	"lightcoral": [240, 128, 128],
+	"lightcyan": [224, 255, 255],
+	"lightgoldenrodyellow": [250, 250, 210],
+	"lightgray": [211, 211, 211],
+	"lightgreen": [144, 238, 144],
+	"lightgrey": [211, 211, 211],
+	"lightpink": [255, 182, 193],
+	"lightsalmon": [255, 160, 122],
+	"lightseagreen": [32, 178, 170],
+	"lightskyblue": [135, 206, 250],
+	"lightslategray": [119, 136, 153],
+	"lightslategrey": [119, 136, 153],
+	"lightsteelblue": [176, 196, 222],
+	"lightyellow": [255, 255, 224],
+	"lime": [0, 255, 0],
+	"limegreen": [50, 205, 50],
+	"linen": [250, 240, 230],
+	"magenta": [255, 0, 255],
+	"maroon": [128, 0, 0],
+	"mediumaquamarine": [102, 205, 170],
+	"mediumblue": [0, 0, 205],
+	"mediumorchid": [186, 85, 211],
+	"mediumpurple": [147, 112, 219],
+	"mediumseagreen": [60, 179, 113],
+	"mediumslateblue": [123, 104, 238],
+	"mediumspringgreen": [0, 250, 154],
+	"mediumturquoise": [72, 209, 204],
+	"mediumvioletred": [199, 21, 133],
+	"midnightblue": [25, 25, 112],
+	"mintcream": [245, 255, 250],
+	"mistyrose": [255, 228, 225],
+	"moccasin": [255, 228, 181],
+	"navajowhite": [255, 222, 173],
+	"navy": [0, 0, 128],
+	"oldlace": [253, 245, 230],
+	"olive": [128, 128, 0],
+	"olivedrab": [107, 142, 35],
+	"orange": [255, 165, 0],
+	"orangered": [255, 69, 0],
+	"orchid": [218, 112, 214],
+	"palegoldenrod": [238, 232, 170],
+	"palegreen": [152, 251, 152],
+	"paleturquoise": [175, 238, 238],
+	"palevioletred": [219, 112, 147],
+	"papayawhip": [255, 239, 213],
+	"peachpuff": [255, 218, 185],
+	"peru": [205, 133, 63],
+	"pink": [255, 192, 203],
+	"plum": [221, 160, 221],
+	"powderblue": [176, 224, 230],
+	"purple": [128, 0, 128],
+	"rebeccapurple": [102, 51, 153],
+	"red": [255, 0, 0],
+	"rosybrown": [188, 143, 143],
+	"royalblue": [65, 105, 225],
+	"saddlebrown": [139, 69, 19],
+	"salmon": [250, 128, 114],
+	"sandybrown": [244, 164, 96],
+	"seagreen": [46, 139, 87],
+	"seashell": [255, 245, 238],
+	"sienna": [160, 82, 45],
+	"silver": [192, 192, 192],
+	"skyblue": [135, 206, 235],
+	"slateblue": [106, 90, 205],
+	"slategray": [112, 128, 144],
+	"slategrey": [112, 128, 144],
+	"snow": [255, 250, 250],
+	"springgreen": [0, 255, 127],
+	"steelblue": [70, 130, 180],
+	"tan": [210, 180, 140],
+	"teal": [0, 128, 128],
+	"thistle": [216, 191, 216],
+	"tomato": [255, 99, 71],
+	"turquoise": [64, 224, 208],
+	"violet": [238, 130, 238],
+	"wheat": [245, 222, 179],
+	"white": [255, 255, 255],
+	"whitesmoke": [245, 245, 245],
+	"yellow": [255, 255, 0],
+	"yellowgreen": [154, 205, 50]
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/colorToFilter/colorParser/colorParser.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/colorToFilter/colorParser/colorParser.js ***!
+  \****************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ColorParser = void 0;
+const regex_1 = __webpack_require__(/*! ../../shared/consts/regex */ "./node_modules/css-filter-converter/lib/shared/consts/regex.js");
+const errorHandling_1 = __webpack_require__(/*! ../../shared/functionality/errorHandling/errorHandling */ "./node_modules/css-filter-converter/lib/shared/functionality/errorHandling/errorHandling.js");
+const inputLimits_1 = __webpack_require__(/*! ../../shared/consts/inputLimits */ "./node_modules/css-filter-converter/lib/shared/consts/inputLimits.js");
+const colorFormats_1 = __webpack_require__(/*! ../../shared/consts/colorFormats */ "./node_modules/css-filter-converter/lib/shared/consts/colorFormats.js");
+const colorTypes_1 = __webpack_require__(/*! ../../shared/consts/colorTypes */ "./node_modules/css-filter-converter/lib/shared/consts/colorTypes.js");
+// eslint-disable-next-line import/no-extraneous-dependencies
+const color_name_1 = __importDefault(__webpack_require__(/*! color-name */ "./node_modules/color-name/index.js"));
+class ColorParser {
+    static validateAndParseHex(hexString) {
+        if (hexString.length < inputLimits_1.MAX_COLOR_INPUT_STRING_LENGTH) {
+            const isValid = hexString.match(regex_1.MATCH_HEXADECIMAL);
+            if (isValid)
+                return { color: hexString };
+        }
+        return { errorMessage: errorHandling_1.ErrorHandling.generateInputErrorMessage(colorTypes_1.ColorTypes.HEX, hexString, colorFormats_1.ColorFormats.HEX) };
+    }
+    // the reason why this is simply parsing the first three digits instead of the tailored format is because the number
+    // of variations of different inputs is very high. E.g. these are valid RGB values:
+    // rgb(1,2,3)
+    // rgb(1%,2%,3%)
+    // rgb(1,2,3,0.5)
+    // rgb(1 2 3 / 0.5)
+    // rgb(1 2 3 / 50%)
+    // Hence because the first three values are always consistent integers and the fourth is irrelevant, it is simpler to
+    // parse the first three integers and use them accordingly
+    static parseFirstThreeIntegersFromString(color) {
+        if (color.length < inputLimits_1.MAX_COLOR_INPUT_STRING_LENGTH) {
+            const regexResult = color.match(regex_1.MATCH_INTEGER_AND_FLOAT_NUMBERS);
+            regex_1.MATCH_INTEGER_AND_FLOAT_NUMBERS.lastIndex = 0;
+            if (regexResult && regexResult.length >= 3) {
+                return regexResult.slice(0, 3).map((numberString) => Number.parseInt(numberString));
+            }
+        }
+        return null;
+    }
+    static validateAndParseRgb(rgbString) {
+        const rgb = ColorParser.parseFirstThreeIntegersFromString(rgbString);
+        if (rgb && rgb[0] >= 0 && rgb[0] <= 255 && rgb[1] >= 0 && rgb[1] <= 255 && rgb[2] >= 0 && rgb[2] <= 255) {
+            return { color: rgb };
+        }
+        return { errorMessage: errorHandling_1.ErrorHandling.generateInputErrorMessage(colorTypes_1.ColorTypes.RGB, rgbString, colorFormats_1.ColorFormats.RGB) };
+    }
+    static validateAndParseHsl(hslString) {
+        const hsl = ColorParser.parseFirstThreeIntegersFromString(hslString);
+        if (hsl && hsl[0] >= 0 && hsl[0] <= 360 && hsl[1] >= 0 && hsl[1] <= 100 && hsl[2] >= 0 && hsl[2] <= 100) {
+            return { color: hsl };
+        }
+        return { errorMessage: errorHandling_1.ErrorHandling.generateInputErrorMessage(colorTypes_1.ColorTypes.HSL, hslString, colorFormats_1.ColorFormats.HSL) };
+    }
+    static validateAndParseKeyword(keyword) {
+        if (keyword.length < inputLimits_1.MAX_COLOR_INPUT_STRING_LENGTH) {
+            const isValid = color_name_1.default[keyword];
+            if (isValid)
+                return { color: keyword };
+        }
+        return { errorMessage: errorHandling_1.ErrorHandling.generateInputErrorMessage(colorTypes_1.ColorTypes.KEYWORD, keyword, colorFormats_1.ColorFormats.KEYWORD) };
+    }
+}
+exports.ColorParser = ColorParser;
+// There is a unique opportunity to validate the color input when this library operates in the browser
+// by creating a new element on the dom and adding the color to it to see if it is valid.
+// However it was decided not to use this approach as formats like hsl(1,2,3) are invalid in html elements.
+// Additionally, it can also be time consuming to create/find an element, adding color to it and validating
+// that color.
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/colorToFilter/colorToFilter.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/colorToFilter/colorToFilter.js ***!
+  \******************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ColorToFilter = void 0;
+const errorHandling_1 = __webpack_require__(/*! ../shared/functionality/errorHandling/errorHandling */ "./node_modules/css-filter-converter/lib/shared/functionality/errorHandling/errorHandling.js");
+const sheenUtil_1 = __webpack_require__(/*! ../shared/functionality/sheen/sheenUtil */ "./node_modules/css-filter-converter/lib/shared/functionality/sheen/sheenUtil.js");
+const colorTypes_1 = __webpack_require__(/*! ../shared/consts/colorTypes */ "./node_modules/css-filter-converter/lib/shared/consts/colorTypes.js");
+const rgbToFilter_1 = __webpack_require__(/*! ./rgbToFilter/rgbToFilter */ "./node_modules/css-filter-converter/lib/colorToFilter/rgbToFilter/rgbToFilter.js");
+const colorParser_1 = __webpack_require__(/*! ./colorParser/colorParser */ "./node_modules/css-filter-converter/lib/colorToFilter/colorParser/colorParser.js");
+const color_convert_1 = __importDefault(__webpack_require__(/*! color-convert */ "./node_modules/color-convert/index.js"));
+class ColorToFilter {
+    static rgbToFilter(rgbString, options) {
+        return rgbToFilter_1.RgbToFilter.convert({
+            colorString: rgbString,
+            validateAndParse: colorParser_1.ColorParser.validateAndParseRgb,
+            addSheen: sheenUtil_1.SheenUtil.parseSheenFromOptions(options),
+        });
+    }
+    static hexToFilter(hexString, options) {
+        return rgbToFilter_1.RgbToFilter.convert({
+            colorString: hexString,
+            validateAndParse: colorParser_1.ColorParser.validateAndParseHex,
+            convertToRgb: color_convert_1.default.hex.rgb,
+            addSheen: sheenUtil_1.SheenUtil.parseSheenFromOptions(options),
+        });
+    }
+    static hslToFilter(hslString, options) {
+        return rgbToFilter_1.RgbToFilter.convert({
+            colorString: hslString,
+            validateAndParse: colorParser_1.ColorParser.validateAndParseHsl,
+            convertToRgb: color_convert_1.default.hsl.rgb,
+            addSheen: sheenUtil_1.SheenUtil.parseSheenFromOptions(options),
+        });
+    }
+    static keywordToFilter(keyword, options) {
+        return rgbToFilter_1.RgbToFilter.convert({
+            colorString: keyword,
+            validateAndParse: colorParser_1.ColorParser.validateAndParseKeyword,
+            convertToRgb: color_convert_1.default.keyword.rgb,
+            conversionErrorMessage: errorHandling_1.ErrorHandling.generateInputErrorMessage(colorTypes_1.ColorTypes.KEYWORD, keyword),
+            addSheen: sheenUtil_1.SheenUtil.parseSheenFromOptions(options),
+        });
+    }
+}
+exports.ColorToFilter = ColorToFilter;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/colorToFilter/rgbToFilter/rgbColor.js":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/colorToFilter/rgbToFilter/rgbColor.js ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.RgbColor = void 0;
+class RgbColor {
+    constructor(rgb = [0, 0, 0]) {
+        this.r = this.clamp(rgb[0]);
+        this.g = this.clamp(rgb[1]);
+        this.b = this.clamp(rgb[2]);
+    }
+    clamp(value) {
+        if (value > 255) {
+            value = 255;
+        }
+        else if (value < 0) {
+            value = 0;
+        }
+        return value;
+    }
+    setRgb(r, g, b) {
+        this.r = this.clamp(r);
+        this.g = this.clamp(g);
+        this.b = this.clamp(b);
+    }
+    multiply(matrix) {
+        const newR = this.clamp(this.r * matrix[0] + this.g * matrix[1] + this.b * matrix[2]);
+        const newG = this.clamp(this.r * matrix[3] + this.g * matrix[4] + this.b * matrix[5]);
+        const newB = this.clamp(this.r * matrix[6] + this.g * matrix[7] + this.b * matrix[8]);
+        this.r = newR;
+        this.g = newG;
+        this.b = newB;
+    }
+    hueRotate(angle = 0) {
+        angle = (angle / 180) * Math.PI;
+        const sin = Math.sin(angle);
+        const cos = Math.cos(angle);
+        this.multiply([
+            0.213 + cos * 0.787 - sin * 0.213,
+            0.715 - cos * 0.715 - sin * 0.715,
+            0.072 - cos * 0.072 + sin * 0.928,
+            0.213 - cos * 0.213 + sin * 0.143,
+            0.715 + cos * 0.285 + sin * 0.14,
+            0.072 - cos * 0.072 - sin * 0.283,
+            0.213 - cos * 0.213 - sin * 0.787,
+            0.715 - cos * 0.715 + sin * 0.715,
+            0.072 + cos * 0.928 + sin * 0.072,
+        ]);
+    }
+    sepia(value = 1) {
+        this.multiply([
+            0.393 + 0.607 * (1 - value),
+            0.769 - 0.769 * (1 - value),
+            0.189 - 0.189 * (1 - value),
+            0.349 - 0.349 * (1 - value),
+            0.686 + 0.314 * (1 - value),
+            0.168 - 0.168 * (1 - value),
+            0.272 - 0.272 * (1 - value),
+            0.534 - 0.534 * (1 - value),
+            0.131 + 0.869 * (1 - value),
+        ]);
+    }
+    saturate(value = 1) {
+        this.multiply([
+            0.213 + 0.787 * value,
+            0.715 - 0.715 * value,
+            0.072 - 0.072 * value,
+            0.213 - 0.213 * value,
+            0.715 + 0.285 * value,
+            0.072 - 0.072 * value,
+            0.213 - 0.213 * value,
+            0.715 - 0.715 * value,
+            0.072 + 0.928 * value,
+        ]);
+    }
+    linear(slope = 1, intercept = 0) {
+        this.r = this.clamp(this.r * slope + intercept * 255);
+        this.g = this.clamp(this.g * slope + intercept * 255);
+        this.b = this.clamp(this.b * slope + intercept * 255);
+    }
+    brightness(value = 1) {
+        this.linear(value);
+    }
+    contrast(value = 1) {
+        this.linear(value, -(0.5 * value) + 0.5);
+    }
+    invert(value = 1) {
+        this.r = this.clamp((value + (this.r / 255) * (1 - 2 * value)) * 255);
+        this.g = this.clamp((value + (this.g / 255) * (1 - 2 * value)) * 255);
+        this.b = this.clamp((value + (this.b / 255) * (1 - 2 * value)) * 255);
+    }
+}
+exports.RgbColor = RgbColor;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/colorToFilter/rgbToFilter/rgbToFilter.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/colorToFilter/rgbToFilter/rgbToFilter.js ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.RgbToFilter = void 0;
+const errorHandling_1 = __webpack_require__(/*! ../../shared/functionality/errorHandling/errorHandling */ "./node_modules/css-filter-converter/lib/shared/functionality/errorHandling/errorHandling.js");
+const errors_1 = __webpack_require__(/*! ../../shared/consts/errors */ "./node_modules/css-filter-converter/lib/shared/consts/errors.js");
+const rgbToFilterWorker_1 = __webpack_require__(/*! ./rgbToFilterWorker */ "./node_modules/css-filter-converter/lib/colorToFilter/rgbToFilter/rgbToFilterWorker.js");
+const rgbColor_1 = __webpack_require__(/*! ./rgbColor */ "./node_modules/css-filter-converter/lib/colorToFilter/rgbToFilter/rgbColor.js");
+class RgbToFilter {
+    static generateConversionError(conversionErrorMessage) {
+        const errorMessage = conversionErrorMessage || errors_1.DEFAULT_CONVERSION_ERROR_MESSAGE;
+        return errorHandling_1.ErrorHandling.generateErrorResult(errorMessage);
+    }
+    static generateValidateAndParseError(errorMessage) {
+        return errorHandling_1.ErrorHandling.generateErrorResult(errorMessage);
+    }
+    static execute(rgb, addSheen) {
+        const rgbColor = new rgbColor_1.RgbColor(rgb);
+        const rgbToFilter = new rgbToFilterWorker_1.RgbToFilterWorker(rgbColor, addSheen);
+        return rgbToFilter.convert();
+    }
+    static convertToRGB(parseResultColor, convertToRgb) {
+        if (parseResultColor && convertToRgb) {
+            return convertToRgb(parseResultColor);
+        }
+        return null;
+    }
+    static convert(conversionProps) {
+        try {
+            const { colorString, validateAndParse, convertToRgb, conversionErrorMessage, addSheen } = conversionProps;
+            const trimmedString = colorString.trim().toLocaleLowerCase();
+            const parseResult = (validateAndParse === null || validateAndParse === void 0 ? void 0 : validateAndParse(trimmedString)) || { color: trimmedString };
+            if (errorHandling_1.ErrorHandling.hasError(parseResult))
+                return RgbToFilter.generateValidateAndParseError(parseResult.errorMessage);
+            const rgbColor = RgbToFilter.convertToRGB(parseResult.color, convertToRgb) || parseResult.color;
+            if (!rgbColor)
+                return RgbToFilter.generateConversionError(conversionErrorMessage);
+            return RgbToFilter.execute(rgbColor, addSheen);
+        }
+        catch (error) {
+            return errorHandling_1.ErrorHandling.generateUnexpectedError(error);
+        }
+    }
+}
+exports.RgbToFilter = RgbToFilter;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/colorToFilter/rgbToFilter/rgbToFilterWorker.js":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/colorToFilter/rgbToFilter/rgbToFilterWorker.js ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+// the code used within this class has been taken and modified from the following codepen owned by Barrett Sonntag:
+// https://codepen.io/sosuke/pen/Pjoqqp
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.RgbToFilterWorker = void 0;
+const sheenUtil_1 = __webpack_require__(/*! ../../shared/functionality/sheen/sheenUtil */ "./node_modules/css-filter-converter/lib/shared/functionality/sheen/sheenUtil.js");
+const rgbColor_1 = __webpack_require__(/*! ./rgbColor */ "./node_modules/css-filter-converter/lib/colorToFilter/rgbToFilter/rgbColor.js");
+class RgbToFilterWorker {
+    constructor(targetRgbColor, addSheen) {
+        this.targetRgbColor = targetRgbColor;
+        this.reusedRgbColor = new rgbColor_1.RgbColor();
+        this.addSheen = addSheen;
+    }
+    static fmt(filters, idx, multiplier = 1) {
+        return Math.round(filters[idx] * multiplier);
+    }
+    generateCss(filters) {
+        const prefix = this.addSheen ? `${sheenUtil_1.SheenUtil.SHEEN_FILTER_PREFIX} ` : '';
+        // prettier-ignore
+        // eslint-disable-next-line max-len
+        return `${prefix}invert(${RgbToFilterWorker.fmt(filters, 0)}%) sepia(${RgbToFilterWorker.fmt(filters, 1)}%) saturate(${RgbToFilterWorker.fmt(filters, 2)}%) hue-rotate(${RgbToFilterWorker.fmt(filters, 3, 3.6)}deg) brightness(${RgbToFilterWorker.fmt(filters, 4)}%) contrast(${RgbToFilterWorker.fmt(filters, 5)}%)`;
+    }
+    loss(filters) {
+        this.reusedRgbColor.setRgb(0, 0, 0);
+        this.reusedRgbColor.invert(filters[0] / 100);
+        this.reusedRgbColor.sepia(filters[1] / 100);
+        this.reusedRgbColor.saturate(filters[2] / 100);
+        this.reusedRgbColor.hueRotate(filters[3] * 3.6);
+        this.reusedRgbColor.brightness(filters[4] / 100);
+        this.reusedRgbColor.contrast(filters[5] / 100);
+        return (Math.abs(this.reusedRgbColor.r - this.targetRgbColor.r) +
+            Math.abs(this.reusedRgbColor.g - this.targetRgbColor.g) +
+            Math.abs(this.reusedRgbColor.b - this.targetRgbColor.b));
+    }
+    static fixSpsa(value, idx) {
+        let max = 100;
+        if (idx === 2 /* saturate */) {
+            max = 7500;
+        }
+        else if (idx === 4 /* brightness */ || idx === 5 /* contrast */) {
+            max = 200;
+        }
+        if (idx === 3 /* hue-rotate */) {
+            if (value > max) {
+                value %= max;
+            }
+            else if (value < 0) {
+                value = max + (value % max);
+            }
+        }
+        else if (value < 0) {
+            value = 0;
+        }
+        else if (value > max) {
+            value = max;
+        }
+        return value;
+    }
+    spsa(A, a, c, values, iters) {
+        const alpha = 1;
+        const gamma = 0.16666666666666666;
+        let best = [];
+        let bestLoss = Infinity;
+        const deltas = new Array(6);
+        const highArgs = new Array(6);
+        const lowArgs = new Array(6);
+        for (let k = 0; k < iters; k += 1) {
+            const ck = c / Math.pow(k + 1, gamma);
+            for (let i = 0; i < 6; i += 1) {
+                deltas[i] = Math.random() > 0.5 ? 1 : -1;
+                highArgs[i] = values[i] + ck * deltas[i];
+                lowArgs[i] = values[i] - ck * deltas[i];
+            }
+            const lossDiff = this.loss(highArgs) - this.loss(lowArgs);
+            for (let i = 0; i < 6; i += 1) {
+                const g = (lossDiff / (2 * ck)) * deltas[i];
+                const ak = a[i] / Math.pow(A + k + 1, alpha);
+                values[i] = RgbToFilterWorker.fixSpsa(values[i] - ak * g, i);
+            }
+            const loss = this.loss(values);
+            if (loss < bestLoss) {
+                best = values.slice(0);
+                bestLoss = loss;
+            }
+        }
+        return { values: best, loss: bestLoss };
+    }
+    solveNarrow(wide) {
+        const A = wide.loss;
+        const c = 2;
+        const A1 = A + 1;
+        const a = [0.25 * A1, 0.25 * A1, A1, 0.25 * A1, 0.2 * A1, 0.2 * A1];
+        return this.spsa(A, a, c, wide.values, 500);
+    }
+    solveWide() {
+        const A = 5;
+        const c = 15;
+        const a = [60, 180, 18000, 600, 1.2, 1.2];
+        let best = { values: [], loss: Infinity };
+        for (let i = 0; best.loss > 25 && i < 3; i += 1) {
+            const initial = [50, 20, 3750, 50, 100, 100];
+            const result = this.spsa(A, a, c, initial, 1000);
+            if (result.loss < best.loss) {
+                best = result;
+            }
+        }
+        return best;
+    }
+    convert() {
+        const result = this.solveNarrow(this.solveWide());
+        return {
+            loss: result.loss,
+            color: this.generateCss(result.values),
+        };
+    }
+}
+exports.RgbToFilterWorker = RgbToFilterWorker;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/filterToColor/filterToColor.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/filterToColor/filterToColor.js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FilterToColor = void 0;
+const filterToHex_1 = __webpack_require__(/*! ./filterToHex/filterToHex */ "./node_modules/css-filter-converter/lib/filterToColor/filterToHex/filterToHex.js");
+const hexToColor_1 = __webpack_require__(/*! ./hexToColor/hexToColor */ "./node_modules/css-filter-converter/lib/filterToColor/hexToColor/hexToColor.js");
+class FilterToColor {
+    static async filterToHex(filterString) {
+        const result = await filterToHex_1.FilterToHex.convert(filterString);
+        if (result.color)
+            result.color = result.color.toUpperCase();
+        return result;
+    }
+    static async filterToRgb(filterString, options) {
+        return filterToHex_1.FilterToHex.convert(filterString, hexToColor_1.HexToColor.convertToRgb, options);
+    }
+    static async filterToHsl(filterString, options) {
+        return filterToHex_1.FilterToHex.convert(filterString, hexToColor_1.HexToColor.convertToHsl, options);
+    }
+}
+exports.FilterToColor = FilterToColor;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/filterToColor/filterToHex/filterToHex.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/filterToColor/filterToHex/filterToHex.js ***!
+  \****************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FilterToHex = void 0;
+const errorHandling_1 = __webpack_require__(/*! ../../shared/functionality/errorHandling/errorHandling */ "./node_modules/css-filter-converter/lib/shared/functionality/errorHandling/errorHandling.js");
+const browser_1 = __webpack_require__(/*! ./workers/browser */ "./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers/browser.js");
+class FilterToHex {
+    static async convert(filterString, convertFromHex, options) {
+        try {
+            let result;
+            if (typeof window === 'undefined') {
+                const { FilterToHexNode } = await Promise.resolve().then(() => __importStar(__webpack_require__(/*! ./workers/node */ "./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers/node.js")));
+                result = await FilterToHexNode.convert(filterString);
+            }
+            else {
+                result = await browser_1.FilterToHexBrowser.convert(filterString);
+            }
+            if (result.color && convertFromHex && typeof result.color === 'string') {
+                result.color = convertFromHex(result.color, options);
+            }
+            return result;
+        }
+        catch (error) {
+            return errorHandling_1.ErrorHandling.generateUnexpectedError(error);
+        }
+    }
+}
+exports.FilterToHex = FilterToHex;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers/browser.js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers/browser.js ***!
+  \********************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FilterToHexBrowser = void 0;
+const errorHandling_1 = __webpack_require__(/*! ../../../shared/functionality/errorHandling/errorHandling */ "./node_modules/css-filter-converter/lib/shared/functionality/errorHandling/errorHandling.js");
+const shared_1 = __webpack_require__(/*! ./shared */ "./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers/shared.js");
+class FilterToHexBrowser extends shared_1.FilterToHexShared {
+    static cleanup(svgContainerElement) {
+        svgContainerElement.remove();
+    }
+    static returnInputError(filterString, svgContainerElement) {
+        const errorMessage = shared_1.FilterToHexShared.generateInputErrorMessage(filterString);
+        const errorResult = errorHandling_1.ErrorHandling.generateErrorResult(errorMessage);
+        FilterToHexBrowser.cleanup(svgContainerElement);
+        return errorResult;
+    }
+    static async getImageBase64ViaSVG(svgContainerElement) {
+        const domToImage = (await Promise.resolve().then(() => __importStar(__webpack_require__(/*! dom-to-image */ "./node_modules/dom-to-image/src/dom-to-image.js"))));
+        return domToImage.toPng(svgContainerElement);
+    }
+    static async convert(filterString) {
+        const { errorMessage, svgContainerElement } = shared_1.FilterToHexShared.addSVGElementsToDOMAndValidateFilter(filterString);
+        if (errorMessage)
+            return FilterToHexBrowser.returnInputError(filterString, svgContainerElement);
+        const base64EncodedDataURL = await FilterToHexBrowser.getImageBase64ViaSVG(svgContainerElement);
+        const hexColor = await shared_1.FilterToHexShared.getColorViaImageDataURL(base64EncodedDataURL);
+        FilterToHexBrowser.cleanup(svgContainerElement);
+        return { color: hexColor };
+    }
+}
+exports.FilterToHexBrowser = FilterToHexBrowser;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers/node.js":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers/node.js ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FilterToHexNode = void 0;
+const errorHandling_1 = __webpack_require__(/*! ../../../shared/functionality/errorHandling/errorHandling */ "./node_modules/css-filter-converter/lib/shared/functionality/errorHandling/errorHandling.js");
+const errors_1 = __webpack_require__(/*! ../../../shared/consts/errors */ "./node_modules/css-filter-converter/lib/shared/consts/errors.js");
+const colorFormats_1 = __webpack_require__(/*! ../../../shared/consts/colorFormats */ "./node_modules/css-filter-converter/lib/shared/consts/colorFormats.js");
+const colorTypes_1 = __webpack_require__(/*! ../../../shared/consts/colorTypes */ "./node_modules/css-filter-converter/lib/shared/consts/colorTypes.js");
+const shared_1 = __webpack_require__(/*! ./shared */ "./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers/shared.js");
+class FilterToHexNode extends shared_1.FilterToHexShared {
+    static cleanup(browser) {
+        if (FilterToHexNode.IS_HEADLESS)
+            browser === null || browser === void 0 ? void 0 : browser.close();
+    }
+    static returnError(errorMsg, browser) {
+        const errorResult = errorHandling_1.ErrorHandling.generateErrorResult(errorMsg);
+        FilterToHexNode.cleanup(browser);
+        return errorResult;
+    }
+    static async getImageBase64ViaSVG(page) {
+        const endodedScreenshotData = await page.screenshot({ encoding: FilterToHexNode.BASE_64_ENCODING });
+        return `${FilterToHexNode.ENCODED_DATA_URL_PREFIX}${endodedScreenshotData}`;
+    }
+    static async openBrowserPage(browser) {
+        const page = await browser.newPage();
+        await page.setViewport({
+            width: FilterToHexNode.SVG_SIDE_LENGTH_PX,
+            height: FilterToHexNode.SVG_SIDE_LENGTH_PX,
+        });
+        return page;
+    }
+    static async addSVGAndValidateFilter(page, filterString) {
+        const svgAddResult = await page.evaluate(shared_1.FilterToHexShared.addSVGElementsToDOMAndValidateFilter, filterString, FilterToHexNode.SVG_SIDE_LENGTH_PX);
+        if (svgAddResult.errorMessage) {
+            return {
+                errorMessage: errorHandling_1.ErrorHandling.generateInputErrorMessage(colorTypes_1.ColorTypes.FILTER, filterString, colorFormats_1.ColorFormats.FILTER),
+            };
+        }
+        return svgAddResult;
+    }
+    static async getPuppeteerDependency() {
+        try {
+            // this is used to prevent tsc from evaluating the puppeteer module by adding dynamicity to the require path
+            const pathPadding = '';
+            // eslint-disable-next-line prefer-template
+            return __webpack_require__("./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers sync recursive ^puppeteer.*$")("puppeteer" + pathPadding);
+        }
+        catch (e) {
+            return { errorMessage: errors_1.MUST_INSTALL_PUPPETEER };
+        }
+    }
+    static async preparePuppeteerBrowser() {
+        const puppeteer = await FilterToHexNode.getPuppeteerDependency();
+        if (errorHandling_1.ErrorHandling.hasError(puppeteer))
+            return puppeteer;
+        return puppeteer.launch({ headless: FilterToHexNode.IS_HEADLESS });
+    }
+    // puppeteer versions higher than 6.0.0 have a bug where the view blinks when taking a screnshot of a specific
+    // element, hence in order to not have to force the user to install a specific version of puppeteer (especially if
+    // they are already using it for another use-case), the logic here is configured to reduce the viewport to the svg
+    // size and then proceed to take a screenshot of the viewport via the page.screenshot api
+    static async convert(filterString) {
+        const browser = await FilterToHexNode.preparePuppeteerBrowser();
+        if (errorHandling_1.ErrorHandling.hasError(browser))
+            return FilterToHexNode.returnError(browser.errorMessage);
+        const page = await FilterToHexNode.openBrowserPage(browser);
+        const addSvgResult = await FilterToHexNode.addSVGAndValidateFilter(page, filterString);
+        if (errorHandling_1.ErrorHandling.hasError(addSvgResult))
+            return FilterToHexNode.returnError(addSvgResult.errorMessage, browser);
+        const base64EncodedDataURL = await FilterToHexNode.getImageBase64ViaSVG(page);
+        const hexColor = await page.evaluate(shared_1.FilterToHexShared.getColorViaImageDataURL, base64EncodedDataURL);
+        FilterToHexNode.cleanup(browser);
+        return { color: hexColor };
+    }
+}
+exports.FilterToHexNode = FilterToHexNode;
+FilterToHexNode.BASE_64_ENCODING = 'base64';
+FilterToHexNode.ENCODED_DATA_URL_PREFIX = `data:image/png;${FilterToHexNode.BASE_64_ENCODING},`;
+FilterToHexNode.IS_HEADLESS = true;
+// 1px SVG/viewport length is not enough to take a screenshot when headless mode is off, hence it is set to 2px
+FilterToHexNode.SVG_SIDE_LENGTH_PX = 2;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers/shared.js":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers/shared.js ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FilterToHexShared = void 0;
+const errorHandling_1 = __webpack_require__(/*! ../../../shared/functionality/errorHandling/errorHandling */ "./node_modules/css-filter-converter/lib/shared/functionality/errorHandling/errorHandling.js");
+const colorFormats_1 = __webpack_require__(/*! ../../../shared/consts/colorFormats */ "./node_modules/css-filter-converter/lib/shared/consts/colorFormats.js");
+const colorTypes_1 = __webpack_require__(/*! ../../../shared/consts/colorTypes */ "./node_modules/css-filter-converter/lib/shared/consts/colorTypes.js");
+class FilterToHexShared {
+    static generateInputErrorMessage(filterString) {
+        return errorHandling_1.ErrorHandling.generateInputErrorMessage(colorTypes_1.ColorTypes.FILTER, filterString, colorFormats_1.ColorFormats.FILTER);
+    }
+    // functions are encapsulated within a single method in order to allow them to be executed within the same context
+    // of the puppeteer evaluate method
+    static addSVGElementsToDOMAndValidateFilter(filterString, svgSideLength = 1) {
+        function createSVGElement() {
+            const xmlns = 'http://www.w3.org/2000/svg';
+            const svgElement = document.createElementNS(xmlns, 'svg');
+            svgElement.style.height = 'inherit';
+            svgElement.style.width = 'inherit';
+            svgElement.style.float = 'left';
+            svgElement.style.filter = filterString;
+            const rect = document.createElementNS(xmlns, 'rect');
+            rect.setAttributeNS(null, 'width', svgSideLength.toString());
+            rect.setAttributeNS(null, 'height', svgSideLength.toString());
+            svgElement.appendChild(rect);
+            return svgElement;
+        }
+        function createSVGContainerElement() {
+            const svgContainerElement = document.createElement('div');
+            svgContainerElement.style.height = `${svgSideLength}px`;
+            svgContainerElement.style.width = `${svgSideLength}px`;
+            svgContainerElement.style.position = 'absolute';
+            svgContainerElement.style.top = '0px';
+            svgContainerElement.style.left = '0px';
+            return svgContainerElement;
+        }
+        const svgContainerElement = createSVGContainerElement();
+        const svgElement = createSVGElement();
+        if (svgElement.style.filter === '')
+            return { errorMessage: 'error indicator', svgContainerElement };
+        svgContainerElement.appendChild(svgElement);
+        document.body.appendChild(svgContainerElement);
+        return { svgContainerElement };
+    }
+    // functions are encapsulated within a single method in order to allow them to be executed within the same context
+    // of the puppeteer evaluate method
+    static async getColorViaImageDataURL(base64EncodedDataURL) {
+        function rgbToHex(r, g, b) {
+            if (r > 255 || g > 255 || b > 255)
+                throw new Error('Invalid color component');
+            return ((r << 16) | (g << 8) | b).toString(16);
+        }
+        function getData(canvasElement) {
+            const canvasStartCoordinate = 0;
+            const canvasFinalCoordinate = canvasElement.width;
+            return canvasElement.getContext('2d').getImageData(canvasStartCoordinate, canvasStartCoordinate, canvasFinalCoordinate, canvasFinalCoordinate).data;
+        }
+        function getCanvasHexColor(canvasElement) {
+            const data = getData(canvasElement);
+            const hex = rgbToHex(data[0], data[1], data[2]);
+            return `#${`000000${hex}`.slice(-6)}`;
+        }
+        function createCanvasElement(imageElement) {
+            const canvasElement = document.createElement('canvas');
+            canvasElement.width = imageElement.width;
+            canvasElement.height = imageElement.height;
+            canvasElement.getContext('2d').drawImage(imageElement, 0, 0, imageElement.width, imageElement.height);
+            return canvasElement;
+        }
+        async function createImage() {
+            const imageElement = new Image();
+            imageElement.src = base64EncodedDataURL;
+            return new Promise((resolve) => {
+                setTimeout(() => resolve(imageElement));
+            });
+        }
+        const imageElement = await createImage();
+        const canvasElement = createCanvasElement(imageElement);
+        return getCanvasHexColor(canvasElement);
+    }
+}
+exports.FilterToHexShared = FilterToHexShared;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers sync recursive ^puppeteer.*$":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers/ sync ^puppeteer.*$ ***!
+  \*****************************************************************************************************/
+/***/ ((module) => {
+
+function webpackEmptyContext(req) {
+	var e = new Error("Cannot find module '" + req + "'");
+	e.code = 'MODULE_NOT_FOUND';
+	throw e;
+}
+webpackEmptyContext.keys = () => ([]);
+webpackEmptyContext.resolve = webpackEmptyContext;
+webpackEmptyContext.id = "./node_modules/css-filter-converter/lib/filterToColor/filterToHex/workers sync recursive ^puppeteer.*$";
+module.exports = webpackEmptyContext;
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/filterToColor/hexToColor/hexToColor.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/filterToColor/hexToColor/hexToColor.js ***!
+  \**************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.HexToColor = void 0;
+const colorFormatter_1 = __webpack_require__(/*! ../../shared/functionality/colorFormatter/colorFormatter */ "./node_modules/css-filter-converter/lib/shared/functionality/colorFormatter/colorFormatter.js");
+const color_convert_1 = __importDefault(__webpack_require__(/*! color-convert */ "./node_modules/color-convert/index.js"));
+class HexToColor {
+    static convertToRgb(color, options) {
+        const result = color_convert_1.default.hex.rgb(color);
+        return (options === null || options === void 0 ? void 0 : options.resultType) === 'string' ? colorFormatter_1.ColorFormatter.arrayToRgbString(result) : result;
+    }
+    static convertToHsl(color, options) {
+        const result = color_convert_1.default.hex.hsl(color);
+        return (options === null || options === void 0 ? void 0 : options.resultType) === 'string' ? colorFormatter_1.ColorFormatter.arrayToHslString(result) : result;
+    }
+}
+exports.HexToColor = HexToColor;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/index.js ***!
+  \********************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const colorToFilter_1 = __webpack_require__(/*! ./colorToFilter/colorToFilter */ "./node_modules/css-filter-converter/lib/colorToFilter/colorToFilter.js");
+const filterToColor_1 = __webpack_require__(/*! ./filterToColor/filterToColor */ "./node_modules/css-filter-converter/lib/filterToColor/filterToColor.js");
+class CssFilterConverter {
+    static rgbToFilter(rgbString, options) {
+        return colorToFilter_1.ColorToFilter.rgbToFilter(rgbString, options);
+    }
+    static hexToFilter(hexString, options) {
+        return colorToFilter_1.ColorToFilter.hexToFilter(hexString, options);
+    }
+    static hslToFilter(hslString, options) {
+        return colorToFilter_1.ColorToFilter.hslToFilter(hslString, options);
+    }
+    static keywordToFilter(keyword, options) {
+        return colorToFilter_1.ColorToFilter.keywordToFilter(keyword, options);
+    }
+    static async filterToHex(filterString) {
+        return filterToColor_1.FilterToColor.filterToHex(filterString);
+    }
+    static async filterToRgb(filterString, options) {
+        return filterToColor_1.FilterToColor.filterToRgb(filterString, options);
+    }
+    static async filterToHsl(filterString, options) {
+        return filterToColor_1.FilterToColor.filterToHsl(filterString, options);
+    }
+}
+exports["default"] = CssFilterConverter;
+module.exports = CssFilterConverter;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/shared/consts/colorFormats.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/shared/consts/colorFormats.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ColorFormats = void 0;
+var ColorFormats;
+(function (ColorFormats) {
+    ColorFormats["HEX"] = "#ffffff or #fff";
+    ColorFormats["RGB"] = "rgb([0-255], [0-255], [0-255]) or rgb([0-255], [0-255], [0-255], [0-1]) or rgb([0-100%], [0-100%], [0-100%]) or rgb([0-100%], [0-100%], [0-100%], [0-100%]) or [0-255], [0-255], [0-255] or [0-255] [0-255] [0-255]";
+    ColorFormats["HSL"] = "hsl([0-360], [0-100], [0-100]) or hsl([0-360], [0-100%], [0-100%]) or [0-360], [0-100], [0-100] or [0-360] [0-100] [0-100]";
+    ColorFormats["FILTER"] = "blur(), brightness(), contrast(), drop-shadow(), grayscale(), hue-rotate(), invert(), saturate(), sepia() with each parameter populated with %, px or deg where approriate e.g. contrast(101%)";
+    ColorFormats["KEYWORD"] = "Generic color string. See the following link for all available colors: https://github.com/colorjs/color-name/blob/master/index.js";
+})(ColorFormats = exports.ColorFormats || (exports.ColorFormats = {}));
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/shared/consts/colorTypes.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/shared/consts/colorTypes.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ColorTypes = void 0;
+var ColorTypes;
+(function (ColorTypes) {
+    ColorTypes["HEX"] = "hex";
+    ColorTypes["RGB"] = "rgb";
+    ColorTypes["HSL"] = "hsl";
+    ColorTypes["KEYWORD"] = "keyword";
+    ColorTypes["FILTER"] = "filter";
+})(ColorTypes = exports.ColorTypes || (exports.ColorTypes = {}));
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/shared/consts/errors.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/shared/consts/errors.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+// if there are too many new issues being created, change the below variables to the following:
+// export const UNEXPECTED_ERROR_MESSAGE_PREFIX =
+//   'Unexpected error has occurred, please report this by creating a new issue in the following link: ';
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.MUST_INSTALL_PUPPETEER = exports.DEFAULT_CONVERSION_ERROR_MESSAGE = exports.UNEXPECTED_ERROR_MESSAGE_INTRODUCTION = exports.UNEXPECTED_ERROR_MESSAGE_LINK = exports.UNEXPECTED_ERROR_MESSAGE_PREFIX = void 0;
+// export const UNEXPECTED_ERROR_MESSAGE_LINK = 'https://github.com/OvidijusParsiunas/css-filter-converter/issues';
+exports.UNEXPECTED_ERROR_MESSAGE_PREFIX = 'Unexpected error has occurred, please report this by using the following link: ';
+exports.UNEXPECTED_ERROR_MESSAGE_LINK = 'https://github.com/OvidijusParsiunas/css-filter-converter/issues/new';
+exports.UNEXPECTED_ERROR_MESSAGE_INTRODUCTION = exports.UNEXPECTED_ERROR_MESSAGE_PREFIX + exports.UNEXPECTED_ERROR_MESSAGE_LINK;
+exports.DEFAULT_CONVERSION_ERROR_MESSAGE = 'Input value is invalid';
+exports.MUST_INSTALL_PUPPETEER = "To convert filter values to color in Node - you will first need to install 'puppeteer' by running:" +
+    ' \n npm install puppeteer';
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/shared/consts/inputLimits.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/shared/consts/inputLimits.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.MAX_COLOR_INPUT_STRING_LENGTH = void 0;
+// this is used to prevent regex matcher from evaluating a long string that can be assumed to be incorrect
+// currently not applied to filter
+exports.MAX_COLOR_INPUT_STRING_LENGTH = 25;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/shared/consts/regex.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/shared/consts/regex.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.MATCH_HEXADECIMAL = exports.MATCH_INTEGER_AND_FLOAT_NUMBERS = void 0;
+exports.MATCH_INTEGER_AND_FLOAT_NUMBERS = /(-?\d+(?:\.\d+)?)/g;
+exports.MATCH_HEXADECIMAL = /^#[0-9a-f]{3}([0-9a-f]{3})?$/i;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/shared/functionality/colorFormatter/colorFormatter.js":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/shared/functionality/colorFormatter/colorFormatter.js ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ColorFormatter = void 0;
+class ColorFormatter {
+    static arrayToRgbString(rgbArray) {
+        return `rgb(${rgbArray[0]}, ${rgbArray[1]}, ${rgbArray[2]})`;
+    }
+    static arrayToHslString(hslArray) {
+        return `hsl(${hslArray[0]}deg, ${hslArray[1]}%, ${hslArray[2]}%)`;
+    }
+}
+exports.ColorFormatter = ColorFormatter;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/shared/functionality/errorHandling/errorHandling.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/shared/functionality/errorHandling/errorHandling.js ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ErrorHandling = void 0;
+const errors_1 = __webpack_require__(/*! ../../consts/errors */ "./node_modules/css-filter-converter/lib/shared/consts/errors.js");
+class ErrorHandling {
+    static generateErrorResult(message) {
+        return { color: null, error: { message } };
+    }
+    static generateInputErrorMessage(colorType, colorString, format) {
+        const errorPrefix = `Input ${colorType} color string could not be parsed.`;
+        const actualStringReceived = `String received: ${colorString}.`;
+        const messageStrings = [errorPrefix, actualStringReceived];
+        if (format) {
+            const expectedFormat = `Expected format: ${format}.`;
+            messageStrings.splice(1, 0, expectedFormat);
+        }
+        return messageStrings.join(' ');
+    }
+    static generateUnexpectedError(error) {
+        const errorMessage = `${errors_1.UNEXPECTED_ERROR_MESSAGE_INTRODUCTION}: \n${error.message}`;
+        return ErrorHandling.generateErrorResult(errorMessage);
+    }
+    static hasError(param) {
+        return !!param.errorMessage;
+    }
+}
+exports.ErrorHandling = ErrorHandling;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-filter-converter/lib/shared/functionality/sheen/sheenUtil.js":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/css-filter-converter/lib/shared/functionality/sheen/sheenUtil.js ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SheenUtil = void 0;
+class SheenUtil {
+    static parseSheenFromOptions(options) {
+        if (options) {
+            if (typeof options.sheen === 'boolean')
+                return options.sheen;
+        }
+        return true;
+    }
+}
+exports.SheenUtil = SheenUtil;
+SheenUtil.SHEEN_FILTER_PREFIX = 'brightness(0) saturate(100%)';
+
+
+/***/ }),
 
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/classes.css":
 /*!***************************************************************!*\
@@ -8,6 +2247,7 @@
   \***************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -144,6 +2384,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.border {
   \**************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -176,6 +2417,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
   \**************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -322,6 +2564,7 @@ button#openListModal {
   \**************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -352,6 +2595,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `header {
   \************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -504,6 +2748,7 @@ article > div {
   \*****************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /*
@@ -598,6 +2843,7 @@ module.exports = function (cssWithMappingToString) {
   \************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 module.exports = function (item) {
@@ -617,12 +2863,792 @@ module.exports = function (item) {
 
 /***/ }),
 
+/***/ "./node_modules/dom-to-image/src/dom-to-image.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/dom-to-image/src/dom-to-image.js ***!
+  \*******************************************************/
+/***/ (function(module) {
+
+(function (global) {
+    'use strict';
+
+    var util = newUtil();
+    var inliner = newInliner();
+    var fontFaces = newFontFaces();
+    var images = newImages();
+
+    // Default impl options
+    var defaultOptions = {
+        // Default is to fail on error, no placeholder
+        imagePlaceholder: undefined,
+        // Default cache bust is false, it will use the cache
+        cacheBust: false
+    };
+
+    var domtoimage = {
+        toSvg: toSvg,
+        toPng: toPng,
+        toJpeg: toJpeg,
+        toBlob: toBlob,
+        toPixelData: toPixelData,
+        impl: {
+            fontFaces: fontFaces,
+            images: images,
+            util: util,
+            inliner: inliner,
+            options: {}
+        }
+    };
+
+    if (true)
+        module.exports = domtoimage;
+    else
+        {}
+
+
+    /**
+     * @param {Node} node - The DOM Node object to render
+     * @param {Object} options - Rendering options
+     * @param {Function} options.filter - Should return true if passed node should be included in the output
+     *          (excluding node means excluding it's children as well). Not called on the root node.
+     * @param {String} options.bgcolor - color for the background, any valid CSS color value.
+     * @param {Number} options.width - width to be applied to node before rendering.
+     * @param {Number} options.height - height to be applied to node before rendering.
+     * @param {Object} options.style - an object whose properties to be copied to node's style before rendering.
+     * @param {Number} options.quality - a Number between 0 and 1 indicating image quality (applicable to JPEG only),
+                defaults to 1.0.
+     * @param {String} options.imagePlaceholder - dataURL to use as a placeholder for failed images, default behaviour is to fail fast on images we can't fetch
+     * @param {Boolean} options.cacheBust - set to true to cache bust by appending the time to the request url
+     * @return {Promise} - A promise that is fulfilled with a SVG image data URL
+     * */
+    function toSvg(node, options) {
+        options = options || {};
+        copyOptions(options);
+        return Promise.resolve(node)
+            .then(function (node) {
+                return cloneNode(node, options.filter, true);
+            })
+            .then(embedFonts)
+            .then(inlineImages)
+            .then(applyOptions)
+            .then(function (clone) {
+                return makeSvgDataUri(clone,
+                    options.width || util.width(node),
+                    options.height || util.height(node)
+                );
+            });
+
+        function applyOptions(clone) {
+            if (options.bgcolor) clone.style.backgroundColor = options.bgcolor;
+
+            if (options.width) clone.style.width = options.width + 'px';
+            if (options.height) clone.style.height = options.height + 'px';
+
+            if (options.style)
+                Object.keys(options.style).forEach(function (property) {
+                    clone.style[property] = options.style[property];
+                });
+
+            return clone;
+        }
+    }
+
+    /**
+     * @param {Node} node - The DOM Node object to render
+     * @param {Object} options - Rendering options, @see {@link toSvg}
+     * @return {Promise} - A promise that is fulfilled with a Uint8Array containing RGBA pixel data.
+     * */
+    function toPixelData(node, options) {
+        return draw(node, options || {})
+            .then(function (canvas) {
+                return canvas.getContext('2d').getImageData(
+                    0,
+                    0,
+                    util.width(node),
+                    util.height(node)
+                ).data;
+            });
+    }
+
+    /**
+     * @param {Node} node - The DOM Node object to render
+     * @param {Object} options - Rendering options, @see {@link toSvg}
+     * @return {Promise} - A promise that is fulfilled with a PNG image data URL
+     * */
+    function toPng(node, options) {
+        return draw(node, options || {})
+            .then(function (canvas) {
+                return canvas.toDataURL();
+            });
+    }
+
+    /**
+     * @param {Node} node - The DOM Node object to render
+     * @param {Object} options - Rendering options, @see {@link toSvg}
+     * @return {Promise} - A promise that is fulfilled with a JPEG image data URL
+     * */
+    function toJpeg(node, options) {
+        options = options || {};
+        return draw(node, options)
+            .then(function (canvas) {
+                return canvas.toDataURL('image/jpeg', options.quality || 1.0);
+            });
+    }
+
+    /**
+     * @param {Node} node - The DOM Node object to render
+     * @param {Object} options - Rendering options, @see {@link toSvg}
+     * @return {Promise} - A promise that is fulfilled with a PNG image blob
+     * */
+    function toBlob(node, options) {
+        return draw(node, options || {})
+            .then(util.canvasToBlob);
+    }
+
+    function copyOptions(options) {
+        // Copy options to impl options for use in impl
+        if(typeof(options.imagePlaceholder) === 'undefined') {
+            domtoimage.impl.options.imagePlaceholder = defaultOptions.imagePlaceholder;
+        } else {
+            domtoimage.impl.options.imagePlaceholder = options.imagePlaceholder;
+        }
+
+        if(typeof(options.cacheBust) === 'undefined') {
+            domtoimage.impl.options.cacheBust = defaultOptions.cacheBust;
+        } else {
+            domtoimage.impl.options.cacheBust = options.cacheBust;
+        }
+    }
+
+    function draw(domNode, options) {
+        return toSvg(domNode, options)
+            .then(util.makeImage)
+            .then(util.delay(100))
+            .then(function (image) {
+                var canvas = newCanvas(domNode);
+                canvas.getContext('2d').drawImage(image, 0, 0);
+                return canvas;
+            });
+
+        function newCanvas(domNode) {
+            var canvas = document.createElement('canvas');
+            canvas.width = options.width || util.width(domNode);
+            canvas.height = options.height || util.height(domNode);
+
+            if (options.bgcolor) {
+                var ctx = canvas.getContext('2d');
+                ctx.fillStyle = options.bgcolor;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            return canvas;
+        }
+    }
+
+    function cloneNode(node, filter, root) {
+        if (!root && filter && !filter(node)) return Promise.resolve();
+
+        return Promise.resolve(node)
+            .then(makeNodeCopy)
+            .then(function (clone) {
+                return cloneChildren(node, clone, filter);
+            })
+            .then(function (clone) {
+                return processClone(node, clone);
+            });
+
+        function makeNodeCopy(node) {
+            if (node instanceof HTMLCanvasElement) return util.makeImage(node.toDataURL());
+            return node.cloneNode(false);
+        }
+
+        function cloneChildren(original, clone, filter) {
+            var children = original.childNodes;
+            if (children.length === 0) return Promise.resolve(clone);
+
+            return cloneChildrenInOrder(clone, util.asArray(children), filter)
+                .then(function () {
+                    return clone;
+                });
+
+            function cloneChildrenInOrder(parent, children, filter) {
+                var done = Promise.resolve();
+                children.forEach(function (child) {
+                    done = done
+                        .then(function () {
+                            return cloneNode(child, filter);
+                        })
+                        .then(function (childClone) {
+                            if (childClone) parent.appendChild(childClone);
+                        });
+                });
+                return done;
+            }
+        }
+
+        function processClone(original, clone) {
+            if (!(clone instanceof Element)) return clone;
+
+            return Promise.resolve()
+                .then(cloneStyle)
+                .then(clonePseudoElements)
+                .then(copyUserInput)
+                .then(fixSvg)
+                .then(function () {
+                    return clone;
+                });
+
+            function cloneStyle() {
+                copyStyle(window.getComputedStyle(original), clone.style);
+
+                function copyStyle(source, target) {
+                    if (source.cssText) target.cssText = source.cssText;
+                    else copyProperties(source, target);
+
+                    function copyProperties(source, target) {
+                        util.asArray(source).forEach(function (name) {
+                            target.setProperty(
+                                name,
+                                source.getPropertyValue(name),
+                                source.getPropertyPriority(name)
+                            );
+                        });
+                    }
+                }
+            }
+
+            function clonePseudoElements() {
+                [':before', ':after'].forEach(function (element) {
+                    clonePseudoElement(element);
+                });
+
+                function clonePseudoElement(element) {
+                    var style = window.getComputedStyle(original, element);
+                    var content = style.getPropertyValue('content');
+
+                    if (content === '' || content === 'none') return;
+
+                    var className = util.uid();
+                    clone.className = clone.className + ' ' + className;
+                    var styleElement = document.createElement('style');
+                    styleElement.appendChild(formatPseudoElementStyle(className, element, style));
+                    clone.appendChild(styleElement);
+
+                    function formatPseudoElementStyle(className, element, style) {
+                        var selector = '.' + className + ':' + element;
+                        var cssText = style.cssText ? formatCssText(style) : formatCssProperties(style);
+                        return document.createTextNode(selector + '{' + cssText + '}');
+
+                        function formatCssText(style) {
+                            var content = style.getPropertyValue('content');
+                            return style.cssText + ' content: ' + content + ';';
+                        }
+
+                        function formatCssProperties(style) {
+
+                            return util.asArray(style)
+                                .map(formatProperty)
+                                .join('; ') + ';';
+
+                            function formatProperty(name) {
+                                return name + ': ' +
+                                    style.getPropertyValue(name) +
+                                    (style.getPropertyPriority(name) ? ' !important' : '');
+                            }
+                        }
+                    }
+                }
+            }
+
+            function copyUserInput() {
+                if (original instanceof HTMLTextAreaElement) clone.innerHTML = original.value;
+                if (original instanceof HTMLInputElement) clone.setAttribute("value", original.value);
+            }
+
+            function fixSvg() {
+                if (!(clone instanceof SVGElement)) return;
+                clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+
+                if (!(clone instanceof SVGRectElement)) return;
+                ['width', 'height'].forEach(function (attribute) {
+                    var value = clone.getAttribute(attribute);
+                    if (!value) return;
+
+                    clone.style.setProperty(attribute, value);
+                });
+            }
+        }
+    }
+
+    function embedFonts(node) {
+        return fontFaces.resolveAll()
+            .then(function (cssText) {
+                var styleNode = document.createElement('style');
+                node.appendChild(styleNode);
+                styleNode.appendChild(document.createTextNode(cssText));
+                return node;
+            });
+    }
+
+    function inlineImages(node) {
+        return images.inlineAll(node)
+            .then(function () {
+                return node;
+            });
+    }
+
+    function makeSvgDataUri(node, width, height) {
+        return Promise.resolve(node)
+            .then(function (node) {
+                node.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+                return new XMLSerializer().serializeToString(node);
+            })
+            .then(util.escapeXhtml)
+            .then(function (xhtml) {
+                return '<foreignObject x="0" y="0" width="100%" height="100%">' + xhtml + '</foreignObject>';
+            })
+            .then(function (foreignObject) {
+                return '<svg xmlns="http://www.w3.org/2000/svg" width="' + width + '" height="' + height + '">' +
+                    foreignObject + '</svg>';
+            })
+            .then(function (svg) {
+                return 'data:image/svg+xml;charset=utf-8,' + svg;
+            });
+    }
+
+    function newUtil() {
+        return {
+            escape: escape,
+            parseExtension: parseExtension,
+            mimeType: mimeType,
+            dataAsUrl: dataAsUrl,
+            isDataUrl: isDataUrl,
+            canvasToBlob: canvasToBlob,
+            resolveUrl: resolveUrl,
+            getAndEncode: getAndEncode,
+            uid: uid(),
+            delay: delay,
+            asArray: asArray,
+            escapeXhtml: escapeXhtml,
+            makeImage: makeImage,
+            width: width,
+            height: height
+        };
+
+        function mimes() {
+            /*
+             * Only WOFF and EOT mime types for fonts are 'real'
+             * see http://www.iana.org/assignments/media-types/media-types.xhtml
+             */
+            var WOFF = 'application/font-woff';
+            var JPEG = 'image/jpeg';
+
+            return {
+                'woff': WOFF,
+                'woff2': WOFF,
+                'ttf': 'application/font-truetype',
+                'eot': 'application/vnd.ms-fontobject',
+                'png': 'image/png',
+                'jpg': JPEG,
+                'jpeg': JPEG,
+                'gif': 'image/gif',
+                'tiff': 'image/tiff',
+                'svg': 'image/svg+xml'
+            };
+        }
+
+        function parseExtension(url) {
+            var match = /\.([^\.\/]*?)$/g.exec(url);
+            if (match) return match[1];
+            else return '';
+        }
+
+        function mimeType(url) {
+            var extension = parseExtension(url).toLowerCase();
+            return mimes()[extension] || '';
+        }
+
+        function isDataUrl(url) {
+            return url.search(/^(data:)/) !== -1;
+        }
+
+        function toBlob(canvas) {
+            return new Promise(function (resolve) {
+                var binaryString = window.atob(canvas.toDataURL().split(',')[1]);
+                var length = binaryString.length;
+                var binaryArray = new Uint8Array(length);
+
+                for (var i = 0; i < length; i++)
+                    binaryArray[i] = binaryString.charCodeAt(i);
+
+                resolve(new Blob([binaryArray], {
+                    type: 'image/png'
+                }));
+            });
+        }
+
+        function canvasToBlob(canvas) {
+            if (canvas.toBlob)
+                return new Promise(function (resolve) {
+                    canvas.toBlob(resolve);
+                });
+
+            return toBlob(canvas);
+        }
+
+        function resolveUrl(url, baseUrl) {
+            var doc = document.implementation.createHTMLDocument();
+            var base = doc.createElement('base');
+            doc.head.appendChild(base);
+            var a = doc.createElement('a');
+            doc.body.appendChild(a);
+            base.href = baseUrl;
+            a.href = url;
+            return a.href;
+        }
+
+        function uid() {
+            var index = 0;
+
+            return function () {
+                return 'u' + fourRandomChars() + index++;
+
+                function fourRandomChars() {
+                    /* see http://stackoverflow.com/a/6248722/2519373 */
+                    return ('0000' + (Math.random() * Math.pow(36, 4) << 0).toString(36)).slice(-4);
+                }
+            };
+        }
+
+        function makeImage(uri) {
+            return new Promise(function (resolve, reject) {
+                var image = new Image();
+                image.onload = function () {
+                    resolve(image);
+                };
+                image.onerror = reject;
+                image.src = uri;
+            });
+        }
+
+        function getAndEncode(url) {
+            var TIMEOUT = 30000;
+            if(domtoimage.impl.options.cacheBust) {
+                // Cache bypass so we dont have CORS issues with cached images
+                // Source: https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Bypassing_the_cache
+                url += ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime();
+            }
+
+            return new Promise(function (resolve) {
+                var request = new XMLHttpRequest();
+
+                request.onreadystatechange = done;
+                request.ontimeout = timeout;
+                request.responseType = 'blob';
+                request.timeout = TIMEOUT;
+                request.open('GET', url, true);
+                request.send();
+
+                var placeholder;
+                if(domtoimage.impl.options.imagePlaceholder) {
+                    var split = domtoimage.impl.options.imagePlaceholder.split(/,/);
+                    if(split && split[1]) {
+                        placeholder = split[1];
+                    }
+                }
+
+                function done() {
+                    if (request.readyState !== 4) return;
+
+                    if (request.status !== 200) {
+                        if(placeholder) {
+                            resolve(placeholder);
+                        } else {
+                            fail('cannot fetch resource: ' + url + ', status: ' + request.status);
+                        }
+
+                        return;
+                    }
+
+                    var encoder = new FileReader();
+                    encoder.onloadend = function () {
+                        var content = encoder.result.split(/,/)[1];
+                        resolve(content);
+                    };
+                    encoder.readAsDataURL(request.response);
+                }
+
+                function timeout() {
+                    if(placeholder) {
+                        resolve(placeholder);
+                    } else {
+                        fail('timeout of ' + TIMEOUT + 'ms occured while fetching resource: ' + url);
+                    }
+                }
+
+                function fail(message) {
+                    console.error(message);
+                    resolve('');
+                }
+            });
+        }
+
+        function dataAsUrl(content, type) {
+            return 'data:' + type + ';base64,' + content;
+        }
+
+        function escape(string) {
+            return string.replace(/([.*+?^${}()|\[\]\/\\])/g, '\\$1');
+        }
+
+        function delay(ms) {
+            return function (arg) {
+                return new Promise(function (resolve) {
+                    setTimeout(function () {
+                        resolve(arg);
+                    }, ms);
+                });
+            };
+        }
+
+        function asArray(arrayLike) {
+            var array = [];
+            var length = arrayLike.length;
+            for (var i = 0; i < length; i++) array.push(arrayLike[i]);
+            return array;
+        }
+
+        function escapeXhtml(string) {
+            return string.replace(/#/g, '%23').replace(/\n/g, '%0A');
+        }
+
+        function width(node) {
+            var leftBorder = px(node, 'border-left-width');
+            var rightBorder = px(node, 'border-right-width');
+            return node.scrollWidth + leftBorder + rightBorder;
+        }
+
+        function height(node) {
+            var topBorder = px(node, 'border-top-width');
+            var bottomBorder = px(node, 'border-bottom-width');
+            return node.scrollHeight + topBorder + bottomBorder;
+        }
+
+        function px(node, styleProperty) {
+            var value = window.getComputedStyle(node).getPropertyValue(styleProperty);
+            return parseFloat(value.replace('px', ''));
+        }
+    }
+
+    function newInliner() {
+        var URL_REGEX = /url\(['"]?([^'"]+?)['"]?\)/g;
+
+        return {
+            inlineAll: inlineAll,
+            shouldProcess: shouldProcess,
+            impl: {
+                readUrls: readUrls,
+                inline: inline
+            }
+        };
+
+        function shouldProcess(string) {
+            return string.search(URL_REGEX) !== -1;
+        }
+
+        function readUrls(string) {
+            var result = [];
+            var match;
+            while ((match = URL_REGEX.exec(string)) !== null) {
+                result.push(match[1]);
+            }
+            return result.filter(function (url) {
+                return !util.isDataUrl(url);
+            });
+        }
+
+        function inline(string, url, baseUrl, get) {
+            return Promise.resolve(url)
+                .then(function (url) {
+                    return baseUrl ? util.resolveUrl(url, baseUrl) : url;
+                })
+                .then(get || util.getAndEncode)
+                .then(function (data) {
+                    return util.dataAsUrl(data, util.mimeType(url));
+                })
+                .then(function (dataUrl) {
+                    return string.replace(urlAsRegex(url), '$1' + dataUrl + '$3');
+                });
+
+            function urlAsRegex(url) {
+                return new RegExp('(url\\([\'"]?)(' + util.escape(url) + ')([\'"]?\\))', 'g');
+            }
+        }
+
+        function inlineAll(string, baseUrl, get) {
+            if (nothingToInline()) return Promise.resolve(string);
+
+            return Promise.resolve(string)
+                .then(readUrls)
+                .then(function (urls) {
+                    var done = Promise.resolve(string);
+                    urls.forEach(function (url) {
+                        done = done.then(function (string) {
+                            return inline(string, url, baseUrl, get);
+                        });
+                    });
+                    return done;
+                });
+
+            function nothingToInline() {
+                return !shouldProcess(string);
+            }
+        }
+    }
+
+    function newFontFaces() {
+        return {
+            resolveAll: resolveAll,
+            impl: {
+                readAll: readAll
+            }
+        };
+
+        function resolveAll() {
+            return readAll(document)
+                .then(function (webFonts) {
+                    return Promise.all(
+                        webFonts.map(function (webFont) {
+                            return webFont.resolve();
+                        })
+                    );
+                })
+                .then(function (cssStrings) {
+                    return cssStrings.join('\n');
+                });
+        }
+
+        function readAll() {
+            return Promise.resolve(util.asArray(document.styleSheets))
+                .then(getCssRules)
+                .then(selectWebFontRules)
+                .then(function (rules) {
+                    return rules.map(newWebFont);
+                });
+
+            function selectWebFontRules(cssRules) {
+                return cssRules
+                    .filter(function (rule) {
+                        return rule.type === CSSRule.FONT_FACE_RULE;
+                    })
+                    .filter(function (rule) {
+                        return inliner.shouldProcess(rule.style.getPropertyValue('src'));
+                    });
+            }
+
+            function getCssRules(styleSheets) {
+                var cssRules = [];
+                styleSheets.forEach(function (sheet) {
+                    try {
+                        util.asArray(sheet.cssRules || []).forEach(cssRules.push.bind(cssRules));
+                    } catch (e) {
+                        console.log('Error while reading CSS rules from ' + sheet.href, e.toString());
+                    }
+                });
+                return cssRules;
+            }
+
+            function newWebFont(webFontRule) {
+                return {
+                    resolve: function resolve() {
+                        var baseUrl = (webFontRule.parentStyleSheet || {}).href;
+                        return inliner.inlineAll(webFontRule.cssText, baseUrl);
+                    },
+                    src: function () {
+                        return webFontRule.style.getPropertyValue('src');
+                    }
+                };
+            }
+        }
+    }
+
+    function newImages() {
+        return {
+            inlineAll: inlineAll,
+            impl: {
+                newImage: newImage
+            }
+        };
+
+        function newImage(element) {
+            return {
+                inline: inline
+            };
+
+            function inline(get) {
+                if (util.isDataUrl(element.src)) return Promise.resolve();
+
+                return Promise.resolve(element.src)
+                    .then(get || util.getAndEncode)
+                    .then(function (data) {
+                        return util.dataAsUrl(data, util.mimeType(element.src));
+                    })
+                    .then(function (dataUrl) {
+                        return new Promise(function (resolve, reject) {
+                            element.onload = resolve;
+                            element.onerror = reject;
+                            element.src = dataUrl;
+                        });
+                    });
+            }
+        }
+
+        function inlineAll(node) {
+            if (!(node instanceof Element)) return Promise.resolve(node);
+
+            return inlineBackground(node)
+                .then(function () {
+                    if (node instanceof HTMLImageElement)
+                        return newImage(node).inline();
+                    else
+                        return Promise.all(
+                            util.asArray(node.childNodes).map(function (child) {
+                                return inlineAll(child);
+                            })
+                        );
+                });
+
+            function inlineBackground(node) {
+                var background = node.style.getPropertyValue('background');
+
+                if (!background) return Promise.resolve(node);
+
+                return inliner.inlineAll(background)
+                    .then(function (inlined) {
+                        node.style.setProperty(
+                            'background',
+                            inlined,
+                            node.style.getPropertyPriority('background')
+                        );
+                    })
+                    .then(function () {
+                        return node;
+                    });
+            }
+        }
+    }
+})(this);
+
+
+/***/ }),
+
 /***/ "./src/index.html":
 /*!************************!*\
   !*** ./src/index.html ***!
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -656,6 +3682,7 @@ var code = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF
   \*********************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 module.exports = function (url, options) {
@@ -691,6 +3718,7 @@ module.exports = function (url, options) {
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -745,6 +3773,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -799,6 +3828,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -853,6 +3883,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -907,6 +3938,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -961,6 +3993,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \****************************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 var stylesInDOM = [];
@@ -1054,6 +4087,7 @@ module.exports = function (list, options) {
   \********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 var memo = {};
@@ -1097,6 +4131,7 @@ module.exports = insertBySelector;
   \**********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -1116,6 +4151,7 @@ module.exports = insertStyleElement;
   \**********************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -1135,6 +4171,7 @@ module.exports = setAttributesWithoutAttributes;
   \***************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -1205,6 +4242,7 @@ module.exports = domAPI;
   \*********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -1228,20 +4266,24 @@ module.exports = styleTagTransform;
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
+/* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
+/* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_filter_converter__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addList);
 ;
+
 
 // UI
 
 // let addListBtn = document.querySelector('')
 
 class List {
-    constructor({name = 'new list', color = '#666'}={}) {
+    constructor({name = 'new list', color = '#0f0'}={}) {
         this.name = name
         this.color = color
     }
@@ -1255,7 +4297,9 @@ function makeListObj() {
 
     let color = document.querySelector("[type='color']").value
 
-    return new List(name, color)
+    // console.log(color)
+
+    return new List({name, color})
 }
 
 function listHtml() {
@@ -1273,13 +4317,18 @@ function listHtml() {
     container.classList.add('banner','button','border')
 
     let icon = new Image(50,50)
+
     icon.src = _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__
+
+    let iconColor = css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default().hexToFilter(list.color).color
 
     let h3 = document.createElement('h3')
 
     let listName = list.name
 
-    icon.style.color = list.color
+    icon.style.filter = iconColor
+
+    // console.log(iconColor)
 
     h3.append(listName)
 
@@ -1318,6 +4367,7 @@ function addList() {
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   closeModal: () => (/* binding */ closeModal),
@@ -1358,6 +4408,7 @@ function toggleModal(modal) {
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -1454,6 +4505,7 @@ function publishReminder() { //shows reminder on the page
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "cb0e65bd516b4b5f5d06.svg";
 
 /***/ }),
@@ -1464,6 +4516,7 @@ module.exports = __webpack_require__.p + "cb0e65bd516b4b5f5d06.svg";
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "0afa66342b0e5f53443f.svg";
 
 /***/ }),
@@ -1474,6 +4527,7 @@ module.exports = __webpack_require__.p + "0afa66342b0e5f53443f.svg";
   \***********************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "61238fdaf03dcdcfb315.svg";
 
 /***/ }),
@@ -1484,6 +4538,7 @@ module.exports = __webpack_require__.p + "61238fdaf03dcdcfb315.svg";
   \********************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "7c08cb4f6d6cfe3d09d7.svg";
 
 /***/ }),
@@ -1494,6 +4549,7 @@ module.exports = __webpack_require__.p + "7c08cb4f6d6cfe3d09d7.svg";
   \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "ab58307c4579e18946a8.svg";
 
 /***/ }),
@@ -1504,6 +4560,7 @@ module.exports = __webpack_require__.p + "ab58307c4579e18946a8.svg";
   \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "219cb3f5774dc4da59ea.svg";
 
 /***/ })
@@ -1528,7 +4585,7 @@ module.exports = __webpack_require__.p + "219cb3f5774dc4da59ea.svg";
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -1646,8 +4703,9 @@ module.exports = __webpack_require__.p + "219cb3f5774dc4da59ea.svg";
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
