@@ -32,9 +32,9 @@ function listHtml(obj) {
     
     listWrapper.classList.add('list-wrapper')
 
-    let container = document.createElement('div')
+    let listBanner = document.createElement('div')
 
-    container.classList.add('banner','button','border')
+    listBanner.classList.add('banner','button','border')
 
     let icon = new Image(50,50)
 
@@ -61,24 +61,19 @@ function listHtml(obj) {
     closeBtn.innerHTML = '&times;'
     closeBtn.addEventListener('click', () => container.remove())
 
-    container.append(icon, p, count, closeBtn)
+    listBanner.append(icon, p, count, closeBtn)
 
-    listWrapper.append(container)
+    let listDropDown = document.createElement('div')
+
+    listDropDown.classList.add('drop-down')
+
+    listDropDown.setAttribute('hidden','')
+
+    listWrapper.append(listBanner, listDropDown)
 
     wrapper.append(listWrapper)
 
     return wrapper
-}
-
-function addNewList() {
-
-    let list = makeListObj()
-
-    addListToReminderModalOptions(list)
-
-    let article = document.querySelector('article')
-
-    article.append(listHtml(list))
 }
 
 function addListToReminderModalOptions(obj) {
@@ -93,4 +88,15 @@ function addListToReminderModalOptions(obj) {
 
     container.append(newListOption)
 
+}
+
+function addNewList() {
+
+    let list = makeListObj()
+
+    addListToReminderModalOptions(list)
+
+    let article = document.querySelector('article')
+
+    article.append(listHtml(list))
 }

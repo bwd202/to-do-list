@@ -77,7 +77,7 @@ article > div {
 }
 
 #reminders {
-  display: grid;
+  /* display: grid; */
 }
 
 /* list item count */

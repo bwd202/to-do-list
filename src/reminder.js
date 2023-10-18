@@ -71,13 +71,14 @@ function reminderHtml(obj) {  //makes reminder html from object
     // console.log(reminder)
 
     return reminder
+
 }
 
-function publishReminder() { //shows reminder on the page
+function publishReminder() { //NEEDS RE-WRITE
 
-    let container = document.querySelector('div#reminders')
+    let container = document.querySelector('article#lists')
 
-    container.append(...reminderHtml(getReminderData()))
+    // container.append(...reminderHtml(getReminderData()))
 }
 
 // function that pushes reminder to list depending on the value of list name
