@@ -51,6 +51,13 @@
 .drop-down {
     background-color: var(--card);
     border-top: 1px solid darkgrey;
+    grid-template-columns: 50px 100px 1fr max-content;
+    grid-template-rows: max-content repeat(3, 1fr);
+    grid-template-areas: 'heading heading heading heading' 
+                        'checkbox title title closeBtn' 
+                        '. notes notes notes' 
+                        '. dueDate dueTime priority';
+    padding: 10px;
 
 }
 

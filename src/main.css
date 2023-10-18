@@ -76,14 +76,8 @@ article > div {
     grid-column: inherit;
 }
 
-#reminders {    /* aka dropdown */
-    grid-template-columns: 50px 100px 1fr max-content;
-    grid-template-rows: max-content repeat(3, 1fr);
-    grid-template-areas: 'heading heading heading heading' 
-                        'checkbox title title closeBtn' 
-                        '. notes notes notes' 
-                        '. dueDate dueTime priority';
-    padding: 10px;
+#reminders {
+  display: grid;
 }
 
 /* list item count */
@@ -91,13 +85,9 @@ article > div {
     place-self: center;
 }
 
-#reminders h2 {
-    grid-area: heading;
-}
-
 #reminders [type='checkbox'] {
     grid-area: checkbox;
-    scale: 0.8;
+    align-self: start;
 }
 
 #reminders h4 {
