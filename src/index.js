@@ -34,7 +34,7 @@ document.querySelector('button#publishReminder').addEventListener('click', remin
 
 let clickEvent = new Event('click')
 
-// document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
 // New Reminder Modal Controls
 
