@@ -4367,6 +4367,11 @@ function addListToReminderModalOptions(obj) {
 
 }
 
+// adds id to reminder with list name obtained from list modal
+function linkListNameToReminderHtml() {
+    document.querySelector()
+}
+
 function addNewList() {
 
     let list = makeListObj()
@@ -4513,9 +4518,9 @@ function publishReminder() { //NEEDS RE-WRITE
 
     let reminderObj = getReminderData()
 
-    // if(reminderObj.list)
+    // let destinationList = reminderObj.list
 
-    let container = document.querySelector('article#lists')
+    let container = document.getElementById(reminderObj.list)
 
     // container.append(...reminderHtml(getReminderData()))
 
