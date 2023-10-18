@@ -4756,8 +4756,6 @@ __webpack_require__.r(__webpack_exports__);
 
 // let defaultList = document.querySelector('div#reminder-list')
 
-let listBanners = document.getElementsByClassName('banner')
-
 // let reminders = document.querySelector('#reminders')
 
 let newReminderBtn = document.querySelector('#new-reminder')
@@ -4786,14 +4784,9 @@ let clickEvent = new Event('click')
 
 // document.querySelector('#reminder-modal').classList.add('visible')
 
-// defaultList.addEventListener('click', toggleModal(reminders))
-
-Array.from(listBanners).forEach((banner) => banner.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.toggleModal)('no')))
-
 document.addEventListener('click', function(e){
     if(e.target.classList.contains('banner')){
-        e.target.nextElementSibling.classList.add('visible')
-     console.log('helo')
+        e.target.nextElementSibling.classList.toggle('visible')
     }
   })
 
