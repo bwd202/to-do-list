@@ -10,9 +10,11 @@ import reminderFn from './reminder.js'
 
 // UIs
 
-let defaultList = document.querySelector('div#reminder-list')
+// let defaultList = document.querySelector('div#reminder-list')
 
-let reminders = document.querySelector('#reminders')
+let listBanners = document.getElementsByClassName('banner')
+
+// let reminders = document.querySelector('#reminders')
 
 let newReminderBtn = document.querySelector('#new-reminder')
 
@@ -34,13 +36,22 @@ document.querySelector('button#publishReminder').addEventListener('click', remin
 
 let clickEvent = new Event('click')
 
-document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+// document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
 // New Reminder Modal Controls
 
 // document.querySelector('#reminder-modal').classList.add('visible')
 
-defaultList.addEventListener('click', toggleModal(reminders))
+// defaultList.addEventListener('click', toggleModal(reminders))
+
+Array.from(listBanners).forEach((banner) => banner.addEventListener('click', toggleModal('no')))
+
+document.addEventListener('click', function(e){
+    if(e.target.classList.contains('banner')){
+        e.target.nextElementSibling.classList.add('visible')
+     console.log('helo')
+    }
+  })
 
 newReminderBtn.addEventListener('click', openModal(reminderModal))
 

@@ -19,6 +19,9 @@ function openModal(modal) {
 }
 
 function toggleModal(modal) {
+
+    if(modal == 'no') return console.log('no modal')
+    // console.log(this)
     return function() {
         modal.classList.toggle('visible')
     }

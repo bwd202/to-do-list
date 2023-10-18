@@ -4414,6 +4414,9 @@ function openModal(modal) {
 }
 
 function toggleModal(modal) {
+
+    if(modal == 'no') return console.log('no modal')
+    // console.log(this)
     return function() {
         modal.classList.toggle('visible')
     }
@@ -4751,9 +4754,11 @@ __webpack_require__.r(__webpack_exports__);
 
 // UIs
 
-let defaultList = document.querySelector('div#reminder-list')
+// let defaultList = document.querySelector('div#reminder-list')
 
-let reminders = document.querySelector('#reminders')
+let listBanners = document.getElementsByClassName('banner')
+
+// let reminders = document.querySelector('#reminders')
 
 let newReminderBtn = document.querySelector('#new-reminder')
 
@@ -4775,13 +4780,22 @@ document.querySelector('button#publishReminder').addEventListener('click', _remi
 
 let clickEvent = new Event('click')
 
-document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+// document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
 // New Reminder Modal Controls
 
 // document.querySelector('#reminder-modal').classList.add('visible')
 
-defaultList.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.toggleModal)(reminders))
+// defaultList.addEventListener('click', toggleModal(reminders))
+
+Array.from(listBanners).forEach((banner) => banner.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.toggleModal)('no')))
+
+document.addEventListener('click', function(e){
+    if(e.target.classList.contains('banner')){
+        e.target.nextElementSibling.classList.add('visible')
+     console.log('helo')
+    }
+  })
 
 newReminderBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.openModal)(reminderModal))
 
