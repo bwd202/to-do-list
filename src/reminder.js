@@ -78,9 +78,9 @@ function publishReminder() { //NEEDS RE-WRITE
 
     let reminderObj = getReminderData()
 
-    // if(reminderObj.list)
+    // let destinationList = reminderObj.list
 
-    let container = document.querySelector('article#lists')
+    let container = document.getElementById(reminderObj.list)
 
     // container.append(...reminderHtml(getReminderData()))
 

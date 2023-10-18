@@ -90,6 +90,11 @@ function addListToReminderModalOptions(obj) {
 
 }
 
+// adds id to reminder with list name obtained from list modal
+function linkListNameToReminderHtml() {
+    document.querySelector()
+}
+
 function addNewList() {
 
     let list = makeListObj()
