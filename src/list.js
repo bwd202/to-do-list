@@ -59,7 +59,7 @@ function listHtml(obj) {
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('close-btn-2')
     closeBtn.innerHTML = '&times;'
-    closeBtn.addEventListener('click', () => container.remove())
+    closeBtn.addEventListener('click', () => listBanner.remove())
 
     let dropDown = document.createElement('div')
 

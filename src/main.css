@@ -83,35 +83,35 @@ article > div {
     place-self: center;
 }
 
-.drop-down [type='checkbox'] {
+.reminder [type='checkbox'] {
     grid-area: checkbox;
     align-self: start;
 }
 
-.drop-down h4 {
+.reminder h4 {
     grid-area: title;
 }
 
-.drop-down span {
+.reminder span {
     grid-area: closeBtn;
     align-self: start;
 }
 
-.drop-down p:nth-of-type(1) {
+.reminder p:nth-of-type(1) {
     grid-area: notes;
     color: var(--subtext);
 }
 
-.drop-down p:nth-of-type(2) {
+.reminder p:nth-of-type(2) {
     grid-area: dueDate; 
     color: var(--subtext);
 }
 
-.drop-down p:nth-of-type(3) {
+.reminder p:nth-of-type(3) {
     grid-area: dueTime;
     color: var(--subtext);
 }
 
-.drop-down p:nth-of-type(4) {
+.reminder p:nth-of-type(4) {
     grid-area: priority;
 }
