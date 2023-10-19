@@ -71,21 +71,6 @@
     gap: 5px;
 }
 
-.drop-down {
-    /* position: absolute; */
-    /* display: grid; */
-    background-color: var(--card);
-    border-top: 1px solid darkgrey;
-    grid-template-columns: 50px 100px 1fr max-content;
-    grid-template-rows: max-content repeat(3, 1fr);
-    grid-template-areas: 'heading heading heading heading' 
-                        'checkbox title title closeBtn' 
-                        '. notes notes notes' 
-                        '. dueDate dueTime priority';
-    padding: 10px;
-
-}
-
 .filter-blue {
     filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);
 }
@@ -136,6 +121,19 @@
     position: absolute;
     right: -0;
     top: -0;
+}
+
+.reminder {
+    display: grid;
+    background-color: var(--card);
+    border-top: 1px solid darkgrey;
+    grid-template-columns: 50px 100px 1fr max-content;
+    grid-template-rows: max-content repeat(3, 1fr);
+    grid-template-areas: 'heading heading heading heading' 
+                        'checkbox title title closeBtn' 
+                        '. notes notes notes' 
+                        '. dueDate dueTime priority';
+    padding: 10px;
 }
 
 .visible {

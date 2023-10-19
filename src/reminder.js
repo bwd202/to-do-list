@@ -74,26 +74,35 @@ function reminderHtml(obj) {  //makes reminder html from object
 
 }
 
-function publishReminder(obj) {// routes reminder to right list, shows reminder html on document
+function publishReminder() {// routes reminder to right list, shows reminder html on document
 
     let reminder = document.createElement('div')
 
-    let _obj = obj ? obj : getReminderData() //obj param inc for testing
+    reminder.classList.add('reminder')
+
+    let obj = getReminderData()
+
+    // console.log(obj)
     
-    let destinationList = _obj.list
+    let destinationList = '#' + obj.list
 
-    let container = document.querySelector('#' + destinationList)
+    // console.log(destinationList)
 
-    let defaultContainer = document.querySelector('#reminders')
+    let container = document.querySelector(destinationList)
+
+    let defaultContainer = document.querySelector('#defaultList')
 
     if(!container) {
 
-        defaultContainer.append(reminder.append(reminderHtml(_obj)))
+        defaultContainer.append(reminder)
+
+        reminder.append(...reminderHtml(obj))
 
         return
     }
 
-    container.append(reminder.append(reminderHtml(_obj)))
+    container.append(reminder)
+    reminder.append(...reminderHtml(obj))
 
     // console.log(destinationList)
 }
