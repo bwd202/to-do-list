@@ -67,6 +67,8 @@ function listHtml(obj) {
 
     listDropDown.classList.add('drop-down')
 
+    listDropDown.setAttribute('id',obj.name)
+
     listDropDown.setAttribute('hidden','')
 
     listWrapper.append(listBanner, listDropDown)
