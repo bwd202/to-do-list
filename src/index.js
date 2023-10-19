@@ -52,7 +52,7 @@ newReminderBtn.addEventListener('click', openModal(reminderModal))
 
 reminderModalCloseBtn.addEventListener('click', closeModal(reminderModal))
 
-// List Modal Controls
+// LIST MODAL
 
 // document.querySelector('#list-modal').classList.add('visible')
 

@@ -66,6 +66,7 @@ main {
 
 article {
     display: grid;
+    align-content: start;
     grid-template-columns: subgrid;
     grid-template-rows: 30px 1fr;
     grid-column: span 2;
