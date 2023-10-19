@@ -28,9 +28,9 @@ function listHtml(obj) {
 
     let wrapper = new DocumentFragment()
 
-    let listWrapper = document.createElement('div')
+    // let listWrapper = document.createElement('div')
     
-    listWrapper.classList.add('list-wrapper')
+    // listWrapper.classList.add('list-wrapper')
 
     let listBanner = document.createElement('div')
 
@@ -61,19 +61,19 @@ function listHtml(obj) {
     closeBtn.innerHTML = '&times;'
     closeBtn.addEventListener('click', () => container.remove())
 
-    listBanner.append(icon, p, count, closeBtn)
+    let dropDown = document.createElement('div')
 
-    let listDropDown = document.createElement('div')
+    dropDown.classList.add('drop-down')
 
-    listDropDown.classList.add('drop-down')
+    dropDown.setAttribute('id',obj.name)
 
-    listDropDown.setAttribute('id',obj.name)
+    dropDown.setAttribute('hidden','')
 
-    listDropDown.setAttribute('hidden','')
+    listBanner.append(icon, p, count, closeBtn, dropDown)
 
-    listWrapper.append(listBanner, listDropDown)
+    // listWrapper.append(listBanner, listDropDown)
 
-    wrapper.append(listWrapper)
+    wrapper.append(listBanner)
 
     return wrapper
 }

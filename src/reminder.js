@@ -34,7 +34,7 @@ function getReminderData() { //organizes user input from modal into object
 
 function reminderHtml(obj) {  //makes reminder html from object
 
-    let reminder = []
+    let reminderWrapper = []
 
     let checkbox = document.createElement('input')
     
@@ -66,20 +66,21 @@ function reminderHtml(obj) {  //makes reminder html from object
 
     reminderPriority.innerHTML = obj.priority
 
-    reminder.push(checkbox,reminderTitle,closeBtn,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
+    reminderWrapper.push(checkbox,reminderTitle,closeBtn,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
 
     // console.log(reminder)
 
-    return reminder
+    return reminderWrapper
 
 }
 
-function publishReminder() {
-    // routes reminder to right list, shows reminder html on document
+function publishReminder(obj) {// routes reminder to right list, shows reminder html on document
 
-    let reminderObj = getReminderData()
+    let reminder = document.createElement('div')
 
-    let destinationList = reminderObj.list
+    let _obj = obj ? obj : getReminderData() //obj param inc for testing
+    
+    let destinationList = _obj.list
 
     let container = document.querySelector('#' + destinationList)
 
@@ -87,12 +88,12 @@ function publishReminder() {
 
     if(!container) {
 
-        defaultContainer.append(...reminderHtml(reminderObj))
+        defaultContainer.append(reminder.append(reminderHtml(_obj)))
 
         return
     }
 
-    container.append(...reminderHtml(reminderObj))
+    container.append(reminder.append(reminderHtml(_obj)))
 
     // console.log(destinationList)
 }

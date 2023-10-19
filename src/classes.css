@@ -4,13 +4,36 @@
 }
 
 .banner {
+    position: relative;
     display: grid;
     grid-auto-flow: column;
     padding: 10px;
     background-color: var(--card);
     grid-template-columns: max-content 1fr 100px max-content;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: 'icon title count closeBtn' 'dropDown dropDown dropDown dropDown';
     align-items: center;
     gap: 5px;
+}
+
+.banner img {
+    grid-area: icon;
+}
+
+.banner p {
+    grid-area: title;
+}
+
+.banner span:first-of-type {
+    grid-area: count;
+}
+
+.banner span:last-of-type {
+    grid-area: closeBtn;    
+}
+
+.banner .drop-down {
+    grid-area: dropDown;
 }
 
 .button {
@@ -49,6 +72,8 @@
 }
 
 .drop-down {
+    /* position: absolute; */
+    /* display: grid; */
     background-color: var(--card);
     border-top: 1px solid darkgrey;
     grid-template-columns: 50px 100px 1fr max-content;

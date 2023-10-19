@@ -32,17 +32,19 @@ let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
 document.querySelector('button#publishReminder').addEventListener('click', reminderFn)
 
-let clickEvent = new Event('click')
+// let clickEvent = new Event('click')
 
-document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+// document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
 // New Reminder Modal Controls
 
 // document.querySelector('#reminder-modal').classList.add('visible')
 
 document.addEventListener('click', function(e){
-    if(e.target.classList.contains('banner')){
-        e.target.nextElementSibling.classList.toggle('visible')
+
+    if(e.target.classList.contains('banner')) {
+        
+        e.target.lastElementChild.classList.toggle('visible')
     }
   })
 
@@ -60,8 +62,9 @@ listModalCloseBtn.addEventListener('click', closeModal(listModal))
 
 addList.addEventListener('click', addListFn)
 
-// testing
+// TEST LIST
 // addList.dispatchEvent(clickEvent)
+// document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
 // Window
 
