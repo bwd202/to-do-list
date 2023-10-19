@@ -66,9 +66,10 @@ main {
 
 article {
     display: grid;
-    align-content: start;
     grid-template-columns: subgrid;
-    grid-template-rows: 30px 1fr;
+    grid-template-rows: 30px max-content;
+    grid-auto-rows: max-content;
+    align-items: start;
     grid-column: span 2;
     gap: 10px;
 }
