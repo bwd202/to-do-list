@@ -4520,7 +4520,7 @@ function reminderHtml(obj) {  //shows obj information as html
 
     closeBtn.innerHTML = '&times;'
 
-    // closeBtn.addEventListener('click', () => )
+    closeBtn.addEventListener('click', () => closeBtn.parentElement.remove())
 
     let reminderNotes = document.createElement('p')
 
