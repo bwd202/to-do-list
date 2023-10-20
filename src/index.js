@@ -22,23 +22,25 @@ let listModal = document.querySelector('#list-modal')
 
 let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
+document.querySelector('button#publishReminder').addEventListener('click', publishReminder()) 
+
 // DEFAULT REMINDER HTML
 
-function publishDefaultReminder() {
+// function publishDefaultReminder() {
 
-    document.querySelector('#defaultList').classList.add('visible') //shows drop-down by default
+//     document.querySelector('#defaultList').classList.add('visible') //shows drop-down by default
 
-    let defaultReminder = new Reminder({title:'Take trash out',notes:"Notes"})
+//     let defaultReminder = new Reminder({title:'Take trash out',notes:"Notes"})
 
-    document.querySelector('button#publishReminder').addEventListener('click', publishReminder(defaultReminder)) //shows an example of a reminder
+//     document.querySelector('button#publishReminder').addEventListener('click', publishReminder(defaultReminder))
 
-    let clickEvent = new Event('click')
+//     let clickEvent = new Event('click')
 
-    document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+//     document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
-}   
+// }   
 
-while (defaultList.children.length === 0) publishDefaultReminder()
+// while (defaultList.children.length === 0) publishDefaultReminder()
 
 // REMINDER MODAL
 

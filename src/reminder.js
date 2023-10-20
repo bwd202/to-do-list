@@ -13,7 +13,9 @@ class Reminder {
 
 }
 
-function getReminderData() { //organizes user input from modal into object
+let reminders = []
+
+function getReminderData() { //organizes user input from modal into object, pushes object to array for storage
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -27,12 +29,16 @@ function getReminderData() { //organizes user input from modal into object
 
     let reminderList = document.querySelector('select#selectList').value
 
+    let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
+
     // console.log(reminderPriority)
 
-    return new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
+    reminders.push(reminderObj)
+
+    return reminderObj
 }
 
-function reminderHtml(obj) {  //makes reminder html from object
+function reminderHtml(obj) {  //shows obj information as html
 
     let reminderWrapper = []
 
@@ -76,6 +82,20 @@ function reminderHtml(obj) {  //makes reminder html from object
 
 }
 
+function publishDefaultReminder() {
+
+    document.querySelector('#defaultList').classList.add('visible') //shows drop-down by default
+
+    let defaultReminder = new Reminder({title:'Take trash out',notes:"Notes"})
+
+    document.querySelector('button#publishReminder').addEventListener('click', publishReminder(defaultReminder))
+
+    let clickEvent = new Event('click')
+
+    document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+
+} 
+
 function publishReminder(obj) {// routes reminder to right list, shows reminder html on document
 
     return function() {
@@ -90,7 +110,7 @@ function publishReminder(obj) {// routes reminder to right list, shows reminder 
     
         // console.log(obj)
         
-        let destinationList = '#' + _obj.list
+        let destinationList = '#' + _obj.list //add fix for when _obj.list is blank
     
         // console.log(destinationList)
     
