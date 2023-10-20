@@ -1,4 +1,4 @@
-export default publishReminder
+export {Reminder, publishReminder}
 
 class Reminder {
 
@@ -50,6 +50,8 @@ function reminderHtml(obj) {  //makes reminder html from object
 
     closeBtn.innerHTML = '&times;'
 
+    // closeBtn.addEventListener('click', () => )
+
     let reminderNotes = document.createElement('p')
 
     reminderNotes.innerHTML = obj.notes
@@ -74,35 +76,42 @@ function reminderHtml(obj) {  //makes reminder html from object
 
 }
 
-function publishReminder() {// routes reminder to right list, shows reminder html on document
+function publishReminder(obj) {// routes reminder to right list, shows reminder html on document
 
-    let reminder = document.createElement('div')
+    return function() {
 
-    reminder.classList.add('reminder')
+        let reminder = document.createElement('div')
 
-    let obj = getReminderData()
-
-    // console.log(obj)
+        reminder.classList.add('reminder')
     
-    let destinationList = '#' + obj.list
-
-    // console.log(destinationList)
-
-    let container = document.querySelector(destinationList)
-
-    let defaultContainer = document.querySelector('#defaultList')
-
-    if(!container) {
-
-        defaultContainer.append(reminder)
-
-        reminder.append(...reminderHtml(obj))
-
-        return
+        let _obj = obj
+    
+        if(!obj) _obj = getReminderData()
+    
+        // console.log(obj)
+        
+        let destinationList = '#' + _obj.list
+    
+        // console.log(destinationList)
+    
+        let container = document.querySelector(destinationList)
+    
+        let defaultContainer = document.querySelector('#defaultList')
+    
+        if(!container) {
+    
+            defaultContainer.append(reminder)
+    
+            reminder.append(...reminderHtml(_obj))
+    
+            return
+        }
+    
+        container.append(reminder)
+        reminder.append(...reminderHtml(_obj))
+    
+        // console.log(destinationList)
     }
 
-    container.append(reminder)
-    reminder.append(...reminderHtml(obj))
-
-    // console.log(destinationList)
+  
 }

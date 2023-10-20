@@ -4459,9 +4459,10 @@ function toggleModal(modal) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   Reminder: () => (/* binding */ Reminder),
+/* harmony export */   publishReminder: () => (/* binding */ publishReminder)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (publishReminder);
+
 
 class Reminder {
 
@@ -4513,6 +4514,8 @@ function reminderHtml(obj) {  //makes reminder html from object
 
     closeBtn.innerHTML = '&times;'
 
+    // closeBtn.addEventListener('click', () => )
+
     let reminderNotes = document.createElement('p')
 
     reminderNotes.innerHTML = obj.notes
@@ -4537,37 +4540,44 @@ function reminderHtml(obj) {  //makes reminder html from object
 
 }
 
-function publishReminder() {// routes reminder to right list, shows reminder html on document
+function publishReminder(obj) {// routes reminder to right list, shows reminder html on document
 
-    let reminder = document.createElement('div')
+    return function() {
 
-    reminder.classList.add('reminder')
+        let reminder = document.createElement('div')
 
-    let obj = getReminderData()
-
-    // console.log(obj)
+        reminder.classList.add('reminder')
     
-    let destinationList = '#' + obj.list
-
-    // console.log(destinationList)
-
-    let container = document.querySelector(destinationList)
-
-    let defaultContainer = document.querySelector('#defaultList')
-
-    if(!container) {
-
-        defaultContainer.append(reminder)
-
-        reminder.append(...reminderHtml(obj))
-
-        return
+        let _obj = obj
+    
+        if(!obj) _obj = getReminderData()
+    
+        // console.log(obj)
+        
+        let destinationList = '#' + _obj.list
+    
+        // console.log(destinationList)
+    
+        let container = document.querySelector(destinationList)
+    
+        let defaultContainer = document.querySelector('#defaultList')
+    
+        if(!container) {
+    
+            defaultContainer.append(reminder)
+    
+            reminder.append(...reminderHtml(_obj))
+    
+            return
+        }
+    
+        container.append(reminder)
+        reminder.append(...reminderHtml(_obj))
+    
+        // console.log(destinationList)
     }
 
-    container.append(reminder)
-    reminder.append(...reminderHtml(obj))
-
-    // console.log(destinationList)
+  
 }
 
 /***/ }),
@@ -4818,19 +4828,19 @@ let listModal = document.querySelector('#list-modal')
 
 let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
-// EVENT LISTENERS
+// DEFAULT REMINDER HTML
 
-// Reminder Object HTML (drop-down container)
+document.querySelector('#defaultList').classList.add('visible') //shows drop-down by default
 
-// document.querySelector('#reminders').classList.add('visible')
+let defaultReminder = new _reminder_js__WEBPACK_IMPORTED_MODULE_8__.Reminder({title:'Take trash out',notes:"Notes"})
 
-document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_8__["default"])
+document.querySelector('button#publishReminder').addEventListener('click', (0,_reminder_js__WEBPACK_IMPORTED_MODULE_8__.publishReminder)(defaultReminder)) //shows an example of a reminder
 
-// let clickEvent = new Event('click')
+let clickEvent = new Event('click')
 
-// document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
-// New Reminder Modal Controls
+// REMINDER MODAL
 
 // document.querySelector('#reminder-modal').classList.add('visible')
 
@@ -4860,9 +4870,7 @@ addList.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_7__["default"])
 // addList.dispatchEvent(clickEvent)
 // document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
-// Window
-
-window.addEventListener('click', (e) => {
+window.addEventListener('click', (e) => {  //closes either modal when user clicks anywhere outside modal
 
     let modal = e.target
 

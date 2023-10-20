@@ -6,7 +6,7 @@ import './main.css'
 import './footer.css'
 import { closeModal, openModal, toggleModal} from './modalControl'
 import addListFn from './list'
-import reminderFn from './reminder.js'
+import {Reminder, publishReminder} from './reminder.js'
 
 // UIs
 
@@ -24,19 +24,19 @@ let listModal = document.querySelector('#list-modal')
 
 let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
-// EVENT LISTENERS
+// DEFAULT REMINDER HTML
 
-// Reminder Object HTML (drop-down container)
+document.querySelector('#defaultList').classList.add('visible') //shows drop-down by default
 
-// document.querySelector('#reminders').classList.add('visible')
+let defaultReminder = new Reminder({title:'Take trash out',notes:"Notes"})
 
-document.querySelector('button#publishReminder').addEventListener('click', reminderFn)
+document.querySelector('button#publishReminder').addEventListener('click', publishReminder(defaultReminder)) //shows an example of a reminder
 
-// let clickEvent = new Event('click')
+let clickEvent = new Event('click')
 
-// document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
-// New Reminder Modal Controls
+// REMINDER MODAL
 
 // document.querySelector('#reminder-modal').classList.add('visible')
 
@@ -66,9 +66,7 @@ addList.addEventListener('click', addListFn)
 // addList.dispatchEvent(clickEvent)
 // document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
-// Window
-
-window.addEventListener('click', (e) => {
+window.addEventListener('click', (e) => {  //closes either modal when user clicks anywhere outside modal
 
     let modal = e.target
 
