@@ -10,9 +10,7 @@ import {Reminder, publishReminder} from './reminder.js'
 
 // UIs
 
-// let defaultList = document.querySelector('div#reminder-list')
-
-// let reminders = document.querySelector('#reminders')
+let defaultList = document.querySelector('#defaultList')
 
 let newReminderBtn = document.querySelector('#new-reminder')
 
@@ -26,15 +24,21 @@ let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
 // DEFAULT REMINDER HTML
 
-document.querySelector('#defaultList').classList.add('visible') //shows drop-down by default
+function publishDefaultReminder() {
 
-let defaultReminder = new Reminder({title:'Take trash out',notes:"Notes"})
+    document.querySelector('#defaultList').classList.add('visible') //shows drop-down by default
 
-document.querySelector('button#publishReminder').addEventListener('click', publishReminder(defaultReminder)) //shows an example of a reminder
+    let defaultReminder = new Reminder({title:'Take trash out',notes:"Notes"})
 
-let clickEvent = new Event('click')
+    document.querySelector('button#publishReminder').addEventListener('click', publishReminder(defaultReminder)) //shows an example of a reminder
 
-document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+    let clickEvent = new Event('click')
+
+    document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+
+}   
+
+while (defaultList.children.length === 0) publishDefaultReminder()
 
 // REMINDER MODAL
 
