@@ -4568,7 +4568,9 @@ function publishReminder() {//shows reminder object html
 
         let container = document.querySelector(reminderListId)
 
-        container.append(createHtml(item))
+        container.classList.add('reminder')
+
+        container.append(...createHtml(item))
     }
 
 
@@ -4576,8 +4578,6 @@ function publishReminder() {//shows reminder object html
     // return function() {
 
     //     let reminder = document.createElement('div')
-
-    //     reminder.classList.add('reminder')
     
     //     let _obj = obj
     
