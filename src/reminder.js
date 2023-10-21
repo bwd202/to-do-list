@@ -1,5 +1,4 @@
-export {Reminder, publishReminder}
-import {countReminders} from './list' 
+export {Reminder, publishReminder, reminderStorage}
 
 class Reminder {
 
@@ -21,7 +20,7 @@ function storeReminder(arr, reminder) {
     arr.push(reminder)
 }
 
-function getReminderData() { //organizes user input from modal into object, pushes object to array for storage
+function getReminderData() { //gets reminder info from modal, pushes reminder to storage
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -37,12 +36,12 @@ function getReminderData() { //organizes user input from modal into object, push
 
     let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
 
-    reminders.push(reminderObj)
+    storeReminder(reminderStorage, reminderObj)
 
-    return reminderObj
+    // return reminderObj
 }
 
-function reminderHtml(obj) {  //shows obj information as html
+function createHtml(obj) {  //creates html from reminder obj
 
     let reminderWrapper = []
 
@@ -60,7 +59,7 @@ function reminderHtml(obj) {  //shows obj information as html
 
     closeBtn.innerHTML = '&times;'
 
-    closeBtn.addEventListener('click', () => closeBtn.parentElement.remove())
+    closeBtn.addEventListener('click', () => closeBtn.parentElement.remove())   //deletes reminder
 
     let reminderNotes = document.createElement('p')
 
@@ -97,35 +96,48 @@ function reminderHtml(obj) {  //shows obj information as html
 
 // } 
 
-function publishReminder(obj) {// routes reminder to right list, shows reminder html on document
+function publishReminder() {//shows reminder object html
 
-    return function() {
+    let reminder = document.createElement('div')
 
-        let reminder = document.createElement('div')
+    reminder.classList.add('reminder')
 
-        reminder.classList.add('reminder')
-    
-        let _obj = obj
-    
-        if(!obj) _obj = getReminderData()
-            
-        let destinationList = '#' + _obj.list //add fix for when _obj.list is blank
-        
-        let container = document.querySelector(destinationList)
-    
-        let defaultContainer = document.querySelector('#defaultList')
-    
-        if(!container) {
-    
-            defaultContainer.append(reminder)
-    
-            reminder.append(...reminderHtml(_obj))
-    
-            return
-        }
-    
-        container.append(reminder)
-        reminder.append(...reminderHtml(_obj))
-        countReminders()
+    getReminderData()
+
+    for(item of reminderStorage) {
+
+        createHtml(item)
     }
+
+
+
+    // return function() {
+
+    //     let reminder = document.createElement('div')
+
+    //     reminder.classList.add('reminder')
+    
+    //     let _obj = obj
+    
+    //     if(!obj) _obj = getReminderData()
+            
+    //     let destinationList = '#' + _obj.list //add fix for when _obj.list is blank
+        
+    //     let container = document.querySelector(destinationList)
+    
+    //     let defaultContainer = document.querySelector('#defaultList')
+    
+    //     if(!container) {
+    
+    //         defaultContainer.append(reminder)
+    
+    //         reminder.append(...createHtml(_obj))
+    
+    //         return
+    //     }
+    
+    //     container.append(reminder)
+    //     reminder.append(...createHtml(_obj))
+    //     // countReminders()
+    // }
 }

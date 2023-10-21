@@ -6,7 +6,7 @@ import './main.css'
 import './footer.css'
 import { closeModal, openModal, toggleModal} from './modalControl'
 import {addNewList} from './list'
-import {Reminder, publishReminder} from './reminder.js'
+import {Reminder, publishReminder,reminderStorage} from './reminder.js'
 
 // UIs
 
