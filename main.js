@@ -4568,40 +4568,12 @@ function publishReminder() {//shows reminder object html
 
         let container = document.querySelector(reminderListId)
 
-        container.classList.add('reminder')
+        // container.classList.add('reminder')
 
-        container.append(...createHtml(item))
+        reminder.append(...createHtml(item))
+
+        container.append(reminder)
     }
-
-
-
-    // return function() {
-
-    //     let reminder = document.createElement('div')
-    
-    //     let _obj = obj
-    
-    //     if(!obj) _obj = getReminderData()
-            
-    //     let destinationList = '#' + _obj.list //add fix for when _obj.list is blank
-        
-    //     let container = document.querySelector(destinationList)
-    
-    //     let defaultContainer = document.querySelector('#defaultList')
-    
-    //     if(!container) {
-    
-    //         defaultContainer.append(reminder)
-    
-    //         reminder.append(...createHtml(_obj))
-    
-    //         return
-    //     }
-    
-    //     container.append(reminder)
-    //     reminder.append(...createHtml(_obj))
-    //     // countReminders()
-    // }
 }
 
 /***/ }),
