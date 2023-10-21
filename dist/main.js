@@ -4291,15 +4291,14 @@ module.exports = styleTagTransform;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   addNewList: () => (/* binding */ addNewList)
+/* harmony export */   addNewList: () => (/* binding */ addNewList),
+/* harmony export */   updateReminderCount: () => (/* binding */ updateReminderCount)
 /* harmony export */ });
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_filter_converter__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
 
 ;
-
 
 
 // UI
@@ -4346,7 +4345,7 @@ function listHtml(obj) {
 
     count.classList.add('counter')
 
-    count.innerHTML = countReminders()
+    count.innerHTML = 0
 
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('close-btn-2')
@@ -4393,8 +4392,9 @@ function addNewList() {
     article.append(listHtml(list))
 }
 
-function updateReminderCount() {
+function updateReminderCount(elem) {
     
+    elem.children[2].innerHTML += 1
 }
 
 /***/ }),
@@ -4453,7 +4453,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   publishReminder: () => (/* binding */ publishReminder),
 /* harmony export */   reminderStorage: () => (/* binding */ reminderStorage)
 /* harmony export */ });
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list */ "./src/list.js");
 
+;
 
 class Reminder {
 
@@ -4566,6 +4568,10 @@ function publishReminder() {//shows reminder info on page
     reminderHtmlWrapper.append(...createHtml(currentReminder))
 
     container.append(reminderHtmlWrapper)
+
+    let banner = container.parentElement
+
+    ;(0,_list__WEBPACK_IMPORTED_MODULE_0__.updateReminderCount)(banner)
 }
 
 /***/ }),

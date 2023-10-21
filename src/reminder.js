@@ -1,4 +1,5 @@
 export {publishReminder,reminderStorage}
+import { updateReminderCount } from "./list"
 
 class Reminder {
 
@@ -111,4 +112,8 @@ function publishReminder() {//shows reminder info on page
     reminderHtmlWrapper.append(...createHtml(currentReminder))
 
     container.append(reminderHtmlWrapper)
+
+    let banner = container.parentElement
+
+    updateReminderCount(banner)
 }

@@ -1,7 +1,6 @@
-export {addNewList}
+export {addNewList,updateReminderCount}
 import listIcon from './icons/calendar-text.svg'
 import CssFilterConverter from 'css-filter-converter'
-import { reminderStorage } from './reminder'
 
 // UI
 
@@ -47,7 +46,7 @@ function listHtml(obj) {
 
     count.classList.add('counter')
 
-    count.innerHTML = countReminders()
+    count.innerHTML = 0
 
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('close-btn-2')
@@ -94,6 +93,7 @@ function addNewList() {
     article.append(listHtml(list))
 }
 
-function updateReminderCount() {
+function updateReminderCount(elem) {
     
+    elem.children[2].innerHTML += 1
 }
