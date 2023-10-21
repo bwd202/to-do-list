@@ -4,9 +4,9 @@ import './classes.css'
 import './header.css'
 import './main.css'
 import './footer.css'
-import { closeModal, openModal, toggleModal} from './modalControl'
+import { closeModal, openModal} from './modalControl'
 import {addNewList} from './list'
-import {Reminder, publishReminder,reminderStorage} from './reminder.js'
+import {publishReminder} from './reminder.js'
 
 // UIs
 
@@ -22,7 +22,7 @@ let listModal = document.querySelector('#list-modal')
 
 let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
-document.querySelector('button#publishReminder').addEventListener('click', publishReminder()) 
+document.querySelector('button#publishReminder').addEventListener('click', publishReminder) 
 
 // DEFAULT REMINDER HTML
 

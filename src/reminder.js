@@ -1,4 +1,4 @@
-export {Reminder, publishReminder, reminderStorage}
+export {publishReminder}
 
 class Reminder {
 
@@ -104,9 +104,13 @@ function publishReminder() {//shows reminder object html
 
     getReminderData()
 
-    for(item of reminderStorage) {
+    for(let item of reminderStorage) {
 
-        createHtml(item)
+        let reminderListId = "#" + item.list
+
+        let container = document.querySelector(reminderListId)
+
+        container.append(createHtml(item))
     }
 
 
