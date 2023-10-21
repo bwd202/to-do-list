@@ -4291,8 +4291,7 @@ module.exports = styleTagTransform;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   addNewList: () => (/* binding */ addNewList),
-/* harmony export */   countReminders: () => (/* binding */ countReminders)
+/* harmony export */   addNewList: () => (/* binding */ addNewList)
 /* harmony export */ });
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
@@ -4369,15 +4368,6 @@ function listHtml(obj) {
     return wrapper
 }
 
-function countReminders() {
-    
-    let counter = document.querySelector('.counter')
-
-    let reminderCount = counter.parentElement?.lastElementChild.children.length
-
-    counter.innerHTML = reminderCount
-}
-
 function addListToReminderModalOptions(obj) {
 
     let container = document.querySelector('#selectList')
@@ -4401,6 +4391,10 @@ function addNewList() {
     let article = document.querySelector('article')
 
     article.append(listHtml(list))
+}
+
+function updateReminderCount() {
+    
 }
 
 /***/ }),
