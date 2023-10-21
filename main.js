@@ -4463,13 +4463,14 @@ __webpack_require__.r(__webpack_exports__);
 
 class Reminder {
 
-    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium", list="default"} = {}) {
+    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium", list="default", completed=false} = {}) {
         this.title = title
         this.notes = notes
         this.dueDate = dueDate
         this.dueTime = dueTime
         this.priority = priority
         this.list = list
+        this.completed = completed
     }
 
 }
