@@ -15,7 +15,11 @@ class Reminder {
 
 }
 
-let reminders = []
+let reminderStorage = []
+
+function storeReminder(arr, reminder) {
+    arr.push(reminder)
+}
 
 function getReminderData() { //organizes user input from modal into object, pushes object to array for storage
 
@@ -79,19 +83,19 @@ function reminderHtml(obj) {  //shows obj information as html
     return reminderWrapper
 }
 
-function publishDefaultReminder() {
+// function publishDefaultReminder() {
 
-    document.querySelector('#defaultList').classList.add('visible') //shows drop-down by default
+//     document.querySelector('#defaultList').classList.add('visible') //shows drop-down by default
 
-    let defaultReminder = new Reminder({title:'Take trash out',notes:"Notes"})
+//     let defaultReminder = new Reminder({title:'Take trash out',notes:"Notes"})
 
-    document.querySelector('button#publishReminder').addEventListener('click', publishReminder(defaultReminder))
+//     document.querySelector('button#publishReminder').addEventListener('click', publishReminder(defaultReminder))
 
-    let clickEvent = new Event('click')
+//     let clickEvent = new Event('click')
 
-    document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+//     document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
-} 
+// } 
 
 function publishReminder(obj) {// routes reminder to right list, shows reminder html on document
 
