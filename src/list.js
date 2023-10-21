@@ -1,4 +1,4 @@
-export default addNewList
+export {countReminders,addNewList}
 import listIcon from './icons/calendar-text.svg'
 import CssFilterConverter from 'css-filter-converter'
 
@@ -17,20 +17,12 @@ function makeListObj() {
 
     let color = document.querySelector("[type='color']").value
 
-    // console.log(color)
-
     return new List({name, color})
 }
 
 function listHtml(obj) {
 
-    // let list = makeListObj()
-
     let wrapper = new DocumentFragment()
-
-    // let listWrapper = document.createElement('div')
-    
-    // listWrapper.classList.add('list-wrapper')
 
     let listBanner = document.createElement('div')
 
@@ -48,13 +40,13 @@ function listHtml(obj) {
 
     icon.style.filter = iconColor
 
-    // console.log(iconColor)
-
     p.append(listName)
 
     let count = document.createElement('span')
 
-    count.innerHTML = 0
+    count.classList.add('counter')
+
+    count.innerHTML = countReminders()
 
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('close-btn-2')
@@ -71,11 +63,18 @@ function listHtml(obj) {
 
     listBanner.append(icon, p, count, closeBtn, dropDown)
 
-    // listWrapper.append(listBanner, listDropDown)
-
     wrapper.append(listBanner)
 
     return wrapper
+}
+
+function countReminders() {
+    
+    let counter = document.querySelector('.counter')
+
+    let reminderCount = counter.parentElement?.lastElementChild.children.length
+
+    counter.innerHTML = reminderCount
 }
 
 function addListToReminderModalOptions(obj) {
@@ -90,11 +89,6 @@ function addListToReminderModalOptions(obj) {
 
     container.append(newListOption)
 
-}
-
-// adds id to reminder with list name obtained from list modal
-function linkListNameToReminderHtml() {
-    document.querySelector()
 }
 
 function addNewList() {

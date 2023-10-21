@@ -5,7 +5,7 @@ import './header.css'
 import './main.css'
 import './footer.css'
 import { closeModal, openModal, toggleModal} from './modalControl'
-import addListFn from './list'
+import {addNewList} from './list'
 import {Reminder, publishReminder} from './reminder.js'
 
 // UIs
@@ -66,7 +66,7 @@ openListModal.addEventListener('click', openModal(listModal))  //html id
 
 listModalCloseBtn.addEventListener('click', closeModal(listModal))
 
-addList.addEventListener('click', addListFn)
+addList.addEventListener('click', addNewList)
 
 // TEST LIST
 // addList.dispatchEvent(clickEvent)

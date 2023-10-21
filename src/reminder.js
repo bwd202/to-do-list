@@ -1,4 +1,5 @@
 export {Reminder, publishReminder}
+import {countReminders} from './list' 
 
 class Reminder {
 
@@ -30,8 +31,6 @@ function getReminderData() { //organizes user input from modal into object, push
     let reminderList = document.querySelector('select#selectList').value
 
     let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
-
-    // console.log(reminderPriority)
 
     reminders.push(reminderObj)
 
@@ -76,10 +75,7 @@ function reminderHtml(obj) {  //shows obj information as html
 
     reminderWrapper.push(checkbox,reminderTitle,closeBtn,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
 
-    // console.log(reminder)
-
     return reminderWrapper
-
 }
 
 function publishDefaultReminder() {
@@ -107,13 +103,9 @@ function publishReminder(obj) {// routes reminder to right list, shows reminder 
         let _obj = obj
     
         if(!obj) _obj = getReminderData()
-    
-        // console.log(obj)
-        
+            
         let destinationList = '#' + _obj.list //add fix for when _obj.list is blank
-    
-        // console.log(destinationList)
-    
+        
         let container = document.querySelector(destinationList)
     
         let defaultContainer = document.querySelector('#defaultList')
@@ -129,9 +121,6 @@ function publishReminder(obj) {// routes reminder to right list, shows reminder 
     
         container.append(reminder)
         reminder.append(...reminderHtml(_obj))
-    
-        // console.log(destinationList)
+        countReminders()
     }
-
-  
 }
