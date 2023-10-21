@@ -1,4 +1,4 @@
-export {countReminders,addNewList}
+export {addNewList}
 import listIcon from './icons/calendar-text.svg'
 import CssFilterConverter from 'css-filter-converter'
 import { reminderStorage } from './reminder'
@@ -69,15 +69,6 @@ function listHtml(obj) {
     return wrapper
 }
 
-function countReminders() {
-    
-    let counter = document.querySelector('.counter')
-
-    let reminderCount = counter.parentElement?.lastElementChild.children.length
-
-    counter.innerHTML = reminderCount
-}
-
 function addListToReminderModalOptions(obj) {
 
     let container = document.querySelector('#selectList')
@@ -101,4 +92,8 @@ function addNewList() {
     let article = document.querySelector('article')
 
     article.append(listHtml(list))
+}
+
+function updateReminderCount() {
+    
 }
