@@ -16,11 +16,11 @@ class Reminder {
 
 let reminderStorage = []
 
-function storeReminder(arr, reminder) {
+function storeReminder(arr, reminder) { //stores reminder
     arr.push(reminder)
 }
 
-function getReminderData() { //gets reminder info from modal, pushes reminder to storage
+function getReminderData() { //gets reminder data from modal
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -37,8 +37,6 @@ function getReminderData() { //gets reminder info from modal, pushes reminder to
     let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
 
     storeReminder(reminderStorage, reminderObj)
-
-    // return reminderObj
 }
 
 function createHtml(obj) {  //creates html from reminder obj
@@ -96,7 +94,7 @@ function createHtml(obj) {  //creates html from reminder obj
 
 // } 
 
-function publishReminder() {//shows reminder object html
+function publishReminder() {//shows reminder info on page
 
     let reminderHtmlWrapper = document.createElement('div')
 
@@ -106,20 +104,11 @@ function publishReminder() {//shows reminder object html
 
     let currentReminder = reminderStorage.at(-1)
 
-    // for(let i = 0; i < reminderStorage.length; i++)
+    let reminderListId = "#" + currentReminder.list
 
-    // for(let item of reminderStorage) {
+    let container = document.querySelector(reminderListId)
 
-        // while(item)
+    reminderHtmlWrapper.append(...createHtml(currentReminder))
 
-        let reminderListId = "#" + currentReminder.list
-
-        let container = document.querySelector(reminderListId)
-
-        // container.classList.add('reminder')
-
-        reminderHtmlWrapper.append(...createHtml(currentReminder))
-
-        container.append(reminderHtmlWrapper)
-    // }
+    container.append(reminderHtmlWrapper)
 }
