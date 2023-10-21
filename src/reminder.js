@@ -43,7 +43,7 @@ function getReminderData() { //gets reminder info from modal, pushes reminder to
 
 function createHtml(obj) {  //creates html from reminder obj
 
-    let reminderWrapper = []
+    let reminderHtmlContent = []
 
     let checkbox = document.createElement('input')
     
@@ -77,9 +77,9 @@ function createHtml(obj) {  //creates html from reminder obj
 
     reminderPriority.innerHTML = obj.priority
 
-    reminderWrapper.push(checkbox,reminderTitle,closeBtn,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
+    reminderHtmlContent.push(checkbox,reminderTitle,closeBtn,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
 
-    return reminderWrapper
+    return reminderHtmlContent
 }
 
 // function publishDefaultReminder() {
@@ -98,22 +98,28 @@ function createHtml(obj) {  //creates html from reminder obj
 
 function publishReminder() {//shows reminder object html
 
-    let reminder = document.createElement('div')
+    let reminderHtmlWrapper = document.createElement('div')
 
-    reminder.classList.add('reminder')
+    reminderHtmlWrapper.classList.add('reminder')
 
     getReminderData()
 
-    for(let item of reminderStorage) {
+    let currentReminder = reminderStorage.at(-1)
 
-        let reminderListId = "#" + item.list
+    // for(let i = 0; i < reminderStorage.length; i++)
+
+    // for(let item of reminderStorage) {
+
+        // while(item)
+
+        let reminderListId = "#" + currentReminder.list
 
         let container = document.querySelector(reminderListId)
 
         // container.classList.add('reminder')
 
-        reminder.append(...createHtml(item))
+        reminderHtmlWrapper.append(...createHtml(currentReminder))
 
-        container.append(reminder)
-    }
+        container.append(reminderHtmlWrapper)
+    // }
 }
