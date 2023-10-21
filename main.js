@@ -4297,8 +4297,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_filter_converter__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
 
 ;
+
 
 
 // UI
@@ -4454,7 +4456,8 @@ function toggleModal(modal) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   publishReminder: () => (/* binding */ publishReminder)
+/* harmony export */   publishReminder: () => (/* binding */ publishReminder),
+/* harmony export */   reminderStorage: () => (/* binding */ reminderStorage)
 /* harmony export */ });
 
 
