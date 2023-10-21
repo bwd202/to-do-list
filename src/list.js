@@ -1,6 +1,7 @@
 export {countReminders,addNewList}
 import listIcon from './icons/calendar-text.svg'
 import CssFilterConverter from 'css-filter-converter'
+import { reminderStorage } from './reminder'
 
 // UI
 

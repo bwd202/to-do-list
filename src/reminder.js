@@ -1,4 +1,4 @@
-export {publishReminder}
+export {publishReminder,reminderStorage}
 
 class Reminder {
 
