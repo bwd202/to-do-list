@@ -114,6 +114,8 @@ function publishReminder() {//shows reminder info on page
 
     let reminderListId = "#" + currentReminder.list
 
+    
+
     let container = document.querySelector(reminderListId)
 
     reminderHtmlWrapper.append(...createHtml(currentReminder))

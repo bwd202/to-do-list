@@ -66,7 +66,7 @@ function listHtml(obj) {
 
     dropDown.classList.add('drop-down')
 
-    dropDown.setAttribute('id',obj.name)
+    dropDown.setAttribute('id',obj.name)  //LIST NAME
 
     dropDown.setAttribute('hidden','')
 
