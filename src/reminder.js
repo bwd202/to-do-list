@@ -15,10 +15,17 @@ class Reminder {
 
 }
 
-let reminderStorage = []
+// let reminderStorage = []
 
-function storeReminder(arr, reminder) { //stores reminder
-    arr.push(reminder)
+function storeReminder(listName,reminder) { //stores reminder
+
+    let _listName = listName
+
+    _listName = new Array()
+
+    _listName.push(reminder)
+
+    return _listName
 }
 
 function getReminderData() { //gets reminder data from modal
@@ -37,7 +44,7 @@ function getReminderData() { //gets reminder data from modal
 
     let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
 
-    storeReminder(reminderStorage, reminderObj)
+    storeReminder(reminderList, reminderObj)
 }
 
 function createHtml(obj) {  //creates html from reminder obj

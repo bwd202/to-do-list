@@ -8,7 +8,19 @@ class List {
     constructor({name = 'new list', color = '#0f0'}={}) {
         this.name = name
         this.color = color
+        this.storage = []
     }
+
+    storeReminder(rem) {
+        this.storage.push(rem)
+    }
+}
+
+function createListStorage(name) {
+
+
+
+    return list
 }
 
 function makeListObj() {
