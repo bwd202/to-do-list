@@ -1,15 +1,15 @@
 export {listStorage}
 
-let listStorage = {  //uses computed properties to store and get new list names
+let listStorage = {  
 
-    addList(name) {
+    addList(obj) {
 
-        this[name] = []
+        this[obj.name] = obj    //stores list obj by obj name
     },
 
-    getList(name) {
+    getList(obj) {
 
-        return this[name]
+        return this[obj.name]
     }
 
 

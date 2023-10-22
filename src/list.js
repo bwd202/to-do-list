@@ -1,6 +1,7 @@
 export {addNewList,updateReminderCount}
 import listIcon from './icons/calendar-text.svg'
 import CssFilterConverter from 'css-filter-converter'
+import { listStorage } from './listStorage'
 
 // UI
 
@@ -26,7 +27,11 @@ function makeListObj() {
 
     let color = document.querySelector("[type='color']").value
 
-    return new List({name, color})
+    let newList = new List({name, color})
+
+    listStorage.addList(newList)
+
+    return newList
 }
 
 function listHtml(obj) {
