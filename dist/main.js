@@ -4392,9 +4392,9 @@ function addNewList() {
     article.append(listHtml(list))
 }
 
-function updateReminderCount(elem) {
+function updateReminderCount(elem, count) {
     
-    elem.children[2].innerHTML += 1
+    elem.children[2].innerHTML = count.length
 }
 
 /***/ }),
@@ -4571,7 +4571,7 @@ function publishReminder() {//shows reminder info on page
 
     let banner = container.parentElement
 
-    ;(0,_list__WEBPACK_IMPORTED_MODULE_0__.updateReminderCount)(banner)
+    ;(0,_list__WEBPACK_IMPORTED_MODULE_0__.updateReminderCount)(banner,reminderStorage)
 }
 
 /***/ }),

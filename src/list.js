@@ -93,7 +93,7 @@ function addNewList() {
     article.append(listHtml(list))
 }
 
-function updateReminderCount(elem) {
+function updateReminderCount(elem, count) {
     
-    elem.children[2].innerHTML += 1
+    elem.children[2].innerHTML = count.length
 }

@@ -115,5 +115,5 @@ function publishReminder() {//shows reminder info on page
 
     let banner = container.parentElement
 
-    updateReminderCount(banner)
+    updateReminderCount(banner,reminderStorage)
 }
