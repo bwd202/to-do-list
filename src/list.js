@@ -14,13 +14,10 @@ class List {
     storeReminder(rem) {
         this.storage.push(rem)
     }
-}
 
-function createListStorage(name) {
-
-
-
-    return list
+    get storage() {
+        return this._storage
+    }
 }
 
 function makeListObj() {
