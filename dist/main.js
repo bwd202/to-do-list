@@ -4403,19 +4403,6 @@ function removeListBanner(e) { //rms list from document
             reminderModalListOptions[i].remove()
         }
     }
-    // reminderModalListOptions
-
-}
-
-function removeListName(e) { //rms list name from reminder modal options
-
-    // let targetListId = e.target.nextSibling.id
-
-    // container.lastChild.remove()
-
-    // console.log(container.querySelector('#' + targetListId))
-
-    console.log(e.target)
 }
 
 function addListToReminderModalOptions(list) {
@@ -4534,12 +4521,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   publishReminder: () => (/* binding */ publishReminder)
 /* harmony export */ });
 /* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list */ "./src/list.js");
+/* harmony import */ var _listStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./listStorage */ "./src/listStorage.js");
 
 ;
 
+
 class Reminder {
 
-    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium", list="default", completed=false} = {}) {
+    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium", list="reminders", completed=false} = {}) {
         this.title = title
         this.notes = notes
         this.dueDate = dueDate
@@ -4549,19 +4538,29 @@ class Reminder {
         this.completed = completed
     }
 
+    get list() {
+        return this._list
+    }
+
+    set list(name) {
+        this._list = name
+    }
+
 }
 
 // let reminderStorage = []
 
-function storeReminder(listName,reminder) { //stores reminder
+function storeReminder(list, reminder) { //stores reminder
 
-    let _listName = listName
+    // let _listName = listName
 
-    _listName = new Array()
+    // _listName = new Array()
 
-    _listName.push(reminder)
+    // _listName.push(reminder)
 
-    return _listName
+    // return _listName
+
+    _listStorage__WEBPACK_IMPORTED_MODULE_1__.listStorage[list] = reminder
 }
 
 function getReminderData() { //gets reminder data from modal
@@ -4581,6 +4580,8 @@ function getReminderData() { //gets reminder data from modal
     let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
 
     storeReminder(reminderList, reminderObj)
+
+    return reminderObj
 }
 
 function createHtml(obj) {  //creates html from reminder obj
@@ -4638,27 +4639,36 @@ function createHtml(obj) {  //creates html from reminder obj
 
 // } 
 
+// function addReminderToList() {
+//      let list = 
+// }
+
 function publishReminder() {//shows reminder info on page
 
     let reminderHtmlWrapper = document.createElement('div')
 
     reminderHtmlWrapper.classList.add('reminder')
 
-    getReminderData()
+    let newReminder = getReminderData()
 
     // let currentReminder = reminderStorage.at(-1)
 
-    let reminderListId = "#" + currentReminder.list
+    function getList() {
 
-    
+        let listName = newReminder.list()
+
+        return "#" + listName
+    }
+
+    let reminderListId = getList()
 
     let container = document.querySelector(reminderListId)
 
-    reminderHtmlWrapper.append(...createHtml(currentReminder))
+    reminderHtmlWrapper.append(...createHtml(newReminder))
 
     container.append(reminderHtmlWrapper)
 
-    let banner = container.parentElement
+    // let banner = container.parentElement
 
     // updateReminderCount(banner,reminderStorage)
 }

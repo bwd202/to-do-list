@@ -103,19 +103,6 @@ function removeListBanner(e) { //rms list from document
             reminderModalListOptions[i].remove()
         }
     }
-    // reminderModalListOptions
-
-}
-
-function removeListName(e) { //rms list name from reminder modal options
-
-    // let targetListId = e.target.nextSibling.id
-
-    // container.lastChild.remove()
-
-    // console.log(container.querySelector('#' + targetListId))
-
-    console.log(e.target)
 }
 
 function addListToReminderModalOptions(list) {
