@@ -4316,9 +4316,9 @@ class List {
         this.storage.push(rem)
     }
 
-    get name() {
-        return this.name
-    }
+    // get name() {
+    //     return this.name
+    // }
 
     // get storage() {
     //     return this._storage
@@ -4369,7 +4369,7 @@ function listHtml(obj) {
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
     closeBtn.innerHTML = '&times;'
-    closeBtn.addEventListener('click',removeList)
+    closeBtn.addEventListener('click',removeListBanner)
 
     let dropDown = document.createElement('div')
 
@@ -4392,8 +4392,17 @@ function removeListBanner(e) { //rms list from document
 
     targetBanner.remove()
 
-    let reminderModalListOptions = document.querySelector('#selectList')
+    let listId = targetBanner.lastElementChild.id
 
+    let reminderModalListOptions = document.querySelector('#selectList').children
+
+    for(let i = 0; i < reminderModalListOptions.length; i++) {
+
+        if(reminderModalListOptions[i].value === listId) {
+
+            reminderModalListOptions[i].remove()
+        }
+    }
     // reminderModalListOptions
 
 }
@@ -4876,6 +4885,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modalControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modalControl */ "./src/modalControl.js");
 /* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./list */ "./src/list.js");
 /* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
+/* harmony import */ var _listStorage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./listStorage */ "./src/listStorage.js");
 
 
 
@@ -4885,6 +4895,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+console.log(_listStorage__WEBPACK_IMPORTED_MODULE_9__.listStorage)
 
 // UIs
 
