@@ -7,6 +7,9 @@ import './footer.css'
 import { closeModal, openModal} from './modalControl'
 import {addNewList} from './list'
 import {publishReminder} from './reminder.js'
+import { listStorage } from './listStorage'
+
+console.log(listStorage)
 
 // UIs
 

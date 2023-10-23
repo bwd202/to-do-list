@@ -16,9 +16,9 @@ class List {
         this.storage.push(rem)
     }
 
-    get name() {
-        return this.name
-    }
+    // get name() {
+    //     return this.name
+    // }
 
     // get storage() {
     //     return this._storage
@@ -69,7 +69,7 @@ function listHtml(obj) {
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
     closeBtn.innerHTML = '&times;'
-    closeBtn.addEventListener('click',removeList)
+    closeBtn.addEventListener('click',removeListBanner)
 
     let dropDown = document.createElement('div')
 
@@ -92,8 +92,17 @@ function removeListBanner(e) { //rms list from document
 
     targetBanner.remove()
 
-    let reminderModalListOptions = document.querySelector('#selectList')
+    let listId = targetBanner.lastElementChild.id
 
+    let reminderModalListOptions = document.querySelector('#selectList').children
+
+    for(let i = 0; i < reminderModalListOptions.length; i++) {
+
+        if(reminderModalListOptions[i].value === listId) {
+
+            reminderModalListOptions[i].remove()
+        }
+    }
     // reminderModalListOptions
 
 }
