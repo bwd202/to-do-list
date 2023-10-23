@@ -4316,6 +4316,10 @@ class List {
         this.storage.push(rem)
     }
 
+    get name() {
+        return this.name
+    }
+
     // get storage() {
     //     return this._storage
     // }
@@ -4382,36 +4386,38 @@ function listHtml(obj) {
     return wrapper
 }
 
-function removeList(e) { //rms list from document
+function removeListBanner(e) { //rms list from document
 
-    let targetList = e.target.parentElement
+    let targetBanner = e.target.parentElement
 
-    targetList.remove()
+    targetBanner.remove()
 
+    let reminderModalListOptions = document.querySelector('#selectList')
 
-    removeListName()
+    // reminderModalListOptions
+
 }
 
 function removeListName(e) { //rms list name from reminder modal options
 
-    let targetListId = e.target.nextSibling.id
-
-    let container = document.querySelector('#selectList')
+    // let targetListId = e.target.nextSibling.id
 
     // container.lastChild.remove()
 
-    console.log(container.querySelector('#' + targetListId))
+    // console.log(container.querySelector('#' + targetListId))
+
+    console.log(e.target)
 }
 
-function addListToReminderModalOptions(obj) {
+function addListToReminderModalOptions(list) {
 
     let container = document.querySelector('#selectList')
 
     let newListOption = document.createElement('option')
 
-    newListOption.setAttribute('value', obj.name)
+    newListOption.setAttribute('value', list.name)
 
-    newListOption.innerHTML = obj.name
+    newListOption.innerHTML = list.name
 
     container.append(newListOption)
 
