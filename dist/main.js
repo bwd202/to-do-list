@@ -4297,8 +4297,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_filter_converter__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _listStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./listStorage */ "./src/listStorage.js");
 
 ;
+
 
 
 // UI
@@ -4307,7 +4309,16 @@ class List {
     constructor({name = 'new list', color = '#0f0'}={}) {
         this.name = name
         this.color = color
+        this.storage = []
     }
+
+    storeReminder(rem) {
+        this.storage.push(rem)
+    }
+
+    // get storage() {
+    //     return this._storage
+    // }
 }
 
 function makeListObj() {
@@ -4316,7 +4327,11 @@ function makeListObj() {
 
     let color = document.querySelector("[type='color']").value
 
-    return new List({name, color})
+    let newList = new List({name, color})
+
+    _listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.addList(newList)
+
+    return newList
 }
 
 function listHtml(obj) {
@@ -4350,13 +4365,13 @@ function listHtml(obj) {
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('close-btn-2')
     closeBtn.innerHTML = '&times;'
-    closeBtn.addEventListener('click', () => listBanner.remove())
+    closeBtn.addEventListener('click',removeList)
 
     let dropDown = document.createElement('div')
 
     dropDown.classList.add('drop-down')
 
-    dropDown.setAttribute('id',obj.name)
+    dropDown.setAttribute('id',obj.name)  //LIST NAME
 
     dropDown.setAttribute('hidden','')
 
@@ -4365,6 +4380,23 @@ function listHtml(obj) {
     wrapper.append(listBanner)
 
     return wrapper
+}
+
+function removeList(e) { //rms list from document
+
+    let targetList = e.target.parentElement
+
+    targetList.remove()
+
+    removeListName()
+}
+
+function removeListName() { //rms list name from reminder modal select
+
+    let container = document.querySelector('#selectList')
+
+    container.lastChild.remove()
+
 }
 
 function addListToReminderModalOptions(obj) {
@@ -4395,6 +4427,36 @@ function addNewList() {
 function updateReminderCount(elem, count) {
     
     elem.children[2].innerHTML = count.length
+}
+
+/***/ }),
+
+/***/ "./src/listStorage.js":
+/*!****************************!*\
+  !*** ./src/listStorage.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   listStorage: () => (/* binding */ listStorage)
+/* harmony export */ });
+
+
+let listStorage = {  
+
+    addList(obj) {
+
+        this[obj.name] = obj    //stores list obj by obj name
+    },
+
+    getList(obj) {
+
+        return this[obj.name]
+    }
+
+
 }
 
 /***/ }),
@@ -4450,8 +4512,7 @@ function toggleModal(modal) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   publishReminder: () => (/* binding */ publishReminder),
-/* harmony export */   reminderStorage: () => (/* binding */ reminderStorage)
+/* harmony export */   publishReminder: () => (/* binding */ publishReminder)
 /* harmony export */ });
 /* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list */ "./src/list.js");
 
@@ -4471,10 +4532,17 @@ class Reminder {
 
 }
 
-let reminderStorage = []
+// let reminderStorage = []
 
-function storeReminder(arr, reminder) { //stores reminder
-    arr.push(reminder)
+function storeReminder(listName,reminder) { //stores reminder
+
+    let _listName = listName
+
+    _listName = new Array()
+
+    _listName.push(reminder)
+
+    return _listName
 }
 
 function getReminderData() { //gets reminder data from modal
@@ -4493,7 +4561,7 @@ function getReminderData() { //gets reminder data from modal
 
     let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
 
-    storeReminder(reminderStorage, reminderObj)
+    storeReminder(reminderList, reminderObj)
 }
 
 function createHtml(obj) {  //creates html from reminder obj
@@ -4559,9 +4627,11 @@ function publishReminder() {//shows reminder info on page
 
     getReminderData()
 
-    let currentReminder = reminderStorage.at(-1)
+    // let currentReminder = reminderStorage.at(-1)
 
     let reminderListId = "#" + currentReminder.list
+
+    
 
     let container = document.querySelector(reminderListId)
 
@@ -4571,7 +4641,7 @@ function publishReminder() {//shows reminder info on page
 
     let banner = container.parentElement
 
-    ;(0,_list__WEBPACK_IMPORTED_MODULE_0__.updateReminderCount)(banner,reminderStorage)
+    // updateReminderCount(banner,reminderStorage)
 }
 
 /***/ }),

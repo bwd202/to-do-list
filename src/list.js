@@ -16,9 +16,9 @@ class List {
         this.storage.push(rem)
     }
 
-    get storage() {
-        return this._storage
-    }
+    // get storage() {
+    //     return this._storage
+    // }
 }
 
 function makeListObj() {
@@ -65,7 +65,7 @@ function listHtml(obj) {
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('close-btn-2')
     closeBtn.innerHTML = '&times;'
-    closeBtn.addEventListener('click', () => listBanner.remove())
+    closeBtn.addEventListener('click',removeList)
 
     let dropDown = document.createElement('div')
 
@@ -80,6 +80,23 @@ function listHtml(obj) {
     wrapper.append(listBanner)
 
     return wrapper
+}
+
+function removeList(e) { //rms list from document
+
+    let targetList = e.target.parentElement
+
+    targetList.remove()
+
+    removeListName()
+}
+
+function removeListName() { //rms list name from reminder modal select
+
+    let container = document.querySelector('#selectList')
+
+    container.lastChild.remove()
+
 }
 
 function addListToReminderModalOptions(obj) {

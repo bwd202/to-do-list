@@ -1,4 +1,4 @@
-export {publishReminder,reminderStorage}
+export {publishReminder}
 import { updateReminderCount } from "./list"
 
 class Reminder {
@@ -110,7 +110,7 @@ function publishReminder() {//shows reminder info on page
 
     getReminderData()
 
-    let currentReminder = reminderStorage.at(-1)
+    // let currentReminder = reminderStorage.at(-1)
 
     let reminderListId = "#" + currentReminder.list
 
@@ -124,5 +124,5 @@ function publishReminder() {//shows reminder info on page
 
     let banner = container.parentElement
 
-    updateReminderCount(banner,reminderStorage)
+    // updateReminderCount(banner,reminderStorage)
 }
