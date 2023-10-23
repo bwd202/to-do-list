@@ -63,7 +63,7 @@ function listHtml(obj) {
     count.innerHTML = 0
 
     let closeBtn = document.createElement('span')
-    closeBtn.classList.add('close-btn-2')
+    closeBtn.classList.add('banner-close-btn')
     closeBtn.innerHTML = '&times;'
     closeBtn.addEventListener('click',removeList)
 
@@ -88,15 +88,19 @@ function removeList(e) { //rms list from document
 
     targetList.remove()
 
+
     removeListName()
 }
 
-function removeListName() { //rms list name from reminder modal select
+function removeListName(e) { //rms list name from reminder modal options
+
+    let targetListId = e.target.nextSibling.id
 
     let container = document.querySelector('#selectList')
 
-    container.lastChild.remove()
+    // container.lastChild.remove()
 
+    console.log(container.querySelector('#' + targetListId))
 }
 
 function addListToReminderModalOptions(obj) {
