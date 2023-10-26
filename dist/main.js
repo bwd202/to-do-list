@@ -4550,10 +4550,10 @@ class Reminder {
 
 }
 
-// function storeReminder(list, reminder) { //stores reminder
+function storeReminder(list, reminder) { //stores reminder
 
-//     listStorage[list] = reminder
-// }
+    _listStorage__WEBPACK_IMPORTED_MODULE_1__.listStorage[list] = reminder
+}
 
 function getReminderData() { //gets reminder data from modal, creates object from it and returns it
 
@@ -4570,8 +4570,6 @@ function getReminderData() { //gets reminder data from modal, creates object fro
     let reminderList = document.querySelector('select#selectList').value
 
     let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
-
-    // storeReminder(reminderList, reminderObj)
 
     return reminderObj
 }
@@ -4660,7 +4658,7 @@ function publishReminder() {//shows reminder html on page
 
     container.append(reminderHtmlWrapper)
 
-    // storeReminder(newReminder.list, newReminder)
+    storeReminder(newReminder.list, newReminder)
 
     console.log(_listStorage__WEBPACK_IMPORTED_MODULE_1__.listStorage)
 
