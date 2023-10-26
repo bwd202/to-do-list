@@ -10,21 +10,19 @@ class Reminder {
         this.dueDate = dueDate
         this.dueTime = dueTime
         this.priority = priority
-        this.list = list
+        this.destinationList = list
         this.completed = completed
     }
 
     get list() {
-        return this._list
+        return this.destinationList
     }
 
     set list(name) {
-        this._list = name
+        this.destinationList = name
     }
 
 }
-
-// let reminderStorage = []
 
 function storeReminder(list, reminder) { //stores reminder
 
@@ -39,7 +37,7 @@ function storeReminder(list, reminder) { //stores reminder
     listStorage[list] = reminder
 }
 
-function getReminderData() { //gets reminder data from modal
+function getReminderData() { //gets reminder data from modal, creates object from it, stores obj and returns obj
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -60,7 +58,7 @@ function getReminderData() { //gets reminder data from modal
     return reminderObj
 }
 
-function createHtml(obj) {  //creates html from reminder obj
+function createHtml(obj) {  //uses obj props to create reminder html
 
     let reminderHtmlContent = []
 
@@ -119,7 +117,7 @@ function createHtml(obj) {  //creates html from reminder obj
 //      let list = 
 // }
 
-function publishReminder() {//shows reminder info on page
+function publishReminder() {//shows reminder html on page
 
     let reminderHtmlWrapper = document.createElement('div')
 
@@ -131,7 +129,7 @@ function publishReminder() {//shows reminder info on page
 
     function getList() {
 
-        let listName = newReminder.list()
+        let listName = newReminder.list
 
         return "#" + listName
     }
