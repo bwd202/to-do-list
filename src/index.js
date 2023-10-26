@@ -9,8 +9,6 @@ import {addNewList} from './list'
 import {publishReminder} from './reminder.js'
 import { listStorage } from './listStorage'
 
-console.log(listStorage)
-
 // UIs
 
 let defaultList = document.querySelector('#defaultList')

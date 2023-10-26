@@ -7,22 +7,19 @@ import { listStorage } from './listStorage'
 
 class List {
     constructor({name = 'new list', color = '#0f0'}={}) {
-        this.name = name
-        this.color = color
-        this.storage = []
+        this.listName = name
+        this.listColor = color
+        this.reminderStorage = []
     }
 
-    storeReminder(rem) {
-        this.storage.push(rem)
+    storeReminder(obj) {
+        this.reminderStorage.push(obj)
     }
 
-    // get name() {
-    //     return this.name
-    // }
+    get reminderCount() {
+        return this.reminderStorage.length
+    }
 
-    // get storage() {
-    //     return this._storage
-    // }
 }
 
 function makeListObj() {
@@ -130,7 +127,10 @@ function addNewList() {
     article.append(listHtml(list))
 }
 
-function updateReminderCount(elem, count) {
+function updateReminderCount(list) {
+
+    let banner = 
+
+    list.querySelector('.counter').innerHTML = list.reminderCount
     
-    elem.children[2].innerHTML = count.length
 }

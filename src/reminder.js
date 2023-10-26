@@ -37,7 +37,7 @@ function storeReminder(list, reminder) { //stores reminder
     listStorage[list] = reminder
 }
 
-function getReminderData() { //gets reminder data from modal, creates object from it, stores obj and returns obj
+function getReminderData() { //gets reminder data from modal, creates object from it and returns it
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -53,7 +53,7 @@ function getReminderData() { //gets reminder data from modal, creates object fro
 
     let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
 
-    storeReminder(reminderList, reminderObj)
+    // storeReminder(reminderList, reminderObj)
 
     return reminderObj
 }
@@ -127,14 +127,14 @@ function publishReminder() {//shows reminder html on page
 
     // let currentReminder = reminderStorage.at(-1)
 
-    function getList() {
+    // function getList() {
 
-        let listName = newReminder.list
+    //     let listName = newReminder.list
 
-        return "#" + listName
-    }
+    //     return "#" + listName
+    // }
 
-    let reminderListId = getList()
+    let reminderListId = "#" + newReminder.list
 
     let container = document.querySelector(reminderListId)
 
@@ -142,7 +142,12 @@ function publishReminder() {//shows reminder html on page
 
     container.append(reminderHtmlWrapper)
 
-    // let banner = container.parentElement
+    // storeReminder(newReminder.list, newReminder)
 
-    // updateReminderCount(banner,reminderStorage)
+    console.log(listStorage)
+
+    let banner = container.parentElement
+
+    updateReminderCount(banner)
 }
+
