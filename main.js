@@ -4307,22 +4307,19 @@ __webpack_require__.r(__webpack_exports__);
 
 class List {
     constructor({name = 'new list', color = '#0f0'}={}) {
-        this.name = name
-        this.color = color
-        this.storage = []
+        this.listName = name
+        this.listColor = color
+        this.reminderStorage = []
     }
 
-    storeReminder(rem) {
-        this.storage.push(rem)
+    storeReminder(obj) {
+        this.reminderStorage.push(obj)
     }
 
-    // get name() {
-    //     return this.name
-    // }
+    get reminderCount() {
+        return this.reminderStorage.length
+    }
 
-    // get storage() {
-    //     return this._storage
-    // }
 }
 
 function makeListObj() {
@@ -4430,9 +4427,12 @@ function addNewList() {
     article.append(listHtml(list))
 }
 
-function updateReminderCount(elem, count) {
+function updateReminderCount(list) {
+
+    let banner = 
+
+    list.querySelector('.counter').innerHTML = list.reminderCount
     
-    elem.children[2].innerHTML = count.length
 }
 
 /***/ }),
@@ -4561,7 +4561,7 @@ function storeReminder(list, reminder) { //stores reminder
     _listStorage__WEBPACK_IMPORTED_MODULE_1__.listStorage[list] = reminder
 }
 
-function getReminderData() { //gets reminder data from modal, creates object from it, stores obj and returns obj
+function getReminderData() { //gets reminder data from modal, creates object from it and returns it
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -4577,7 +4577,7 @@ function getReminderData() { //gets reminder data from modal, creates object fro
 
     let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
 
-    storeReminder(reminderList, reminderObj)
+    // storeReminder(reminderList, reminderObj)
 
     return reminderObj
 }
@@ -4651,14 +4651,14 @@ function publishReminder() {//shows reminder html on page
 
     // let currentReminder = reminderStorage.at(-1)
 
-    function getList() {
+    // function getList() {
 
-        let listName = newReminder.list
+    //     let listName = newReminder.list
 
-        return "#" + listName
-    }
+    //     return "#" + listName
+    // }
 
-    let reminderListId = getList()
+    let reminderListId = "#" + newReminder.list
 
     let container = document.querySelector(reminderListId)
 
@@ -4666,10 +4666,16 @@ function publishReminder() {//shows reminder html on page
 
     container.append(reminderHtmlWrapper)
 
-    // let banner = container.parentElement
+    // storeReminder(newReminder.list, newReminder)
 
-    // updateReminderCount(banner,reminderStorage)
+    console.log(_listStorage__WEBPACK_IMPORTED_MODULE_1__.listStorage)
+
+    let banner = container.parentElement
+
+    ;(0,_list__WEBPACK_IMPORTED_MODULE_0__.updateReminderCount)(banner)
 }
+
+
 
 /***/ }),
 
@@ -4904,8 +4910,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-console.log(_listStorage__WEBPACK_IMPORTED_MODULE_9__.listStorage)
 
 // UIs
 
