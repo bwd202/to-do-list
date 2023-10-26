@@ -24,18 +24,10 @@ class Reminder {
 
 }
 
-function storeReminder(list, reminder) { //stores reminder
+// function storeReminder(list, reminder) { //stores reminder
 
-    // let _listName = listName
-
-    // _listName = new Array()
-
-    // _listName.push(reminder)
-
-    // return _listName
-
-    listStorage[list] = reminder
-}
+//     listStorage[list] = reminder
+// }
 
 function getReminderData() { //gets reminder data from modal, creates object from it and returns it
 

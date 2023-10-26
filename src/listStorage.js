@@ -4,12 +4,12 @@ let listStorage = {
 
     addList(obj) {
 
-        this[obj.name] = obj    //stores list obj by obj name
+        this[obj.listName] = obj    //stores list obj by obj name
     },
 
     getList(obj) {
 
-        return this[obj.name]
+        return this[obj.listName]
     }
 
 

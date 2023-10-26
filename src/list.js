@@ -32,6 +32,8 @@ function makeListObj() {
 
     listStorage.addList(newList)
 
+    console.log(listStorage)
+
     return newList
 }
 
@@ -47,15 +49,15 @@ function listHtml(obj) {
 
     icon.src = listIcon
 
-    let iconColor = CssFilterConverter.hexToFilter(obj.color).color
+    let iconColor = CssFilterConverter.hexToFilter(obj.listColor).color  //color is a prop of the obj returned by cssFilterConverter
 
     let p = document.createElement('p')
 
-    let listName = obj.name
+    let name = obj.listName
 
     icon.style.filter = iconColor
 
-    p.append(listName)
+    p.append(name)
 
     let count = document.createElement('span')
 
@@ -72,7 +74,7 @@ function listHtml(obj) {
 
     dropDown.classList.add('drop-down')
 
-    dropDown.setAttribute('id',obj.name)  //LIST NAME
+    dropDown.setAttribute('id',obj.listName)
 
     dropDown.setAttribute('hidden','')
 
@@ -102,15 +104,15 @@ function removeListBanner(e) { //rms list from document
     }
 }
 
-function addListToReminderModalOptions(list) {
+function addListToReminderModalOptions(obj) {
 
     let container = document.querySelector('#selectList')
 
     let newListOption = document.createElement('option')
 
-    newListOption.setAttribute('value', list.name)
+    newListOption.setAttribute('value', obj.listName)
 
-    newListOption.innerHTML = list.name
+    newListOption.innerHTML = obj.listName
 
     container.append(newListOption)
 
@@ -129,8 +131,8 @@ function addNewList() {
 
 function updateReminderCount(list) {
 
-    let banner = 
+    // let banner = 
 
-    list.querySelector('.counter').innerHTML = list.reminderCount
+    // list.querySelector('.counter').innerHTML = list.reminderCount
     
 }

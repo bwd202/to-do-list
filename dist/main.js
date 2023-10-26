@@ -4332,6 +4332,8 @@ function makeListObj() {
 
     _listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.addList(newList)
 
+    console.log(_listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage)
+
     return newList
 }
 
@@ -4347,15 +4349,15 @@ function listHtml(obj) {
 
     icon.src = _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__
 
-    let iconColor = css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default().hexToFilter(obj.color).color
+    let iconColor = css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default().hexToFilter(obj.listColor).color  //color is a prop of the obj returned by cssFilterConverter
 
     let p = document.createElement('p')
 
-    let listName = obj.name
+    let name = obj.listName
 
     icon.style.filter = iconColor
 
-    p.append(listName)
+    p.append(name)
 
     let count = document.createElement('span')
 
@@ -4372,7 +4374,7 @@ function listHtml(obj) {
 
     dropDown.classList.add('drop-down')
 
-    dropDown.setAttribute('id',obj.name)  //LIST NAME
+    dropDown.setAttribute('id',obj.listName)
 
     dropDown.setAttribute('hidden','')
 
@@ -4402,15 +4404,15 @@ function removeListBanner(e) { //rms list from document
     }
 }
 
-function addListToReminderModalOptions(list) {
+function addListToReminderModalOptions(obj) {
 
     let container = document.querySelector('#selectList')
 
     let newListOption = document.createElement('option')
 
-    newListOption.setAttribute('value', list.name)
+    newListOption.setAttribute('value', obj.listName)
 
-    newListOption.innerHTML = list.name
+    newListOption.innerHTML = obj.listName
 
     container.append(newListOption)
 
@@ -4429,9 +4431,9 @@ function addNewList() {
 
 function updateReminderCount(list) {
 
-    let banner = 
+    // let banner = 
 
-    list.querySelector('.counter').innerHTML = list.reminderCount
+    // list.querySelector('.counter').innerHTML = list.reminderCount
     
 }
 
@@ -4454,12 +4456,12 @@ let listStorage = {
 
     addList(obj) {
 
-        this[obj.name] = obj    //stores list obj by obj name
+        this[obj.listName] = obj    //stores list obj by obj name
     },
 
     getList(obj) {
 
-        return this[obj.name]
+        return this[obj.listName]
     }
 
 
@@ -4548,18 +4550,10 @@ class Reminder {
 
 }
 
-function storeReminder(list, reminder) { //stores reminder
+// function storeReminder(list, reminder) { //stores reminder
 
-    // let _listName = listName
-
-    // _listName = new Array()
-
-    // _listName.push(reminder)
-
-    // return _listName
-
-    _listStorage__WEBPACK_IMPORTED_MODULE_1__.listStorage[list] = reminder
-}
+//     listStorage[list] = reminder
+// }
 
 function getReminderData() { //gets reminder data from modal, creates object from it and returns it
 
