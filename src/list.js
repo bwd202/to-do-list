@@ -3,8 +3,6 @@ import listIcon from './icons/calendar-text.svg'
 import CssFilterConverter from 'css-filter-converter'
 import { listStorage } from './listStorage'
 
-// UI
-
 class List {
     constructor({name = 'new list', color = '#0f0'}={}) {
         this.listName = name
@@ -22,32 +20,27 @@ class List {
 
 }
 
-function storeList(obj) {   
+function makeListObj() { 
 
-    listStorage.addList(obj)
+    return new List(getListInputs())    //list obj
 }
 
-function makeListObj(name,color) {
-
-    return new List({name,color})
-}
-
-function getListInputs() {    //creates obj from list modal inputs, stores and returns
+function getListInputs() {   
 
     let name = document.querySelector("[placeholder='List name']").value
 
     let color = document.querySelector("[type='color']").value
 
-    return {name,color}
+    return {name,color} //object with strings
 }
 
 function processList() {
 
-    let inputs = getListInputs()
+    let obj = makeListObj()
 
-    let listObj = makeListObj(inputs)
+    listStorage.push(obj)
 
-    storeList(listObj)
+    // console.log(listStorage)
 }
 
 function makeHtmlList(obj) {    //creates html list banner from obj
@@ -133,11 +126,11 @@ function addNewListInputOption(obj) {   //adds new list input option to reminder
 
 function addListToPage() { //shows html list on the page
 
-    // let list = makeListObj()
+    processList()
 
-    // addNewListInputOption(list)
+    let listObj = listStorage.at(-1)
 
-    let listObj = listStorage.getListObj(listStorage.lists.at(-1).name) //could have also gotten obj directly from array
+    addNewListInputOption(listObj)
 
     let listHtml = makeHtmlList(listObj)
 
