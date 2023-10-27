@@ -22,22 +22,35 @@ class List {
 
 }
 
-function makeListObj() {
+function storeList(obj) {   
+
+    listStorage.addList(obj)
+}
+
+function makeListObj(name,color) {
+
+    return new List({name,color})
+}
+
+function getListInputs() {    //creates obj from list modal inputs, stores and returns
 
     let name = document.querySelector("[placeholder='List name']").value
 
     let color = document.querySelector("[type='color']").value
 
-    let newList = new List({name, color})
-
-    listStorage.addList(newList)
-
-    console.log(listStorage)
-
-    return newList
+    return {name,color}
 }
 
-function listHtml(obj) {
+function processList() {
+
+    let inputs = getListInputs()
+
+    let listObj = makeListObj(inputs)
+
+    storeList(listObj)
+}
+
+function makeHtmlList(obj) {    //creates html list banner from obj
 
     let wrapper = new DocumentFragment()
 
@@ -63,12 +76,12 @@ function listHtml(obj) {
 
     count.classList.add('counter')
 
-    count.innerHTML = 0
+    // count.innerHTML = 0  //replace by generated thing
 
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
     closeBtn.innerHTML = '&times;'
-    closeBtn.addEventListener('click',removeListBanner)
+    closeBtn.addEventListener('click', removeHtmlList)
 
     let dropDown = document.createElement('div')
 
@@ -85,7 +98,7 @@ function listHtml(obj) {
     return wrapper
 }
 
-function removeListBanner(e) { //rms list from document
+function removeHtmlList(e) { //deletes html list banner from document and its respective list input option from reminder modal
 
     let targetBanner = e.target.parentElement
 
@@ -104,7 +117,7 @@ function removeListBanner(e) { //rms list from document
     }
 }
 
-function addListToReminderModalOptions(obj) {
+function addNewListInputOption(obj) {   //adds new list input option to reminder modal form
 
     let container = document.querySelector('#selectList')
 
@@ -118,15 +131,15 @@ function addListToReminderModalOptions(obj) {
 
 }
 
-function addNewList() {
+function addNewList() { //shows new list on the page
 
-    let list = makeListObj()
+    // let list = makeListObj()
 
     addListToReminderModalOptions(list)
 
     let article = document.querySelector('article')
 
-    article.append(listHtml(list))
+    // article.append(listHtml(list))
 }
 
 function updateReminderCount(list) {

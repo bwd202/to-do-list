@@ -1,16 +1,18 @@
 export {listStorage}
 
-let listStorage = {  
+let listStorage = {
+    
+    lists: [],
 
     addList(obj) {
 
-        this[obj.listName] = obj    //stores list obj by obj name
+        lists.push(obj)    //stores list obj by obj name
     },
 
-    getList(obj) {
+    // getList(obj) {
 
-        return this[obj.listName]
-    }
+        
+    // }
 
 
 }

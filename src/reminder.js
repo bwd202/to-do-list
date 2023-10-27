@@ -29,7 +29,7 @@ function storeReminder(list, reminder) { //stores reminder
     listStorage[list] = reminder
 }
 
-function getReminderData() { //gets reminder data from modal, creates object from it and returns it
+function getReminderData() { //gets reminder data from modal, creates object from it
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -45,7 +45,7 @@ function getReminderData() { //gets reminder data from modal, creates object fro
 
     let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
 
-    return reminderObj
+    // return reminderObj
 }
 
 function createHtml(obj) {  //uses obj props to create reminder html
