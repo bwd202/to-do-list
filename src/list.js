@@ -1,4 +1,4 @@
-export {addNewList,updateReminderCount}
+export {addListToPage,updateReminderCount}
 import listIcon from './icons/calendar-text.svg'
 import CssFilterConverter from 'css-filter-converter'
 import { listStorage } from './listStorage'
@@ -131,15 +131,19 @@ function addNewListInputOption(obj) {   //adds new list input option to reminder
 
 }
 
-function addNewList() { //shows new list on the page
+function addListToPage() { //shows html list on the page
 
     // let list = makeListObj()
 
-    addListToReminderModalOptions(list)
+    // addNewListInputOption(list)
 
-    let article = document.querySelector('article')
+    let listObj = listStorage.getListObj(listStorage.lists.at(-1).name) //could have also gotten obj directly from array
 
-    // article.append(listHtml(list))
+    let listHtml = makeHtmlList(listObj)
+
+    let container = document.querySelector('article')
+
+    container.append(listHtml)
 }
 
 function updateReminderCount(list) {

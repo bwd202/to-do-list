@@ -9,10 +9,10 @@ let listStorage = {
         lists.push(obj)    //stores list obj by obj name
     },
 
-    // getList(obj) {
+    getListObj(name) {  //returns list obj by name string
 
-        
-    // }
+        return lists.find(item => item.name == name)  
+    }
 
 
 }
