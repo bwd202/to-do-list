@@ -4291,7 +4291,7 @@ module.exports = styleTagTransform;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   addNewList: () => (/* binding */ addNewList),
+/* harmony export */   addListToPage: () => (/* binding */ addListToPage),
 /* harmony export */   updateReminderCount: () => (/* binding */ updateReminderCount)
 /* harmony export */ });
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
@@ -4322,22 +4322,35 @@ class List {
 
 }
 
-function makeListObj() {
+function storeList(obj) {   
+
+    _listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.addList(obj)
+}
+
+function makeListObj(name,color) {
+
+    return new List({name,color})
+}
+
+function getListInputs() {    //creates obj from list modal inputs, stores and returns
 
     let name = document.querySelector("[placeholder='List name']").value
 
     let color = document.querySelector("[type='color']").value
 
-    let newList = new List({name, color})
-
-    _listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.addList(newList)
-
-    console.log(_listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage)
-
-    return newList
+    return {name,color}
 }
 
-function listHtml(obj) {
+function processList() {
+
+    let inputs = getListInputs()
+
+    let listObj = makeListObj(inputs)
+
+    storeList(listObj)
+}
+
+function makeHtmlList(obj) {    //creates html list banner from obj
 
     let wrapper = new DocumentFragment()
 
@@ -4363,12 +4376,12 @@ function listHtml(obj) {
 
     count.classList.add('counter')
 
-    count.innerHTML = 0
+    // count.innerHTML = 0  //replace by generated thing
 
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
     closeBtn.innerHTML = '&times;'
-    closeBtn.addEventListener('click',removeListBanner)
+    closeBtn.addEventListener('click', removeHtmlList)
 
     let dropDown = document.createElement('div')
 
@@ -4385,7 +4398,7 @@ function listHtml(obj) {
     return wrapper
 }
 
-function removeListBanner(e) { //rms list from document
+function removeHtmlList(e) { //deletes html list banner from document and its respective list input option from reminder modal
 
     let targetBanner = e.target.parentElement
 
@@ -4404,7 +4417,7 @@ function removeListBanner(e) { //rms list from document
     }
 }
 
-function addListToReminderModalOptions(obj) {
+function addNewListInputOption(obj) {   //adds new list input option to reminder modal form
 
     let container = document.querySelector('#selectList')
 
@@ -4418,15 +4431,19 @@ function addListToReminderModalOptions(obj) {
 
 }
 
-function addNewList() {
+function addListToPage() { //shows html list on the page
 
-    let list = makeListObj()
+    // let list = makeListObj()
 
-    addListToReminderModalOptions(list)
+    // addNewListInputOption(list)
 
-    let article = document.querySelector('article')
+    let listObj = _listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.getListObj(_listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.lists.at(-1).name) //could have also gotten obj directly from array
 
-    article.append(listHtml(list))
+    let listHtml = makeHtmlList(listObj)
+
+    let container = document.querySelector('article')
+
+    container.append(listHtml)
 }
 
 function updateReminderCount(list) {
@@ -4452,16 +4469,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 
 
-let listStorage = {  
+let listStorage = {
+    
+    lists: [],
 
     addList(obj) {
 
-        this[obj.listName] = obj    //stores list obj by obj name
+        lists.push(obj)    //stores list obj by obj name
     },
 
-    getList(obj) {
+    getListObj(name) {  //returns list obj by name string
 
-        return this[obj.listName]
+        return lists.find(item => item.name == name)  
     }
 
 
@@ -4555,7 +4574,7 @@ function storeReminder(list, reminder) { //stores reminder
     _listStorage__WEBPACK_IMPORTED_MODULE_1__.listStorage[list] = reminder
 }
 
-function getReminderData() { //gets reminder data from modal, creates object from it and returns it
+function getReminderData() { //gets reminder data from modal, creates object from it
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -4571,7 +4590,7 @@ function getReminderData() { //gets reminder data from modal, creates object fro
 
     let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
 
-    return reminderObj
+    // return reminderObj
 }
 
 function createHtml(obj) {  //uses obj props to create reminder html
@@ -4961,7 +4980,7 @@ openListModal.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODUL
 
 listModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.closeModal)(listModal))
 
-addList.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_7__.addNewList)
+addList.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_7__.addListToPage)
 
 // TEST LIST
 // addList.dispatchEvent(clickEvent)
