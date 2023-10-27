@@ -4303,8 +4303,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// UI
-
 class List {
     constructor({name = 'new list', color = '#0f0'}={}) {
         this.listName = name
@@ -4322,32 +4320,27 @@ class List {
 
 }
 
-function storeList(obj) {   
+function makeListObj() { 
 
-    _listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.addList(obj)
+    return new List(getListInputs())    //list obj
 }
 
-function makeListObj(name,color) {
-
-    return new List({name,color})
-}
-
-function getListInputs() {    //creates obj from list modal inputs, stores and returns
+function getListInputs() {   
 
     let name = document.querySelector("[placeholder='List name']").value
 
     let color = document.querySelector("[type='color']").value
 
-    return {name,color}
+    return {name,color} //object with strings
 }
 
 function processList() {
 
-    let inputs = getListInputs()
+    let obj = makeListObj()
 
-    let listObj = makeListObj(inputs)
+    _listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.push(obj)
 
-    storeList(listObj)
+    // console.log(listStorage)
 }
 
 function makeHtmlList(obj) {    //creates html list banner from obj
@@ -4433,11 +4426,11 @@ function addNewListInputOption(obj) {   //adds new list input option to reminder
 
 function addListToPage() { //shows html list on the page
 
-    // let list = makeListObj()
+    processList()
 
-    // addNewListInputOption(list)
+    let listObj = _listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.at(-1)
 
-    let listObj = _listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.getListObj(_listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.lists.at(-1).name) //could have also gotten obj directly from array
+    addNewListInputOption(listObj)
 
     let listHtml = makeHtmlList(listObj)
 
@@ -4469,22 +4462,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 
 
-let listStorage = {
-    
-    lists: [],
-
-    addList(obj) {
-
-        lists.push(obj)    //stores list obj by obj name
-    },
-
-    getListObj(name) {  //returns list obj by name string
-
-        return lists.find(item => item.name == name)  
-    }
-
-
-}
+let listStorage = []
 
 /***/ }),
 
