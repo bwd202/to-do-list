@@ -4511,56 +4511,45 @@ __webpack_require__.r(__webpack_exports__);
 class Reminder {
 
     constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium", list="reminders", completed=false} = {}) {
-        this.title = title
-        this.notes = notes
-        this.dueDate = dueDate
-        this.dueTime = dueTime
-        this.priority = priority
-        this.destinationList = list
-        this.completed = completed
+        this.reminderTitle = title
+        this.reminderNotes = notes
+        this.reminderDueDate = dueDate
+        this.reminderDueTime = dueTime
+        this.reminderPriority = priority
+        this.reminderList = list
+        this.reminderCompleted = completed
     }
 
     get list() {
-        return this.destinationList
+        return this.reminderList
     }
 
     set list(name) {
-        this.destinationList = name
+        this.reminderList = name
     }
 
 }
 
-function makeReminderObj() {
-    
-    return new Reminder(getReminderData())
+function getReminderData() { //gets inputs from reminder form, makes new obj
+
+    let title = document.querySelector('input#title').value
+
+    let notes = document.querySelector('input#notes').value
+
+    let dueDate = document.querySelector('input#dueDate').value
+
+    let dueTime = document.querySelector('input#dueTime').value
+
+    let priority = document.querySelector('select#priority').value
+
+    let list = document.querySelector('select#selectList').value
+
+    return new Reminder({title,notes,dueDate,dueTime,priority,list})
 }
 
-function getReminderData() { //gets reminder data from modal
+function storeReminder() {
 
-    let reminderTitle = document.querySelector('input#title').value
-
-    let reminderNotes = document.querySelector('input#notes').value
-
-    let reminderDueDate = document.querySelector('input#dueDate').value
-
-    let reminderDueTime = document.querySelector('input#dueTime').value
-
-    let reminderPriority = document.querySelector('select#priority').value
-
-    let reminderList = document.querySelector('select#selectList').value
-
-    return {reminderTitle, reminderNotes, reminderDueDate, reminderDueTime, reminderPriority, reminderList}
-}
-
-function processReminder() {
-
-    let obj = makeReminderObj()
-
-    // let list =listStorage.find(item => item.listName === obj.destinationList)
-
-    // list.storeReminder(obj)
-
-    _storage__WEBPACK_IMPORTED_MODULE_1__.reminderStorage.push(obj)
+    _storage__WEBPACK_IMPORTED_MODULE_1__.reminderStorage.push(getReminderData())
 }
 
 function createHtml(obj) {  //uses obj props to create reminder html
@@ -4573,7 +4562,7 @@ function createHtml(obj) {  //uses obj props to create reminder html
 
     let reminderTitle = document.createElement('h4')
 
-    reminderTitle.innerHTML = obj.title
+    reminderTitle.innerHTML = obj.reminderTitle
 
     let closeBtn = document.createElement('span')
 
@@ -4585,19 +4574,19 @@ function createHtml(obj) {  //uses obj props to create reminder html
 
     let reminderNotes = document.createElement('p')
 
-    reminderNotes.innerHTML = obj.notes
+    reminderNotes.innerHTML = obj.reminderNotes
 
     let reminderDueDate = document.createElement('p')
 
-    reminderDueDate.innerHTML = obj.dueDate
+    reminderDueDate.innerHTML = obj.reminderDueDate
 
     let reminderDueTime = document.createElement('p')
 
-    reminderDueTime.innerHTML = obj.dueTime
+    reminderDueTime.innerHTML = obj.reminderDueTime
 
     let reminderPriority = document.createElement('p')
 
-    reminderPriority.innerHTML = obj.priority
+    reminderPriority.innerHTML = obj.reminderPriority
 
     reminderHtmlContent.push(checkbox,reminderTitle,closeBtn,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
 
@@ -4624,7 +4613,7 @@ function createHtml(obj) {  //uses obj props to create reminder html
 
 function publishReminder() {//shows reminder html on page
 
-    processReminder()
+    storeReminder()
 
     let reminderHtmlWrapper = document.createElement('div')
 
@@ -4645,7 +4634,7 @@ function publishReminder() {//shows reminder html on page
 
     let reminder = _storage__WEBPACK_IMPORTED_MODULE_1__.reminderStorage.at(-1)
 
-    let reminderListId = "#" + reminder.destinationList
+    let reminderListId = "#" + reminder.reminderList
 
     let container = document.querySelector(reminderListId)
 
