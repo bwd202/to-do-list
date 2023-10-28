@@ -4618,7 +4618,7 @@ function publishReminder() {//shows reminder html on page
 
     container.append(reminderHtmlWrapper)
 
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage)
+    // console.log(reminderStorage)
 }
 
 function updateReminderCount(list) {

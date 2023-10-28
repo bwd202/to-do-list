@@ -122,7 +122,7 @@ function publishReminder() {//shows reminder html on page
 
     container.append(reminderHtmlWrapper)
 
-    console.log(reminderStorage)
+    // console.log(reminderStorage)
 }
 
 function updateReminderCount(list) {
