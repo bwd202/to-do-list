@@ -4291,8 +4291,7 @@ module.exports = styleTagTransform;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   addListToPage: () => (/* binding */ addListToPage),
-/* harmony export */   updateReminderCount: () => (/* binding */ updateReminderCount)
+/* harmony export */   addListToPage: () => (/* binding */ addListToPage)
 /* harmony export */ });
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
@@ -4439,14 +4438,6 @@ function addListToPage() { //shows html list on the page
     container.append(listHtml)
 }
 
-function updateReminderCount(list) {
-
-    // let banner = 
-
-    // list.querySelector('.counter').innerHTML = list.reminderCount
-    
-}
-
 /***/ }),
 
 /***/ "./src/modalControl.js":
@@ -4502,11 +4493,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   publishReminder: () => (/* binding */ publishReminder)
 /* harmony export */ });
-/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list */ "./src/list.js");
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 
 ;
-
 
 class Reminder {
 
@@ -4549,7 +4538,7 @@ function getReminderData() { //gets inputs from reminder form, makes new obj
 
 function storeReminder() {
 
-    _storage__WEBPACK_IMPORTED_MODULE_1__.reminderStorage.push(getReminderData())
+    _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.push(getReminderData())
 }
 
 function createHtml(obj) {  //uses obj props to create reminder html
@@ -4615,7 +4604,7 @@ function publishReminder() {//shows reminder html on page
 
     reminderHtmlWrapper.classList.add('reminder')
 
-    let reminder = _storage__WEBPACK_IMPORTED_MODULE_1__.reminderStorage.at(-1)
+    let reminder = _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.at(-1)
 
     let reminderListId = "#" + reminder.reminderList
 
@@ -4625,16 +4614,28 @@ function publishReminder() {//shows reminder html on page
 
     reminderHtmlWrapper.append(...reminderHtml)
 
+    updateReminderCount(reminder.reminderList)
+
     container.append(reminderHtmlWrapper)
 
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_1__.reminderStorage)
-
-    // let banner = container.parentElement
-
-    // updateReminderCount(banner)
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage)
 }
 
+function updateReminderCount(list) {
+   
+    let banner = document.querySelector('#' + list).parentElement
 
+    let counter = banner.querySelector('.counter')
+
+    counter.innerHTML = countReminders(list)
+}
+
+function countReminders(list) {
+
+    let filtered = _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.filter(item => item.reminderList === list)
+
+    return filtered.length
+}
 
 /***/ }),
 
