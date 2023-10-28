@@ -1,6 +1,5 @@
 export {publishReminder}
-import { updateReminderCount } from "./list"
-import { listStorage, reminderStorage } from "./storage"
+import {reminderStorage } from "./storage"
 
 class Reminder {
 
@@ -119,12 +118,25 @@ function publishReminder() {//shows reminder html on page
 
     reminderHtmlWrapper.append(...reminderHtml)
 
+    updateReminderCount(reminder.reminderList)
+
     container.append(reminderHtmlWrapper)
 
     console.log(reminderStorage)
-
-    // let banner = container.parentElement
-
-    // updateReminderCount(banner)
 }
 
+function updateReminderCount(list) {
+   
+    let banner = document.querySelector('#' + list).parentElement
+
+    let counter = banner.querySelector('.counter')
+
+    counter.innerHTML = countReminders(list)
+}
+
+function countReminders(list) {
+
+    let filtered = reminderStorage.filter(item => item.reminderList === list)
+
+    return filtered.length
+}

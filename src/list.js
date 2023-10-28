@@ -1,4 +1,4 @@
-export {addListToPage,updateReminderCount}
+export {addListToPage}
 import listIcon from './icons/calendar-text.svg'
 import CssFilterConverter from 'css-filter-converter'
 import { listStorage } from './storage'
@@ -137,12 +137,4 @@ function addListToPage() { //shows html list on the page
     let container = document.querySelector('article')
 
     container.append(listHtml)
-}
-
-function updateReminderCount(list) {
-
-    // let banner = 
-
-    // list.querySelector('.counter').innerHTML = list.reminderCount
-    
 }
