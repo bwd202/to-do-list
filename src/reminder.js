@@ -1,6 +1,6 @@
 export {publishReminder}
 import { updateReminderCount } from "./list"
-import { listStorage } from "./listStorage"
+import { listStorage, reminderStorage } from "./storage"
 
 class Reminder {
 
@@ -24,21 +24,12 @@ class Reminder {
 
 }
 
-function storeReminder(list, reminder) { //stores reminder
-
-    listStorage[list] = reminder
-}
-
 function makeReminderObj() {
     
     return new Reminder(getReminderData())
 }
 
-function processReminder() {
-    //store rem in list etc
-}
-
-function getReminderData() { //gets reminder data from modal, creates object from it
+function getReminderData() { //gets reminder data from modal
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -52,11 +43,18 @@ function getReminderData() { //gets reminder data from modal, creates object fro
 
     let reminderList = document.querySelector('select#selectList').value
 
-    // let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
-
-    // return reminderObj
-
     return {reminderTitle, reminderNotes, reminderDueDate, reminderDueTime, reminderPriority, reminderList}
+}
+
+function processReminder() {
+
+    let obj = makeReminderObj()
+
+    // let list =listStorage.find(item => item.listName === obj.destinationList)
+
+    // list.storeReminder(obj)
+
+    reminderStorage.push(obj)
 }
 
 function createHtml(obj) {  //uses obj props to create reminder html
@@ -120,11 +118,15 @@ function createHtml(obj) {  //uses obj props to create reminder html
 
 function publishReminder() {//shows reminder html on page
 
+    processReminder()
+
     let reminderHtmlWrapper = document.createElement('div')
 
     reminderHtmlWrapper.classList.add('reminder')
 
-    let newReminder = getReminderData()
+    // let reminder = listStorage.
+
+    // let newReminder = getReminderData()
 
     // let currentReminder = reminderStorage.at(-1)
 
@@ -135,20 +137,23 @@ function publishReminder() {//shows reminder html on page
     //     return "#" + listName
     // }
 
-    let reminderListId = "#" + newReminder.list
+    let reminder = reminderStorage.at(-1)
+
+    let reminderListId = "#" + reminder.destinationList
 
     let container = document.querySelector(reminderListId)
 
-    reminderHtmlWrapper.append(...createHtml(newReminder))
+    let reminderHtml = createHtml(reminder)
+
+    reminderHtmlWrapper.append(...reminderHtml)
 
     container.append(reminderHtmlWrapper)
 
-    storeReminder(newReminder.list, newReminder)
+    console.log(reminderStorage)
+    // console.log(listStorage)
 
-    console.log(listStorage)
+    // let banner = container.parentElement
 
-    let banner = container.parentElement
-
-    updateReminderCount(banner)
+    // updateReminderCount(banner)
 }
 

@@ -1,7 +1,7 @@
 export {addListToPage,updateReminderCount}
 import listIcon from './icons/calendar-text.svg'
 import CssFilterConverter from 'css-filter-converter'
-import { listStorage } from './listStorage'
+import { listStorage } from './storage'
 
 class List {
     constructor({name = 'new list', color = '#0f0'}={}) {

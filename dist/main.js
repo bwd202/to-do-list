@@ -4297,7 +4297,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_filter_converter__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _listStorage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./listStorage */ "./src/listStorage.js");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 
 ;
 
@@ -4338,7 +4338,7 @@ function processList() {
 
     let obj = makeListObj()
 
-    _listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.push(obj)
+    _storage__WEBPACK_IMPORTED_MODULE_2__.listStorage.push(obj)
 
     // console.log(listStorage)
 }
@@ -4428,7 +4428,7 @@ function addListToPage() { //shows html list on the page
 
     processList()
 
-    let listObj = _listStorage__WEBPACK_IMPORTED_MODULE_2__.listStorage.at(-1)
+    let listObj = _storage__WEBPACK_IMPORTED_MODULE_2__.listStorage.at(-1)
 
     addNewListInputOption(listObj)
 
@@ -4446,23 +4446,6 @@ function updateReminderCount(list) {
     // list.querySelector('.counter').innerHTML = list.reminderCount
     
 }
-
-/***/ }),
-
-/***/ "./src/listStorage.js":
-/*!****************************!*\
-  !*** ./src/listStorage.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   listStorage: () => (/* binding */ listStorage)
-/* harmony export */ });
-
-
-let listStorage = []
 
 /***/ }),
 
@@ -4520,7 +4503,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   publishReminder: () => (/* binding */ publishReminder)
 /* harmony export */ });
 /* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list */ "./src/list.js");
-/* harmony import */ var _listStorage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./listStorage */ "./src/listStorage.js");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 
 ;
 
@@ -4547,12 +4530,12 @@ class Reminder {
 
 }
 
-function storeReminder(list, reminder) { //stores reminder
-
-    _listStorage__WEBPACK_IMPORTED_MODULE_1__.listStorage[list] = reminder
+function makeReminderObj() {
+    
+    return new Reminder(getReminderData())
 }
 
-function getReminderData() { //gets reminder data from modal, creates object from it
+function getReminderData() { //gets reminder data from modal
 
     let reminderTitle = document.querySelector('input#title').value
 
@@ -4566,9 +4549,18 @@ function getReminderData() { //gets reminder data from modal, creates object fro
 
     let reminderList = document.querySelector('select#selectList').value
 
-    let reminderObj = new Reminder({title:reminderTitle, notes:reminderNotes, dueDate:reminderDueDate, dueTime:reminderDueTime, priority:reminderPriority, list:reminderList})
+    return {reminderTitle, reminderNotes, reminderDueDate, reminderDueTime, reminderPriority, reminderList}
+}
 
-    // return reminderObj
+function processReminder() {
+
+    let obj = makeReminderObj()
+
+    // let list =listStorage.find(item => item.listName === obj.destinationList)
+
+    // list.storeReminder(obj)
+
+    _storage__WEBPACK_IMPORTED_MODULE_1__.reminderStorage.push(obj)
 }
 
 function createHtml(obj) {  //uses obj props to create reminder html
@@ -4632,11 +4624,15 @@ function createHtml(obj) {  //uses obj props to create reminder html
 
 function publishReminder() {//shows reminder html on page
 
+    processReminder()
+
     let reminderHtmlWrapper = document.createElement('div')
 
     reminderHtmlWrapper.classList.add('reminder')
 
-    let newReminder = getReminderData()
+    // let reminder = listStorage.
+
+    // let newReminder = getReminderData()
 
     // let currentReminder = reminderStorage.at(-1)
 
@@ -4647,24 +4643,47 @@ function publishReminder() {//shows reminder html on page
     //     return "#" + listName
     // }
 
-    let reminderListId = "#" + newReminder.list
+    let reminder = _storage__WEBPACK_IMPORTED_MODULE_1__.reminderStorage.at(-1)
+
+    let reminderListId = "#" + reminder.destinationList
 
     let container = document.querySelector(reminderListId)
 
-    reminderHtmlWrapper.append(...createHtml(newReminder))
+    let reminderHtml = createHtml(reminder)
+
+    reminderHtmlWrapper.append(...reminderHtml)
 
     container.append(reminderHtmlWrapper)
 
-    storeReminder(newReminder.list, newReminder)
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_1__.reminderStorage)
+    // console.log(listStorage)
 
-    console.log(_listStorage__WEBPACK_IMPORTED_MODULE_1__.listStorage)
+    // let banner = container.parentElement
 
-    let banner = container.parentElement
-
-    ;(0,_list__WEBPACK_IMPORTED_MODULE_0__.updateReminderCount)(banner)
+    // updateReminderCount(banner)
 }
 
 
+
+/***/ }),
+
+/***/ "./src/storage.js":
+/*!************************!*\
+  !*** ./src/storage.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   listStorage: () => (/* binding */ listStorage),
+/* harmony export */   reminderStorage: () => (/* binding */ reminderStorage)
+/* harmony export */ });
+
+
+let listStorage = []
+
+let reminderStorage = []
 
 /***/ }),
 
@@ -4888,7 +4907,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modalControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modalControl */ "./src/modalControl.js");
 /* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./list */ "./src/list.js");
 /* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
-/* harmony import */ var _listStorage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./listStorage */ "./src/listStorage.js");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 
 
 

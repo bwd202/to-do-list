@@ -1,3 +1,0 @@
-export {listStorage}
-
-let listStorage = []
