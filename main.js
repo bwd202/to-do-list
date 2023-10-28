@@ -4607,10 +4607,6 @@ function createHtml(obj) {  //uses obj props to create reminder html
 
 // } 
 
-// function addReminderToList() {
-//      let list = 
-// }
-
 function publishReminder() {//shows reminder html on page
 
     storeReminder()
@@ -4618,19 +4614,6 @@ function publishReminder() {//shows reminder html on page
     let reminderHtmlWrapper = document.createElement('div')
 
     reminderHtmlWrapper.classList.add('reminder')
-
-    // let reminder = listStorage.
-
-    // let newReminder = getReminderData()
-
-    // let currentReminder = reminderStorage.at(-1)
-
-    // function getList() {
-
-    //     let listName = newReminder.list
-
-    //     return "#" + listName
-    // }
 
     let reminder = _storage__WEBPACK_IMPORTED_MODULE_1__.reminderStorage.at(-1)
 
@@ -4645,7 +4628,6 @@ function publishReminder() {//shows reminder html on page
     container.append(reminderHtmlWrapper)
 
     console.log(_storage__WEBPACK_IMPORTED_MODULE_1__.reminderStorage)
-    // console.log(listStorage)
 
     // let banner = container.parentElement
 
