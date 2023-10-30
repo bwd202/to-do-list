@@ -7,16 +7,16 @@ class List {
     constructor({name = 'new list', color = '#0f0'}={}) {
         this.listName = name
         this.listColor = color
-        this.reminderStorage = []
+        // this.reminderStorage = []
     }
 
-    storeReminder(obj) {
-        this.reminderStorage.push(obj)
-    }
+    // storeReminder(obj) {
+    //     this.reminderStorage.push(obj)
+    // }
 
-    get reminderCount() {
-        return this.reminderStorage.length
-    }
+    // get reminderCount() {
+    //     return this.reminderStorage.length
+    // }
 
 }
 
@@ -68,8 +68,6 @@ function makeHtmlList(obj) {    //creates html list banner from obj
     let count = document.createElement('span')
 
     count.classList.add('counter')
-
-    // count.innerHTML = 0  //replace by generated thing
 
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
@@ -124,7 +122,9 @@ function addNewListInputOption(obj) {   //adds new list input option to reminder
 
 }
 
-function addListToPage() { //shows html list on the page
+function addListToPage(e) { //shows html list on the page
+
+    e.preventDefault()
 
     processList()
 
