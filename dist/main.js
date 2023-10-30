@@ -4328,6 +4328,8 @@ function getListInputs() {
 
     let name = document.querySelector("[placeholder='List name']").value.trim()
 
+    if (name === '') {name = 'New List'}
+
     let color = document.querySelector("[type='color']").value
 
     return {name,color} //object with strings
@@ -4621,6 +4623,8 @@ function publishReminder() {//shows reminder html on page
 }
 
 function updateReminderCount(list) {
+
+    // let listId = 
    
     let banner = document.querySelector('#' + list).parentElement
 

@@ -124,6 +124,8 @@ function publishReminder() {//shows reminder html on page
 }
 
 function updateReminderCount(list) {
+
+    // let listId = 
    
     let banner = document.querySelector('#' + list).parentElement
 

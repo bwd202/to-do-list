@@ -29,6 +29,8 @@ function getListInputs() {
 
     let name = document.querySelector("[placeholder='List name']").value.trim()
 
+    if (name === '') {name = 'New List'}
+
     let color = document.querySelector("[type='color']").value
 
     return {name,color} //object with strings
