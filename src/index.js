@@ -23,27 +23,7 @@ let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
 document.querySelector('button#publishReminder').addEventListener('click', publishReminder) 
 
-// DEFAULT REMINDER HTML
-
-// function publishDefaultReminder() {
-
-//     document.querySelector('#defaultList').classList.add('visible') //shows drop-down by default
-
-//     let defaultReminder = new Reminder({title:'Take trash out',notes:"Notes"})
-
-//     document.querySelector('button#publishReminder').addEventListener('click', publishReminder(defaultReminder))
-
-//     let clickEvent = new Event('click')
-
-//     document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
-
-// }   
-
-// while (defaultList.children.length === 0) publishDefaultReminder()
-
-// REMINDER MODAL
-
-// document.querySelector('#reminder-modal').classList.add('visible')
+// EVENT LISTENERS
 
 document.addEventListener('click', function(e){
 
@@ -75,14 +55,12 @@ function deleteReminderFromStorage(name) {
         }
     }
 
-    console.log(reminderStorage)
+    // console.log(reminderStorage)
 }
 
 newReminderBtn.addEventListener('click', openModal(reminderModal))
 
 reminderModalCloseBtn.addEventListener('click', closeModal(reminderModal))
-
-// LIST MODAL
 
 // document.querySelector('#list-modal').classList.add('visible')
 
@@ -96,7 +74,7 @@ addList.addEventListener('click', addListToPage)
 // addList.dispatchEvent(clickEvent)
 // document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
-window.addEventListener('click', (e) => {  //closes either modal when user clicks anywhere outside modal
+window.addEventListener('click', (e) => {  //close modal when user clicks outside of it
 
     let modal = e.target
 
