@@ -1,5 +1,5 @@
-export {publishReminder}
-import {reminderStorage } from "./storage"
+export {publishReminder,updateReminderCount}
+import {reminderStorage} from "./storage"
 
 class Reminder {
 
