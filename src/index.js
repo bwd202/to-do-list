@@ -11,7 +11,7 @@ import { listStorage } from './storage'
 
 // UIs
 
-let defaultList = document.querySelector('#defaultList')
+// let defaultList = document.querySelector('#defaultList')
 
 let newReminderBtn = document.querySelector('#new-reminder')
 
@@ -54,6 +54,17 @@ document.addEventListener('click', function(e){
         e.target.lastElementChild.classList.toggle('visible')
     }
   })
+
+document.addEventListener('click', deleteReminder)
+
+function deleteReminder(e) {
+
+    if(e.target.classList.contains('close-btn')) {
+
+        e.target.parentElement.remove()
+
+    }
+}
 
 newReminderBtn.addEventListener('click', openModal(reminderModal))
 

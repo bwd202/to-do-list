@@ -63,8 +63,6 @@ function createHtml(obj) {  //uses obj props to create reminder html
 
     closeBtn.innerHTML = '&times;'
 
-    closeBtn.addEventListener('click', () => closeBtn.parentElement.remove())   //deletes reminder
-
     let reminderNotes = document.createElement('p')
 
     reminderNotes.innerHTML = obj.reminderNotes
