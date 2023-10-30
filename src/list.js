@@ -27,7 +27,7 @@ function makeListObj() {
 
 function getListInputs() {   
 
-    let name = document.querySelector("[placeholder='List name']").value
+    let name = document.querySelector("[placeholder='List name']").value.trim()
 
     let color = document.querySelector("[type='color']").value
 
