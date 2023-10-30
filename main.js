@@ -4559,8 +4559,6 @@ function createHtml(obj) {  //uses obj props to create reminder html
 
     closeBtn.innerHTML = '&times;'
 
-    closeBtn.addEventListener('click', () => closeBtn.parentElement.remove())   //deletes reminder
-
     let reminderNotes = document.createElement('p')
 
     reminderNotes.innerHTML = obj.reminderNotes
@@ -4618,7 +4616,7 @@ function publishReminder() {//shows reminder html on page
 
     container.append(reminderHtmlWrapper)
 
-    // console.log(reminderStorage)
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage)
 }
 
 function updateReminderCount(list) {
@@ -4891,9 +4889,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// UIs
-
-let defaultList = document.querySelector('#defaultList')
+// let defaultList = document.querySelector('#defaultList')
 
 let newReminderBtn = document.querySelector('#new-reminder')
 
@@ -4936,6 +4932,31 @@ document.addEventListener('click', function(e){
         e.target.lastElementChild.classList.toggle('visible')
     }
   })
+
+document.addEventListener('click', deleteReminderHtml)
+
+function deleteReminderHtml(e) {
+
+    if(e.target.classList.contains('close-btn')) {
+
+        e.target.parentElement.remove()
+
+        deleteReminderFromStorage(e.target.previousElementSibling.innerHTML)
+    }
+}
+
+function deleteReminderFromStorage(name) {
+
+    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_9__.reminderStorage.length; i++) {
+
+        if(name === _storage__WEBPACK_IMPORTED_MODULE_9__.reminderStorage[i].reminderTitle) {
+
+            _storage__WEBPACK_IMPORTED_MODULE_9__.reminderStorage.splice(i, 1)
+        }
+    }
+
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_9__.reminderStorage)
+}
 
 newReminderBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.openModal)(reminderModal))
 
