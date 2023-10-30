@@ -36,16 +36,18 @@ document.addEventListener('click', function(e){
 document.addEventListener('click', deleteReminderHtml)
 
 function deleteReminderHtml(e) {
-    
-    let reminder = e.target.parentElement
 
-    if(e.target.classList.contains('close-btn')) {
+    let closeBtn = e.target
+    
+    let reminder = closeBtn.parentElement
+
+    if(closeBtn.classList.contains('close-btn')) {
+
+        deleteReminderFromStorage(closeBtn.previousElementSibling.innerHTML) //matches html reminder's h4 to reminderTitle prop
 
         updateReminderCount(reminder.parentElement.id)
 
         reminder.remove()
-
-        deleteReminderFromStorage(e.target.previousElementSibling.innerHTML) //matches html reminder's h4 to reminderTitle prop
     }
 }
 

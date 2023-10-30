@@ -4917,16 +4917,18 @@ document.addEventListener('click', function(e){
 document.addEventListener('click', deleteReminderHtml)
 
 function deleteReminderHtml(e) {
+
+    let closeBtn = e.target
     
-    let reminder = e.target.parentElement
+    let reminder = closeBtn.parentElement
 
-    if(e.target.classList.contains('close-btn')) {
+    if(closeBtn.classList.contains('close-btn')) {
 
-        (0,_reminder_js__WEBPACK_IMPORTED_MODULE_8__.updateReminderCount)(reminder.parentElement.id)
+        deleteReminderFromStorage(closeBtn.previousElementSibling.innerHTML) //matches html reminder's h4 to reminderTitle prop
+
+        ;(0,_reminder_js__WEBPACK_IMPORTED_MODULE_8__.updateReminderCount)(reminder.parentElement.id)
 
         reminder.remove()
-
-        deleteReminderFromStorage(e.target.previousElementSibling.innerHTML) //matches html reminder's h4 to reminderTitle prop
     }
 }
 
