@@ -7,9 +7,7 @@ import './footer.css'
 import { closeModal, openModal} from './modalControl'
 import {addListToPage} from './list'
 import {publishReminder} from './reminder.js'
-import { listStorage } from './storage'
-
-// UIs
+import {reminderStorage} from './storage'
 
 // let defaultList = document.querySelector('#defaultList')
 
@@ -55,15 +53,29 @@ document.addEventListener('click', function(e){
     }
   })
 
-document.addEventListener('click', deleteReminder)
+document.addEventListener('click', deleteReminderHtml)
 
-function deleteReminder(e) {
+function deleteReminderHtml(e) {
 
     if(e.target.classList.contains('close-btn')) {
 
         e.target.parentElement.remove()
 
+        deleteReminderFromStorage(e.target.previousElementSibling.innerHTML)
     }
+}
+
+function deleteReminderFromStorage(name) {
+
+    for(let i = 0; i < reminderStorage.length; i++) {
+
+        if(name === reminderStorage[i].reminderTitle) {
+
+            reminderStorage.splice(i, 1)
+        }
+    }
+
+    console.log(reminderStorage)
 }
 
 newReminderBtn.addEventListener('click', openModal(reminderModal))
