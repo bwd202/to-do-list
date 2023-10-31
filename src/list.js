@@ -74,7 +74,7 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     let p = document.createElement('p')
 
-    let name = obj.listName
+    let name = obj.name
 
     icon.style.filter = iconColor
 
