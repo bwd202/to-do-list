@@ -4928,13 +4928,15 @@ document.querySelector('button#publishReminder').addEventListener('click', _remi
 
 // EVENT LISTENERS
 
-document.addEventListener('click', function(e){
+document.addEventListener('click', showDropDownList)
+
+function showDropDownList(e) {
 
     if(e.target.classList.contains('banner')) {
         
         e.target.lastElementChild.classList.toggle('visible')
     }
-  })
+}
 
 document.addEventListener('click', deleteReminderHtml)
 
