@@ -116,7 +116,10 @@ function publishReminder() {//shows reminder html on page
 
     reminderHtmlWrapper.append(...reminderHtml)
 
-    updateReminderCount(reminder.reminderList)
+    let sanitizedReminderListName = reminder.reminderList.split('').map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)).join('')
+    // needed because default list name contains a space which leads to invalid id query selector
+
+    updateReminderCount(sanitizedReminderListName)
 
     if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
         

@@ -4,7 +4,7 @@ import CssFilterConverter from 'css-filter-converter'
 import { listStorage } from './storage'
 
 class List {
-    constructor({name = 'new list', color = '#0f0'}={}) {
+    constructor({name = 'New List', color = '#0f0'}={}) {
         this.listName = name
         this.listColor = color
         // this.reminderStorage = []
@@ -20,29 +20,24 @@ class List {
 
 }
 
-function makeListObj() { 
+// function sanitizeListNameInput(str) {
 
-    return new List(getListInputs())    //list obj
+//     return str.toLowerCase().trim()
+// }
+
+function storeList() {
+    listStorage.push(getListInputs())
 }
 
-function getListInputs() {   
+function getListInputs() {   //returns obj from inputs
 
     let name = document.querySelector("[placeholder='List name']").value.trim()
 
-    if (name === '') {name = 'New List'}
+    // if (name === '') {name = 'New List'}
 
     let color = document.querySelector("[type='color']").value
 
-    return {name,color} //object with strings
-}
-
-function processList() {
-
-    let obj = makeListObj()
-
-    listStorage.push(obj)
-
-    // console.log(listStorage)
+    return new List({name,color})
 }
 
 function makeHtmlList(obj) {    //creates html list banner from obj
@@ -128,7 +123,7 @@ function addListToPage(e) { //shows html list on the page
 
     e.preventDefault()
 
-    processList()
+    storeList()
 
     let listObj = listStorage.at(-1)
 
@@ -139,4 +134,6 @@ function addListToPage(e) { //shows html list on the page
     let container = document.querySelector('article')
 
     container.append(listHtml)
+
+    console.log(listStorage)
 }
