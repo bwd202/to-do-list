@@ -117,7 +117,7 @@
     /* fixes issue with add list button icon showing on top of reminder modal */
 }
 
-.modal-btn {
+.modal-close-btn {
     position: absolute;
     right: -0;
     top: -0;

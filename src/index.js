@@ -62,6 +62,11 @@ function closeModal(e) {
          e.target.classList.remove('visible')
     }
 
+    else if (e.target.classList.contains('modal-close-btn')) {
+
+        e.target.closest('.modal').classList.remove('visible')
+    }
+
     }
 
 function deleteReminderFromStorage(name) {
