@@ -3692,7 +3692,7 @@ var ___HTML_LOADER_REPLACEMENT_2___ = _node_modules_html_loader_dist_runtime_get
 var ___HTML_LOADER_REPLACEMENT_3___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_3___);
 var ___HTML_LOADER_REPLACEMENT_4___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_4___);
 var ___HTML_LOADER_REPLACEMENT_5___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_5___);
-var code = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To-Do List</title>\n</head>\n<body>\n    <div id=\"wrapper\">\n        <header>\n            <input id=\"search\" type=\"text\" placeholder=\"&#x1F50D; Type search term and press Enter\" class=\"input\">\n           </header>\n           <main>\n            <div id=\"today\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\"><p>today</p><span>0</span></div>\n            <div id=\"scheduled\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\"><p>scheduled</p><span>0</span></div>\n            <div id=\"all\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>all</p><span>0</span></div>\n            <div id=\"completed\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\"><p>completed</p><span>0</span></div>\n            <article id=\"lists\">\n                <h2>My Lists</h2>\n                    <div id=\"reminder-list\" class=\"button banner border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\"><p>Reminders</p><span class=\"counter\"></span><span class=\"banner-close-btn\">&times;</span>\n                    <div id=\"reminders\" class=\"drop-down\" hidden></div>   \n                    </div>            \n            </article>\n            </main>\n           <footer>\n            <button id=\"new-reminder\" class=\"button\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\">New Reminder</button>\n            <div id=\"reminder-modal\" class=\"modal \" hidden>\n                <div class=\"form-wrapper\">\n                    <span id=\"reminder-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n                    <form action=\"/\">\n                        <label for=\"\">Title<input type=\"text\" id=\"title\" placeholder=\"take dogs for a walk\" name=\"reminderTitle\" class=\"input\"></label>\n                        <label for=\"\">Notes<input type=\"text\" id=\"notes\" placeholder=\"bring poop bags\" name=\"reminderNotes\" class=\"input\"></label>\n                        <label for=\"\">Due Date<input type=\"date\" id=\"dueDate\" name=\"reminderDueDate\" class=\"\"></label>\n                        <label for=\"\">Due Time<input type=\"time\" id=\"dueTime\" name=\"reminderDueTime\" class=\"\"></label>\n                        <label for=\"priority\">Priority<select id=\"priority\" name=\"reminderPriority\" class=\"\">\n                            <option value=\"1\">low</option>\n                            <option value=\"2\" selected>medium</option>\n                            <option value=\"3\">high</option>\n                        </select></label>\n                        <label for=\"selectList\">Select List<select id=\"selectList\" name=\"reminderSelectList\">\n                            <option value=\"reminders\">Reminders</option>\n                        </select>\n                        </label>\n                        <button id=\"publishReminder\" type=\"button\">Done</button>\n                        <button type=\"reset\">Reset</button> \n                    </form>\n                </div>\n                \n            </div>\n            <button id=\"openListModal\" class=\"button\"><span>Add List</span></button>\n            <div id=\"list-modal\" class=\"modal\" hidden>\n                <div class=\"form-wrapper\">\n                    <span id=\"list-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n                    <form action=\"/\">\n                        <input type=\"text\" placeholder=\"List name\" class=\"input\" required>\n                        <input type=\"color\" class=\"\">\n                        <button id=\"addList\" type=\"submit\">Done</button>\n                        <button type=\"reset\">Reset</button>\n                    </form>\n                </div>\n            </div>\n           </footer>\n    </div>\n</body>\n</html>";
+var code = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To-Do List</title>\n</head>\n<body>\n    <div id=\"wrapper\">\n        <header>\n            <input id=\"search\" type=\"text\" placeholder=\"&#x1F50D; Type search term and press Enter\" class=\"input\">\n           </header>\n           <main>\n            <div id=\"today\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\"><p>today</p><span>0</span></div>\n            <div id=\"scheduled\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\"><p>scheduled</p><span>0</span></div>\n            <div id=\"all\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>all</p><span>0</span></div>\n            <div id=\"completed\" class=\"card button border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\"><p>completed</p><span>0</span></div>\n            <article id=\"lists\">\n                <h2>My Lists</h2>\n                    <div id=\"reminder-list\" class=\"button banner border\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\"><p>Reminders</p><span class=\"counter\"></span><span class=\"banner-close-btn\">&times;</span>\n                    <div id=\"reminders\" class=\"drop-down\" hidden></div>   \n                    </div>            \n            </article>\n            </main>\n           <footer>\n            <button id=\"new-reminder\" class=\"button modal-open-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\">New Reminder</button>\n            <div id=\"reminder-modal\" class=\"modal \" hidden>\n                <div class=\"form-wrapper\">\n                    <span id=\"reminder-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n                    <form action=\"/\">\n                        <label for=\"\">Title<input type=\"text\" id=\"title\" placeholder=\"take dogs for a walk\" name=\"reminderTitle\" class=\"input\"></label>\n                        <label for=\"\">Notes<input type=\"text\" id=\"notes\" placeholder=\"bring poop bags\" name=\"reminderNotes\" class=\"input\"></label>\n                        <label for=\"\">Due Date<input type=\"date\" id=\"dueDate\" name=\"reminderDueDate\" class=\"\"></label>\n                        <label for=\"\">Due Time<input type=\"time\" id=\"dueTime\" name=\"reminderDueTime\" class=\"\"></label>\n                        <label for=\"priority\">Priority<select id=\"priority\" name=\"reminderPriority\" class=\"\">\n                            <option value=\"1\">low</option>\n                            <option value=\"2\" selected>medium</option>\n                            <option value=\"3\">high</option>\n                        </select></label>\n                        <label for=\"selectList\">Select List<select id=\"selectList\" name=\"reminderSelectList\">\n                            <option value=\"reminders\">Reminders</option>\n                        </select>\n                        </label>\n                        <button id=\"publishReminder\" type=\"button\">Done</button>\n                        <button type=\"reset\">Reset</button> \n                    </form>\n                </div>\n                \n            </div>\n            <button id=\"openListModal\" class=\"button modal-open-btn\"><span>Add List</span></button>\n            <div id=\"list-modal\" class=\"modal\" hidden>\n                <div class=\"form-wrapper\">\n                    <span id=\"list-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n                    <form action=\"/\">\n                        <input type=\"text\" placeholder=\"List name\" class=\"input\" required>\n                        <input type=\"color\" class=\"\">\n                        <button id=\"addList\" type=\"submit\">Done</button>\n                        <button type=\"reset\">Reset</button>\n                    </form>\n                </div>\n            </div>\n           </footer>\n    </div>\n</body>\n</html>";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
@@ -4457,48 +4457,6 @@ function addListToPage(e) { //shows html list on the page
 
 /***/ }),
 
-/***/ "./src/modalControl.js":
-/*!*****************************!*\
-  !*** ./src/modalControl.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   closeModal: () => (/* binding */ closeModal),
-/* harmony export */   openModal: () => (/* binding */ openModal),
-/* harmony export */   toggleModal: () => (/* binding */ toggleModal)
-/* harmony export */ });
-
-
-function closeModal(modal) {//returns fn for eventHandler
-
-    return function() {
-
-        modal.classList.remove('visible')
-    }
-   
-}
-
-function openModal(modal) {
-
-    return function() {
-
-        modal.classList.add('visible')
-    }
-
-}
-
-function toggleModal(modal) {
-
-    return function() {
-        modal.classList.toggle('visible')
-    }
-}
-
-/***/ }),
-
 /***/ "./src/reminder.js":
 /*!*************************!*\
   !*** ./src/reminder.js ***!
@@ -4897,11 +4855,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./header.css */ "./src/header.css");
 /* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./main.css */ "./src/main.css");
 /* harmony import */ var _footer_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./footer.css */ "./src/footer.css");
-/* harmony import */ var _modalControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modalControl */ "./src/modalControl.js");
-/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./list */ "./src/list.js");
-/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./list */ "./src/list.js");
+/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 
 
 
@@ -4924,7 +4880,7 @@ let listModal = document.querySelector('#list-modal')
 
 let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
 
-document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_8__.publishReminder) 
+document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_7__.publishReminder) 
 
 // EVENT LISTENERS
 
@@ -4950,7 +4906,7 @@ function deleteReminderHtml(e) {
 
         deleteReminderFromStorage(closeBtn.previousElementSibling.innerHTML) //matches html reminder's h4 to reminderTitle prop
 
-        ;(0,_reminder_js__WEBPACK_IMPORTED_MODULE_8__.updateReminderCount)(reminder.parentElement.id)
+        ;(0,_reminder_js__WEBPACK_IMPORTED_MODULE_7__.updateReminderCount)(reminder.parentElement.id)
 
         reminder.remove()
     }
@@ -4970,36 +4926,39 @@ function closeModal(e) {
         e.target.closest('.modal').classList.remove('visible')
     }
 
+}
+
+function openModal(e) {
+
+    if(e.target.classList.contains('modal-open-btn')) {
+
+        e.target.nextElementSibling.classList.add('visible')
     }
+}
+
+document.addEventListener('click', openModal)
 
 function deleteReminderFromStorage(name) {
 
-    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_9__.reminderStorage.length; i++) {
+    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_8__.reminderStorage.length; i++) {
 
-        if(name === _storage__WEBPACK_IMPORTED_MODULE_9__.reminderStorage[i].reminderTitle) {
+        if(name === _storage__WEBPACK_IMPORTED_MODULE_8__.reminderStorage[i].reminderTitle) {
 
-            _storage__WEBPACK_IMPORTED_MODULE_9__.reminderStorage.splice(i, 1)
+            _storage__WEBPACK_IMPORTED_MODULE_8__.reminderStorage.splice(i, 1)
         }
     }
 
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_9__.reminderStorage)
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_8__.reminderStorage)
 }
 
-newReminderBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.openModal)(reminderModal))
+addList.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_6__.addListToPage)
 
-// reminderModalCloseBtn.addEventListener('click', closeModal(reminderModal))
+// TESTING
 
-document.querySelector('#list-modal').classList.add('visible')  //debug
-
-openListModal.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.openModal)(listModal))  //html id
-
-// listModalCloseBtn.addEventListener('click', closeModal(listModal))
-
-addList.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_7__.addListToPage)
-
-// TEST LIST
 // addList.dispatchEvent(clickEvent)
 // document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+// document.querySelector('#list-modal').classList.add('visible')  
+
 })();
 
 /******/ })()
