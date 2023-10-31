@@ -4,7 +4,7 @@ import './classes.css'
 import './header.css'
 import './main.css'
 import './footer.css'
-import { closeModal, openModal} from './modalControl'
+import {openModal} from './modalControl'
 import {addListToPage} from './list'
 import {publishReminder,updateReminderCount} from './reminder.js'
 import {reminderStorage} from './storage'
@@ -53,6 +53,17 @@ function deleteReminderHtml(e) {
     }
 }
 
+document.addEventListener('click', closeModal)
+
+function closeModal(e) {
+
+    if(e.target.classList.contains('modal')) {
+
+         e.target.classList.remove('visible')
+    }
+
+    }
+
 function deleteReminderFromStorage(name) {
 
     for(let i = 0; i < reminderStorage.length; i++) {
@@ -68,30 +79,16 @@ function deleteReminderFromStorage(name) {
 
 newReminderBtn.addEventListener('click', openModal(reminderModal))
 
-reminderModalCloseBtn.addEventListener('click', closeModal(reminderModal))
+// reminderModalCloseBtn.addEventListener('click', closeModal(reminderModal))
 
-// document.querySelector('#list-modal').classList.add('visible')
+document.querySelector('#list-modal').classList.add('visible')  //debug
 
 openListModal.addEventListener('click', openModal(listModal))  //html id
 
-listModalCloseBtn.addEventListener('click', closeModal(listModal))
+// listModalCloseBtn.addEventListener('click', closeModal(listModal))
 
 addList.addEventListener('click', addListToPage)
 
 // TEST LIST
 // addList.dispatchEvent(clickEvent)
 // document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
-
-window.addEventListener('click', (e) => {  //close modal when user clicks outside of it
-
-    let modal = e.target
-
-    if(modal.id === "reminder-modal") {
-
-        closeModal(reminderModal)()
-
-    } else if(modal.id === 'list-modal') {
-
-        closeModal(listModal)() //invokes the "inner" function
-    }
-})

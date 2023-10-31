@@ -4956,6 +4956,17 @@ function deleteReminderHtml(e) {
     }
 }
 
+document.addEventListener('click', closeModal)
+
+function closeModal(e) {
+
+    if(e.target.classList.contains('modal')) {
+
+         e.target.classList.remove('visible')
+    }
+
+    }
+
 function deleteReminderFromStorage(name) {
 
     for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_9__.reminderStorage.length; i++) {
@@ -4971,33 +4982,19 @@ function deleteReminderFromStorage(name) {
 
 newReminderBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.openModal)(reminderModal))
 
-reminderModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.closeModal)(reminderModal))
+// reminderModalCloseBtn.addEventListener('click', closeModal(reminderModal))
 
-// document.querySelector('#list-modal').classList.add('visible')
+document.querySelector('#list-modal').classList.add('visible')  //debug
 
 openListModal.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.openModal)(listModal))  //html id
 
-listModalCloseBtn.addEventListener('click', (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.closeModal)(listModal))
+// listModalCloseBtn.addEventListener('click', closeModal(listModal))
 
 addList.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_7__.addListToPage)
 
 // TEST LIST
 // addList.dispatchEvent(clickEvent)
 // document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
-
-window.addEventListener('click', (e) => {  //close modal when user clicks outside of it
-
-    let modal = e.target
-
-    if(modal.id === "reminder-modal") {
-
-        (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.closeModal)(reminderModal)()
-
-    } else if(modal.id === 'list-modal') {
-
-        (0,_modalControl__WEBPACK_IMPORTED_MODULE_6__.closeModal)(listModal)() //invokes the "inner" function
-    }
-})
 })();
 
 /******/ })()
