@@ -23,7 +23,7 @@ class List {
     }
 
     get id() {
-        return '#' + this.sanitize(_name)
+        return this.sanitize(this.name)
     }
 
     sanitize(str) {
@@ -93,7 +93,7 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     dropDown.classList.add('drop-down')
 
-    dropDown.setAttribute('id',obj.listName)
+    dropDown.setAttribute('id',obj.id)
 
     dropDown.setAttribute('hidden','')
 
