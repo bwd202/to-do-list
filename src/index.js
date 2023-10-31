@@ -4,7 +4,6 @@ import './classes.css'
 import './header.css'
 import './main.css'
 import './footer.css'
-import {openModal} from './modalControl'
 import {addListToPage} from './list'
 import {publishReminder,updateReminderCount} from './reminder.js'
 import {reminderStorage} from './storage'
@@ -67,7 +66,17 @@ function closeModal(e) {
         e.target.closest('.modal').classList.remove('visible')
     }
 
+}
+
+function openModal(e) {
+
+    if(e.target.classList.contains('modal-open-btn')) {
+
+        e.target.nextElementSibling.classList.add('visible')
     }
+}
+
+document.addEventListener('click', openModal)
 
 function deleteReminderFromStorage(name) {
 
@@ -82,18 +91,10 @@ function deleteReminderFromStorage(name) {
     console.log(reminderStorage)
 }
 
-newReminderBtn.addEventListener('click', openModal(reminderModal))
-
-// reminderModalCloseBtn.addEventListener('click', closeModal(reminderModal))
-
-document.querySelector('#list-modal').classList.add('visible')  //debug
-
-openListModal.addEventListener('click', openModal(listModal))  //html id
-
-// listModalCloseBtn.addEventListener('click', closeModal(listModal))
-
 addList.addEventListener('click', addListToPage)
 
-// TEST LIST
+// TESTING
+
 // addList.dispatchEvent(clickEvent)
 // document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+// document.querySelector('#list-modal').classList.add('visible')  
