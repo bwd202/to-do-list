@@ -4617,6 +4617,11 @@ function publishReminder() {//shows reminder html on page
 
     updateReminderCount(reminder.reminderList)
 
+    if(container.childElementCount === 0) {
+        
+        document.querySelector(reminderListId).classList.add('visible')
+    }
+
     container.append(reminderHtmlWrapper)
 
     // console.log(reminderStorage)
