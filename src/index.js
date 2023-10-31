@@ -5,26 +5,14 @@ import './header.css'
 import './main.css'
 import './footer.css'
 import {addListToPage} from './list'
-import {publishReminder,updateReminderCount} from './reminder.js'
+import {publishReminder,updateCounters} from './reminder.js'
 import {reminderStorage} from './storage'
-
-// let defaultList = document.querySelector('#defaultList')
-
-let newReminderBtn = document.querySelector('#new-reminder')
-
-let reminderModal = document.querySelector('#reminder-modal')
-
-let reminderModalCloseBtn = document.querySelector('#reminder-modal-close-btn')
-
-let listModal = document.querySelector('#list-modal')
-
-let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
-
-document.querySelector('button#publishReminder').addEventListener('click', publishReminder) 
 
 // EVENT LISTENERS
 
-document.addEventListener('click', showDropDownList)
+document.querySelector('button#publishReminder').addEventListener('click', publishReminder)
+
+document.querySelector('button#addList').addEventListener('click', addListToPage)
 
 function showDropDownList(e) {
 
@@ -34,7 +22,7 @@ function showDropDownList(e) {
     }
 }
 
-document.addEventListener('click', deleteReminderHtml)
+document.addEventListener('click', showDropDownList)
 
 function deleteReminderHtml(e) {
 
@@ -46,13 +34,13 @@ function deleteReminderHtml(e) {
 
         deleteReminderFromStorage(closeBtn.previousElementSibling.innerHTML) //matches html reminder's h4 to reminderTitle prop
 
-        updateReminderCount(reminder.parentElement.id)
+        updateCounters(reminder.parentElement.id)
 
         reminder.remove()
     }
 }
 
-document.addEventListener('click', closeModal)
+document.addEventListener('click', deleteReminderHtml)
 
 function closeModal(e) {
 
@@ -67,6 +55,8 @@ function closeModal(e) {
     }
 
 }
+
+document.addEventListener('click', closeModal)
 
 function openModal(e) {
 
@@ -90,8 +80,6 @@ function deleteReminderFromStorage(name) {
 
     console.log(reminderStorage)
 }
-
-addList.addEventListener('click', addListToPage)
 
 // TESTING
 

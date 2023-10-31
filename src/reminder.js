@@ -1,4 +1,4 @@
-export {publishReminder,updateReminderCount}
+export {publishReminder,updateCounters}
 import {reminderStorage} from "./storage"
 
 class Reminder {
@@ -116,7 +116,7 @@ function publishReminder() {//shows reminder html on page
 
     reminderHtmlWrapper.append(...reminderHtml)
 
-    updateReminderCount(reminder.reminderList)
+    updateCounters(reminder.reminderList)
 
     if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
         
@@ -128,13 +128,13 @@ function publishReminder() {//shows reminder html on page
     // console.log(reminderStorage)
 }
 
-function updateReminderCount(list) {
+function updateCounters(list) {
    
     let banner = document.querySelector('#' + list).parentElement
 
-    let counter = banner.querySelector('.counter')
+    let reminderCounter = banner.querySelector('.counter')
 
-    counter.innerHTML = countReminders(list)
+    reminderCounter.innerHTML = countReminders(list)
 }
 
 function countReminders(list) {

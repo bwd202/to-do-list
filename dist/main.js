@@ -4467,7 +4467,7 @@ function addListToPage(e) { //shows html list on the page
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   publishReminder: () => (/* binding */ publishReminder),
-/* harmony export */   updateReminderCount: () => (/* binding */ updateReminderCount)
+/* harmony export */   updateCounters: () => (/* binding */ updateCounters)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 
@@ -4588,7 +4588,7 @@ function publishReminder() {//shows reminder html on page
 
     reminderHtmlWrapper.append(...reminderHtml)
 
-    updateReminderCount(reminder.reminderList)
+    updateCounters(reminder.reminderList)
 
     if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
         
@@ -4600,13 +4600,13 @@ function publishReminder() {//shows reminder html on page
     // console.log(reminderStorage)
 }
 
-function updateReminderCount(list) {
+function updateCounters(list) {
    
     let banner = document.querySelector('#' + list).parentElement
 
-    let counter = banner.querySelector('.counter')
+    let reminderCounter = banner.querySelector('.counter')
 
-    counter.innerHTML = countReminders(list)
+    reminderCounter.innerHTML = countReminders(list)
 }
 
 function countReminders(list) {
@@ -4868,23 +4868,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// let defaultList = document.querySelector('#defaultList')
-
-let newReminderBtn = document.querySelector('#new-reminder')
-
-let reminderModal = document.querySelector('#reminder-modal')
-
-let reminderModalCloseBtn = document.querySelector('#reminder-modal-close-btn')
-
-let listModal = document.querySelector('#list-modal')
-
-let listModalCloseBtn = document.querySelector('#list-modal-close-btn')
-
-document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_7__.publishReminder) 
-
 // EVENT LISTENERS
 
-document.addEventListener('click', showDropDownList)
+document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_7__.publishReminder)
+
+document.querySelector('button#addList').addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_6__.addListToPage)
 
 function showDropDownList(e) {
 
@@ -4894,7 +4882,7 @@ function showDropDownList(e) {
     }
 }
 
-document.addEventListener('click', deleteReminderHtml)
+document.addEventListener('click', showDropDownList)
 
 function deleteReminderHtml(e) {
 
@@ -4906,13 +4894,13 @@ function deleteReminderHtml(e) {
 
         deleteReminderFromStorage(closeBtn.previousElementSibling.innerHTML) //matches html reminder's h4 to reminderTitle prop
 
-        ;(0,_reminder_js__WEBPACK_IMPORTED_MODULE_7__.updateReminderCount)(reminder.parentElement.id)
+        ;(0,_reminder_js__WEBPACK_IMPORTED_MODULE_7__.updateCounters)(reminder.parentElement.id)
 
         reminder.remove()
     }
 }
 
-document.addEventListener('click', closeModal)
+document.addEventListener('click', deleteReminderHtml)
 
 function closeModal(e) {
 
@@ -4927,6 +4915,8 @@ function closeModal(e) {
     }
 
 }
+
+document.addEventListener('click', closeModal)
 
 function openModal(e) {
 
@@ -4950,8 +4940,6 @@ function deleteReminderFromStorage(name) {
 
     console.log(_storage__WEBPACK_IMPORTED_MODULE_8__.reminderStorage)
 }
-
-addList.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_6__.addListToPage)
 
 // TESTING
 
