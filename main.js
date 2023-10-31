@@ -4303,7 +4303,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class List {
-    constructor({name = 'new list', color = '#0f0'}={}) {
+    constructor({name = 'New List', color = '#0f0'}={}) {
         this.listName = name
         this.listColor = color
         // this.reminderStorage = []
@@ -4319,29 +4319,24 @@ class List {
 
 }
 
-function makeListObj() { 
+// function sanitizeListNameInput(str) {
 
-    return new List(getListInputs())    //list obj
+//     return str.toLowerCase().trim()
+// }
+
+function storeList() {
+    _storage__WEBPACK_IMPORTED_MODULE_2__.listStorage.push(getListInputs())
 }
 
-function getListInputs() {   
+function getListInputs() {   //returns obj from inputs
 
     let name = document.querySelector("[placeholder='List name']").value.trim()
 
-    if (name === '') {name = 'New List'}
+    // if (name === '') {name = 'New List'}
 
     let color = document.querySelector("[type='color']").value
 
-    return {name,color} //object with strings
-}
-
-function processList() {
-
-    let obj = makeListObj()
-
-    _storage__WEBPACK_IMPORTED_MODULE_2__.listStorage.push(obj)
-
-    // console.log(listStorage)
+    return new List({name,color})
 }
 
 function makeHtmlList(obj) {    //creates html list banner from obj
@@ -4427,7 +4422,7 @@ function addListToPage(e) { //shows html list on the page
 
     e.preventDefault()
 
-    processList()
+    storeList()
 
     let listObj = _storage__WEBPACK_IMPORTED_MODULE_2__.listStorage.at(-1)
 
@@ -4438,6 +4433,8 @@ function addListToPage(e) { //shows html list on the page
     let container = document.querySelector('article')
 
     container.append(listHtml)
+
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_2__.listStorage)
 }
 
 /***/ }),
@@ -4615,7 +4612,10 @@ function publishReminder() {//shows reminder html on page
 
     reminderHtmlWrapper.append(...reminderHtml)
 
-    updateReminderCount(reminder.reminderList)
+    let sanitizedReminderListName = reminder.reminderList.split('').map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)).join('')
+    // needed because default list name contains a space which leads to invalid id query selector
+
+    updateReminderCount(sanitizedReminderListName)
 
     if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
         
