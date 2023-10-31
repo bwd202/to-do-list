@@ -129,9 +129,9 @@ function addNewListInputOption(obj) {   //adds new list input option to reminder
 
     let newListOption = document.createElement('option')
 
-    newListOption.setAttribute('value', obj.listName)
+    newListOption.setAttribute('value', obj.id)
 
-    newListOption.innerHTML = obj.listName
+    newListOption.innerHTML = obj.id
 
     container.append(newListOption)
 
