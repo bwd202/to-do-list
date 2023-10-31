@@ -4304,39 +4304,56 @@ __webpack_require__.r(__webpack_exports__);
 
 class List {
     constructor({name = 'New List', color = '#0f0'}={}) {
-        this.listName = name
+        // this.listName = name
+        this._name = name
         this.listColor = color
-        // this.reminderStorage = []
     }
 
-    // storeReminder(obj) {
-    //     this.reminderStorage.push(obj)
-    // }
+    get name() {
+        return this._name
+    }
 
-    // get reminderCount() {
-    //     return this.reminderStorage.length
-    // }
+    set name(str) {
+
+       this._name = str
+    }
+
+    get id() {
+        return this.sanitize(_name)
+    }
+
+    sanitize(str) {
+
+        let splitStr = str.split(' ')   //returns an array
+
+        let modifyWords = splitStr.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))  //makes all non-first words uppercase
+
+        let newString = modifyWords.join('')
+
+        return newString
+    }
 
 }
-
-// function sanitizeListNameInput(str) {
-
-//     return str.toLowerCase().trim()
-// }
 
 function storeList() {
     _storage__WEBPACK_IMPORTED_MODULE_2__.listStorage.push(getListInputs())
 }
 
-function getListInputs() {   //returns obj from inputs
+function getListInputs() {   //creates obj from inputs and returns
+
+    let obj = new List()
 
     let name = document.querySelector("[placeholder='List name']").value.trim()
+
+    obj.name = name //uses obj's setter fn
 
     // if (name === '') {name = 'New List'}
 
     let color = document.querySelector("[type='color']").value
 
-    return new List({name,color})
+    obj.listColor = color
+
+    return obj
 }
 
 function makeHtmlList(obj) {    //creates html list banner from obj
