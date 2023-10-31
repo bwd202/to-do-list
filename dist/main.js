@@ -4315,11 +4315,14 @@ class List {
 
     set name(str) {
 
-       this._name = str
+       if (str === '') this._name = 'New List'
+
+       else this._name = str
+       
     }
 
     get id() {
-        return this.sanitize(_name)
+        return '#' + this.sanitize(_name)
     }
 
     sanitize(str) {
@@ -4346,8 +4349,6 @@ function getListInputs() {   //creates obj from inputs and returns
     let name = document.querySelector("[placeholder='List name']").value.trim()
 
     obj.name = name //uses obj's setter fn
-
-    // if (name === '') {name = 'New List'}
 
     let color = document.querySelector("[type='color']").value
 
