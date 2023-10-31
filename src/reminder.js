@@ -118,7 +118,7 @@ function publishReminder() {//shows reminder html on page
 
     updateReminderCount(reminder.reminderList)
 
-    if(container.childElementCount === 0) {
+    if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
         
         document.querySelector(reminderListId).classList.add('visible')
     }
