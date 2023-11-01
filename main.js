@@ -4661,6 +4661,43 @@ let reminderStorage = []
 
 /***/ }),
 
+/***/ "./src/testing.js":
+/*!************************!*\
+  !*** ./src/testing.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   testingSuite: () => (/* binding */ testingSuite)
+/* harmony export */ });
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
+
+
+
+
+document.querySelector('button#publishReminder').addEventListener('click', _reminder__WEBPACK_IMPORTED_MODULE_1__.publishReminder)
+
+function testingSuite() {
+
+    let clickEvent = new Event('click')
+
+    document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
+
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage)
+}
+
+
+
+// document.querySelector('#list-modal').classList.add('visible')  
+
+// addList.dispatchEvent(clickEvent)
+
+
+/***/ }),
+
 /***/ "./src/icons/calendar-badge.svg":
 /*!**************************************!*\
   !*** ./src/icons/calendar-badge.svg ***!
@@ -4882,6 +4919,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
+/* harmony import */ var _testing__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./testing */ "./src/testing.js");
 
 
 
@@ -4892,6 +4930,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+// TESTING
+
+(0,_testing__WEBPACK_IMPORTED_MODULE_10__.testingSuite)()
 
 // EVENT LISTENERS
 
