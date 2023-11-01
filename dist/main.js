@@ -4490,7 +4490,7 @@ function addListToPage(e) { //shows html list on the page
 
     container.append(listHtml)
 
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_2__.listStorage)
+    listForm.reset()
 }
 
 /***/ }),

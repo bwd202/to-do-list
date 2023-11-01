@@ -153,5 +153,5 @@ function addListToPage(e) { //shows html list on the page
 
     container.append(listHtml)
 
-    console.log(listStorage)
+    listForm.reset()
 }
