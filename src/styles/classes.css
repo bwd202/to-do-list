@@ -88,15 +88,6 @@
     filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);
 }
 
-.form-wrapper {
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-template-rows: max-content 1fr;
-    grid-column: 2;
-    background-color: var(--card);
-    position: relative;
-}
-
 .input {
     background-color: var(--input);
     border: 0;
