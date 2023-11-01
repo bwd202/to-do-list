@@ -4531,6 +4531,8 @@ function openModal(e) {
     if(e.target.classList.contains('modal-btn')) {
 
         e.target.nextElementSibling.classList.add('visible')    //show modal
+
+        modalHtml()
     }
 
 }
@@ -4551,39 +4553,42 @@ function closeModal(e) {
 
 function modalHtml() {
 
-    let wrapper = document.createElement('div')
+    return function() {
 
-    wrapper.classList.add('wrapper')
+        let wrapper = document.createElement('div')
 
-    let modalContent = []
+        wrapper.classList.add('wrapper')
 
-    let closeBtn = document.createElement('span')
+        let modalContent = []
 
-    closeBtn.classList.add('modal-close-btn')
+        let closeBtn = document.createElement('span')
 
-    closeBtn.innerHTML = '&times;'
+        closeBtn.classList.add('modal-close-btn')
 
-    let list = document.createElement('div')
+        closeBtn.innerHTML = '&times;'
 
-    let reminder = document.createElement('div')
+        let list = document.createElement('div')
 
-    let checkbox = document.createElement('input')
-    
-    checkbox.setAttribute('type','checkbox')
+        let reminder = document.createElement('div')
 
-    let title = document.createElement('h4')
+        let checkbox = document.createElement('input')
+        
+        checkbox.setAttribute('type','checkbox')
 
-    title.innerHTML = 'test reminder'
+        let title = document.createElement('h4')
 
-    reminder.append(checkbox,title)
+        title.innerHTML = 'test reminder'
 
-    list.append(reminder)
+        reminder.append(checkbox,title)
 
-    modalContent.push(closeBtn,list)
+        list.append(reminder)
 
-    wrapper.append(...modalContent)
+        modalContent.push(closeBtn,list)
 
-    // document.querySelector('main').append(modal)
+        wrapper.append(...modalContent)
+
+        document.querySelector('.modal').append(wrapper)
+    }
 
 }
 
