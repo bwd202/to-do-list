@@ -81,9 +81,3 @@ function deleteReminderFromStorage(name) {
 
     console.log(reminderStorage)
 }
-
-// TESTING
-
-// addList.dispatchEvent(clickEvent)
-// document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
-// document.querySelector('#list-modal').classList.add('visible')  
