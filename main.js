@@ -4965,13 +4965,6 @@ function deleteReminderFromStorage(name) {
 
     console.log(_storage__WEBPACK_IMPORTED_MODULE_8__.reminderStorage)
 }
-
-// TESTING
-
-// addList.dispatchEvent(clickEvent)
-// document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
-// document.querySelector('#list-modal').classList.add('visible')  
-
 })();
 
 /******/ })()
