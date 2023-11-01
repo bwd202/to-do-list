@@ -4595,21 +4595,7 @@ function createHtml(obj) {  //uses obj props to create reminder html
     return reminderHtmlContent
 }
 
-// function publishDefaultReminder() {
-
-//     document.querySelector('#defaultList').classList.add('visible') //shows drop-down by default
-
-//     let defaultReminder = new Reminder({title:'Take trash out',notes:"Notes"})
-
-//     document.querySelector('button#publishReminder').addEventListener('click', publishReminder(defaultReminder))
-
-//     let clickEvent = new Event('click')
-
-//     document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
-
-// } 
-
-function publishReminder() {//shows reminder html on page
+function publishReminder() {//event listener fn
 
     storeReminder()
 
@@ -4636,7 +4622,7 @@ function publishReminder() {//shows reminder html on page
 
     container.append(reminderHtmlWrapper)
 
-    // console.log(reminderStorage)
+    reminderForm.reset()
 }
 
 /***/ }),
@@ -4934,7 +4920,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // TESTING
 
-(0,_testing__WEBPACK_IMPORTED_MODULE_10__.testingSuite)()
+// testingSuite()
 
 // EVENT LISTENERS
 

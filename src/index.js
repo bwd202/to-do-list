@@ -12,7 +12,7 @@ import { testingSuite } from './testing'
 
 // TESTING
 
-testingSuite()
+// testingSuite()
 
 // EVENT LISTENERS
 
