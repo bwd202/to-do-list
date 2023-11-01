@@ -11,15 +11,30 @@
             <input id="search" type="text" placeholder="&#x1F50D; Type search term and press Enter" class="input">
         </header>
         <main>
-            <div id="today" class="card button border modal-btn"><img src="cb0e65bd516b4b5f5d06.svg" alt="" width="50" height="50" class="filter-blue"><p>Today</p><span class="counter">0</span></div>
-            <div id="scheduled" class="card button border modal-btn"><img src="0afa66342b0e5f53443f.svg" alt="" width="50" height="50" class="filter-red"><p>Scheduled</p><span class="counter">0</span></div>
-            <div id="all" class="card button border modal-btn"><img src="7c08cb4f6d6cfe3d09d7.svg" alt="" width="50" height="50"><p>All</p><span class="counter">0</span></div>
-            <div id="completed" class="card button border modal-btn"><img src="61238fdaf03dcdcfb315.svg" alt="" width="50" height="50" class="filter-gray"><p>Completed</p><span class="counter">0</span></div>
+            <div class="card button border modal-btn"><img src="cb0e65bd516b4b5f5d06.svg" alt="" width="50" height="50" class="filter-blue"><p>Today</p><span class="counter">0</span></div>
+
+            <div id="today" class="modal"></div>
+
+            <div class="card button border modal-btn"><img src="0afa66342b0e5f53443f.svg" alt="" width="50" height="50" class="filter-red"><p>Scheduled</p><span class="counter">0</span></div>
+
+            <div id="scheduled" class="modal"></div>
+
+            <div class="card button border modal-btn"><img src="7c08cb4f6d6cfe3d09d7.svg" alt="" width="50" height="50"><p>All</p><span class="counter">0</span></div>
+
+            <div id="all" class="modal"></div>
+
+            <div class="card button border modal-btn"><img src="61238fdaf03dcdcfb315.svg" alt="" width="50" height="50" class="filter-gray"><p>Completed</p><span class="counter">0</span></div>
+
+            <div id="completed" class="modal"></div>
             <article id="lists">
                 <h2>My Lists</h2>
-                    <div id="reminder-list" class="button banner border"><img src="219cb3f5774dc4da59ea.svg" width="50" height="50" alt="" class="filter-green"><p>Reminders</p><span class="counter"></span><span class="banner-close-btn">&times;</span>
+                <div id="reminder-list" class="button banner border">
+                    <img src="219cb3f5774dc4da59ea.svg" width="50" height="50" alt="" class="filter-green">
+                    <p>Reminders</p>
+                    <span class="counter"></span>
+                    <span class="banner-close-btn">&times;</span>
                     <div id="reminders" class="drop-down" hidden></div>   
-                    </div>            
+                </div>            
             </article>
         </main>
            <footer>
