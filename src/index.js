@@ -8,6 +8,11 @@ import {addListToPage} from './list'
 import {publishReminder} from './reminder.js'
 import {reminderStorage} from './storage'
 import {updateCounters } from './counters.js'
+import { testingSuite } from './testing'
+
+// TESTING
+
+testingSuite()
 
 // EVENT LISTENERS
 
