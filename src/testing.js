@@ -19,6 +19,6 @@ function testReminder() {
 
 document.querySelector('button#publishReminder').addEventListener('click', publishReminder)
 
-// document.querySelector('#list-modal').classList.add('visible')  
+document.querySelector('#list-modal').classList.add('visible')  
 
 // addList.dispatchEvent(clickEvent)
