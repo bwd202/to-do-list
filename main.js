@@ -4601,11 +4601,11 @@ function createHtml(obj) {  //uses obj props to create reminder html
 
     reminderHtmlContent.push(checkbox,reminderTitle,closeBtn,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
 
-    reminderHtmlWrapper.append(...reminderHtml)
+    reminderHtmlWrapper.append(...reminderHtmlContent)
 
     container.append(reminderHtmlWrapper)
 
-    return reminderHtmlContent
+    // return reminderHtmlContent
 }
 
 function publishReminder(flag) {//event listener fn
@@ -4626,16 +4626,24 @@ function publishReminder(flag) {//event listener fn
 
         // let container = document.querySelector(reminderListId)
 
-        let reminderHtml = createHtml(reminder)
+        // let reminderHtml = createHtml(reminder)
+
+        let listId = "#" + reminder.list
+
+        let container = document.querySelector(listId)
+
+        if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
+            
+            document.querySelector(listId).classList.add('visible')
+        }
+
+        createHtml(reminder)
 
         // reminderHtmlWrapper.append(...reminderHtml)
 
         ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.reminderList)
 
-        if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
-            
-            document.querySelector(reminderListId).classList.add('visible')
-        }
+       
 
         // container.append(reminderHtmlWrapper)
 
