@@ -1,4 +1,4 @@
-export {publishReminder,Reminder}
+export {publishReminder,Reminder,deleteReminderFromStorage,deleteReminderHtml}
 import {reminderStorage} from "./storage"
 import { updateCounters } from "./counters"
 
@@ -44,6 +44,21 @@ function getReminderData() { //gets inputs from reminder form, makes new obj
 function storeReminder() {
 
     reminderStorage.push(getReminderData())
+
+    // console.log(reminderStorage)
+}
+
+function deleteReminderFromStorage(name) {
+
+    for(let i = 0; i < reminderStorage.length; i++) {
+
+        if(name === reminderStorage[i].reminderTitle) {
+
+            reminderStorage.splice(i, 1)
+        }
+    }
+
+    // console.log(reminderStorage)
 }
 
 function createHtml(obj) {  //uses obj props to create reminder html
@@ -121,5 +136,21 @@ function publishReminder(flag) {//event listener fn
         updateCounters(reminder.reminderList)
 
         reminderForm.reset()
+    }
+}
+
+function deleteReminderHtml(e) {
+
+    let closeBtn = e.target
+    
+    let reminder = closeBtn.parentElement
+
+    if(closeBtn.classList.contains('close-btn')) {
+
+        deleteReminderFromStorage(closeBtn.previousElementSibling.innerHTML) //matches html reminder's h4 to reminderTitle prop
+
+        updateCounters(reminder.parentElement.id)
+
+        reminder.remove()
     }
 }
