@@ -9,6 +9,7 @@ import {publishReminder} from './reminder.js'
 import {reminderStorage} from './storage'
 import {updateCounters } from './counters.js'
 import { testReminder } from './testing'
+import {openModal, closeModal} from './modal'
 
 // TESTING
 
@@ -61,28 +62,6 @@ function deleteReminderFromStorage(name) {
 
 document.addEventListener('click', deleteReminderHtml)
 
-function closeModal(e) {
-
-    if(e.target.classList.contains('modal')) {
-
-         e.target.classList.remove('visible')
-    }
-
-    else if (e.target.classList.contains('modal-close-btn')) {
-
-        e.target.closest('.modal').classList.remove('visible')
-    }
-
-}
-
 document.addEventListener('click', closeModal)
-
-function openModal(e) {
-
-    if(e.target.classList.contains('modal-open-btn')) {
-
-        e.target.nextElementSibling.classList.add('visible')
-    }
-}
 
 document.addEventListener('click', openModal)

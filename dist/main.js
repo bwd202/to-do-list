@@ -4495,6 +4495,48 @@ function addListToPage(e) { //shows html list on the page
 
 /***/ }),
 
+/***/ "./src/modal.js":
+/*!**********************!*\
+  !*** ./src/modal.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   closeModal: () => (/* binding */ closeModal),
+/* harmony export */   openModal: () => (/* binding */ openModal)
+/* harmony export */ });
+
+
+let modal = document.createElement('div')
+
+modal.classList.add('modal')
+
+function openModal(e) {
+
+    if(e.target.classList.contains('modal-open-btn')) {
+
+        e.target.nextElementSibling.classList.add('visible')
+    }
+}
+
+function closeModal(e) {
+
+    if(e.target.classList.contains('modal')) {
+
+         e.target.classList.remove('visible')
+    }
+
+    else if (e.target.classList.contains('modal-close-btn')) {
+
+        e.target.closest('.modal').classList.remove('visible')
+    }
+
+}
+
+/***/ }),
+
 /***/ "./src/reminder.js":
 /*!*************************!*\
   !*** ./src/reminder.js ***!
@@ -4920,6 +4962,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
 /* harmony import */ var _testing__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./testing */ "./src/testing.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
+
 
 
 
@@ -4983,31 +5027,9 @@ function deleteReminderFromStorage(name) {
 
 document.addEventListener('click', deleteReminderHtml)
 
-function closeModal(e) {
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_11__.closeModal)
 
-    if(e.target.classList.contains('modal')) {
-
-         e.target.classList.remove('visible')
-    }
-
-    else if (e.target.classList.contains('modal-close-btn')) {
-
-        e.target.closest('.modal').classList.remove('visible')
-    }
-
-}
-
-document.addEventListener('click', closeModal)
-
-function openModal(e) {
-
-    if(e.target.classList.contains('modal-open-btn')) {
-
-        e.target.nextElementSibling.classList.add('visible')
-    }
-}
-
-document.addEventListener('click', openModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_11__.openModal)
 })();
 
 /******/ })()
