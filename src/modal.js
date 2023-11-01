@@ -8,10 +8,10 @@ function openModal(e) {
         e.target.nextElementSibling.classList.add('visible')
     }
 
-    // if(e.target.classList.contains('modal-btn')) {
+    if(e.target.classList.contains('modal-btn')) {
 
-    //     modalHtml()
-    // }
+        e.target.nextElementSibling.classList.add('visible')    //show modal
+    }
 
 }
 
@@ -29,41 +29,24 @@ function closeModal(e) {
 
 }
 
-function modalHtml(e) {
+function modalHtml() {
 
-    if(e.target.classList.contains('modal-btn')) {
+    let modalContent = []
 
-        let modalContent = []
+    let wrapper = document.createElement('div')
 
-        let modal = document.createElement('div')
+    wrapper.classList.add('wrapper')
 
-        modal.classList.add('modal')
+    let closeBtn = document.createElement('span')
 
-        // modal.classList.add('visible')
+    closeBtn.classList.add('modal-close-btn')
 
-        modal.setAttribute('hidden','')
+    closeBtn.innerHTML = '&times;'
 
-        // modal.classList.add('visible')
+    modalContent.push(closeBtn)
 
-        let wrapper = document.createElement('div')
+    wrapper.append(...modalContent)
 
-        wrapper.classList.add('wrapper')
+    // document.querySelector('main').append(modal)
 
-        let closeBtn = document.createElement('span')
-
-        closeBtn.classList.add('modal-close-btn')
-
-        closeBtn.innerHTML = '&times;'
-
-        modalContent.push(closeBtn)
-
-        wrapper.append(...modalContent)
-
-        modal.append(wrapper)
-
-        document.querySelector('main').append(modal)
-
-    }
-
-    
 }
