@@ -5,8 +5,9 @@ import './header.css'
 import './main.css'
 import './footer.css'
 import {addListToPage} from './list'
-import {publishReminder,updateCounters} from './reminder.js'
+import {publishReminder} from './reminder.js'
 import {reminderStorage} from './storage'
+import {updateCounters } from './counters.js'
 
 // EVENT LISTENERS
 
