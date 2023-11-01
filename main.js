@@ -4551,11 +4551,11 @@ function closeModal(e) {
 
 function modalHtml() {
 
-    let modalContent = []
-
     let wrapper = document.createElement('div')
 
     wrapper.classList.add('wrapper')
+
+    let modalContent = []
 
     let closeBtn = document.createElement('span')
 
@@ -4563,7 +4563,23 @@ function modalHtml() {
 
     closeBtn.innerHTML = '&times;'
 
-    modalContent.push(closeBtn)
+    let list = document.createElement('div')
+
+    let reminder = document.createElement('div')
+
+    let checkbox = document.createElement('input')
+    
+    checkbox.setAttribute('type','checkbox')
+
+    let title = document.createElement('h4')
+
+    title.innerHTML = 'test reminder'
+
+    reminder.append(checkbox,title)
+
+    list.append(reminder)
+
+    modalContent.push(closeBtn,list)
 
     wrapper.append(...modalContent)
 
@@ -4802,7 +4818,7 @@ function testReminder() {
 
 document.querySelector('button#publishReminder').addEventListener('click', _reminder__WEBPACK_IMPORTED_MODULE_1__.publishReminder)
 
-document.querySelector('#list-modal').classList.add('visible')  
+// document.querySelector('#list-modal').classList.add('visible')  
 
 // addList.dispatchEvent(clickEvent)
 
