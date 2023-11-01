@@ -4504,6 +4504,7 @@ function addListToPage(e) { //shows html list on the page
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Reminder: () => (/* binding */ Reminder),
 /* harmony export */   publishReminder: () => (/* binding */ publishReminder)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
@@ -4558,6 +4559,10 @@ function storeReminder() {
 
 function createHtml(obj) {  //uses obj props to create reminder html
 
+    let reminderHtmlWrapper = document.createElement('div')
+
+    reminderHtmlWrapper.classList.add('reminder')
+
     let reminderHtmlContent = []
 
     let checkbox = document.createElement('input')
@@ -4590,39 +4595,52 @@ function createHtml(obj) {  //uses obj props to create reminder html
 
     reminderPriority.innerHTML = obj.reminderPriority
 
+    let reminderListId = "#" + obj.list
+
+    let container = document.querySelector(reminderListId)
+
     reminderHtmlContent.push(checkbox,reminderTitle,closeBtn,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
+
+    reminderHtmlWrapper.append(...reminderHtml)
+
+    container.append(reminderHtmlWrapper)
 
     return reminderHtmlContent
 }
 
-function publishReminder() {//event listener fn
+function publishReminder(flag) {//event listener fn
 
-    storeReminder()
+    // if(flag) return
 
-    let reminderHtmlWrapper = document.createElement('div')
+    return function() {
+    
+        storeReminder()
 
-    reminderHtmlWrapper.classList.add('reminder')
+        // let reminderHtmlWrapper = document.createElement('div')
 
-    let reminder = _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.at(-1)
+        // reminderHtmlWrapper.classList.add('reminder')
 
-    let reminderListId = "#" + reminder.reminderList
+        let reminder = _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.at(-1)
 
-    let container = document.querySelector(reminderListId)
+        // let reminderListId = "#" + reminder.reminderList
 
-    let reminderHtml = createHtml(reminder)
+        // let container = document.querySelector(reminderListId)
 
-    reminderHtmlWrapper.append(...reminderHtml)
+        let reminderHtml = createHtml(reminder)
 
-    ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.reminderList)
+        // reminderHtmlWrapper.append(...reminderHtml)
 
-    if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
-        
-        document.querySelector(reminderListId).classList.add('visible')
+        ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.reminderList)
+
+        if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
+            
+            document.querySelector(reminderListId).classList.add('visible')
+        }
+
+        // container.append(reminderHtmlWrapper)
+
+        reminderForm.reset()
     }
-
-    container.append(reminderHtmlWrapper)
-
-    reminderForm.reset()
 }
 
 /***/ }),
@@ -4656,7 +4674,7 @@ let reminderStorage = []
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   testingSuite: () => (/* binding */ testingSuite)
+/* harmony export */   testReminder: () => (/* binding */ testReminder)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
@@ -4664,9 +4682,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-document.querySelector('button#publishReminder').addEventListener('click', _reminder__WEBPACK_IMPORTED_MODULE_1__.publishReminder)
+function testReminder() {
 
-function testingSuite() {
+    ;(0,_reminder__WEBPACK_IMPORTED_MODULE_1__.publishReminder)(1)  //disables event listener
+
+    let reminder = new _reminder__WEBPACK_IMPORTED_MODULE_1__.Reminder()
+
+    _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.push(reminder)
 
     let clickEvent = new Event('click')
 
@@ -4675,7 +4697,7 @@ function testingSuite() {
     console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage)
 }
 
-
+document.querySelector('button#publishReminder').addEventListener('click', _reminder__WEBPACK_IMPORTED_MODULE_1__.publishReminder)
 
 // document.querySelector('#list-modal').classList.add('visible')  
 
@@ -4920,11 +4942,11 @@ __webpack_require__.r(__webpack_exports__);
 
 // TESTING
 
-// testingSuite()
+// testReminder()
 
 // EVENT LISTENERS
 
-document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_7__.publishReminder)
+document.querySelector('button#publishReminder').addEventListener('click', (0,_reminder_js__WEBPACK_IMPORTED_MODULE_7__.publishReminder)())
 
 document.querySelector('button#addList').addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_6__.addListToPage)
 

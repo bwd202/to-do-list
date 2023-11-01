@@ -8,15 +8,15 @@ import {addListToPage} from './list'
 import {publishReminder} from './reminder.js'
 import {reminderStorage} from './storage'
 import {updateCounters } from './counters.js'
-import { testingSuite } from './testing'
+import { testReminder } from './testing'
 
 // TESTING
 
-// testingSuite()
+// testReminder()
 
 // EVENT LISTENERS
 
-document.querySelector('button#publishReminder').addEventListener('click', publishReminder)
+document.querySelector('button#publishReminder').addEventListener('click', publishReminder())
 
 document.querySelector('button#addList').addEventListener('click', addListToPage)
 

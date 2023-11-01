@@ -1,4 +1,4 @@
-export {publishReminder}
+export {publishReminder,Reminder}
 import {reminderStorage} from "./storage"
 import { updateCounters } from "./counters"
 
@@ -48,6 +48,10 @@ function storeReminder() {
 
 function createHtml(obj) {  //uses obj props to create reminder html
 
+    let reminderHtmlWrapper = document.createElement('div')
+
+    reminderHtmlWrapper.classList.add('reminder')
+
     let reminderHtmlContent = []
 
     let checkbox = document.createElement('input')
@@ -80,37 +84,50 @@ function createHtml(obj) {  //uses obj props to create reminder html
 
     reminderPriority.innerHTML = obj.reminderPriority
 
+    let reminderListId = "#" + obj.list
+
+    let container = document.querySelector(reminderListId)
+
     reminderHtmlContent.push(checkbox,reminderTitle,closeBtn,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
+
+    reminderHtmlWrapper.append(...reminderHtml)
+
+    container.append(reminderHtmlWrapper)
 
     return reminderHtmlContent
 }
 
-function publishReminder() {//event listener fn
+function publishReminder(flag) {//event listener fn
 
-    storeReminder()
+    // if(flag) return
 
-    let reminderHtmlWrapper = document.createElement('div')
+    return function() {
+    
+        storeReminder()
 
-    reminderHtmlWrapper.classList.add('reminder')
+        // let reminderHtmlWrapper = document.createElement('div')
 
-    let reminder = reminderStorage.at(-1)
+        // reminderHtmlWrapper.classList.add('reminder')
 
-    let reminderListId = "#" + reminder.reminderList
+        let reminder = reminderStorage.at(-1)
 
-    let container = document.querySelector(reminderListId)
+        // let reminderListId = "#" + reminder.reminderList
 
-    let reminderHtml = createHtml(reminder)
+        // let container = document.querySelector(reminderListId)
 
-    reminderHtmlWrapper.append(...reminderHtml)
+        let reminderHtml = createHtml(reminder)
 
-    updateCounters(reminder.reminderList)
+        // reminderHtmlWrapper.append(...reminderHtml)
 
-    if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
-        
-        document.querySelector(reminderListId).classList.add('visible')
+        updateCounters(reminder.reminderList)
+
+        if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
+            
+            document.querySelector(reminderListId).classList.add('visible')
+        }
+
+        // container.append(reminderHtmlWrapper)
+
+        reminderForm.reset()
     }
-
-    container.append(reminderHtmlWrapper)
-
-    reminderForm.reset()
 }
