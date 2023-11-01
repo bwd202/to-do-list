@@ -4283,6 +4283,39 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/counters.js":
+/*!*************************!*\
+  !*** ./src/counters.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   updateCounters: () => (/* binding */ updateCounters)
+/* harmony export */ });
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+
+;
+
+function updateCounters(list) {
+   
+    let banner = document.querySelector('#' + list).parentElement
+
+    let reminderCounter = banner.querySelector('.counter')
+
+    reminderCounter.innerHTML = countReminders(list)
+}
+
+function countReminders(list) {
+
+    let filtered = _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.filter(item => item.reminderList === list)
+
+    return filtered.length
+}
+
+/***/ }),
+
 /***/ "./src/list.js":
 /*!*********************!*\
   !*** ./src/list.js ***!
@@ -4467,12 +4500,13 @@ function addListToPage(e) { //shows html list on the page
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   publishReminder: () => (/* binding */ publishReminder),
-/* harmony export */   updateCounters: () => (/* binding */ updateCounters)
+/* harmony export */   publishReminder: () => (/* binding */ publishReminder)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _counters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counters */ "./src/counters.js");
 
 ;
+
 
 class Reminder {
 
@@ -4589,7 +4623,7 @@ function publishReminder() {//shows reminder html on page
 
     reminderHtmlWrapper.append(...reminderHtml)
 
-    updateCounters(reminder.reminderList)
+    ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.reminderList)
 
     if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
         
@@ -4599,22 +4633,6 @@ function publishReminder() {//shows reminder html on page
     container.append(reminderHtmlWrapper)
 
     // console.log(reminderStorage)
-}
-
-function updateCounters(list) {
-   
-    let banner = document.querySelector('#' + list).parentElement
-
-    let reminderCounter = banner.querySelector('.counter')
-
-    reminderCounter.innerHTML = countReminders(list)
-}
-
-function countReminders(list) {
-
-    let filtered = _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.filter(item => item.reminderList === list)
-
-    return filtered.length
 }
 
 /***/ }),
@@ -4859,6 +4877,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./list */ "./src/list.js");
 /* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
+
 
 
 
@@ -4895,7 +4915,7 @@ function deleteReminderHtml(e) {
 
         deleteReminderFromStorage(closeBtn.previousElementSibling.innerHTML) //matches html reminder's h4 to reminderTitle prop
 
-        ;(0,_reminder_js__WEBPACK_IMPORTED_MODULE_7__.updateCounters)(reminder.parentElement.id)
+        ;(0,_counters_js__WEBPACK_IMPORTED_MODULE_9__.updateCounters)(reminder.parentElement.id)
 
         reminder.remove()
     }
