@@ -4329,7 +4329,8 @@ function countReminders(list) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   addListToPage: () => (/* binding */ addListToPage)
+/* harmony export */   addListToPage: () => (/* binding */ addListToPage),
+/* harmony export */   showDropDownList: () => (/* binding */ showDropDownList)
 /* harmony export */ });
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
@@ -4493,6 +4494,14 @@ function addListToPage(e) { //shows html list on the page
     listForm.reset()
 }
 
+function showDropDownList(e) {
+
+    if(e.target.classList.contains('banner')) {
+        
+        e.target.lastElementChild.classList.toggle('visible')
+    }
+}
+
 /***/ }),
 
 /***/ "./src/modal.js":
@@ -4547,6 +4556,8 @@ function closeModal(e) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Reminder: () => (/* binding */ Reminder),
+/* harmony export */   deleteReminderFromStorage: () => (/* binding */ deleteReminderFromStorage),
+/* harmony export */   deleteReminderHtml: () => (/* binding */ deleteReminderHtml),
 /* harmony export */   publishReminder: () => (/* binding */ publishReminder)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
@@ -4597,6 +4608,21 @@ function getReminderData() { //gets inputs from reminder form, makes new obj
 function storeReminder() {
 
     _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.push(getReminderData())
+
+    // console.log(reminderStorage)
+}
+
+function deleteReminderFromStorage(name) {
+
+    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.length; i++) {
+
+        if(name === _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage[i].reminderTitle) {
+
+            _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.splice(i, 1)
+        }
+    }
+
+    // console.log(reminderStorage)
 }
 
 function createHtml(obj) {  //uses obj props to create reminder html
@@ -4674,6 +4700,22 @@ function publishReminder(flag) {//event listener fn
         ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.reminderList)
 
         reminderForm.reset()
+    }
+}
+
+function deleteReminderHtml(e) {
+
+    let closeBtn = e.target
+    
+    let reminder = closeBtn.parentElement
+
+    if(closeBtn.classList.contains('close-btn')) {
+
+        deleteReminderFromStorage(closeBtn.previousElementSibling.innerHTML) //matches html reminder's h4 to reminderTitle prop
+
+        ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.parentElement.id)
+
+        reminder.remove()
     }
 }
 
@@ -4986,46 +5028,9 @@ document.querySelector('button#publishReminder').addEventListener('click', (0,_r
 
 document.querySelector('button#addList').addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_6__.addListToPage)
 
-function showDropDownList(e) {
+document.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_6__.showDropDownList)
 
-    if(e.target.classList.contains('banner')) {
-        
-        e.target.lastElementChild.classList.toggle('visible')
-    }
-}
-
-document.addEventListener('click', showDropDownList)
-
-function deleteReminderHtml(e) {
-
-    let closeBtn = e.target
-    
-    let reminder = closeBtn.parentElement
-
-    if(closeBtn.classList.contains('close-btn')) {
-
-        deleteReminderFromStorage(closeBtn.previousElementSibling.innerHTML) //matches html reminder's h4 to reminderTitle prop
-
-        ;(0,_counters_js__WEBPACK_IMPORTED_MODULE_9__.updateCounters)(reminder.parentElement.id)
-
-        reminder.remove()
-    }
-}
-
-function deleteReminderFromStorage(name) {
-
-    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_8__.reminderStorage.length; i++) {
-
-        if(name === _storage__WEBPACK_IMPORTED_MODULE_8__.reminderStorage[i].reminderTitle) {
-
-            _storage__WEBPACK_IMPORTED_MODULE_8__.reminderStorage.splice(i, 1)
-        }
-    }
-
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_8__.reminderStorage)
-}
-
-document.addEventListener('click', deleteReminderHtml)
+document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_7__.deleteReminderHtml)
 
 document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_11__.closeModal)
 
