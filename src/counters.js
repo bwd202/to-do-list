@@ -9,9 +9,9 @@ function updateCounters(list) {
 
     reminderCounter.innerHTML = countReminders(list)
 
-    let allCounter = document.querySelector('#all').parentElement.children[2]
+    // let allCounter = document.querySelector('#all').parentElement.children[2]    //BUG 
 
-    allCounter.innerHTML = reminderStorage.length
+    // allCounter.innerHTML = reminderStorage.length
 }
 
 function countReminders(list) {
