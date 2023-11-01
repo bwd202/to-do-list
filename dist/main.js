@@ -4306,7 +4306,7 @@ function updateCounters(list) {
 
     reminderCounter.innerHTML = countReminders(list)
 
-    let allCounter = document.querySelector('#all').closest('.counter')
+    let allCounter = document.querySelector('#all').children[2]
 
     allCounter.innerHTML = _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.length
 }
