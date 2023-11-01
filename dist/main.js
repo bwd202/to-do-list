@@ -4616,36 +4616,20 @@ function publishReminder(flag) {//event listener fn
     
         storeReminder()
 
-        // let reminderHtmlWrapper = document.createElement('div')
-
-        // reminderHtmlWrapper.classList.add('reminder')
-
         let reminder = _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.at(-1)
-
-        // let reminderListId = "#" + reminder.reminderList
-
-        // let container = document.querySelector(reminderListId)
-
-        // let reminderHtml = createHtml(reminder)
 
         let listId = "#" + reminder.list
 
         let container = document.querySelector(listId)
 
-        if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder to a list
+        if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder
             
             document.querySelector(listId).classList.add('visible')
         }
 
         createHtml(reminder)
 
-        // reminderHtmlWrapper.append(...reminderHtml)
-
         ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.reminderList)
-
-       
-
-        // container.append(reminderHtmlWrapper)
 
         reminderForm.reset()
     }
