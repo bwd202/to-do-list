@@ -31,11 +31,11 @@ function closeModal(e) {
 
 function modalHtml() {
 
-    let modalContent = []
-
     let wrapper = document.createElement('div')
 
     wrapper.classList.add('wrapper')
+
+    let modalContent = []
 
     let closeBtn = document.createElement('span')
 
@@ -43,7 +43,23 @@ function modalHtml() {
 
     closeBtn.innerHTML = '&times;'
 
-    modalContent.push(closeBtn)
+    let list = document.createElement('div')
+
+    let reminder = document.createElement('div')
+
+    let checkbox = document.createElement('input')
+    
+    checkbox.setAttribute('type','checkbox')
+
+    let title = document.createElement('h4')
+
+    title.innerHTML = 'test reminder'
+
+    reminder.append(checkbox,title)
+
+    list.append(reminder)
+
+    modalContent.push(closeBtn,list)
 
     wrapper.append(...modalContent)
 
