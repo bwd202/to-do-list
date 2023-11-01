@@ -27,7 +27,7 @@
             <div id="reminder-modal" class="modal " hidden>
                 <div class="form-wrapper">
                     <span id="reminder-modal-close-btn" class="button modal-close-btn">&times;</span>
-                    <form action="/">
+                    <form id="reminderForm" action="/">
                         <label for="">Title<input type="text" id="title" placeholder="take dogs for a walk" name="reminderTitle" class="input"></label>
                         <label for="">Notes<input type="text" id="notes" placeholder="bring poop bags" name="reminderNotes" class="input"></label>
                         <label for="">Due Date<input type="date" id="dueDate" name="reminderDueDate" class=""></label>
@@ -51,7 +51,7 @@
             <div id="list-modal" class="modal" hidden>
                 <div class="form-wrapper">
                     <span id="list-modal-close-btn" class="button modal-close-btn">&times;</span>
-                    <form action="/">
+                    <form id="listForm" action="/">
                         <input type="text" placeholder="List name" class="input" required>
                         <input type="color" class="">
                         <button id="addList" type="submit">Done</button>

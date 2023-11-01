@@ -46,6 +46,19 @@ function deleteReminderHtml(e) {
     }
 }
 
+function deleteReminderFromStorage(name) {
+
+    for(let i = 0; i < reminderStorage.length; i++) {
+
+        if(name === reminderStorage[i].reminderTitle) {
+
+            reminderStorage.splice(i, 1)
+        }
+    }
+
+    console.log(reminderStorage)
+}
+
 document.addEventListener('click', deleteReminderHtml)
 
 function closeModal(e) {
@@ -73,16 +86,3 @@ function openModal(e) {
 }
 
 document.addEventListener('click', openModal)
-
-function deleteReminderFromStorage(name) {
-
-    for(let i = 0; i < reminderStorage.length; i++) {
-
-        if(name === reminderStorage[i].reminderTitle) {
-
-            reminderStorage.splice(i, 1)
-        }
-    }
-
-    console.log(reminderStorage)
-}
