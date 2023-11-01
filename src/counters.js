@@ -8,6 +8,10 @@ function updateCounters(list) {
     let reminderCounter = banner.querySelector('.counter')
 
     reminderCounter.innerHTML = countReminders(list)
+
+    let allCounter = document.querySelector('#all').closest('.counter')
+
+    allCounter.innerHTML = reminderStorage.length
 }
 
 function countReminders(list) {
