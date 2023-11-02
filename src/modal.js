@@ -14,27 +14,34 @@ function openModal(e) {
 
 function showModal(e) {
 
-    let targetModal = e.target.nextElementSibling.id
+    let id = '#' + e.target.nextElementSibling.id
 
-    switch(targetModal) {
-        case 'all':
-            console.log('all')
+    switch(id) {
+
+        case '#all':
+            modalHtml(id, reminderStorage)
             break;
-        case 'scheduled':
+
+        case '#scheduled':
             console.log('scheduled')
             break;
-        case 'today':
+
+        case '#today':
             console.log('today')
             break;
-        case 'completed':
+
+        case '#completed':
             console.log('completed')
             break;
-        case 'reminder-modal':
+
+        case '#reminder-modal':
             console.log('reminder-modal')
             break;
-        case 'list-modal':
+
+        case '#list-modal':
             console.log('list-modal')
             break;
+
         default:
             console.log('modal')
     }
@@ -54,23 +61,37 @@ function closeModal(e) {
 
 }
 
-function modalHtml() {
+function allModal() {
+    return reminderStorage.slice()
+}
 
-    return function() {
+function htmlModalPrototype(obj) {
 
-        let wrapper = document.createElement('div')
+    // console.log(content)
 
-        wrapper.classList.add('wrapper')
+    let wrapper = document.createElement('div')
 
-        let modalContent = []
+    wrapper.classList.add('wrapper')
 
-        let closeBtn = document.createElement('span')
+    // document.querySelector(modal).append(wrapper)
 
-        closeBtn.classList.add('modal-close-btn')
+    let items = []
 
-        closeBtn.innerHTML = '&times;'
+    let closeBtn = document.createElement('span')
 
-        let list = document.createElement('div')
+    closeBtn.classList.add('modal-close-btn')
+
+    closeBtn.innerHTML = '&times;'
+
+    let content = document.createElement('div')
+
+    // modalContent.push(closeBtn,list)
+
+    // wrapper.append(...modalContent)
+    wrapper.append(closeBtn,content)
+
+
+    for(let i = 0; i < content.length; i++) {
 
         let reminder = document.createElement('div')
 
@@ -80,17 +101,21 @@ function modalHtml() {
 
         let title = document.createElement('h4')
 
-        title.innerHTML = 'test reminder'
+        title.innerHTML = content[i].title
 
         reminder.append(checkbox,title)
 
         list.append(reminder)
-
-        modalContent.push(closeBtn,list)
-
-        wrapper.append(...modalContent)
-
-        document.querySelector('.modal').append(wrapper)
     }
+
+
+    // return function() {
+
+       
+
+        
+
+
+    // }
 
 }
