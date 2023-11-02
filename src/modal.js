@@ -33,7 +33,7 @@ function publishModal(e) {
     switch(id) {
 
         case '#all':
-            makeModalHtml(getAll())
+            makeModalHtml(getAll(), id)
             break;
 
         case '#scheduled':
@@ -65,17 +65,13 @@ function getAll() {
     return reminderStorage.slice()
 }
 
-function makeModalHtml(arr) {
+function makeModalHtml(arr, idOfModal) {
 
-        // console.log(content)
+        console.log(arr)
 
         let wrapper = document.createElement('div')
 
         wrapper.classList.add('wrapper')
-
-        // document.querySelector(modal).append(wrapper)
-
-        let items = []
 
         let closeBtn = document.createElement('span')
 
@@ -85,13 +81,11 @@ function makeModalHtml(arr) {
 
         let content = document.createElement('div')
 
-        // modalContent.push(closeBtn,list)
+        content.classList.add('content')
 
-        // wrapper.append(...modalContent)
         wrapper.append(closeBtn,content)
 
-
-        for(let i = 0; i < content.length; i++) {
+        for(let i = 0; i < arr.length; i++) {
 
             let reminder = document.createElement('div')
 
@@ -101,11 +95,12 @@ function makeModalHtml(arr) {
 
             let title = document.createElement('h4')
 
-            title.innerHTML = content[i].title
+            title.innerHTML = arr[i].title
 
             reminder.append(checkbox,title)
 
-            list.append(reminder)
-        }    
+            content.append(reminder)
+        }
 
+        document.querySelector(idOfModal).append(wrapper)
 }
