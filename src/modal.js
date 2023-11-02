@@ -3,16 +3,11 @@ import { reminderStorage } from "./storage"
 
 function openModal(e) {
 
-    if(e.target.classList.contains('modal-open-btn')) {
-
-        e.target.nextElementSibling.classList.add('visible')
-    }
-
     if(e.target.classList.contains('modal-btn')) {
 
         e.target.nextElementSibling.classList.add('visible')    //show modal
 
-        modalHtml()
+        // modalHtml()
     }
 
 }
