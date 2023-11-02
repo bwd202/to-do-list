@@ -4508,9 +4508,126 @@ function showDropDownList(e) {
 /*!**********************!*\
   !*** ./src/modal.js ***!
   \**********************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module parse failed: Export 'modalHtml' is not defined (1:29)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n> export {openModal,closeModal,modalHtml}\n| import { reminderStorage } from \"./storage\"\n| ");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   closeModal: () => (/* binding */ closeModal),
+/* harmony export */   openModal: () => (/* binding */ openModal)
+/* harmony export */ });
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+
+;
+
+function closeModal(e) {
+
+    if(e.target.classList.contains('modal')) {
+
+         e.target.classList.remove('visible')
+    }
+
+    else if (e.target.classList.contains('modal-close-btn')) {
+
+        e.target.closest('.modal').classList.remove('visible')
+    }
+
+}
+
+function openModal(e) {
+
+    if(e.target.classList.contains('modal-btn')) {
+
+        e.target.nextElementSibling.classList.add('visible')    //show modal
+
+        publishModal(e)
+    }
+
+}
+
+function publishModal(e) {
+
+    let id = '#' + e.target.nextElementSibling.id
+
+    switch(id) {
+
+        case '#all':
+            makeModalHtml(getAll())
+            break;
+
+        case '#scheduled':
+            console.log('scheduled')
+            break;
+
+        case '#today':
+            console.log('today')
+            break;
+
+        case '#completed':
+            console.log('completed')
+            break;
+
+        case '#reminder-modal':
+            console.log('reminder-modal')
+            break;
+
+        case '#list-modal':
+            console.log('list-modal')
+            break;
+
+        default:
+            console.log('modal')
+    }
+}
+
+function getAll() {
+    return _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.slice()
+}
+
+function makeModalHtml(arr) {
+
+        // console.log(content)
+
+        let wrapper = document.createElement('div')
+
+        wrapper.classList.add('wrapper')
+
+        // document.querySelector(modal).append(wrapper)
+
+        let items = []
+
+        let closeBtn = document.createElement('span')
+
+        closeBtn.classList.add('modal-close-btn')
+
+        closeBtn.innerHTML = '&times;'
+
+        let content = document.createElement('div')
+
+        // modalContent.push(closeBtn,list)
+
+        // wrapper.append(...modalContent)
+        wrapper.append(closeBtn,content)
+
+
+        for(let i = 0; i < content.length; i++) {
+
+            let reminder = document.createElement('div')
+
+            let checkbox = document.createElement('input')
+            
+            checkbox.setAttribute('type','checkbox')
+
+            let title = document.createElement('h4')
+
+            title.innerHTML = content[i].title
+
+            reminder.append(checkbox,title)
+
+            list.append(reminder)
+        }    
+
+}
 
 /***/ }),
 
@@ -5003,8 +5120,6 @@ document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_7__.del
 document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_11__.closeModal)
 
 document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_11__.openModal)
-
-// document.addEventListener('click', modalHtml)
 })();
 
 /******/ })()

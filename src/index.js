@@ -28,5 +28,3 @@ document.addEventListener('click', deleteReminderHtml)
 document.addEventListener('click', closeModal)
 
 document.addEventListener('click', openModal)
-
-// document.addEventListener('click', modalHtml)
