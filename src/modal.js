@@ -7,9 +7,28 @@ function openModal(e) {
 
         e.target.nextElementSibling.classList.add('visible')    //show modal
 
-        // modalHtml()
+        showModal(e)
     }
 
+}
+
+function showModal(e) {
+
+    let targetModal = e.target.nextElementSibling.id
+
+    switch(targetModal) {
+        case 'all':
+            console.log('all modal')
+            break;
+        case 'scheduled':
+            console.log('scheduled')
+            break;
+        case 'today':
+            console.log('today')
+            break;
+        default:
+            console.log('modal clicked')
+    }
 }
 
 function closeModal(e) {
