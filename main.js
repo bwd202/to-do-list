@@ -4544,9 +4544,9 @@ function openModal(e) {
 
 }
 
-function addReminderToModal() {
+function addReminderToModal(id,item) {
 
-    let id = '#' + arr[i].remList
+    // let id = '#' + reminder
 
     switch(id) {
 
@@ -4663,7 +4663,7 @@ function deleteReminderFromStorage(name) {
     // console.log(reminderStorage)
 }
 
-function createHtml(obj) {  //uses obj props to create reminder html
+function makeHtmlReminder1(obj) {  //uses obj props to create reminder html
 
     let reminderHtmlWrapper = document.createElement('div')
 
@@ -4710,8 +4710,6 @@ function createHtml(obj) {  //uses obj props to create reminder html
     reminderHtmlWrapper.append(...reminderHtmlContent)
 
     container.append(reminderHtmlWrapper)
-
-    // return reminderHtmlContent
 }
 
 function publishReminder(flag) {//event listener fn
@@ -4733,7 +4731,7 @@ function publishReminder(flag) {//event listener fn
             document.querySelector(listId).classList.add('visible')
         }
 
-        createHtml(reminder)
+        makeHtmlReminder1(reminder)
 
         ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.reminderList)
 
@@ -4754,6 +4752,28 @@ function deleteReminderHtml(e) {
         ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.parentElement.id)
 
         reminder.remove()
+    }
+}
+
+function makeHtmlReminder2(reminderObj){
+
+    let container = document.createElement('div')
+
+    container.classList.add('reminder')
+
+    let title = document.createElement('h4')
+
+    title.innerHTML = reminderObj.reminderTitle
+}
+
+function getReminderFrom(arr) {
+
+    for(let i = 0; i < arr.length; i++) {
+
+        // make reminder html fn
+        makeHtmlReminder2(arr[i])
+
+        // append reminder to document fn
     }
 }
 
