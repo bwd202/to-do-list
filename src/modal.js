@@ -18,7 +18,7 @@ function showModal(e) {
 
     switch(targetModal) {
         case 'all':
-            console.log('all modal')
+            console.log('all')
             break;
         case 'scheduled':
             console.log('scheduled')
@@ -26,8 +26,17 @@ function showModal(e) {
         case 'today':
             console.log('today')
             break;
+        case 'completed':
+            console.log('completed')
+            break;
+        case 'reminder-modal':
+            console.log('reminder-modal')
+            break;
+        case 'list-modal':
+            console.log('list-modal')
+            break;
         default:
-            console.log('modal clicked')
+            console.log('modal')
     }
 }
 
