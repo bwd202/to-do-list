@@ -4313,7 +4313,7 @@ function updateCounters(list) {
 
 function countReminders(list) {
 
-    let filtered = _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.filter(item => item.reminderList === list)
+    let filtered = _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders.filter(item => item.reminderList === list)
 
     return filtered.length
 }
@@ -4540,19 +4540,18 @@ function openModal(e) {
 
         e.target.nextElementSibling.classList.add('visible')    //show modal
 
-        publishModal(e)
     }
 
 }
 
-function publishModal(e) {
+function addReminderToModal() {
 
-    let id = '#' + e.target.nextElementSibling.id
+    let id = '#' + arr[i].remList
 
     switch(id) {
 
         case '#all':
-            // makeModalHtml(getAll(), id)
+            console.log('all')
             break;
 
         case '#scheduled':
@@ -4646,18 +4645,18 @@ function getReminderData() { //gets inputs from reminder form, makes new obj
 
 function storeReminder() {
 
-    _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.push(getReminderData())
+    _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders.push(getReminderData())
 
     // console.log(reminderStorage)
 }
 
 function deleteReminderFromStorage(name) {
 
-    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.length; i++) {
+    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders.length; i++) {
 
-        if(name === _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage[i].reminderTitle) {
+        if(name === _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders[i].reminderTitle) {
 
-            _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.splice(i, 1)
+            _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders.splice(i, 1)
         }
     }
 
@@ -4723,7 +4722,7 @@ function publishReminder(flag) {//event listener fn
     
         storeReminder()
 
-        let reminder = _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.at(-1)
+        let reminder = _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders.at(-1)
 
         let listId = "#" + reminder.list
 
@@ -4769,14 +4768,14 @@ function deleteReminderHtml(e) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   listStorage: () => (/* binding */ listStorage),
-/* harmony export */   reminderStorage: () => (/* binding */ reminderStorage)
+/* harmony export */   allReminders: () => (/* binding */ allReminders),
+/* harmony export */   listStorage: () => (/* binding */ listStorage)
 /* harmony export */ });
 
 
 let listStorage = []
 
-let reminderStorage = []
+let allReminders = []
 
 /***/ }),
 
@@ -4803,13 +4802,13 @@ function testReminder() {
 
     let reminder = new _reminder__WEBPACK_IMPORTED_MODULE_1__.Reminder()
 
-    _storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage.push(reminder)
+    _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders.push(reminder)
 
     let clickEvent = new Event('click')
 
     document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminderStorage)
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.allReminders)
 }
 
 document.querySelector('button#publishReminder').addEventListener('click', _reminder__WEBPACK_IMPORTED_MODULE_1__.publishReminder)

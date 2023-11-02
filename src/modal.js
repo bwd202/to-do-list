@@ -1,5 +1,5 @@
 export {openModal,closeModal}
-import { reminderStorage } from "./storage"
+import { allReminders } from "./storage"
 
 function closeModal(e) {
 
@@ -21,19 +21,18 @@ function openModal(e) {
 
         e.target.nextElementSibling.classList.add('visible')    //show modal
 
-        publishModal(e)
     }
 
 }
 
-function publishModal(e) {
+function addReminderToModal() {
 
-    let id = '#' + e.target.nextElementSibling.id
+    let id = '#' + arr[i].remList
 
     switch(id) {
 
         case '#all':
-            // makeModalHtml(getAll(), id)
+            console.log('all')
             break;
 
         case '#scheduled':

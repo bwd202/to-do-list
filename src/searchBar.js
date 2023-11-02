@@ -1,4 +1,4 @@
-import { reminderStorage } from "./storage"
+import { allReminders } from "./storage"
 
 let searchBar = document.querySelector('#search')
 

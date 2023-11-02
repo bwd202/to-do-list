@@ -1,5 +1,5 @@
-export {listStorage,reminderStorage}
+export {listStorage,allReminders}
 
 let listStorage = []
 
-let reminderStorage = []
+let allReminders = []

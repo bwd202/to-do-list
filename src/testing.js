@@ -1,4 +1,4 @@
-import { reminderStorage } from "./storage"
+import { allReminders } from "./storage"
 import { publishReminder, Reminder } from "./reminder"
 export {testReminder}
 
@@ -8,13 +8,13 @@ function testReminder() {
 
     let reminder = new Reminder()
 
-    reminderStorage.push(reminder)
+    allReminders.push(reminder)
 
     let clickEvent = new Event('click')
 
     document.querySelector('button#publishReminder').dispatchEvent(clickEvent)
 
-    console.log(reminderStorage)
+    console.log(allReminders)
 }
 
 document.querySelector('button#publishReminder').addEventListener('click', publishReminder)

@@ -1,5 +1,5 @@
 export {publishReminder,Reminder,deleteReminderFromStorage,deleteReminderHtml}
-import {reminderStorage} from "./storage"
+import {allReminders} from "./storage"
 import { updateCounters } from "./counters"
 
 class Reminder {
@@ -43,18 +43,18 @@ function getReminderData() { //gets inputs from reminder form, makes new obj
 
 function storeReminder() {
 
-    reminderStorage.push(getReminderData())
+    allReminders.push(getReminderData())
 
     // console.log(reminderStorage)
 }
 
 function deleteReminderFromStorage(name) {
 
-    for(let i = 0; i < reminderStorage.length; i++) {
+    for(let i = 0; i < allReminders.length; i++) {
 
-        if(name === reminderStorage[i].reminderTitle) {
+        if(name === allReminders[i].reminderTitle) {
 
-            reminderStorage.splice(i, 1)
+            allReminders.splice(i, 1)
         }
     }
 
@@ -120,7 +120,7 @@ function publishReminder(flag) {//event listener fn
     
         storeReminder()
 
-        let reminder = reminderStorage.at(-1)
+        let reminder = allReminders.at(-1)
 
         let listId = "#" + reminder.list
 

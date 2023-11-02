@@ -1,5 +1,5 @@
 export {updateCounters}
-import { reminderStorage } from "./storage"
+import { allReminders } from "./storage"
 
 function updateCounters(list) {
    
@@ -16,7 +16,7 @@ function updateCounters(list) {
 
 function countReminders(list) {
 
-    let filtered = reminderStorage.filter(item => item.reminderList === list)
+    let filtered = allReminders.filter(item => item.reminderList === list)
 
     return filtered.length
 }
