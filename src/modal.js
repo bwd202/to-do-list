@@ -33,7 +33,7 @@ function publishModal(e) {
     switch(id) {
 
         case '#all':
-            makeModalHtml(getAll(), id)
+            // makeModalHtml(getAll(), id)
             break;
 
         case '#scheduled':
@@ -61,46 +61,4 @@ function publishModal(e) {
     }
 }
 
-function getAll() {
-    return reminderStorage.slice()
-}
 
-function makeModalHtml(arr, idOfModal) {
-
-        console.log(arr)
-
-        let wrapper = document.createElement('div')
-
-        wrapper.classList.add('wrapper')
-
-        let closeBtn = document.createElement('span')
-
-        closeBtn.classList.add('modal-close-btn')
-
-        closeBtn.innerHTML = '&times;'
-
-        let content = document.createElement('div')
-
-        content.classList.add('content')
-
-        wrapper.append(closeBtn,content)
-
-        for(let i = 0; i < arr.length; i++) {
-
-            let reminder = document.createElement('div')
-
-            let checkbox = document.createElement('input')
-            
-            checkbox.setAttribute('type','checkbox')
-
-            let title = document.createElement('h4')
-
-            title.innerHTML = arr[i].title
-
-            reminder.append(checkbox,title)
-
-            content.append(reminder)
-        }
-
-        document.querySelector(idOfModal).append(wrapper)
-}
