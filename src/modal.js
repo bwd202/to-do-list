@@ -25,9 +25,9 @@ function openModal(e) {
 
 }
 
-function addReminderToModal() {
+function addReminderToModal(id,item) {
 
-    let id = '#' + arr[i].remList
+    // let id = '#' + reminder
 
     switch(id) {
 
