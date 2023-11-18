@@ -20,3 +20,9 @@ function countReminders(list) {
 
     return filtered.length
 }
+
+// fn updateCounters
+
+// filter reminders in storage based on list/category prop
+
+// show filtered array length in respective counter innerHtml
