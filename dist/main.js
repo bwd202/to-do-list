@@ -2398,7 +2398,31 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.border {
 .reminder-short {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-areas: 'checkbox' 'title' 'date' 'time' 'priority' 'btn'; 
+    grid-template-areas: 'checkbox title date time priority btn'; 
+}
+
+.reminder-short input {
+    grid-area: checkbox;
+}
+
+.reminder-short h4 {
+    grid-area: title;
+}
+
+.reminder-short p:first-of-type {
+    grid-area: date;
+}
+
+.reminder-short p:nth-of-type(2) {
+    grid-area: time;
+}
+
+.reminder-short p:last-of-type {
+    grid-area: priority;
+}
+
+.reminder-short span {
+    grid-area: btn;
 }
 
 .visible {
@@ -2412,7 +2436,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.border {
     grid-column: 2;
     background-color: var(--card);
     position: relative;
-}`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,6BAA6B;IAC7B,wDAAwD;IACxD,4BAA4B;IAC5B,sFAAsF;IACtF,mBAAmB;IACnB,QAAQ;AACZ;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,UAAU;IACV,UAAU;AACd;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,2BAA2B;IAC3B,2CAA2C;IAC3C,mBAAmB;IACnB,aAAa;IACb,6BAA6B;IAC7B,QAAQ;AACZ;;AAEA;IACI,qBAAqB;IACrB,YAAY;IACZ,kBAAkB;IAClB,cAAc;AAClB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,iGAAiG;AACrG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,6FAA6F;AACjG;;AAEA;IACI,8BAA8B;IAC9B,SAAS;IACT,YAAY;IACZ,mBAAmB;AACvB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,qCAAqC;IACrC,yCAAyC;IACzC,kBAAkB;IAClB,QAAQ;IACR,WAAW;IACX,2EAA2E;AAC/E;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,OAAO;AACX;;AAEA;IACI,aAAa;IACb,6BAA6B;IAC7B,8BAA8B;IAC9B,iDAAiD;IACjD,8CAA8C;IAC9C;;;oDAGgD;IAChD,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,qCAAqC;IACrC,sEAAsE;AAC1E;;AAEA;IACI,aAAa;AACjB;;AAEA,YAAY,yBAAyB;IACjC,aAAa;IACb,8BAA8B;IAC9B,mCAAmC;IACnC,cAAc;IACd,6BAA6B;IAC7B,kBAAkB;AACtB","sourcesContent":[".border {\n    /* border: 1px solid black; */\n    border-radius: 14px;\n}\n\n.banner {\n    position: relative;\n    display: grid;\n    grid-auto-flow: column;\n    padding: 10px;\n    background-color: var(--card);\n    grid-template-columns: max-content 1fr 100px max-content;\n    grid-template-rows: 50px 1fr;\n    grid-template-areas: 'icon title count closeBtn' 'dropDown dropDown dropDown dropDown';\n    align-items: center;\n    gap: 5px;\n}\n\n.banner-close-btn {\n    color: var(--input);\n}\n\n.banner-close-btn:hover {\n    scale: 1.7;\n    color: red;\n}\n\n.banner img {\n    grid-area: icon;\n}\n\n.banner p {\n    grid-area: title;\n    justify-self: start;\n}\n\n.banner span:first-of-type {\n    grid-area: count;\n}\n\n.banner span:last-of-type {\n    grid-area: closeBtn;    \n}\n\n.banner .drop-down {\n    grid-area: dropDown;\n}\n\n.button {\n    cursor: pointer;\n}\n\n.card {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 1fr 1fr;\n    grid-template-areas: 'icon count' 'title .';\n    align-items: center;\n    padding: 10px;\n    background-color: var(--card);\n    gap: 5px;\n}\n\n.close-btn {\n    background-color: red;\n    color: white;\n    border-radius: 5px;\n    padding: 0 2px;\n}\n\n.close-btn:hover {\n    scale: 1.2;\n}\n\n.completed {\n    text-decoration: line-through;\n}\n\n.filter-blue {\n    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);\n}\n\n.filter-red {\n    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);\n}\n\n.filter-gray {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.filter-green {\n    filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);\n}\n\n.input {\n    background-color: var(--input);\n    border: 0;\n    padding: 6px;\n    border-radius: 14px;\n}\n\n.list-wrapper {\n    display: grid;\n}\n\n.modal {\n    /* display: grid; */\n    grid-template-columns: repeat(3, 1fr);\n    background-color: var(--modal-background);\n    position: absolute;\n    inset: 0;\n    z-index: 10;\n    /* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.modal-close-btn {\n    position: absolute;\n    right: -0;\n    top: -0;\n}\n\n.reminder {\n    display: grid;\n    background-color: var(--card);\n    border-top: 1px solid darkgrey;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' \n                        'checkbox title title closeBtn' \n                        '. notes notes notes' \n                        '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n.reminder-short {\n    display: grid;\n    grid-template-columns: repeat(6, 1fr);\n    grid-template-areas: 'checkbox' 'title' 'date' 'time' 'priority' 'btn'; \n}\n\n.visible {\n    display: grid;\n}\n\n.wrapper {  /* same as form-wrapper */\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: max-content 1fr;\n    grid-column: 2;\n    background-color: var(--card);\n    position: relative;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,6BAA6B;IAC7B,wDAAwD;IACxD,4BAA4B;IAC5B,sFAAsF;IACtF,mBAAmB;IACnB,QAAQ;AACZ;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,UAAU;IACV,UAAU;AACd;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,2BAA2B;IAC3B,2CAA2C;IAC3C,mBAAmB;IACnB,aAAa;IACb,6BAA6B;IAC7B,QAAQ;AACZ;;AAEA;IACI,qBAAqB;IACrB,YAAY;IACZ,kBAAkB;IAClB,cAAc;AAClB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,iGAAiG;AACrG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,6FAA6F;AACjG;;AAEA;IACI,8BAA8B;IAC9B,SAAS;IACT,YAAY;IACZ,mBAAmB;AACvB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,qCAAqC;IACrC,yCAAyC;IACzC,kBAAkB;IAClB,QAAQ;IACR,WAAW;IACX,2EAA2E;AAC/E;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,OAAO;AACX;;AAEA;IACI,aAAa;IACb,6BAA6B;IAC7B,8BAA8B;IAC9B,iDAAiD;IACjD,8CAA8C;IAC9C;;;oDAGgD;IAChD,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,qCAAqC;IACrC,4DAA4D;AAChE;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,cAAc;AAClB;;AAEA;IACI,aAAa;AACjB;;AAEA,YAAY,yBAAyB;IACjC,aAAa;IACb,8BAA8B;IAC9B,mCAAmC;IACnC,cAAc;IACd,6BAA6B;IAC7B,kBAAkB;AACtB","sourcesContent":[".border {\n    /* border: 1px solid black; */\n    border-radius: 14px;\n}\n\n.banner {\n    position: relative;\n    display: grid;\n    grid-auto-flow: column;\n    padding: 10px;\n    background-color: var(--card);\n    grid-template-columns: max-content 1fr 100px max-content;\n    grid-template-rows: 50px 1fr;\n    grid-template-areas: 'icon title count closeBtn' 'dropDown dropDown dropDown dropDown';\n    align-items: center;\n    gap: 5px;\n}\n\n.banner-close-btn {\n    color: var(--input);\n}\n\n.banner-close-btn:hover {\n    scale: 1.7;\n    color: red;\n}\n\n.banner img {\n    grid-area: icon;\n}\n\n.banner p {\n    grid-area: title;\n    justify-self: start;\n}\n\n.banner span:first-of-type {\n    grid-area: count;\n}\n\n.banner span:last-of-type {\n    grid-area: closeBtn;    \n}\n\n.banner .drop-down {\n    grid-area: dropDown;\n}\n\n.button {\n    cursor: pointer;\n}\n\n.card {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 1fr 1fr;\n    grid-template-areas: 'icon count' 'title .';\n    align-items: center;\n    padding: 10px;\n    background-color: var(--card);\n    gap: 5px;\n}\n\n.close-btn {\n    background-color: red;\n    color: white;\n    border-radius: 5px;\n    padding: 0 2px;\n}\n\n.close-btn:hover {\n    scale: 1.2;\n}\n\n.completed {\n    text-decoration: line-through;\n}\n\n.filter-blue {\n    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);\n}\n\n.filter-red {\n    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);\n}\n\n.filter-gray {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.filter-green {\n    filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);\n}\n\n.input {\n    background-color: var(--input);\n    border: 0;\n    padding: 6px;\n    border-radius: 14px;\n}\n\n.list-wrapper {\n    display: grid;\n}\n\n.modal {\n    /* display: grid; */\n    grid-template-columns: repeat(3, 1fr);\n    background-color: var(--modal-background);\n    position: absolute;\n    inset: 0;\n    z-index: 10;\n    /* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.modal-close-btn {\n    position: absolute;\n    right: -0;\n    top: -0;\n}\n\n.reminder {\n    display: grid;\n    background-color: var(--card);\n    border-top: 1px solid darkgrey;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' \n                        'checkbox title title closeBtn' \n                        '. notes notes notes' \n                        '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n.reminder-short {\n    display: grid;\n    grid-template-columns: repeat(6, 1fr);\n    grid-template-areas: 'checkbox title date time priority btn'; \n}\n\n.reminder-short input {\n    grid-area: checkbox;\n}\n\n.reminder-short h4 {\n    grid-area: title;\n}\n\n.reminder-short p:first-of-type {\n    grid-area: date;\n}\n\n.reminder-short p:nth-of-type(2) {\n    grid-area: time;\n}\n\n.reminder-short p:last-of-type {\n    grid-area: priority;\n}\n\n.reminder-short span {\n    grid-area: btn;\n}\n\n.visible {\n    display: grid;\n}\n\n.wrapper {  /* same as form-wrapper */\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: max-content 1fr;\n    grid-column: 2;\n    background-color: var(--card);\n    position: relative;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4681,7 +4705,58 @@ function deleteReminderFromStorage(name) {
     // console.log(reminderStorage)
 }
 
-function makeHtmlReminder1(obj) {  //uses obj props to create reminder html
+function makeShortReminder(obj) {   //creates html
+
+    let wrapper = document.createElement('div')
+
+    wrapper.classList.add('reminder-short')
+
+    let content = []
+
+    let checkbox = document.createElement('input')
+    
+    checkbox.setAttribute('type','checkbox')
+
+    checkbox.addEventListener('change', markComplete)
+
+    let title = document.createElement('h4')
+
+    title.innerHTML = obj.reminderTitle
+
+    // let notes = document.createElement('p')
+
+    // notes.innerHTML = obj.reminderNotes
+
+    let date = document.createElement('p')
+
+    date.innerHTML = obj.reminderDueDate
+
+    let time = document.createElement('p')
+
+    time.innerHTML = obj.reminderDueTime
+
+    let priority = document.createElement('p')
+
+    priority.innerHTML = obj.reminderPriority
+
+    let button = document.createElement('span')
+
+    button.classList.add('button','close-btn')
+
+    button.innerHTML = '&times;'
+
+    let listId = "#" + obj.list
+
+    let container = document.querySelector(listId)
+
+    content.push(checkbox,title,date,time,priority,button)
+
+    wrapper.append(...content)
+
+    container.append(wrapper)
+}
+
+function makeHtmlReminder(obj) {  //uses obj props to create reminder html
 
     let reminderHtmlWrapper = document.createElement('div')
 
@@ -4751,7 +4826,9 @@ function publishReminder(flag) {//event listener fn
             document.querySelector(listId).classList.add('visible')
         }
 
-        makeHtmlReminder1(reminder)
+        // makeHtmlReminder(reminder)
+
+        makeShortReminder(reminder)
 
         ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.reminderList)
 

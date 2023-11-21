@@ -61,7 +61,58 @@ function deleteReminderFromStorage(name) {
     // console.log(reminderStorage)
 }
 
-function makeHtmlReminder1(obj) {  //uses obj props to create reminder html
+function makeShortReminder(obj) {   //creates html
+
+    let wrapper = document.createElement('div')
+
+    wrapper.classList.add('reminder-short')
+
+    let content = []
+
+    let checkbox = document.createElement('input')
+    
+    checkbox.setAttribute('type','checkbox')
+
+    checkbox.addEventListener('change', markComplete)
+
+    let title = document.createElement('h4')
+
+    title.innerHTML = obj.reminderTitle
+
+    // let notes = document.createElement('p')
+
+    // notes.innerHTML = obj.reminderNotes
+
+    let date = document.createElement('p')
+
+    date.innerHTML = obj.reminderDueDate
+
+    let time = document.createElement('p')
+
+    time.innerHTML = obj.reminderDueTime
+
+    let priority = document.createElement('p')
+
+    priority.innerHTML = obj.reminderPriority
+
+    let button = document.createElement('span')
+
+    button.classList.add('button','close-btn')
+
+    button.innerHTML = '&times;'
+
+    let listId = "#" + obj.list
+
+    let container = document.querySelector(listId)
+
+    content.push(checkbox,title,date,time,priority,button)
+
+    wrapper.append(...content)
+
+    container.append(wrapper)
+}
+
+function makeHtmlReminder(obj) {  //uses obj props to create reminder html
 
     let reminderHtmlWrapper = document.createElement('div')
 
@@ -131,7 +182,9 @@ function publishReminder(flag) {//event listener fn
             document.querySelector(listId).classList.add('visible')
         }
 
-        makeHtmlReminder1(reminder)
+        // makeHtmlReminder(reminder)
+
+        makeShortReminder(reminder)
 
         updateCounters(reminder.reminderList)
 
