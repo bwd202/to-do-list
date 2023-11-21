@@ -26,11 +26,12 @@ class List {
         return this.sanitize(this.name)
     }
 
+    // creates camelCase id
     sanitize(str) {
 
         let splitStr = str.split(' ')   //returns an array
 
-        let modifyWords = splitStr.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))  //makes all non-first words uppercase
+        let modifyWords = splitStr.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
 
         let newString = modifyWords.join('')
 
@@ -47,9 +48,7 @@ function getListInputs() {   //creates obj from inputs and returns
 
     let obj = new List()
 
-    let name = document.querySelector("[placeholder='List name']").value.trim()
-
-    obj.name = name //uses obj's setter fn
+    obj.name = document.querySelector("[placeholder='List name']").value.trim()
 
     let color = document.querySelector("[type='color']").value
 
