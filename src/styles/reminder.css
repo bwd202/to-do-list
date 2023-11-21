@@ -46,29 +46,36 @@
 
 /* SHORT REMINDER */
 .reminder-short {
+    padding: 10px;
     border-top: 1px solid darkgrey;
     display: grid;
-    grid-template-columns: 50px 1fr repeat(4, max-content);
-    grid-template-areas: 'checkbox title date time priority btn'; 
+    grid-template-columns: 50px 1fr max-content;
+    grid-template-areas: 'checkbox info btn'; 
 }
 
 .reminder-short input {
     grid-area: checkbox;
 }
 
-.reminder-short h4 {
+.reminder-short > div {
+    display: grid;
+    grid-area: info;
+    grid-template-areas: 'title date time priority';
+}
+
+.reminder-short > div h4 {
     grid-area: title;
 }
 
-.reminder-short p:first-of-type {
+.reminder-short > div p:first-of-type {
     grid-area: date;
 }
 
-.reminder-short p:nth-of-type(2) {
+.reminder-short > div p:nth-of-type(2) {
     grid-area: time;
 }
 
-.reminder-short p:last-of-type {
+.reminder-short > div p:last-of-type {
     grid-area: priority;
 }
 

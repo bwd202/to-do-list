@@ -75,6 +75,8 @@ function makeShortReminder(obj) {   //creates html
 
     checkbox.addEventListener('change', markComplete)
 
+    let info = document.createElement('div')
+
     let title = document.createElement('h4')
 
     title.innerHTML = obj.reminderTitle
@@ -95,6 +97,8 @@ function makeShortReminder(obj) {   //creates html
 
     priority.innerHTML = obj.reminderPriority
 
+    info.append(title,date,time,priority)
+
     let button = document.createElement('span')
 
     button.classList.add('button','close-btn')
@@ -105,7 +109,7 @@ function makeShortReminder(obj) {   //creates html
 
     let container = document.querySelector(listId)
 
-    content.push(checkbox,title,date,time,priority,button)
+    content.push(checkbox,info,button)
 
     wrapper.append(...content)
 
