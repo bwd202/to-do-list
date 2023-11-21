@@ -132,6 +132,12 @@
     padding: 10px;
 }
 
+.reminder-short {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: 'checkbox' 'title' 'date' 'time' 'priority' 'btn'; 
+}
+
 .visible {
     display: grid;
 }
