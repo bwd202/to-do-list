@@ -3693,7 +3693,7 @@ var ___HTML_LOADER_REPLACEMENT_2___ = _node_modules_html_loader_dist_runtime_get
 var ___HTML_LOADER_REPLACEMENT_3___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_3___);
 var ___HTML_LOADER_REPLACEMENT_4___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_4___);
 var ___HTML_LOADER_REPLACEMENT_5___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_5___);
-var code = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To-Do List</title>\n</head>\n<body>\n    <div id=\"wrapper\">\n        <header>\n            <input id=\"search\" type=\"text\" placeholder=\"&#x1F50D; Type search term and press Enter\" class=\"input\">\n        </header>\n        <main>\n            <div class=\"card button border modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\"><p>Today</p><span class=\"counter\">0</span></div>\n\n            <div id=\"today\" class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span class=\"modal-close-btn button\">&times;</span>\n                    <div class=\"modal-content\">\n                        <!-- will add reminders here -->\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"card button border modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\"><p>Scheduled</p><span class=\"counter\">0</span></div>\n\n            <div id=\"scheduled\" class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span class=\"modal-close-btn button\">&times;</span>\n                    <div class=\"modal-content\">\n                        <!-- will add reminders here -->\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"card button border modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>All</p><span class=\"counter\">0</span></div>\n\n            <div id=\"all\" class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span class=\"modal-close-btn button\">&times;</span>\n                    <div class=\"modal-content\">\n                        <!-- will add reminders here -->\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"card button border modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\"><p>Completed</p><span class=\"counter\">0</span></div>\n\n            <div id=\"completed\" class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span class=\"modal-close-btn button\">&times;</span>\n                    <div class=\"modal-content\">\n                        <!-- will add reminders here -->\n                    </div>\n                </div>\n            </div>\n            \n            <article id=\"lists\">\n                <h2>My Lists</h2>\n                <div id=\"reminder-list\" class=\"button banner border\">\n                    <img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\">\n                    <p>Reminders</p>\n                    <span class=\"counter\"></span>\n                    <span class=\"banner-close-btn\">&times;</span>\n                    <div id=\"reminders\" class=\"drop-down\" hidden></div>   \n                </div>            \n            </article>\n        </main>\n           <footer>\n            <button id=\"new-reminder\" class=\"button modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\">New Reminder</button>\n            <div id=\"reminder-modal\" class=\"modal \" hidden>\n                <div class=\"wrapper\">\n                    <span id=\"reminder-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n                    <form id=\"reminderForm\" action=\"/\">\n                        <label for=\"\">Title<input type=\"text\" id=\"title\" placeholder=\"take dogs for a walk\" name=\"reminderTitle\" class=\"input\"></label>\n                        <label for=\"\">Notes<input type=\"text\" id=\"notes\" placeholder=\"bring poop bags\" name=\"reminderNotes\" class=\"input\"></label>\n                        <label for=\"\">Due Date<input type=\"date\" id=\"dueDate\" name=\"reminderDueDate\" class=\"\"></label>\n                        <label for=\"\">Due Time<input type=\"time\" id=\"dueTime\" name=\"reminderDueTime\" class=\"\"></label>\n                        <label for=\"priority\">Priority<select id=\"priority\" name=\"reminderPriority\" class=\"\">\n                            <option value=\"1\">low</option>\n                            <option value=\"2\" selected>medium</option>\n                            <option value=\"3\">high</option>\n                        </select></label>\n                        <label for=\"selectList\">Select List<select id=\"selectList\" name=\"reminderSelectList\">\n                            <option value=\"reminders\">Reminders</option>\n                        </select>\n                        </label>\n                        <button id=\"publishReminder\" type=\"button\">Done</button>\n                        <button type=\"reset\">Reset</button> \n                    </form>\n                </div>\n                \n            </div>\n            <button id=\"openListModal\" class=\"button modal-btn\"><span>Add List</span></button>\n            <div id=\"list-modal\" class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span id=\"list-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n                    <form id=\"listForm\" action=\"/\">\n                        <input type=\"text\" placeholder=\"List name\" class=\"input\" required>\n                        <input type=\"color\" class=\"\">\n                        <button id=\"addList\" type=\"submit\">Done</button>\n                        <button type=\"reset\">Reset</button>\n                    </form>\n                </div>\n            </div>\n           </footer>\n    </div>\n</body>\n</html>";
+var code = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To-Do List</title>\n</head>\n<body>\n    <div id=\"wrapper\">\n        <header>\n            <input id=\"search\" type=\"text\" placeholder=\"&#x1F50D; Type search term and press Enter\" class=\"input\">\n        </header>\n        <main>\n            <div id=\"today\" class=\"card button border modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\"><p>Today</p><span class=\"counter\">0</span></div>\n\n            <div id=\"today\" class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span class=\"modal-close-btn button\">&times;</span>\n                    <div class=\"modal-content\">\n                        <!-- will add reminders here -->\n                    </div>\n                </div>\n            </div>\n\n            <div id=\"scheduled\" class=\"card button border modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\"><p>Scheduled</p><span class=\"counter\">0</span></div>\n\n            <div id=\"scheduled\" class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span class=\"modal-close-btn button\">&times;</span>\n                    <div class=\"modal-content\">\n                        <!-- will add reminders here -->\n                    </div>\n                </div>\n            </div>\n\n            <div id=\"all\" class=\"card button border modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>All</p><span class=\"counter\">0</span></div>\n\n            <div id=\"all\" class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span class=\"modal-close-btn button\">&times;</span>\n                    <div class=\"modal-content\">\n                        <!-- will add reminders here -->\n                    </div>\n                </div>\n            </div>\n\n            <div id=\"completed\" class=\"card button border modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\"><p>Completed</p><span class=\"counter\">0</span></div>\n\n            <div id=\"completed\" class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span class=\"modal-close-btn button\">&times;</span>\n                    <div class=\"modal-content\">\n                        <!-- will add reminders here -->\n                    </div>\n                </div>\n            </div>\n            \n            <article id=\"lists\">\n                <h2>My Lists</h2>\n                <div id=\"reminder-list\" class=\"button banner border\">\n                    <img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\">\n                    <p>Reminders</p>\n                    <span class=\"counter\"></span>\n                    <span class=\"banner-close-btn\">&times;</span>\n                    <div id=\"reminders\" class=\"drop-down\" hidden></div>   \n                </div>            \n            </article>\n        </main>\n           <footer>\n            <button id=\"new-reminder\" class=\"button modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\">New Reminder</button>\n            <div id=\"reminder-modal\" class=\"modal \" hidden>\n                <div class=\"wrapper\">\n                    <span id=\"reminder-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n                    <form id=\"reminderForm\" action=\"/\">\n                        <label for=\"\">Title<input type=\"text\" id=\"title\" placeholder=\"take dogs for a walk\" name=\"reminderTitle\" class=\"input\"></label>\n                        <label for=\"\">Notes<input type=\"text\" id=\"notes\" placeholder=\"bring poop bags\" name=\"reminderNotes\" class=\"input\"></label>\n                        <label for=\"\">Due Date<input type=\"date\" id=\"dueDate\" name=\"reminderDueDate\" class=\"\"></label>\n                        <label for=\"\">Due Time<input type=\"time\" id=\"dueTime\" name=\"reminderDueTime\" class=\"\"></label>\n                        <label for=\"priority\">Priority<select id=\"priority\" name=\"reminderPriority\" class=\"\">\n                            <option value=\"1\">low</option>\n                            <option value=\"2\" selected>medium</option>\n                            <option value=\"3\">high</option>\n                        </select></label>\n                        <label for=\"selectList\">Select List<select id=\"selectList\" name=\"reminderSelectList\">\n                            <option value=\"reminders\">Reminders</option>\n                        </select>\n                        </label>\n                        <button id=\"publishReminder\" type=\"button\">Done</button>\n                        <button type=\"reset\">Reset</button> \n                    </form>\n                </div>\n                \n            </div>\n            <button id=\"openListModal\" class=\"button modal-btn\"><span>Add List</span></button>\n            <div id=\"list-modal\" class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span id=\"list-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n                    <form id=\"listForm\" action=\"/\">\n                        <input type=\"text\" placeholder=\"List name\" class=\"input\" required>\n                        <input type=\"color\" class=\"\">\n                        <button id=\"addList\" type=\"submit\">Done</button>\n                        <button type=\"reset\">Reset</button>\n                    </form>\n                </div>\n            </div>\n           </footer>\n    </div>\n</body>\n</html>";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
@@ -4318,6 +4318,12 @@ function countReminders(list) {
     return filtered.length
 }
 
+// fn updateCounters
+
+// filter reminders in storage based on list/category prop
+
+// show filtered array length in respective counter innerHtml
+
 /***/ }),
 
 /***/ "./src/list.js":
@@ -4364,11 +4370,12 @@ class List {
         return this.sanitize(this.name)
     }
 
+    // creates camelCase id
     sanitize(str) {
 
         let splitStr = str.split(' ')   //returns an array
 
-        let modifyWords = splitStr.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))  //makes all non-first words uppercase
+        let modifyWords = splitStr.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
 
         let newString = modifyWords.join('')
 
@@ -4381,17 +4388,13 @@ function storeList() {
     _storage__WEBPACK_IMPORTED_MODULE_2__.listStorage.push(getListInputs())
 }
 
-function getListInputs() {   //creates obj from inputs and returns
+function getListInputs() {   //creates obj from inputs and returns it
 
     let obj = new List()
 
-    let name = document.querySelector("[placeholder='List name']").value.trim()
+    obj.name = document.querySelector("[placeholder='List name']").value.trim()
 
-    obj.name = name //uses obj's setter fn
-
-    let color = document.querySelector("[type='color']").value
-
-    obj.listColor = color
+    obj.listColor = document.querySelector("[type='color']").value
 
     return obj
 }
@@ -4442,7 +4445,7 @@ function makeHtmlList(obj) {    //creates html list banner from obj
     return wrapper
 }
 
-function removeHtmlList(e) { //deletes html list banner from document and its respective list input option from reminder modal
+function removeHtmlList(e) { //deletes html list banner
 
     let targetBanner = e.target.parentElement
 
@@ -4450,11 +4453,16 @@ function removeHtmlList(e) { //deletes html list banner from document and its re
 
     let listId = targetBanner.lastElementChild.id
 
+    removeListOption(listId)
+}
+
+function removeListOption(name) {   //removes list name from reminder modal
+
     let reminderModalListOptions = document.querySelector('#selectList').children
 
     for(let i = 0; i < reminderModalListOptions.length; i++) {
 
-        if(reminderModalListOptions[i].value === listId) {
+        if(reminderModalListOptions[i].value === name) {
 
             reminderModalListOptions[i].remove()
         }
