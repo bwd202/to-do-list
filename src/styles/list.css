@@ -1,0 +1,40 @@
+.banner {
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    padding: 10px;
+    background-color: var(--card);
+    grid-template-columns: max-content 1fr 100px max-content;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: 'icon title count closeBtn' 'dropDown dropDown dropDown dropDown';
+    align-items: center;
+    gap: 5px;
+}
+
+.banner-close-btn {
+    color: var(--input);
+    grid-area: closeBtn;
+}
+
+.banner-close-btn:hover {
+    scale: 1.7;
+    color: red;
+}
+
+.banner img {
+    grid-area: icon;
+}
+
+.banner p {
+    grid-area: title;
+    justify-self: start;
+}
+
+.banner > span:first-of-type {
+    grid-area: count;
+    place-self: center;
+}
+
+.banner .drop-down {
+    grid-area: dropDown;
+}
