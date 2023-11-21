@@ -169,6 +169,7 @@ function makeHtmlReminder2(reminderObj){
 function markComplete(e) {
 
     e.target.nextElementSibling.classList.toggle('completed')
+
 }
 
 function getReminderFrom(arr) {
