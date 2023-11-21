@@ -44,7 +44,7 @@ function storeList() {
     listStorage.push(getListInputs())
 }
 
-function getListInputs() {   //creates obj from inputs and returns
+function getListInputs() {   //creates obj from inputs and returns it
 
     let obj = new List()
 
@@ -101,7 +101,7 @@ function makeHtmlList(obj) {    //creates html list banner from obj
     return wrapper
 }
 
-function removeHtmlList(e) { //deletes html list banner from document and its respective list input option from reminder modal
+function removeHtmlList(e) { //deletes html list banner
 
     let targetBanner = e.target.parentElement
 
@@ -109,11 +109,16 @@ function removeHtmlList(e) { //deletes html list banner from document and its re
 
     let listId = targetBanner.lastElementChild.id
 
+    removeListOption(listId)
+}
+
+function removeListOption(name) {   //removes list name from reminder modal
+
     let reminderModalListOptions = document.querySelector('#selectList').children
 
     for(let i = 0; i < reminderModalListOptions.length; i++) {
 
-        if(reminderModalListOptions[i].value === listId) {
+        if(reminderModalListOptions[i].value === name) {
 
             reminderModalListOptions[i].remove()
         }
