@@ -2809,35 +2809,42 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.reminder {
 
 /* SHORT REMINDER */
 .reminder-short {
+    padding: 10px;
     border-top: 1px solid darkgrey;
     display: grid;
-    grid-template-columns: 50px 1fr repeat(4, max-content);
-    grid-template-areas: 'checkbox title date time priority btn'; 
+    grid-template-columns: 50px 1fr max-content;
+    grid-template-areas: 'checkbox info btn'; 
 }
 
 .reminder-short input {
     grid-area: checkbox;
 }
 
-.reminder-short h4 {
+.reminder-short > div {
+    display: grid;
+    grid-area: info;
+    grid-template-areas: 'title date time priority';
+}
+
+.reminder-short > div h4 {
     grid-area: title;
 }
 
-.reminder-short p:first-of-type {
+.reminder-short > div p:first-of-type {
     grid-area: date;
 }
 
-.reminder-short p:nth-of-type(2) {
+.reminder-short > div p:nth-of-type(2) {
     grid-area: time;
 }
 
-.reminder-short p:last-of-type {
+.reminder-short > div p:last-of-type {
     grid-area: priority;
 }
 
 .reminder-short span {
     grid-area: btn;
-}`, "",{"version":3,"sources":["webpack://./src/styles/reminder.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,6BAA6B;IAC7B,8BAA8B;IAC9B,iDAAiD;IACjD,8CAA8C;IAC9C;;;oDAGgD;IAChD,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;IAChB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;AACvB;;AAEA,mBAAmB;AACnB;IACI,8BAA8B;IAC9B,aAAa;IACb,sDAAsD;IACtD,4DAA4D;AAChE;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,cAAc;AAClB","sourcesContent":[".reminder {\n    display: grid;\n    background-color: var(--card);\n    border-top: 1px solid darkgrey;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' \n                        'checkbox title title closeBtn' \n                        '. notes notes notes' \n                        '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n.reminder [type='checkbox'] {\n    grid-area: checkbox;\n    align-self: start;\n}\n\n.reminder h4 {\n    grid-area: title;\n}\n\n.reminder span {\n    grid-area: closeBtn;\n    align-self: start;\n}\n\n.reminder p:nth-of-type(1) {\n    grid-area: notes;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(2) {\n    grid-area: dueDate; \n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(3) {\n    grid-area: dueTime;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(4) {\n    grid-area: priority;\n}\n\n/* SHORT REMINDER */\n.reminder-short {\n    border-top: 1px solid darkgrey;\n    display: grid;\n    grid-template-columns: 50px 1fr repeat(4, max-content);\n    grid-template-areas: 'checkbox title date time priority btn'; \n}\n\n.reminder-short input {\n    grid-area: checkbox;\n}\n\n.reminder-short h4 {\n    grid-area: title;\n}\n\n.reminder-short p:first-of-type {\n    grid-area: date;\n}\n\n.reminder-short p:nth-of-type(2) {\n    grid-area: time;\n}\n\n.reminder-short p:last-of-type {\n    grid-area: priority;\n}\n\n.reminder-short span {\n    grid-area: btn;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/reminder.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,6BAA6B;IAC7B,8BAA8B;IAC9B,iDAAiD;IACjD,8CAA8C;IAC9C;;;oDAGgD;IAChD,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;IAChB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;AACvB;;AAEA,mBAAmB;AACnB;IACI,aAAa;IACb,8BAA8B;IAC9B,aAAa;IACb,2CAA2C;IAC3C,wCAAwC;AAC5C;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,+CAA+C;AACnD;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,cAAc;AAClB","sourcesContent":[".reminder {\n    display: grid;\n    background-color: var(--card);\n    border-top: 1px solid darkgrey;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' \n                        'checkbox title title closeBtn' \n                        '. notes notes notes' \n                        '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n.reminder [type='checkbox'] {\n    grid-area: checkbox;\n    align-self: start;\n}\n\n.reminder h4 {\n    grid-area: title;\n}\n\n.reminder span {\n    grid-area: closeBtn;\n    align-self: start;\n}\n\n.reminder p:nth-of-type(1) {\n    grid-area: notes;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(2) {\n    grid-area: dueDate; \n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(3) {\n    grid-area: dueTime;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(4) {\n    grid-area: priority;\n}\n\n/* SHORT REMINDER */\n.reminder-short {\n    padding: 10px;\n    border-top: 1px solid darkgrey;\n    display: grid;\n    grid-template-columns: 50px 1fr max-content;\n    grid-template-areas: 'checkbox info btn'; \n}\n\n.reminder-short input {\n    grid-area: checkbox;\n}\n\n.reminder-short > div {\n    display: grid;\n    grid-area: info;\n    grid-template-areas: 'title date time priority';\n}\n\n.reminder-short > div h4 {\n    grid-area: title;\n}\n\n.reminder-short > div p:first-of-type {\n    grid-area: date;\n}\n\n.reminder-short > div p:nth-of-type(2) {\n    grid-area: time;\n}\n\n.reminder-short > div p:last-of-type {\n    grid-area: priority;\n}\n\n.reminder-short span {\n    grid-area: btn;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4874,6 +4881,8 @@ function makeShortReminder(obj) {   //creates html
 
     checkbox.addEventListener('change', markComplete)
 
+    let info = document.createElement('div')
+
     let title = document.createElement('h4')
 
     title.innerHTML = obj.reminderTitle
@@ -4894,6 +4903,8 @@ function makeShortReminder(obj) {   //creates html
 
     priority.innerHTML = obj.reminderPriority
 
+    info.append(title,date,time,priority)
+
     let button = document.createElement('span')
 
     button.classList.add('button','close-btn')
@@ -4904,7 +4915,7 @@ function makeShortReminder(obj) {   //creates html
 
     let container = document.querySelector(listId)
 
-    content.push(checkbox,title,date,time,priority,button)
+    content.push(checkbox,info,button)
 
     wrapper.append(...content)
 
