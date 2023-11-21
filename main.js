@@ -4687,6 +4687,8 @@ function makeHtmlReminder1(obj) {  //uses obj props to create reminder html
     
     checkbox.setAttribute('type','checkbox')
 
+    checkbox.addEventListener('change', markComplete)
+
     let reminderTitle = document.createElement('h4')
 
     reminderTitle.innerHTML = obj.reminderTitle
@@ -4776,6 +4778,11 @@ function makeHtmlReminder2(reminderObj){
     let title = document.createElement('h4')
 
     title.innerHTML = reminderObj.reminderTitle
+}
+
+function markComplete(e) {
+
+    e.target.nextElementSibling.classList.toggle('completed')
 }
 
 function getReminderFrom(arr) {
