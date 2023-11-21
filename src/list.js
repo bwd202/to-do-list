@@ -50,9 +50,7 @@ function getListInputs() {   //creates obj from inputs and returns
 
     obj.name = document.querySelector("[placeholder='List name']").value.trim()
 
-    let color = document.querySelector("[type='color']").value
-
-    obj.listColor = color
+    obj.listColor = document.querySelector("[type='color']").value
 
     return obj
 }
