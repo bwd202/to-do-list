@@ -72,6 +72,10 @@
     scale: 1.2;
 }
 
+.completed {
+    text-decoration: line-through;
+}
+
 .filter-blue {
     filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);
 }
