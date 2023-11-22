@@ -278,7 +278,7 @@ function markComplete(e) {
         
         if(title === reminders[i].reminderTitle) {
             
-            if(reminders[i].reminderCompleted === false) {
+            if(!reminders[i].reminderCompleted) {
 
                 reminders[i].reminderCompleted = true
             }
@@ -286,7 +286,7 @@ function markComplete(e) {
         }
     }
 
-    console.log(reminders)
+    // console.log(reminders)
 }
 
 function getReminderFrom(arr) {

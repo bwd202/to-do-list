@@ -5049,7 +5049,7 @@ function markComplete(e) {
         
         if(title === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
             
-            if(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted === false) {
+            if(!_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted) {
 
                 _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted = true
             }
@@ -5057,7 +5057,7 @@ function markComplete(e) {
         }
     }
 
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders)
+    // console.log(reminders)
 }
 
 function getReminderFrom(arr) {
