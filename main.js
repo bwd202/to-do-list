@@ -4511,7 +4511,7 @@ function updateCounters(list) {
 
 function countReminders(list) {
 
-    let filtered = _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders.filter(item => item.reminderList === list)
+    let filtered = _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.filter(item => item.reminderList === list)
 
     return filtered.length
 }
@@ -4583,7 +4583,7 @@ class List {
 }
 
 function storeList() {
-    _storage__WEBPACK_IMPORTED_MODULE_2__.listStorage.push(getListInputs())
+    _storage__WEBPACK_IMPORTED_MODULE_2__.lists.push(getListInputs())
 }
 
 function getListInputs() {   //creates obj from inputs and returns it
@@ -4687,7 +4687,7 @@ function addListToPage(e) { //shows html list on the page
 
     storeList()
 
-    let listObj = _storage__WEBPACK_IMPORTED_MODULE_2__.listStorage.at(-1)
+    let listObj = _storage__WEBPACK_IMPORTED_MODULE_2__.lists.at(-1)
 
     addNewListInputOption(listObj)
 
@@ -4775,13 +4775,16 @@ __webpack_require__.r(__webpack_exports__);
 
 class Reminder {
 
-    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium", list="reminders", completed=false} = {}) {
+    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium", list="reminders", today=false, scheduled=false, all=true, completed=false} = {}) {
         this.reminderTitle = title
         this.reminderNotes = notes
         this.reminderDueDate = dueDate
         this.reminderDueTime = dueTime
         this.reminderPriority = priority
         this.reminderList = list
+        this.reminderToday = today
+        this.reminderScheduled = scheduled
+        this.reminderAll = all
         this.reminderCompleted = completed
     }
 
@@ -4814,18 +4817,18 @@ function getReminderData() { //gets inputs from reminder form, makes new obj
 
 function storeReminder() {
 
-    _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders.push(getReminderData())
+    _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.push(getReminderData())
 
     // console.log(reminderStorage)
 }
 
 function deleteReminderFromStorage(name) {
 
-    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders.length; i++) {
+    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
 
-        if(name === _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders[i].reminderTitle) {
+        if(name === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
 
-            _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders.splice(i, 1)
+            _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.splice(i, 1)
         }
     }
 
@@ -4946,7 +4949,7 @@ function publishReminder(flag) {//event listener fn
     
         storeReminder()
 
-        let reminder = _storage__WEBPACK_IMPORTED_MODULE_0__.allReminders.at(-1)
+        let reminder = _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.at(-1)
 
         let listId = "#" + reminder.list
 
@@ -4963,21 +4966,24 @@ function publishReminder(flag) {//event listener fn
 
         makeShortReminder(new Reminder())
 
+        addReminderToModal()
+
         ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.reminderList)
 
         reminderForm.reset()
     }
 }
 
-function addReminderToModal(id,item) {
+function addReminderToModal(item) {
 
-    // let id = '#' + reminder
+    let id = '#' + reminder.list
 
     switch(id) {
 
         case '#all':
             console.log('all')
-            break;
+            document.querySelector('#all').append(item)
+            // break;
 
         case '#scheduled':
             console.log('scheduled')
@@ -5035,6 +5041,8 @@ function markComplete(e) {
 
     e.target.nextElementSibling.classList.toggle('completed')
 
+    // e.target.nextElementSibling.children[0].innerHTML
+
 }
 
 function getReminderFrom(arr) {
@@ -5059,14 +5067,14 @@ function getReminderFrom(arr) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   allReminders: () => (/* binding */ allReminders),
-/* harmony export */   listStorage: () => (/* binding */ listStorage)
+/* harmony export */   lists: () => (/* binding */ lists),
+/* harmony export */   reminders: () => (/* binding */ reminders)
 /* harmony export */ });
 
 
-let listStorage = []
+let lists = []
 
-let allReminders = []
+let reminders = []
 
 /***/ }),
 
@@ -5078,9 +5086,7 @@ let allReminders = []
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
-
+/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
 
 
 // document.querySelector('button#publishReminder').addEventListener('click', publishReminder())
