@@ -19,7 +19,7 @@ import {openModal, closeModal, modalHtml} from './modal'
 
 // EVENT LISTENERS
 
-document.querySelector('button#publishReminder').addEventListener('click', publishReminder())
+document.querySelector('button#publishReminder').addEventListener('click', publishReminder)
 
 document.querySelector('button#addList').addEventListener('click', addListToPage)
 

@@ -1,5 +1,5 @@
 export {openModal,closeModal}
-import { allReminders } from "./storage"
+import {reminders} from "./storage"
 
 function closeModal(e) {
 
@@ -35,4 +35,13 @@ function updateModals() {
 
     let completed = document.querySelector('#completed + .modal')
 
+    completed.append()
+
+}
+
+function filterCompleted() {
+
+    let completed = reminders.filter(item => item.reminderCompleted === true)
+
+    return completed
 }

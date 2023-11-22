@@ -119,7 +119,7 @@ function makeShortReminder(obj) {   //creates html
     container.append(wrapper)
 }
 
-function makeHtmlReminder(obj) {  //creates reminder for modals (categories)
+function makeLongReminder(obj) {  //html reminder for modal categories
 
     let reminderHtmlWrapper = document.createElement('div')
 
@@ -170,11 +170,7 @@ function makeHtmlReminder(obj) {  //creates reminder for modals (categories)
     container.append(reminderHtmlWrapper)
 }
 
-function publishReminder(flag) {//event listener fn
-
-    // if(flag) return
-
-    return function() {
+function publishReminder() {//event listener fn
     
         storeReminder()
 
@@ -202,29 +198,28 @@ function publishReminder(flag) {//event listener fn
         updateCounters(reminder.reminderList)
 
         reminderForm.reset()
-    }
 }
 
-function filterReminders(modal) {
+// function filterReminders(modal) {
 
-    // let today = filter by dueDate matches today's date
+//     // let today = filter by dueDate matches today's date
 
-    // let scheduled filter all reminders with dueDate
+//     // let scheduled filter all reminders with dueDate
 
-    let all = reminders.slice()
+//     let all = reminders.slice()
 
-    let completed = reminders.filter(item => item.reminderCompleted === true)
+//     let completed = reminders.filter(item => item.reminderCompleted === true)
 
-    switch(modal) {
+//     switch(modal) {
 
-        case 'all':
-            return all
+//         case 'all':
+//             return all
 
-        case 'completed':
-            return completed
-    }
+//         case 'completed':
+//             return completed
+//     }
 
-}
+// }
 
 function deleteReminderHtml(e) {
 
@@ -240,17 +235,6 @@ function deleteReminderHtml(e) {
 
         reminder.remove()
     }
-}
-
-function makeHtmlReminder2(reminderObj){
-
-    let container = document.createElement('div')
-
-    container.classList.add('reminder')
-
-    let title = document.createElement('h4')
-
-    title.innerHTML = reminderObj.reminderTitle
 }
 
 function markComplete(e) {
@@ -272,15 +256,4 @@ function markComplete(e) {
     }
 
     // console.log(reminders)
-}
-
-function getReminderFrom(arr) {
-
-    for(let i = 0; i < arr.length; i++) {
-
-        // make reminder html fn
-        makeHtmlReminder2(arr[i])
-
-        // append reminder to document fn
-    }
 }
