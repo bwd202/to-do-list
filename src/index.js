@@ -11,11 +11,7 @@ import {publishReminder,deleteReminderHtml} from './reminder.js'
 import {reminders} from './storage'
 import {updateCounters } from './counters.js'
 import { testReminder } from './testing'
-import {openModal, closeModal, modalHtml} from './modal'
-
-// TESTING
-
-// testReminder()
+import {openModal, closeModal, updateModals} from './modal'
 
 // EVENT LISTENERS
 
@@ -30,3 +26,5 @@ document.addEventListener('click', deleteReminderHtml)
 document.addEventListener('click', closeModal)
 
 document.addEventListener('click', openModal)
+
+updateModals()

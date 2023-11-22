@@ -1,6 +1,7 @@
-export {publishReminder,Reminder,deleteReminderFromStorage,deleteReminderHtml}
+export {publishReminder,Reminder,deleteReminderFromStorage,deleteReminderHtml,makeLongReminder}
 import {reminders} from "./storage"
 import { updateCounters } from "./counters"
+import { updateModals } from "./modal"
 
 class Reminder {
 
@@ -159,15 +160,17 @@ function makeLongReminder(obj) {  //html reminder for modal categories
 
     reminderPriority.innerHTML = obj.reminderPriority
 
-    let reminderListId = "#" + obj.list
+    // let reminderListId = "#" + obj.list
 
-    let container = document.querySelector(reminderListId)
+    // let container = document.querySelector(reminderListId)
 
     reminderHtmlContent.push(checkbox,reminderTitle,closeBtn,reminderNotes,reminderDueDate,reminderDueTime,reminderPriority)
 
     reminderHtmlWrapper.append(...reminderHtmlContent)
 
-    container.append(reminderHtmlWrapper)
+    return reminderHtmlWrapper
+
+    // container.append(reminderHtmlWrapper)
 }
 
 function publishReminder() {//event listener fn
@@ -250,10 +253,14 @@ function markComplete(e) {
             if(!reminders[i].reminderCompleted) {
 
                 reminders[i].reminderCompleted = true
+
+                document.querySelector('#completed + .modal').firstElementChild.children[1].append(makeLongReminder(reminders[i]))
             }
             else reminders[i].reminderCompleted = false
         }
     }
+
+    // updateModals()
 
     // console.log(reminders)
 }

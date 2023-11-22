@@ -1,5 +1,6 @@
-export {openModal,closeModal}
+export {openModal,closeModal,updateModals}
 import {reminders} from "./storage"
+import {makeLongReminder} from './reminder'
 
 function closeModal(e) {
 
@@ -27,15 +28,21 @@ function openModal(e) {
 
 function updateModals() {
 
-    let today = document.querySelector('#today + .modal')
+    let todayModal = document.querySelector('#today + .modal')
 
-    let scheduled = document.querySelector('#scheduled + .modal')
+    let scheduledModal = document.querySelector('#scheduled + .modal')
 
-    let all = document.querySelector('#all + .modal')
+    let allModal = document.querySelector('#all + .modal')
 
-    let completed = document.querySelector('#completed + .modal')
+    let completedModal = document.querySelector('#completed + .modal')
 
-    completed.append()
+    let completedReminders = filterCompleted()
+
+    for(let i = 0; i < completedReminders.length; i++) {
+
+        completedModal.closest('modal-content').append(makeLongReminder(completedReminders[i]))
+
+    }
 
 }
 
