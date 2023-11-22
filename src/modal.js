@@ -24,3 +24,7 @@ function openModal(e) {
     }
 
 }
+
+function updateModals() {
+
+}
