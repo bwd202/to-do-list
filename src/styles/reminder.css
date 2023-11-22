@@ -61,12 +61,14 @@
     display: grid;
     grid-area: info;
     grid-template-areas: 'title date time priority';
+    grid-template-columns: 1fr 100px 100px 50px;
     justify-items: center;
 
 }
 
 .reminder-short > div h4 {
     grid-area: title;
+    justify-self: start;
 }
 
 .reminder-short > div p:first-of-type {
