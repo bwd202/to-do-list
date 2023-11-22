@@ -2812,7 +2812,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.reminder {
     padding: 10px;
     border-top: 1px solid darkgrey;
     display: grid;
-    grid-template-columns: max-content 1fr max-content;
+    grid-template-columns: 30px 1fr max-content;
     grid-template-areas: 'checkbox info btn'; 
 }
 
@@ -2824,6 +2824,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.reminder {
     display: grid;
     grid-area: info;
     grid-template-areas: 'title date time priority';
+    justify-items: center;
+
 }
 
 .reminder-short > div h4 {
@@ -2844,7 +2846,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.reminder {
 
 .reminder-short span {
     grid-area: btn;
-}`, "",{"version":3,"sources":["webpack://./src/styles/reminder.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,6BAA6B;IAC7B,8BAA8B;IAC9B,iDAAiD;IACjD,8CAA8C;IAC9C;;;oDAGgD;IAChD,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;IAChB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;AACvB;;AAEA,mBAAmB;AACnB;IACI,aAAa;IACb,8BAA8B;IAC9B,aAAa;IACb,kDAAkD;IAClD,wCAAwC;AAC5C;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,+CAA+C;AACnD;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,cAAc;AAClB","sourcesContent":[".reminder {\n    display: grid;\n    background-color: var(--card);\n    border-top: 1px solid darkgrey;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' \n                        'checkbox title title closeBtn' \n                        '. notes notes notes' \n                        '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n.reminder [type='checkbox'] {\n    grid-area: checkbox;\n    align-self: start;\n}\n\n.reminder h4 {\n    grid-area: title;\n}\n\n.reminder span {\n    grid-area: closeBtn;\n    align-self: start;\n}\n\n.reminder p:nth-of-type(1) {\n    grid-area: notes;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(2) {\n    grid-area: dueDate; \n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(3) {\n    grid-area: dueTime;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(4) {\n    grid-area: priority;\n}\n\n/* SHORT REMINDER */\n.reminder-short {\n    padding: 10px;\n    border-top: 1px solid darkgrey;\n    display: grid;\n    grid-template-columns: max-content 1fr max-content;\n    grid-template-areas: 'checkbox info btn'; \n}\n\n.reminder-short input {\n    grid-area: checkbox;\n}\n\n.reminder-short > div {\n    display: grid;\n    grid-area: info;\n    grid-template-areas: 'title date time priority';\n}\n\n.reminder-short > div h4 {\n    grid-area: title;\n}\n\n.reminder-short > div p:first-of-type {\n    grid-area: date;\n}\n\n.reminder-short > div p:nth-of-type(2) {\n    grid-area: time;\n}\n\n.reminder-short > div p:last-of-type {\n    grid-area: priority;\n}\n\n.reminder-short span {\n    grid-area: btn;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/reminder.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,6BAA6B;IAC7B,8BAA8B;IAC9B,iDAAiD;IACjD,8CAA8C;IAC9C;;;oDAGgD;IAChD,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;IAChB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;AACvB;;AAEA,mBAAmB;AACnB;IACI,aAAa;IACb,8BAA8B;IAC9B,aAAa;IACb,2CAA2C;IAC3C,wCAAwC;AAC5C;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,+CAA+C;IAC/C,qBAAqB;;AAEzB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,cAAc;AAClB","sourcesContent":[".reminder {\n    display: grid;\n    background-color: var(--card);\n    border-top: 1px solid darkgrey;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' \n                        'checkbox title title closeBtn' \n                        '. notes notes notes' \n                        '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n.reminder [type='checkbox'] {\n    grid-area: checkbox;\n    align-self: start;\n}\n\n.reminder h4 {\n    grid-area: title;\n}\n\n.reminder span {\n    grid-area: closeBtn;\n    align-self: start;\n}\n\n.reminder p:nth-of-type(1) {\n    grid-area: notes;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(2) {\n    grid-area: dueDate; \n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(3) {\n    grid-area: dueTime;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(4) {\n    grid-area: priority;\n}\n\n/* SHORT REMINDER */\n.reminder-short {\n    padding: 10px;\n    border-top: 1px solid darkgrey;\n    display: grid;\n    grid-template-columns: 30px 1fr max-content;\n    grid-template-areas: 'checkbox info btn'; \n}\n\n.reminder-short input {\n    grid-area: checkbox;\n}\n\n.reminder-short > div {\n    display: grid;\n    grid-area: info;\n    grid-template-areas: 'title date time priority';\n    justify-items: center;\n\n}\n\n.reminder-short > div h4 {\n    grid-area: title;\n}\n\n.reminder-short > div p:first-of-type {\n    grid-area: date;\n}\n\n.reminder-short > div p:nth-of-type(2) {\n    grid-area: time;\n}\n\n.reminder-short > div p:last-of-type {\n    grid-area: priority;\n}\n\n.reminder-short span {\n    grid-area: btn;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4748,43 +4750,6 @@ function openModal(e) {
 
 }
 
-function addReminderToModal(id,item) {
-
-    // let id = '#' + reminder
-
-    switch(id) {
-
-        case '#all':
-            console.log('all')
-            break;
-
-        case '#scheduled':
-            console.log('scheduled')
-            break;
-
-        case '#today':
-            console.log('today')
-            break;
-
-        case '#completed':
-            console.log('completed')
-            break;
-
-        case '#reminder-modal':
-            console.log('reminder-modal')
-            break;
-
-        case '#list-modal':
-            console.log('list-modal')
-            break;
-
-        default:
-            console.log('modal')
-    }
-}
-
-
-
 
 /***/ }),
 
@@ -4922,7 +4887,7 @@ function makeShortReminder(obj) {   //creates html
     container.append(wrapper)
 }
 
-function makeHtmlReminder(obj) {  //uses obj props to create reminder html
+function makeHtmlReminder(obj) {  //creates reminder for modals (categories)
 
     let reminderHtmlWrapper = document.createElement('div')
 
@@ -5001,6 +4966,41 @@ function publishReminder(flag) {//event listener fn
         ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.reminderList)
 
         reminderForm.reset()
+    }
+}
+
+function addReminderToModal(id,item) {
+
+    // let id = '#' + reminder
+
+    switch(id) {
+
+        case '#all':
+            console.log('all')
+            break;
+
+        case '#scheduled':
+            console.log('scheduled')
+            break;
+
+        case '#today':
+            console.log('today')
+            break;
+
+        case '#completed':
+            console.log('completed')
+            break;
+
+        case '#reminder-modal':
+            console.log('reminder-modal')
+            break;
+
+        case '#list-modal':
+            console.log('list-modal')
+            break;
+
+        default:
+            console.log('modal')
     }
 }
 
@@ -5083,11 +5083,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-document.querySelector('button#publishReminder').addEventListener('click', (0,_reminder__WEBPACK_IMPORTED_MODULE_1__.publishReminder)())
+// document.querySelector('button#publishReminder').addEventListener('click', publishReminder())
 
-let clickEvent = new Event('click')
+// let clickEvent = new Event('click')
 
-document.querySelector('#publishReminder').dispatchEvent(clickEvent)
+// document.querySelector('#publishReminder').dispatchEvent(clickEvent)
 
 // document.querySelector('#list-modal').classList.add('visible')  
 
