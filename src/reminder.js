@@ -191,11 +191,13 @@ function publishReminder(flag) {//event listener fn
 
         // makeHtmlReminder(reminder)
 
-        // makeShortReminder(reminder)
+        makeShortReminder(reminder)
 
-        makeShortReminder(new Reminder())
+        // makeShortReminder(new Reminder())
 
-        addReminderToModal()
+        // addReminderToModal()
+
+        console.log(reminders)
 
         updateCounters(reminder.reminderList)
 
@@ -270,8 +272,21 @@ function markComplete(e) {
 
     e.target.nextElementSibling.classList.toggle('completed')
 
-    // e.target.nextElementSibling.children[0].innerHTML
+    let title = e.target.nextElementSibling.children[0].innerHTML
 
+    for(let i = 0; i < reminders.length; i++) {
+        
+        if(title === reminders[i].reminderTitle) {
+            
+            if(reminders[i].reminderCompleted === false) {
+
+                reminders[i].reminderCompleted = true
+            }
+            else reminders[i].reminderCompleted = false
+        }
+    }
+
+    console.log(reminders)
 }
 
 function getReminderFrom(arr) {
