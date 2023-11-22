@@ -4962,11 +4962,13 @@ function publishReminder(flag) {//event listener fn
 
         // makeHtmlReminder(reminder)
 
-        // makeShortReminder(reminder)
+        makeShortReminder(reminder)
 
-        makeShortReminder(new Reminder())
+        // makeShortReminder(new Reminder())
 
-        addReminderToModal()
+        // addReminderToModal()
+
+        console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders)
 
         ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.reminderList)
 
@@ -5041,8 +5043,21 @@ function markComplete(e) {
 
     e.target.nextElementSibling.classList.toggle('completed')
 
-    // e.target.nextElementSibling.children[0].innerHTML
+    let title = e.target.nextElementSibling.children[0].innerHTML
 
+    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
+        
+        if(title === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
+            
+            if(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted === false) {
+
+                _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted = true
+            }
+            else _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted = false
+        }
+    }
+
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders)
 }
 
 function getReminderFrom(arr) {
