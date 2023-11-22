@@ -4750,6 +4750,10 @@ function openModal(e) {
 
 }
 
+function updateModals() {
+
+}
+
 
 /***/ }),
 
@@ -4976,40 +4980,25 @@ function publishReminder(flag) {//event listener fn
     }
 }
 
-function addReminderToModal(item) {
+function filterReminders(modal) {
 
-    let id = '#' + reminder.list
+    // let today = filter by dueDate matches today's date
 
-    switch(id) {
+    // let scheduled filter all reminders with dueDate
 
-        case '#all':
-            console.log('all')
-            document.querySelector('#all').append(item)
-            // break;
+    let all = _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.slice()
 
-        case '#scheduled':
-            console.log('scheduled')
-            break;
+    let completed = _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.filter(item => item.reminderCompleted === true)
 
-        case '#today':
-            console.log('today')
-            break;
+    switch(modal) {
 
-        case '#completed':
-            console.log('completed')
-            break;
+        case 'all':
+            return all
 
-        case '#reminder-modal':
-            console.log('reminder-modal')
-            break;
-
-        case '#list-modal':
-            console.log('list-modal')
-            break;
-
-        default:
-            console.log('modal')
+        case 'completed':
+            return completed
     }
+
 }
 
 function deleteReminderHtml(e) {
