@@ -4752,6 +4752,14 @@ function openModal(e) {
 
 function updateModals() {
 
+    let today = document.querySelector('#today + .modal')
+
+    let scheduled = document.querySelector('#scheduled + .modal')
+
+    let all = document.querySelector('#all + .modal')
+
+    let completed = document.querySelector('#completed + .modal')
+
 }
 
 
