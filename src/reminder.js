@@ -1,16 +1,19 @@
 export {publishReminder,Reminder,deleteReminderFromStorage,deleteReminderHtml}
-import {allReminders} from "./storage"
+import {reminders} from "./storage"
 import { updateCounters } from "./counters"
 
 class Reminder {
 
-    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium", list="reminders", completed=false} = {}) {
+    constructor({title="title", notes="notes", dueDate="dueDate", dueTime="dueTime", priority="medium", list="reminders", today=false, scheduled=false, all=true, completed=false} = {}) {
         this.reminderTitle = title
         this.reminderNotes = notes
         this.reminderDueDate = dueDate
         this.reminderDueTime = dueTime
         this.reminderPriority = priority
         this.reminderList = list
+        this.reminderToday = today
+        this.reminderScheduled = scheduled
+        this.reminderAll = all
         this.reminderCompleted = completed
     }
 
@@ -43,18 +46,18 @@ function getReminderData() { //gets inputs from reminder form, makes new obj
 
 function storeReminder() {
 
-    allReminders.push(getReminderData())
+    reminders.push(getReminderData())
 
     // console.log(reminderStorage)
 }
 
 function deleteReminderFromStorage(name) {
 
-    for(let i = 0; i < allReminders.length; i++) {
+    for(let i = 0; i < reminders.length; i++) {
 
-        if(name === allReminders[i].reminderTitle) {
+        if(name === reminders[i].reminderTitle) {
 
-            allReminders.splice(i, 1)
+            reminders.splice(i, 1)
         }
     }
 
@@ -175,7 +178,7 @@ function publishReminder(flag) {//event listener fn
     
         storeReminder()
 
-        let reminder = allReminders.at(-1)
+        let reminder = reminders.at(-1)
 
         let listId = "#" + reminder.list
 
@@ -192,21 +195,24 @@ function publishReminder(flag) {//event listener fn
 
         makeShortReminder(new Reminder())
 
+        addReminderToModal()
+
         updateCounters(reminder.reminderList)
 
         reminderForm.reset()
     }
 }
 
-function addReminderToModal(id,item) {
+function addReminderToModal(item) {
 
-    // let id = '#' + reminder
+    let id = '#' + reminder.list
 
     switch(id) {
 
         case '#all':
             console.log('all')
-            break;
+            document.querySelector('#all').append(item)
+            // break;
 
         case '#scheduled':
             console.log('scheduled')
@@ -263,6 +269,8 @@ function makeHtmlReminder2(reminderObj){
 function markComplete(e) {
 
     e.target.nextElementSibling.classList.toggle('completed')
+
+    // e.target.nextElementSibling.children[0].innerHTML
 
 }
 

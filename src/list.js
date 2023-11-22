@@ -1,7 +1,7 @@
 export {addListToPage,showDropDownList}
 import listIcon from './icons/calendar-text.svg'
 import CssFilterConverter from 'css-filter-converter'
-import { listStorage } from './storage'
+import { lists } from './storage'
 
 class List {
     constructor({name = 'New List', color = '#0f0'}={}) {
@@ -41,7 +41,7 @@ class List {
 }
 
 function storeList() {
-    listStorage.push(getListInputs())
+    lists.push(getListInputs())
 }
 
 function getListInputs() {   //creates obj from inputs and returns it
@@ -145,7 +145,7 @@ function addListToPage(e) { //shows html list on the page
 
     storeList()
 
-    let listObj = listStorage.at(-1)
+    let listObj = lists.at(-1)
 
     addNewListInputOption(listObj)
 

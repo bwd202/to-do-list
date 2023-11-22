@@ -1,4 +1,3 @@
-import { allReminders } from "./storage"
 import { publishReminder, Reminder } from "./reminder"
 
 // document.querySelector('button#publishReminder').addEventListener('click', publishReminder())
