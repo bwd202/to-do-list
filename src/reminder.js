@@ -188,7 +188,9 @@ function publishReminder(flag) {//event listener fn
 
         // makeHtmlReminder(reminder)
 
-        makeShortReminder(reminder)
+        // makeShortReminder(reminder)
+
+        makeShortReminder(new Reminder())
 
         updateCounters(reminder.reminderList)
 

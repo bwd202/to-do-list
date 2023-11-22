@@ -49,7 +49,7 @@
     padding: 10px;
     border-top: 1px solid darkgrey;
     display: grid;
-    grid-template-columns: 50px 1fr max-content;
+    grid-template-columns: max-content 1fr max-content;
     grid-template-areas: 'checkbox info btn'; 
 }
 
