@@ -5045,6 +5045,17 @@ function deleteReminderHtml(e) {
     }
 }
 
+function addReminderToModal(modal, reminder) {
+
+    switch(modal) {
+        case 'completed':
+            document.querySelector('#completed + .modal').firstElementChild.children[1].append(makeLongReminder(reminder))
+            break;
+    }
+
+    // modal.append(reminder)
+}
+
 function markComplete(e) {
 
     e.target.nextElementSibling.classList.toggle('completed')
@@ -5052,16 +5063,19 @@ function markComplete(e) {
     let title = e.target.nextElementSibling.children[0].innerHTML
 
     for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
+
+        let reminder = _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i]
         
-        if(title === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
+        if(title === reminder.reminderTitle) {
             
-            if(!_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted) {
+            if(!reminder.reminderCompleted) {
 
-                _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted = true
+                reminder.reminderCompleted = true
 
-                document.querySelector('#completed + .modal').firstElementChild.children[1].append(makeLongReminder(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i]))
+                addReminderToModal('completed', reminder)
             }
-            else _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted = false
+
+            else reminder.reminderCompleted = false
         }
     }
 
