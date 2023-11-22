@@ -116,7 +116,7 @@ function makeShortReminder(obj) {   //creates html
     container.append(wrapper)
 }
 
-function makeHtmlReminder(obj) {  //uses obj props to create reminder html
+function makeHtmlReminder(obj) {  //creates reminder for modals (categories)
 
     let reminderHtmlWrapper = document.createElement('div')
 
@@ -195,6 +195,41 @@ function publishReminder(flag) {//event listener fn
         updateCounters(reminder.reminderList)
 
         reminderForm.reset()
+    }
+}
+
+function addReminderToModal(id,item) {
+
+    // let id = '#' + reminder
+
+    switch(id) {
+
+        case '#all':
+            console.log('all')
+            break;
+
+        case '#scheduled':
+            console.log('scheduled')
+            break;
+
+        case '#today':
+            console.log('today')
+            break;
+
+        case '#completed':
+            console.log('completed')
+            break;
+
+        case '#reminder-modal':
+            console.log('reminder-modal')
+            break;
+
+        case '#list-modal':
+            console.log('list-modal')
+            break;
+
+        default:
+            console.log('modal')
     }
 }
 
