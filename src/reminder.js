@@ -240,6 +240,17 @@ function deleteReminderHtml(e) {
     }
 }
 
+function addReminderToModal(modal, reminder) {
+
+    switch(modal) {
+        case 'completed':
+            document.querySelector('#completed + .modal').firstElementChild.children[1].append(makeLongReminder(reminder))
+            break;
+    }
+
+    // modal.append(reminder)
+}
+
 function markComplete(e) {
 
     e.target.nextElementSibling.classList.toggle('completed')
@@ -247,16 +258,19 @@ function markComplete(e) {
     let title = e.target.nextElementSibling.children[0].innerHTML
 
     for(let i = 0; i < reminders.length; i++) {
+
+        let reminder = reminders[i]
         
-        if(title === reminders[i].reminderTitle) {
+        if(title === reminder.reminderTitle) {
             
-            if(!reminders[i].reminderCompleted) {
+            if(!reminder.reminderCompleted) {
 
-                reminders[i].reminderCompleted = true
+                reminder.reminderCompleted = true
 
-                document.querySelector('#completed + .modal').firstElementChild.children[1].append(makeLongReminder(reminders[i]))
+                addReminderToModal('completed', reminder)
             }
-            else reminders[i].reminderCompleted = false
+
+            else reminder.reminderCompleted = false
         }
     }
 
