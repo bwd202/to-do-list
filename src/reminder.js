@@ -247,8 +247,15 @@ function addReminderToModal(modal, reminder) {
             document.querySelector('#completed + .modal').firstElementChild.children[1].append(makeLongReminder(reminder))
             break;
     }
+}
 
-    // modal.append(reminder)
+function removeReminderFromModal(modal, reminder) {
+
+    switch(modal) {
+        case 'completed':
+            document.querySelector('#completed + .modal').firstElementChild.children[1].remove(reminder)
+            break;
+    }
 }
 
 function markComplete(e) {
@@ -270,7 +277,10 @@ function markComplete(e) {
                 addReminderToModal('completed', reminder)
             }
 
-            else reminder.reminderCompleted = false
+            else {
+                reminder.reminderCompleted = false
+                // removeReminderFromModal('completed',reminder)
+            }
         }
     }
 
