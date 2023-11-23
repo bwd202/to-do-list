@@ -4483,6 +4483,63 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/completed.js":
+/*!**************************!*\
+  !*** ./src/completed.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   crossOutHtml: () => (/* binding */ crossOutHtml)
+/* harmony export */ });
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+// deals with reminder completion feature
+
+
+
+let completed = []
+
+function crossOutHtml(e) {
+
+        console.log('checkbox clicked')
+
+        e.target.nextElementSibling.classList.toggle('completed')
+
+        let reminder = e.target.nextElementSibling.children[0].innerHTML
+
+        getCompleted(reminder)
+}
+
+function getCompleted(reminder) {
+    // changes reminderCompleted prop
+
+    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
+
+        if(reminder === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
+
+            completed.push(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i])
+        }
+    }
+}
+
+function markComplete() {
+    // sets reminderCompleted prop to true
+
+    for(let i = 0; i < completed.length; i++) {
+
+        completed[i].reminderComplete = true
+    }
+}
+
+function showCompleted() {
+    // shows completed reminders in modal
+
+}
+
+/***/ }),
+
 /***/ "./src/counters.js":
 /*!*************************!*\
   !*** ./src/counters.js ***!
@@ -4883,7 +4940,7 @@ function makeShortReminder(obj) {   //creates html
     
     checkbox.setAttribute('type','checkbox')
 
-    checkbox.addEventListener('change', markComplete)
+    // checkbox.addEventListener('change', markComplete)
 
     let info = document.createElement('div')
 
@@ -4938,7 +4995,7 @@ function makeLongReminder(obj) {  //html reminder for modal categories
     
     checkbox.setAttribute('type','checkbox')
 
-    checkbox.addEventListener('change', markComplete)
+    // checkbox.addEventListener('change', markComplete)
 
     let reminderTitle = document.createElement('h4')
 
@@ -5072,9 +5129,7 @@ function showCompleted(arr) {   // shows reminders in modal
         }
     }
 
-function markComplete(e) {
-
-    e.target.nextElementSibling.classList.toggle('completed')
+function getCompleted(e) {
 
     let title = e.target.nextElementSibling.children[0].innerHTML
 
@@ -5092,12 +5147,6 @@ function markComplete(e) {
             }            
         }
     }
-
-    showCompleted(completed)
-}
-
-function getCompleted() {
-
 }
 
 /***/ }),
@@ -5346,6 +5395,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
+/* harmony import */ var _completed_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./completed.js */ "./src/completed.js");
+
 
 
 
@@ -5373,6 +5424,10 @@ document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_9__.del
 document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_12__.closeModal)
 
 document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_12__.openModal)
+
+let checkboxes = document.querySelectorAll('[type="checkbox"]')
+
+checkboxes.forEach(checkbox => checkbox.addEventListener('change', _completed_js__WEBPACK_IMPORTED_MODULE_13__.crossOutHtml))
 
 // updateModals()
 })();
