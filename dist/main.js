@@ -2452,63 +2452,6 @@ button#openListModal {
     justify-items: center;
 }
 
-/* REMINDER MODAL */
-
-#reminder-modal {
-    /* display: grid; */
-
-}
-
-#reminder-modal .form-wrapper {
-    min-height: 100vh;
-}
-
-#reminder-modal form {
-    grid-template-areas: 'title title title title'
-                         'notes notes notes notes' 
-                         '. date date .' 
-                         '. time time .' 
-                         '. priority priority .'
-                         'list list list list' 
-                         '. done reset .';
-}
-
-#reminder-modal label:first-of-type {
-    grid-area: title;
-}
-
-#reminder-modal label:nth-of-type(2) {
-    grid-area: notes;
-}
-
-#reminder-modal label:nth-of-type(3) {
-    grid-area: date;
-}
-
-#reminder-modal label:nth-of-type(4) {
-    grid-area: time;
-}
-
-#reminder-modal label:nth-of-type(5) {
-    grid-area: priority;
-}
-
-#reminder-modal label:nth-of-type(6) {
-    grid-area: list;
-}
-
-#reminder-modal input {
-    width: 150px;
-}
-
-#reminder-modal button:first-of-type {
-    grid-area: done;
-}
-
-#reminder-modal button:last-of-type {
-    grid-area: reset;
-}
-
 /* LIST MODAL */
 
 #list-modal form {
@@ -2532,7 +2475,7 @@ button#openListModal {
 
 #list-modal button:last-of-type {
     grid-area: reset;
-}`, "",{"version":3,"sources":["webpack://./src/styles/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,gBAAgB;IAChB,SAAS;AACb;;AAEA;IACI,aAAa;IACb,qCAAqC;IACrC,mCAAmC;IACnC,SAAS;IACT,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;IACrB,iBAAiB;AACrB;;AAEA;IACI,SAAS;IACT,mBAAmB;IACnB,aAAa;IACb,YAAY;IACZ,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,oBAAoB;IACpB,QAAQ;AACZ;;AAEA;IACI,sCAAsC;;AAE1C;;AAEA;IACI,YAAY;IACZ,qBAAqB;AACzB;;AAEA,mBAAmB;;AAEnB;IACI,mBAAmB;;AAEvB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI;;;;;;yCAMqC;AACzC;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB;;AAEA,eAAe;;AAEf;IACI;;yCAEqC;AACzC;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-items: end; \n    gap: 10px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    grid-template-rows: repeat(7, 50px);\n    gap: 30px;\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n    padding-top: 60px;\n}\n\nfooter > button {\n    border: 0;\n    border-radius: 14px;\n    padding: 10px;\n    width: 200px;\n    color: blue;\n    display: grid;\n    align-items: center;\n    justify-items: start;\n    gap: 5px;\n}\n\nbutton#new-reminder {\n    grid-template-columns: max-content 1fr;\n\n}\n\nbutton#openListModal {\n    height: 70px;\n    justify-items: center;\n}\n\n/* REMINDER MODAL */\n\n#reminder-modal {\n    /* display: grid; */\n\n}\n\n#reminder-modal .form-wrapper {\n    min-height: 100vh;\n}\n\n#reminder-modal form {\n    grid-template-areas: 'title title title title'\n                         'notes notes notes notes' \n                         '. date date .' \n                         '. time time .' \n                         '. priority priority .'\n                         'list list list list' \n                         '. done reset .';\n}\n\n#reminder-modal label:first-of-type {\n    grid-area: title;\n}\n\n#reminder-modal label:nth-of-type(2) {\n    grid-area: notes;\n}\n\n#reminder-modal label:nth-of-type(3) {\n    grid-area: date;\n}\n\n#reminder-modal label:nth-of-type(4) {\n    grid-area: time;\n}\n\n#reminder-modal label:nth-of-type(5) {\n    grid-area: priority;\n}\n\n#reminder-modal label:nth-of-type(6) {\n    grid-area: list;\n}\n\n#reminder-modal input {\n    width: 150px;\n}\n\n#reminder-modal button:first-of-type {\n    grid-area: done;\n}\n\n#reminder-modal button:last-of-type {\n    grid-area: reset;\n}\n\n/* LIST MODAL */\n\n#list-modal form {\n    grid-template-areas: '. input input .' \n                         '. color color .' \n                         '. done reset .';\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,gBAAgB;IAChB,SAAS;AACb;;AAEA;IACI,aAAa;IACb,qCAAqC;IACrC,mCAAmC;IACnC,SAAS;IACT,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;IACrB,iBAAiB;AACrB;;AAEA;IACI,SAAS;IACT,mBAAmB;IACnB,aAAa;IACb,YAAY;IACZ,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,oBAAoB;IACpB,QAAQ;AACZ;;AAEA;IACI,sCAAsC;;AAE1C;;AAEA;IACI,YAAY;IACZ,qBAAqB;AACzB;;AAEA,eAAe;;AAEf;IACI;;yCAEqC;AACzC;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-items: end; \n    gap: 10px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-columns: repeat(4, 1fr);\n    grid-template-rows: repeat(7, 50px);\n    gap: 30px;\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n    padding-top: 60px;\n}\n\nfooter > button {\n    border: 0;\n    border-radius: 14px;\n    padding: 10px;\n    width: 200px;\n    color: blue;\n    display: grid;\n    align-items: center;\n    justify-items: start;\n    gap: 5px;\n}\n\nbutton#new-reminder {\n    grid-template-columns: max-content 1fr;\n\n}\n\nbutton#openListModal {\n    height: 70px;\n    justify-items: center;\n}\n\n/* LIST MODAL */\n\n#list-modal form {\n    grid-template-areas: '. input input .' \n                         '. color color .' \n                         '. done reset .';\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2849,6 +2792,86 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.reminder {
 .reminder-short span {
     grid-area: btn;
 }`, "",{"version":3,"sources":["webpack://./src/styles/reminder.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,6BAA6B;IAC7B,8BAA8B;IAC9B,iDAAiD;IACjD,8CAA8C;IAC9C;;;oDAGgD;IAChD,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;IAChB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;AACvB;;AAEA,mBAAmB;AACnB;IACI,aAAa;IACb,8BAA8B;IAC9B,aAAa;IACb,2CAA2C;IAC3C,wCAAwC;AAC5C;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,+CAA+C;IAC/C,2CAA2C;IAC3C,qBAAqB;;AAEzB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,cAAc;AAClB","sourcesContent":[".reminder {\n    display: grid;\n    background-color: var(--card);\n    border-top: 1px solid darkgrey;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' \n                        'checkbox title title closeBtn' \n                        '. notes notes notes' \n                        '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n.reminder [type='checkbox'] {\n    grid-area: checkbox;\n    align-self: start;\n}\n\n.reminder h4 {\n    grid-area: title;\n}\n\n.reminder span {\n    grid-area: closeBtn;\n    align-self: start;\n}\n\n.reminder p:nth-of-type(1) {\n    grid-area: notes;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(2) {\n    grid-area: dueDate; \n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(3) {\n    grid-area: dueTime;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(4) {\n    grid-area: priority;\n}\n\n/* SHORT REMINDER */\n.reminder-short {\n    padding: 10px;\n    border-top: 1px solid darkgrey;\n    display: grid;\n    grid-template-columns: 30px 1fr max-content;\n    grid-template-areas: 'checkbox info btn'; \n}\n\n.reminder-short input {\n    grid-area: checkbox;\n}\n\n.reminder-short > div {\n    display: grid;\n    grid-area: info;\n    grid-template-areas: 'title date time priority';\n    grid-template-columns: 1fr 100px 100px 50px;\n    justify-items: center;\n\n}\n\n.reminder-short > div h4 {\n    grid-area: title;\n    justify-self: start;\n}\n\n.reminder-short > div p:first-of-type {\n    grid-area: date;\n}\n\n.reminder-short > div p:nth-of-type(2) {\n    grid-area: time;\n}\n\n.reminder-short > div p:last-of-type {\n    grid-area: priority;\n}\n\n.reminder-short span {\n    grid-area: btn;\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/reminderModal.css":
+/*!****************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/reminderModal.css ***!
+  \****************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `/* #reminder-modal {
+    display: grid;
+} */
+
+#reminder-modal .form-wrapper {
+    min-height: 100vh;
+}
+
+#reminder-modal form {
+    grid-template-areas: 'title title title title'
+                         'notes notes notes notes' 
+                         '. date date .' 
+                         '. time time .' 
+                         '. priority priority .'
+                         'list list list list' 
+                         '. done reset .';
+}
+
+#reminder-modal label:first-of-type {
+    grid-area: title;
+}
+
+#reminder-modal label:nth-of-type(2) {
+    grid-area: notes;
+}
+
+#reminder-modal label:nth-of-type(3) {
+    grid-area: date;
+}
+
+#reminder-modal label:nth-of-type(4) {
+    grid-area: time;
+}
+
+#reminder-modal label:nth-of-type(5) {
+    grid-area: priority;
+}
+
+#reminder-modal label:nth-of-type(6) {
+    grid-area: list;
+}
+
+#reminder-modal input {
+    width: 150px;
+}
+
+#reminder-modal button:first-of-type {
+    grid-area: done;
+}
+
+#reminder-modal button:last-of-type {
+    grid-area: reset;
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/reminderModal.css"],"names":[],"mappings":"AAAA;;GAEG;;AAEH;IACI,iBAAiB;AACrB;;AAEA;IACI;;;;;;yCAMqC;AACzC;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["/* #reminder-modal {\n    display: grid;\n} */\n\n#reminder-modal .form-wrapper {\n    min-height: 100vh;\n}\n\n#reminder-modal form {\n    grid-template-areas: 'title title title title'\n                         'notes notes notes notes' \n                         '. date date .' \n                         '. time time .' \n                         '. priority priority .'\n                         'list list list list' \n                         '. done reset .';\n}\n\n#reminder-modal label:first-of-type {\n    grid-area: title;\n}\n\n#reminder-modal label:nth-of-type(2) {\n    grid-area: notes;\n}\n\n#reminder-modal label:nth-of-type(3) {\n    grid-area: date;\n}\n\n#reminder-modal label:nth-of-type(4) {\n    grid-area: time;\n}\n\n#reminder-modal label:nth-of-type(5) {\n    grid-area: priority;\n}\n\n#reminder-modal label:nth-of-type(6) {\n    grid-area: list;\n}\n\n#reminder-modal input {\n    width: 150px;\n}\n\n#reminder-modal button:first-of-type {\n    grid-area: done;\n}\n\n#reminder-modal button:last-of-type {\n    grid-area: reset;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4210,6 +4233,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/styles/reminderModal.css":
+/*!**************************************!*\
+  !*** ./src/styles/reminderModal.css ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_reminderModal_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./reminderModal.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/reminderModal.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_reminderModal_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_reminderModal_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_reminderModal_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_reminderModal_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -5395,12 +5473,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/footer.css */ "./src/styles/footer.css");
 /* harmony import */ var _styles_list_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/list.css */ "./src/styles/list.css");
 /* harmony import */ var _styles_reminder_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/reminder.css */ "./src/styles/reminder.css");
-/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./list */ "./src/list.js");
-/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-/* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
-/* harmony import */ var _completed_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./completed.js */ "./src/completed.js");
+/* harmony import */ var _styles_reminderModal_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/reminderModal.css */ "./src/styles/reminderModal.css");
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./list */ "./src/list.js");
+/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
+/* harmony import */ var _completed_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./completed.js */ "./src/completed.js");
+
 
 
 
@@ -5418,19 +5498,19 @@ __webpack_require__.r(__webpack_exports__);
 
 // EVENT LISTENERS
 
-document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_9__.publishReminder)
+document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.publishReminder)
 
-document.querySelector('button#addList').addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_8__.addListToPage)
+document.querySelector('button#addList').addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_9__.addListToPage)
 
-document.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_8__.showDropDownList)
+document.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_9__.showDropDownList)
 
-document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_9__.deleteReminderHtml)
+document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.deleteReminderHtml)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_12__.closeModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_13__.closeModal)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_12__.openModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_13__.openModal)
 
-document.addEventListener('click', _completed_js__WEBPACK_IMPORTED_MODULE_13__.crossOutHtml)
+document.addEventListener('click', _completed_js__WEBPACK_IMPORTED_MODULE_14__.crossOutHtml)
 })();
 
 /******/ })()

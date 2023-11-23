@@ -40,63 +40,6 @@ button#openListModal {
     justify-items: center;
 }
 
-/* REMINDER MODAL */
-
-#reminder-modal {
-    /* display: grid; */
-
-}
-
-#reminder-modal .form-wrapper {
-    min-height: 100vh;
-}
-
-#reminder-modal form {
-    grid-template-areas: 'title title title title'
-                         'notes notes notes notes' 
-                         '. date date .' 
-                         '. time time .' 
-                         '. priority priority .'
-                         'list list list list' 
-                         '. done reset .';
-}
-
-#reminder-modal label:first-of-type {
-    grid-area: title;
-}
-
-#reminder-modal label:nth-of-type(2) {
-    grid-area: notes;
-}
-
-#reminder-modal label:nth-of-type(3) {
-    grid-area: date;
-}
-
-#reminder-modal label:nth-of-type(4) {
-    grid-area: time;
-}
-
-#reminder-modal label:nth-of-type(5) {
-    grid-area: priority;
-}
-
-#reminder-modal label:nth-of-type(6) {
-    grid-area: list;
-}
-
-#reminder-modal input {
-    width: 150px;
-}
-
-#reminder-modal button:first-of-type {
-    grid-area: done;
-}
-
-#reminder-modal button:last-of-type {
-    grid-area: reset;
-}
-
 /* LIST MODAL */
 
 #list-modal form {
