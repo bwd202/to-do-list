@@ -27,8 +27,4 @@ document.addEventListener('click', closeModal)
 
 document.addEventListener('click', openModal)
 
-let checkboxes = document.querySelectorAll('[type="checkbox"]')
-
-checkboxes.forEach(checkbox => checkbox.addEventListener('change', crossOutHtml))
-
-// updateModals()
+document.addEventListener('click', crossOutHtml)

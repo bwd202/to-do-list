@@ -6,6 +6,8 @@ let completed = []
 
 function crossOutHtml(e) {
 
+    if(e.target.type === 'checkbox') {
+
         console.log('checkbox clicked')
 
         e.target.nextElementSibling.classList.toggle('completed')
@@ -13,6 +15,7 @@ function crossOutHtml(e) {
         let reminder = e.target.nextElementSibling.children[0].innerHTML
 
         getCompleted(reminder)
+    } 
 }
 
 function getCompleted(reminder) {

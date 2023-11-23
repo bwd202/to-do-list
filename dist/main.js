@@ -4503,6 +4503,8 @@ let completed = []
 
 function crossOutHtml(e) {
 
+    if(e.target.type === 'checkbox') {
+
         console.log('checkbox clicked')
 
         e.target.nextElementSibling.classList.toggle('completed')
@@ -4510,6 +4512,7 @@ function crossOutHtml(e) {
         let reminder = e.target.nextElementSibling.children[0].innerHTML
 
         getCompleted(reminder)
+    } 
 }
 
 function getCompleted(reminder) {
@@ -5425,11 +5428,7 @@ document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_12__.closeMod
 
 document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_12__.openModal)
 
-let checkboxes = document.querySelectorAll('[type="checkbox"]')
-
-checkboxes.forEach(checkbox => checkbox.addEventListener('change', _completed_js__WEBPACK_IMPORTED_MODULE_13__.crossOutHtml))
-
-// updateModals()
+document.addEventListener('click', _completed_js__WEBPACK_IMPORTED_MODULE_13__.crossOutHtml)
 })();
 
 /******/ })()
