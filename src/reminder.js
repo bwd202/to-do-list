@@ -77,7 +77,7 @@ function makeShortReminder(obj) {   //creates html
     
     checkbox.setAttribute('type','checkbox')
 
-    checkbox.addEventListener('change', markComplete)
+    // checkbox.addEventListener('change', markComplete)
 
     let info = document.createElement('div')
 
@@ -132,7 +132,7 @@ function makeLongReminder(obj) {  //html reminder for modal categories
     
     checkbox.setAttribute('type','checkbox')
 
-    checkbox.addEventListener('change', markComplete)
+    // checkbox.addEventListener('change', markComplete)
 
     let reminderTitle = document.createElement('h4')
 
@@ -266,9 +266,7 @@ function showCompleted(arr) {   // shows reminders in modal
         }
     }
 
-function markComplete(e) {
-
-    e.target.nextElementSibling.classList.toggle('completed')
+function getCompleted(e) {
 
     let title = e.target.nextElementSibling.children[0].innerHTML
 
@@ -286,10 +284,4 @@ function markComplete(e) {
             }            
         }
     }
-
-    showCompleted(completed)
-}
-
-function getCompleted() {
-
 }

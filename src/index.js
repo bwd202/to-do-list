@@ -11,6 +11,7 @@ import {publishReminder,deleteReminderHtml,showCompleted} from './reminder.js'
 import {reminders} from './storage'
 import {updateCounters } from './counters.js'
 import {openModal, closeModal, updateModals} from './modal'
+import {crossOutHtml} from './completed.js'
 
 // EVENT LISTENERS
 
@@ -25,5 +26,9 @@ document.addEventListener('click', deleteReminderHtml)
 document.addEventListener('click', closeModal)
 
 document.addEventListener('click', openModal)
+
+let checkboxes = document.querySelectorAll('[type="checkbox"]')
+
+checkboxes.forEach(checkbox => checkbox.addEventListener('change', crossOutHtml))
 
 // updateModals()
