@@ -1,4 +1,4 @@
-export {publishReminder,Reminder,deleteReminderFromStorage,deleteReminderHtml,makeLongReminder}
+export {publishReminder,Reminder,deleteReminderFromStorage,deleteReminderHtml,makeLongReminder,showCompleted}
 import {reminders} from "./storage"
 import { updateCounters } from "./counters"
 import { updateModals } from "./modal"
@@ -258,33 +258,38 @@ function removeReminderFromModal(modal, reminder) {
     }
 }
 
+function showCompleted(arr) {   // shows reminders in modal
+
+    for(let i = 0; i < arr.length; i++) {
+
+            document.querySelector('#completed + .modal').firstElementChild.children[1].append(makeLongReminder(arr[i]))
+        }
+    }
+
 function markComplete(e) {
 
     e.target.nextElementSibling.classList.toggle('completed')
 
     let title = e.target.nextElementSibling.children[0].innerHTML
 
+    let completed = []
+
     for(let i = 0; i < reminders.length; i++) {
 
         let reminder = reminders[i]
         
         if(title === reminder.reminderTitle) {
-            
-            if(!reminder.reminderCompleted) {
 
-                reminder.reminderCompleted = true
+            if(!completed.includes(reminder)) {
 
-                addReminderToModal('completed', reminder)
-            }
-
-            else {
-                reminder.reminderCompleted = false
-                // removeReminderFromModal('completed',reminder)
-            }
+                completed.push(reminder)
+            }            
         }
     }
 
-    // updateModals()
+    showCompleted(completed)
+}
 
-    // console.log(reminders)
+function getCompleted() {
+
 }

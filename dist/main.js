@@ -4798,7 +4798,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   deleteReminderFromStorage: () => (/* binding */ deleteReminderFromStorage),
 /* harmony export */   deleteReminderHtml: () => (/* binding */ deleteReminderHtml),
 /* harmony export */   makeLongReminder: () => (/* binding */ makeLongReminder),
-/* harmony export */   publishReminder: () => (/* binding */ publishReminder)
+/* harmony export */   publishReminder: () => (/* binding */ publishReminder),
+/* harmony export */   showCompleted: () => (/* binding */ showCompleted)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _counters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counters */ "./src/counters.js");
@@ -5063,35 +5064,40 @@ function removeReminderFromModal(modal, reminder) {
     }
 }
 
+function showCompleted(arr) {   // shows reminders in modal
+
+    for(let i = 0; i < arr.length; i++) {
+
+            document.querySelector('#completed + .modal').firstElementChild.children[1].append(makeLongReminder(arr[i]))
+        }
+    }
+
 function markComplete(e) {
 
     e.target.nextElementSibling.classList.toggle('completed')
 
     let title = e.target.nextElementSibling.children[0].innerHTML
 
+    let completed = []
+
     for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
 
         let reminder = _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i]
         
         if(title === reminder.reminderTitle) {
-            
-            if(!reminder.reminderCompleted) {
 
-                reminder.reminderCompleted = true
+            if(!completed.includes(reminder)) {
 
-                addReminderToModal('completed', reminder)
-            }
-
-            else {
-                reminder.reminderCompleted = false
-                // removeReminderFromModal('completed',reminder)
-            }
+                completed.push(reminder)
+            }            
         }
     }
 
-    // updateModals()
+    showCompleted(completed)
+}
 
-    // console.log(reminders)
+function getCompleted() {
+
 }
 
 /***/ }),
@@ -5113,30 +5119,6 @@ __webpack_require__.r(__webpack_exports__);
 let lists = []
 
 let reminders = []
-
-/***/ }),
-
-/***/ "./src/testing.js":
-/*!************************!*\
-  !*** ./src/testing.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
-
-
-// document.querySelector('button#publishReminder').addEventListener('click', publishReminder())
-
-// let clickEvent = new Event('click')
-
-// document.querySelector('#publishReminder').dispatchEvent(clickEvent)
-
-// document.querySelector('#list-modal').classList.add('visible')  
-
-// addList.dispatchEvent(clickEvent)
-
 
 /***/ }),
 
@@ -5363,9 +5345,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
-/* harmony import */ var _testing__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./testing */ "./src/testing.js");
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
-
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
 
 
 
@@ -5390,12 +5370,11 @@ document.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_8__.showDropDo
 
 document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_9__.deleteReminderHtml)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_13__.closeModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_12__.closeModal)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_13__.openModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_12__.openModal)
 
-;(0,_modal__WEBPACK_IMPORTED_MODULE_13__.updateModals)()
-
+// updateModals()
 })();
 
 /******/ })()

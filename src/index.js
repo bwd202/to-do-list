@@ -7,10 +7,9 @@ import './styles/footer.css'
 import './styles/list.css'
 import './styles/reminder.css'
 import {addListToPage,showDropDownList} from './list'
-import {publishReminder,deleteReminderHtml} from './reminder.js'
+import {publishReminder,deleteReminderHtml,showCompleted} from './reminder.js'
 import {reminders} from './storage'
 import {updateCounters } from './counters.js'
-import { testReminder } from './testing'
 import {openModal, closeModal, updateModals} from './modal'
 
 // EVENT LISTENERS
@@ -27,4 +26,4 @@ document.addEventListener('click', closeModal)
 
 document.addEventListener('click', openModal)
 
-updateModals()
+// updateModals()
