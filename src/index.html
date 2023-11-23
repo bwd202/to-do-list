@@ -73,27 +73,28 @@
                 <div class="wrapper">
                     <span id="reminder-modal-close-btn" class="button modal-close-btn">&times;</span>
                     <form id="reminderForm" action="/">
-                        <label>Title<input type="text" placeholder="take dogs for a walk" name="reminderTitle" maxlength="20" class="input"></label>
-                        <label>Notes<input type="text" placeholder="bring poop bags" name="reminderNotes" maxlength="20" class="input"></label>
-                        <label>Due Date<input type="date" name="reminderDueDate" class=""></label>
-                        <label>Due Time<input type="time" name="reminderDueTime" class=""></label>
-                        <label>Priority
-                            <select name="reminderPriority">
-                                <option value="1">low</option>
-                                <option value="2" selected>medium</option>
-                                <option value="3">high</option>
-                            </select>
-                        </label>
-                        <label>Select List
-                            <select name="reminderSelectList">
-                                <option value="reminders">Reminders</option>
-                            </select>
-                        </label>
+                        <label>Title</label>
+                        <input type="text" placeholder="take dogs for a walk" name="reminderTitle" maxlength="20" class="input">
+                        <label>Notes</label>
+                        <input type="text" placeholder="bring poop bags" name="reminderNotes" maxlength="20" class="input">
+                        <label>Due Date</label>
+                        <input type="date" name="reminderDueDate" class="input">
+                        <label>Due Time</label>
+                        <input type="time" name="reminderDueTime" class="input">
+                        <label>Priority</label>
+                        <select name="reminderPriority">
+                            <option value="1">low</option>
+                            <option value="2" selected>medium</option>
+                            <option value="3">high</option>
+                        </select>
+                        <label>List</label>
+                        <select name="reminderSelectList">
+                            <option value="reminders">Reminders</option>
+                        </select>
                         <button id="publishReminder" type="button">Done</button>
                         <button type="reset">Reset</button> 
                     </form>
                 </div>
-                
             </div>
             <button id="openListModal" class="button modal-btn"><span>Add List</span></button>
             <div id="list-modal" class="modal" hidden>

@@ -1,19 +1,49 @@
-/* #reminder-modal {
+#reminder-modal {
     display: grid;
-} */
+}
 
 #reminder-modal .form-wrapper {
     min-height: 100vh;
 }
 
-#reminder-modal form {
+/* #reminder-modal form {
     grid-template-areas: 'title title title title'
                          'notes notes notes notes' 
-                         '. date date .' 
-                         '. time time .' 
-                         '. priority priority .'
+                         'date date date date' 
+                         'time time time time' 
+                         'priority priority priority priority'
                          'list list list list' 
                          '. done reset .';
+} */
+
+#reminder-modal form {
+    grid-template-areas: 'title title'
+                         'notes notes' 
+                         'date date' 
+                         'time time' 
+                         'priority priority'
+                         'list list' 
+                         'done reset';
+}
+
+/* #reminder-modal form {
+    grid-template-areas: 'title input'
+                         'notes input' 
+                         'date input' 
+                         'time time' 
+                         'priority priority'
+                         'list list' 
+                         'done reset';
+} */
+
+#reminder-modal input {
+    margin-left: 5px;
+    width: 150px;
+}
+
+#reminder-modal select {
+    text-align: center;
+    width: 150px;
 }
 
 #reminder-modal label:first-of-type {
@@ -38,10 +68,6 @@
 
 #reminder-modal label:nth-of-type(6) {
     grid-area: list;
-}
-
-#reminder-modal input {
-    width: 150px;
 }
 
 #reminder-modal button:first-of-type {
