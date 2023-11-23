@@ -8,7 +8,7 @@ function crossOutHtml(e) {
 
     if(e.target.type === 'checkbox') {
 
-        console.log('checkbox clicked')
+        // console.log('checkbox clicked')
 
         e.target.nextElementSibling.classList.toggle('completed')
 
@@ -28,6 +28,8 @@ function getCompleted(reminder) {
             completed.push(reminders[i])
         }
     }
+
+    console.log(completed)
 }
 
 function markComplete() {

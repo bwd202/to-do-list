@@ -196,7 +196,7 @@ function publishReminder() {//event listener fn
 
         // addReminderToModal()
 
-        console.log(reminders)
+        // console.log(reminders)
 
         updateCounters(reminder.reminderList)
 
