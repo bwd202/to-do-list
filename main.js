@@ -4611,55 +4611,64 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let completed = []
+let completed = [];
 
 function crossOutHtml(e) {
 
-    if(e.target.type === 'checkbox') {
+    if (e.target.type === "checkbox") {
 
         // console.log('checkbox clicked')
 
-        e.target.nextElementSibling.classList.toggle('completed')
+        e.target.nextElementSibling.classList.toggle("completed");
 
-        let reminder = e.target.nextElementSibling.children[0].innerHTML
+        let reminder = e.target.nextElementSibling.children[0].innerHTML;
 
-        getCompleted(reminder)
-    } 
+        markComplete(reminder);
+    }
+}
+
+function markComplete(item) {
+    // sets reminderCompleted prop to true
+
+    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
+
+        if(!_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted) {
+
+            if(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle === item) {
+
+                _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted = true
+            } 
+
+        } else if(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted) {
+
+            if(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle === item) {
+
+                _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted = false
+            }
+        }
+    }
+
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders);
 }
 
 function getCompleted(reminder) {
     // changes reminderCompleted prop
 
-    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
-
-        if(reminder === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
-
-            if(!completed.includes(reminder)) {
-
-                completed.push(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i])
+    for (let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
+        if (reminder === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
+            if (!completed.includes(reminder)) {
+                completed.push(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i]);
             }
         }
     }
-    
-    markComplete()
 
-
-    console.log(completed)
-}
-
-function markComplete() {
-    // sets reminderCompleted prop to true
-
-    for(let i = 0; i < completed.length; i++) {
-
-        completed[i].reminderComplete = true
-    }
+    console.log(completed);
 }
 
 function showCompleted() {
     // shows completed reminders in modal
-
 }
+
 
 /***/ }),
 
