@@ -2817,7 +2817,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `#reminder-modal {
-    display: grid;
+    /* display: grid; */
 }
 
 #reminder-modal .form-wrapper {
@@ -2905,7 +2905,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#reminder-modal {
 #reminder-modal button:last-of-type {
     grid-area: reset;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/reminderModal.css"],"names":[],"mappings":"AAAA;IACI,aAAa;AACjB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,WAAW;IACX,oEAAoE;IACpE;;;;;;yCAMqC;AACzC;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,eAAe;IACf,uBAAuB;AAC3B;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["#reminder-modal {\n    display: grid;\n}\n\n#reminder-modal .form-wrapper {\n    min-height: 100vh;\n}\n\n#reminder-modal form {\n    gap: 30px 0;\n    grid-template-columns: minmax(50px,1fr) 100px 200px minmax(50px,1fr);\n    grid-template-areas: '. title titleInput .'\n                         '. notes notesInput .' \n                         '. date dateInput .' \n                         '. time timeInput .' \n                         '. priority prioritySelect .'\n                         '. list listSelect .' \n                         '. done reset .';\n}\n\n#reminder-modal input {\n    width: 150px;\n}\n\n#reminder-modal select {\n    text-align: center;\n    width: 150px;\n}\n\n#reminder-modal label:first-of-type {\n    grid-area: title;\n}\n\n#reminder-modal input:first-of-type {\n    grid-area: titleInput;\n}\n\n#reminder-modal label:nth-of-type(2) {\n    grid-area: notes;\n}\n\n#reminder-modal input:nth-of-type(2) {\n    grid-area: notesInput;\n}\n\n#reminder-modal label:nth-of-type(3) {\n    grid-area: date;\n}\n\n#reminder-modal input:nth-of-type(3) {\n    grid-area: dateInput;\n}\n\n#reminder-modal label:nth-of-type(4) {\n    grid-area: time;\n}\n\n#reminder-modal input:nth-of-type(4) {\n    grid-area: timeInput;\n}\n\n#reminder-modal label:nth-of-type(5) {\n    grid-area: priority;\n}\n\n#reminder-modal select:nth-of-type(1) {\n    grid-area: prioritySelect;\n}\n\n#reminder-modal label:nth-of-type(6) {\n    grid-area: list;\n}\n\n#reminder-modal select:nth-of-type(2) {\n    grid-area: listSelect;\n}\n\n#reminder-modal button {\n    width: 100px;\n}\n\n#reminder-modal button:first-of-type {\n    grid-area: done;\n    /* justify-self: end; */\n}\n\n#reminder-modal button:last-of-type {\n    grid-area: reset;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/reminderModal.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,WAAW;IACX,oEAAoE;IACpE;;;;;;yCAMqC;AACzC;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,eAAe;IACf,uBAAuB;AAC3B;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["#reminder-modal {\n    /* display: grid; */\n}\n\n#reminder-modal .form-wrapper {\n    min-height: 100vh;\n}\n\n#reminder-modal form {\n    gap: 30px 0;\n    grid-template-columns: minmax(50px,1fr) 100px 200px minmax(50px,1fr);\n    grid-template-areas: '. title titleInput .'\n                         '. notes notesInput .' \n                         '. date dateInput .' \n                         '. time timeInput .' \n                         '. priority prioritySelect .'\n                         '. list listSelect .' \n                         '. done reset .';\n}\n\n#reminder-modal input {\n    width: 150px;\n}\n\n#reminder-modal select {\n    text-align: center;\n    width: 150px;\n}\n\n#reminder-modal label:first-of-type {\n    grid-area: title;\n}\n\n#reminder-modal input:first-of-type {\n    grid-area: titleInput;\n}\n\n#reminder-modal label:nth-of-type(2) {\n    grid-area: notes;\n}\n\n#reminder-modal input:nth-of-type(2) {\n    grid-area: notesInput;\n}\n\n#reminder-modal label:nth-of-type(3) {\n    grid-area: date;\n}\n\n#reminder-modal input:nth-of-type(3) {\n    grid-area: dateInput;\n}\n\n#reminder-modal label:nth-of-type(4) {\n    grid-area: time;\n}\n\n#reminder-modal input:nth-of-type(4) {\n    grid-area: timeInput;\n}\n\n#reminder-modal label:nth-of-type(5) {\n    grid-area: priority;\n}\n\n#reminder-modal select:nth-of-type(1) {\n    grid-area: prioritySelect;\n}\n\n#reminder-modal label:nth-of-type(6) {\n    grid-area: list;\n}\n\n#reminder-modal select:nth-of-type(2) {\n    grid-area: listSelect;\n}\n\n#reminder-modal button {\n    width: 100px;\n}\n\n#reminder-modal button:first-of-type {\n    grid-area: done;\n    /* justify-self: end; */\n}\n\n#reminder-modal button:last-of-type {\n    grid-area: reset;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4634,9 +4634,15 @@ function getCompleted(reminder) {
 
         if(reminder === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
 
-            completed.push(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i])
+            if(!completed.includes(reminder)) {
+
+                completed.push(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i])
+            }
         }
     }
+    
+    markComplete()
+
 
     console.log(completed)
 }
@@ -5010,17 +5016,17 @@ class Reminder {
 
 function getReminderData() { //gets inputs from reminder form, makes new obj
 
-    let title = document.querySelector('input#title').value
+    let title = document.querySelector('#reminderForm input:first-of-type').value
 
-    let notes = document.querySelector('input#notes').value
+    let notes = document.querySelector('#reminderForm input:nth-of-type(2)').value
 
-    let dueDate = document.querySelector('input#dueDate').value
+    let dueDate = document.querySelector('#reminderForm input:nth-of-type(3)').value
 
-    let dueTime = document.querySelector('input#dueTime').value
+    let dueTime = document.querySelector('#reminderForm input:nth-of-type(4)').value
 
-    let priority = document.querySelector('select#priority').value
+    let priority = document.querySelector('#reminderForm select:first-of-type').value
 
-    let list = document.querySelector('select#selectList').value
+    let list = document.querySelector('#reminderForm select:nth-of-type(2)').value
 
     return new Reminder({title,notes,dueDate,dueTime,priority,list})
 }
