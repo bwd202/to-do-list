@@ -25,9 +25,15 @@ function getCompleted(reminder) {
 
         if(reminder === reminders[i].reminderTitle) {
 
-            completed.push(reminders[i])
+            if(!completed.includes(reminder)) {
+
+                completed.push(reminders[i])
+            }
         }
     }
+    
+    markComplete()
+
 
     console.log(completed)
 }

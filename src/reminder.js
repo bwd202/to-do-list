@@ -30,17 +30,17 @@ class Reminder {
 
 function getReminderData() { //gets inputs from reminder form, makes new obj
 
-    let title = document.querySelector('input#title').value
+    let title = document.querySelector('#reminderForm input:first-of-type').value
 
-    let notes = document.querySelector('input#notes').value
+    let notes = document.querySelector('#reminderForm input:nth-of-type(2)').value
 
-    let dueDate = document.querySelector('input#dueDate').value
+    let dueDate = document.querySelector('#reminderForm input:nth-of-type(3)').value
 
-    let dueTime = document.querySelector('input#dueTime').value
+    let dueTime = document.querySelector('#reminderForm input:nth-of-type(4)').value
 
-    let priority = document.querySelector('select#priority').value
+    let priority = document.querySelector('#reminderForm select:first-of-type').value
 
-    let list = document.querySelector('select#selectList').value
+    let list = document.querySelector('#reminderForm select:nth-of-type(2)').value
 
     return new Reminder({title,notes,dueDate,dueTime,priority,list})
 }
