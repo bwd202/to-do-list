@@ -4611,24 +4611,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let completed = [];
-
 function crossOutHtml(e) {
 
     if (e.target.type === "checkbox") {
-
-        // console.log('checkbox clicked')
 
         e.target.nextElementSibling.classList.toggle("completed");
 
         let reminder = e.target.nextElementSibling.children[0].innerHTML;
 
         markComplete(reminder);
+
     }
 }
 
 function markComplete(item) {
-    // sets reminderCompleted prop to true
+    // switches reminderCompleted prop based on item checked
 
     for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
 
@@ -4648,25 +4645,27 @@ function markComplete(item) {
         }
     }
 
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders);
-}
+    showCompleted()
 
-function getCompleted(reminder) {
-    // changes reminderCompleted prop
-
-    for (let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
-        if (reminder === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
-            if (!completed.includes(reminder)) {
-                completed.push(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i]);
-            }
-        }
-    }
-
-    console.log(completed);
+    // console.log(reminders);
 }
 
 function showCompleted() {
     // shows completed reminders in modal
+
+    let completed = []
+
+    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length ; i++) {
+
+        if(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted) {
+
+            completed.push(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i])
+        }
+    }
+
+    // completed.filter((reminder,index) => completed.indexOf(reminder) === index)
+
+    console.log(completed)
 }
 
 
