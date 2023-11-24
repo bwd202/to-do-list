@@ -36,13 +36,13 @@ function markComplete(item) {
         }
     }
 
-    showCompleted()
+    getCompleted()
 
     // console.log(reminders);
 }
 
-function showCompleted() {
-    // shows completed reminders in modal
+function getCompleted() {
+    // creates array with completed reminders
 
     let completed = []
 
@@ -53,8 +53,6 @@ function showCompleted() {
             completed.push(reminders[i])
         }
     }
-
-    // completed.filter((reminder,index) => completed.indexOf(reminder) === index)
 
     console.log(completed)
 }
