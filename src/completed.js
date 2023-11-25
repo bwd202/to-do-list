@@ -1,5 +1,6 @@
 // deals with reminder completion feature
 import { reminders } from "./storage";
+import { makeLongReminder } from "./reminder";
 export { crossOutHtml };
 
 function crossOutHtml(e) {
@@ -32,13 +33,17 @@ function markComplete(item) {
             if(reminders[i].reminderTitle === item) {
 
                 reminders[i].reminderCompleted = false
+
+                purgeCompleted(reminders[i].reminderTitle)
             }
         }
     }
 
-    getCompleted()
+    // getCompleted()
 
     // console.log(reminders);
+
+    showCompleted()
 }
 
 function getCompleted() {
@@ -54,5 +59,30 @@ function getCompleted() {
         }
     }
 
-    console.log(completed)
+    // console.log(completed)
+
+    return completed.filter((obj, index) => completed.indexOf(obj) === index)
+}
+
+function purgeCompleted(reminder) {
+
+    for(let i = 0; i < completed.length; i++) {
+
+        if(completed.reminderTitle === reminder) {
+
+            completed.splice(i,1)
+        }
+    }
+}
+
+function showCompleted() {
+
+    let completed = getCompleted()
+
+    let modal = document.querySelector('#completed + .modal').firstElementChild.children[1]
+
+    for(let obj of completed) {
+
+        modal.append(makeLongReminder(obj))
+    }
 }
