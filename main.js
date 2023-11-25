@@ -4607,7 +4607,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   crossOutHtml: () => (/* binding */ crossOutHtml)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
 // deals with reminder completion feature
+
 
 
 
@@ -4641,13 +4643,17 @@ function markComplete(item) {
             if(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle === item) {
 
                 _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted = false
+
+                purgeCompleted(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle)
             }
         }
     }
 
-    getCompleted()
+    // getCompleted()
 
     // console.log(reminders);
+
+    showCompleted()
 }
 
 function getCompleted() {
@@ -4663,7 +4669,32 @@ function getCompleted() {
         }
     }
 
-    console.log(completed)
+    // console.log(completed)
+
+    return completed.filter((obj, index) => completed.indexOf(obj) === index)
+}
+
+function purgeCompleted(reminder) {
+
+    for(let i = 0; i < completed.length; i++) {
+
+        if(completed.reminderTitle === reminder) {
+
+            completed.splice(i,1)
+        }
+    }
+}
+
+function showCompleted() {
+
+    let completed = getCompleted()
+
+    let modal = document.querySelector('#completed + .modal').firstElementChild.children[1]
+
+    for(let obj of completed) {
+
+        modal.append((0,_reminder__WEBPACK_IMPORTED_MODULE_1__.makeLongReminder)(obj))
+    }
 }
 
 
