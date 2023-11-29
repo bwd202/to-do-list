@@ -1,7 +1,7 @@
 // deals with reminder completion feature
 import { reminders } from "./storage";
 import { makeLongReminder } from "./reminder";
-export { crossOutHtml };
+export { crossOutHtml, showCompleted };
 
 function crossOutHtml(e) {
 
@@ -75,14 +75,19 @@ function purgeCompleted(reminder) {
     }
 }
 
-function showCompleted() {
+function showCompleted(e) {
 
-    let completed = getCompleted()
+    console.log(e.target)
 
-    let modal = document.querySelector('#completed + .modal').firstElementChild.children[1]
+    // let completed = getCompleted()
 
-    for(let obj of completed) {
+    // let modal = e.target.firstElementChild.children[1]
 
-        modal.append(makeLongReminder(obj))
-    }
+    // return function() {
+
+    //     for(let obj of completed) {
+
+    //         modal.append(makeLongReminder(obj))
+    //     }
+    // }   
 }

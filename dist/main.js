@@ -4604,7 +4604,8 @@ module.exports = styleTagTransform;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   crossOutHtml: () => (/* binding */ crossOutHtml)
+/* harmony export */   crossOutHtml: () => (/* binding */ crossOutHtml),
+/* harmony export */   showCompleted: () => (/* binding */ showCompleted)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
@@ -4685,16 +4686,21 @@ function purgeCompleted(reminder) {
     }
 }
 
-function showCompleted() {
+function showCompleted(e) {
 
-    let completed = getCompleted()
+    console.log(e.target)
 
-    let modal = document.querySelector('#completed + .modal').firstElementChild.children[1]
+    // let completed = getCompleted()
 
-    for(let obj of completed) {
+    // let modal = e.target.firstElementChild.children[1]
 
-        modal.append((0,_reminder__WEBPACK_IMPORTED_MODULE_1__.makeLongReminder)(obj))
-    }
+    // return function() {
+
+    //     for(let obj of completed) {
+
+    //         modal.append(makeLongReminder(obj))
+    //     }
+    // }   
 }
 
 
@@ -4939,14 +4945,11 @@ function showDropDownList(e) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   closeModal: () => (/* binding */ closeModal),
-/* harmony export */   openModal: () => (/* binding */ openModal),
-/* harmony export */   updateModals: () => (/* binding */ updateModals)
+/* harmony export */   openModal: () => (/* binding */ openModal)
 /* harmony export */ });
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
+/* harmony import */ var _completed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./completed */ "./src/completed.js");
 
 ;
-
 
 function closeModal(e) {
 
@@ -4970,34 +4973,40 @@ function openModal(e) {
 
     }
 
-}
-
-function updateModals() {
-
-    let todayModal = document.querySelector('#today + .modal')
-
-    let scheduledModal = document.querySelector('#scheduled + .modal')
-
-    let allModal = document.querySelector('#all + .modal')
-
-    let completedModal = document.querySelector('#completed + .modal')
-
-    let completedReminders = filterCompleted()
-
-    for(let i = 0; i < completedReminders.length; i++) {
-
-        completedModal.closest('modal-content').append((0,_reminder__WEBPACK_IMPORTED_MODULE_1__.makeLongReminder)(completedReminders[i]))
+    if(e.target.id === 'completed') {
+        
+        (0,_completed__WEBPACK_IMPORTED_MODULE_0__.showCompleted)(e)
 
     }
 
 }
 
-function filterCompleted() {
+// function updateModals() {
 
-    let completed = _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.filter(item => item.reminderCompleted === true)
+//     let todayModal = document.querySelector('#today + .modal')
 
-    return completed
-}
+//     let scheduledModal = document.querySelector('#scheduled + .modal')
+
+//     let allModal = document.querySelector('#all + .modal')
+
+//     let completedModal = document.querySelector('#completed + .modal')
+
+//     let completedReminders = filterCompleted()
+
+//     for(let i = 0; i < completedReminders.length; i++) {
+
+//         completedModal.closest('modal-content').append(makeLongReminder(completedReminders[i]))
+
+//     }
+
+// }
+
+// function filterCompleted() {
+
+//     let completed = reminders.filter(item => item.reminderCompleted === true)
+
+//     return completed
+// }
 
 
 /***/ }),

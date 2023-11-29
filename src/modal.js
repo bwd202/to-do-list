@@ -1,6 +1,5 @@
-export {openModal,closeModal,updateModals}
-import {reminders} from "./storage"
-import {makeLongReminder} from './reminder'
+export {openModal,closeModal}
+import { showCompleted } from "./completed"
 
 function closeModal(e) {
 
@@ -24,31 +23,37 @@ function openModal(e) {
 
     }
 
-}
-
-function updateModals() {
-
-    let todayModal = document.querySelector('#today + .modal')
-
-    let scheduledModal = document.querySelector('#scheduled + .modal')
-
-    let allModal = document.querySelector('#all + .modal')
-
-    let completedModal = document.querySelector('#completed + .modal')
-
-    let completedReminders = filterCompleted()
-
-    for(let i = 0; i < completedReminders.length; i++) {
-
-        completedModal.closest('modal-content').append(makeLongReminder(completedReminders[i]))
+    if(e.target.id === 'completed') {
+        
+        showCompleted(e)
 
     }
 
 }
 
-function filterCompleted() {
+// function updateModals() {
 
-    let completed = reminders.filter(item => item.reminderCompleted === true)
+//     let todayModal = document.querySelector('#today + .modal')
 
-    return completed
-}
+//     let scheduledModal = document.querySelector('#scheduled + .modal')
+
+//     let allModal = document.querySelector('#all + .modal')
+
+//     let completedModal = document.querySelector('#completed + .modal')
+
+//     let completedReminders = filterCompleted()
+
+//     for(let i = 0; i < completedReminders.length; i++) {
+
+//         completedModal.closest('modal-content').append(makeLongReminder(completedReminders[i]))
+
+//     }
+
+// }
+
+// function filterCompleted() {
+
+//     let completed = reminders.filter(item => item.reminderCompleted === true)
+
+//     return completed
+// }
