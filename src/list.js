@@ -127,7 +127,7 @@ function removeListOption(name) {   //removes list name from reminder modal
 
 function addNewListInputOption(obj) {   //adds new list input option to reminder modal form
 
-    let container = document.querySelector('#selectList')
+    let container = document.querySelector('[name="listOptions"]')
 
     let newListOption = document.createElement('option')
 
