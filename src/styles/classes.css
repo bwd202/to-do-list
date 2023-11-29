@@ -64,7 +64,8 @@
     display: grid;
 }
 
-.wrapper {  /* same as form-wrapper */
+.wrapper {
+    /* same as form-wrapper */
     display: grid;
     grid-template-columns: subgrid;
     grid-template-rows: max-content 1fr;

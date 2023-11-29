@@ -1,93 +1,78 @@
 // deals with reminder completion feature
-import { reminders } from "./storage";
-import { makeLongReminder } from "./reminder";
-export { crossOutHtml, showCompleted };
+import { reminders } from './storage'
+import { makeLongReminder } from './reminder'
+export { crossOutHtml, showCompleted }
 
 function crossOutHtml(e) {
+	if (e.target.type === 'checkbox') {
+		e.target.nextElementSibling.classList.toggle('completed')
 
-    if (e.target.type === "checkbox") {
+		let reminder = e.target.nextElementSibling.children[0].innerHTML
 
-        e.target.nextElementSibling.classList.toggle("completed");
-
-        let reminder = e.target.nextElementSibling.children[0].innerHTML;
-
-        markComplete(reminder);
-
-    }
+		markComplete(reminder)
+	}
 }
 
 function markComplete(item) {
-    // switches reminderCompleted prop based on item checked
+	// switches reminderCompleted prop based on item checked
 
-    for(let i = 0; i < reminders.length; i++) {
+	for (let i = 0; i < reminders.length; i++) {
+		if (!reminders[i].reminderCompleted) {
+			if (reminders[i].reminderTitle === item) {
+				reminders[i].reminderCompleted = true
+			}
+		} else if (reminders[i].reminderCompleted) {
+			if (reminders[i].reminderTitle === item) {
+				reminders[i].reminderCompleted = false
 
-        if(!reminders[i].reminderCompleted) {
+				purgeCompleted(reminders[i].reminderTitle)
+			}
+		}
+	}
 
-            if(reminders[i].reminderTitle === item) {
+	// getCompleted()
 
-                reminders[i].reminderCompleted = true
-            } 
+	// console.log(reminders);
 
-        } else if(reminders[i].reminderCompleted) {
-
-            if(reminders[i].reminderTitle === item) {
-
-                reminders[i].reminderCompleted = false
-
-                purgeCompleted(reminders[i].reminderTitle)
-            }
-        }
-    }
-
-    // getCompleted()
-
-    // console.log(reminders);
-
-    showCompleted()
+	showCompleted()
 }
 
 function getCompleted() {
-    // creates array with completed reminders
+	// creates array with completed reminders
 
-    let completed = []
+	let completed = []
 
-    for(let i = 0; i < reminders.length ; i++) {
+	for (let i = 0; i < reminders.length; i++) {
+		if (reminders[i].reminderCompleted) {
+			completed.push(reminders[i])
+		}
+	}
 
-        if(reminders[i].reminderCompleted) {
+	// console.log(completed)
 
-            completed.push(reminders[i])
-        }
-    }
-
-    // console.log(completed)
-
-    return completed.filter((obj, index) => completed.indexOf(obj) === index)
+	return completed.filter((obj, index) => completed.indexOf(obj) === index)
 }
 
 function purgeCompleted(reminder) {
-
-    for(let i = 0; i < completed.length; i++) {
-
-        if(completed.reminderTitle === reminder) {
-
-            completed.splice(i,1)
-        }
-    }
+	for (let i = 0; i < completed.length; i++) {
+		if (completed.reminderTitle === reminder) {
+			completed.splice(i, 1)
+		}
+	}
 }
 
 function showCompleted(e) {
+	console.log(e.target)
 
-    console.log(e.target)
+	// let completed = getCompleted()
 
-    // let completed = getCompleted()
+	// let modal = e.target.firstElementChild.children[1]
 
-    // let modal = e.target.firstElementChild.children[1]
+	// return function() {
 
-    // return function() {
+	//     for(let obj of completed) {
 
-    //     for(let obj of completed) {
-
-    //         modal.append(makeLongReminder(obj))
-    //     }
-    // }   
+	//         modal.append(makeLongReminder(obj))
+	//     }
+	// }
 }
