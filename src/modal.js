@@ -15,7 +15,7 @@ function closeModal(e) {
 
 }
 
-function openModal(e) {
+function openModal(e) { //open modal
 
     if(e.target.classList.contains('modal-btn')) {
 
@@ -23,11 +23,11 @@ function openModal(e) {
 
     }
 
-    if(e.target.id === 'completed') {
+    // if(e.target.id === 'completed') {
         
-        showCompleted(e)
+    //     showCompleted(e)
 
-    }
+    // }
 
 }
 
