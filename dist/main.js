@@ -2267,21 +2267,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner {
     grid-auto-flow: column;
     padding: 10px;
     background-color: var(--card);
-    grid-template-columns: max-content 1fr 100px max-content;
+    grid-template-columns: max-content 1fr 50px repeat(2, max-content);
     grid-template-rows: 50px 1fr;
-    grid-template-areas: 'icon title count closeBtn' 'dropDown dropDown dropDown dropDown';
+    grid-template-areas: 'icon title count btn1 btn2' 
+                         'drop-down drop-down drop-down drop-down drop-down';
     align-items: center;
     gap: 5px;
-}
-
-.banner-close-btn {
-    color: var(--input);
-    grid-area: closeBtn;
-}
-
-.banner-close-btn:hover {
-    scale: 1.7;
-    color: red;
 }
 
 .banner img {
@@ -2298,9 +2289,24 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner {
     place-self: center;
 }
 
+.banner > span:nth-of-type(2) {
+    grid-area: btn1;
+    padding: 0 5px;
+}
+
+.banner-close-btn {
+    color: var(--input);
+    grid-area: btn2;
+}
+
+.banner-close-btn:hover {
+    scale: 1.7;
+    color: red;
+}
+
 .banner .drop-down {
-    grid-area: dropDown;
-}`, "",{"version":3,"sources":["webpack://./src/styles/banner.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,6BAA6B;IAC7B,wDAAwD;IACxD,4BAA4B;IAC5B,sFAAsF;IACtF,mBAAmB;IACnB,QAAQ;AACZ;;AAEA;IACI,mBAAmB;IACnB,mBAAmB;AACvB;;AAEA;IACI,UAAU;IACV,UAAU;AACd;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,mBAAmB;AACvB","sourcesContent":[".banner {\n    position: relative;\n    display: grid;\n    grid-auto-flow: column;\n    padding: 10px;\n    background-color: var(--card);\n    grid-template-columns: max-content 1fr 100px max-content;\n    grid-template-rows: 50px 1fr;\n    grid-template-areas: 'icon title count closeBtn' 'dropDown dropDown dropDown dropDown';\n    align-items: center;\n    gap: 5px;\n}\n\n.banner-close-btn {\n    color: var(--input);\n    grid-area: closeBtn;\n}\n\n.banner-close-btn:hover {\n    scale: 1.7;\n    color: red;\n}\n\n.banner img {\n    grid-area: icon;\n}\n\n.banner p {\n    grid-area: title;\n    justify-self: start;\n}\n\n.banner > span:first-of-type {\n    grid-area: count;\n    place-self: center;\n}\n\n.banner .drop-down {\n    grid-area: dropDown;\n}"],"sourceRoot":""}]);
+    grid-area: drop-down;
+}`, "",{"version":3,"sources":["webpack://./src/styles/banner.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,6BAA6B;IAC7B,kEAAkE;IAClE,4BAA4B;IAC5B;4EACwE;IACxE,mBAAmB;IACnB,QAAQ;AACZ;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,UAAU;AACd;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":[".banner {\n    position: relative;\n    display: grid;\n    grid-auto-flow: column;\n    padding: 10px;\n    background-color: var(--card);\n    grid-template-columns: max-content 1fr 50px repeat(2, max-content);\n    grid-template-rows: 50px 1fr;\n    grid-template-areas: 'icon title count btn1 btn2' \n                         'drop-down drop-down drop-down drop-down drop-down';\n    align-items: center;\n    gap: 5px;\n}\n\n.banner img {\n    grid-area: icon;\n}\n\n.banner p {\n    grid-area: title;\n    justify-self: start;\n}\n\n.banner > span:first-of-type {\n    grid-area: count;\n    place-self: center;\n}\n\n.banner > span:nth-of-type(2) {\n    grid-area: btn1;\n    padding: 0 5px;\n}\n\n.banner-close-btn {\n    color: var(--input);\n    grid-area: btn2;\n}\n\n.banner-close-btn:hover {\n    scale: 1.7;\n    color: red;\n}\n\n.banner .drop-down {\n    grid-area: drop-down;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4597,6 +4603,29 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/banner.js":
+/*!***********************!*\
+  !*** ./src/banner.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   showDropDown: () => (/* binding */ showDropDown)
+/* harmony export */ });
+
+
+function showDropDown(e) {
+
+    if(e.target.classList.contains('banner')) {
+        
+        e.target.lastElementChild.classList.toggle('visible')
+    }
+}
+
+/***/ }),
+
 /***/ "./src/completed.js":
 /*!**************************!*\
   !*** ./src/completed.js ***!
@@ -4745,8 +4774,7 @@ function countReminders(list) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   addListToPage: () => (/* binding */ addListToPage),
-/* harmony export */   showDropDownList: () => (/* binding */ showDropDownList)
+/* harmony export */   addListToPage: () => (/* binding */ addListToPage)
 /* harmony export */ });
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
@@ -4910,14 +4938,6 @@ function addListToPage(e) { //shows html list on the page
     container.append(listHtml)
 
     listForm.reset()
-}
-
-function showDropDownList(e) {
-
-    if(e.target.classList.contains('banner')) {
-        
-        e.target.lastElementChild.classList.toggle('visible')
-    }
 }
 
 /***/ }),
@@ -5554,6 +5574,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
 /* harmony import */ var _completed_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./completed.js */ "./src/completed.js");
+/* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
+
 
 
 
@@ -5572,15 +5594,11 @@ __webpack_require__.r(__webpack_exports__);
 
 // EVENT LISTENERS
 
-document
-	.querySelector('button#publishReminder')
-	.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.publishReminder)
+document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.publishReminder)
 
-document
-	.querySelector('button#addList')
-	.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_9__.addListToPage)
+document.querySelector('button#addList').addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_9__.addListToPage)
 
-document.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_9__.showDropDownList)
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_15__.showDropDown)
 
 document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.deleteReminderHtml)
 

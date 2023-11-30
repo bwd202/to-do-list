@@ -1,4 +1,4 @@
-export {addListToPage,showDropDownList}
+export {addListToPage}
 import listIcon from './icons/calendar-text.svg'
 import CssFilterConverter from 'css-filter-converter'
 import { lists } from './storage'
@@ -156,12 +156,4 @@ function addListToPage(e) { //shows html list on the page
     container.append(listHtml)
 
     listForm.reset()
-}
-
-function showDropDownList(e) {
-
-    if(e.target.classList.contains('banner')) {
-        
-        e.target.lastElementChild.classList.toggle('visible')
-    }
 }

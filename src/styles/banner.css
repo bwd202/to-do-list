@@ -4,21 +4,12 @@
     grid-auto-flow: column;
     padding: 10px;
     background-color: var(--card);
-    grid-template-columns: max-content 1fr 100px max-content;
+    grid-template-columns: max-content 1fr 50px repeat(2, max-content);
     grid-template-rows: 50px 1fr;
-    grid-template-areas: 'icon title count closeBtn' 'dropDown dropDown dropDown dropDown';
+    grid-template-areas: 'icon title count btn1 btn2' 
+                         'drop-down drop-down drop-down drop-down drop-down';
     align-items: center;
     gap: 5px;
-}
-
-.banner-close-btn {
-    color: var(--input);
-    grid-area: closeBtn;
-}
-
-.banner-close-btn:hover {
-    scale: 1.7;
-    color: red;
 }
 
 .banner img {
@@ -35,6 +26,21 @@
     place-self: center;
 }
 
+.banner > span:nth-of-type(2) {
+    grid-area: btn1;
+    padding: 0 5px;
+}
+
+.banner-close-btn {
+    color: var(--input);
+    grid-area: btn2;
+}
+
+.banner-close-btn:hover {
+    scale: 1.7;
+    color: red;
+}
+
 .banner .drop-down {
-    grid-area: dropDown;
+    grid-area: drop-down;
 }
