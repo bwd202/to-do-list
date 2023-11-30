@@ -2262,79 +2262,80 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.border {
-    /* border: 1px solid black; */
-    border-radius: 14px;
+	/* border: 1px solid black; */
+	border-radius: 14px;
 }
 
 .button {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 'icon count' 'title .';
-    align-items: center;
-    padding: 10px;
-    background-color: var(--card);
-    gap: 5px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: 'icon count' 'title .';
+	align-items: center;
+	padding: 10px;
+	background-color: var(--card);
+	gap: 5px;
 }
 
 .close-btn {
-    background-color: red;
-    color: white;
-    border-radius: 5px;
-    padding: 0 2px;
+	background-color: red;
+	color: white;
+	border-radius: 5px;
+	padding: 0 2px;
 }
 
 .close-btn:hover {
-    scale: 1.2;
+	scale: 1.2;
 }
 
 .completed {
-    text-decoration: line-through;
+	text-decoration: line-through;
 }
 
 .input {
-    background-color: var(--input);
-    border: 0;
-    padding: 6px;
-    border-radius: 14px;
+	background-color: var(--input);
+	border: 0;
+	padding: 6px;
+	border-radius: 14px;
 }
 
 .list-wrapper {
-    display: grid;
+	display: grid;
 }
 
 .modal {
-    /* display: grid; */
-    grid-template-columns: repeat(3, 1fr);
-    background-color: var(--modal-background);
-    position: absolute;
-    inset: 0;
-    z-index: 10;
-    /* fixes issue with add list button icon showing on top of reminder modal */
+	grid-template-columns: repeat(3, 1fr);
+	background-color: var(--modal-background);
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+	/* fixes issue with add list button icon showing on top of reminder modal */
 }
 
 .modal-close-btn {
-    position: absolute;
-    right: -0;
-    top: -0;
+	position: absolute;
+	right: -0;
+	top: -0;
 }
 
 .visible {
-    display: grid;
+	display: grid;
 }
 
-.wrapper {  /* same as form-wrapper */
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-template-rows: max-content 1fr;
-    grid-column: 2;
-    background-color: var(--card);
-    position: relative;
-}`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,2BAA2B;IAC3B,2CAA2C;IAC3C,mBAAmB;IACnB,aAAa;IACb,6BAA6B;IAC7B,QAAQ;AACZ;;AAEA;IACI,qBAAqB;IACrB,YAAY;IACZ,kBAAkB;IAClB,cAAc;AAClB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,8BAA8B;IAC9B,SAAS;IACT,YAAY;IACZ,mBAAmB;AACvB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,qCAAqC;IACrC,yCAAyC;IACzC,kBAAkB;IAClB,QAAQ;IACR,WAAW;IACX,2EAA2E;AAC/E;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,OAAO;AACX;;AAEA;IACI,aAAa;AACjB;;AAEA,YAAY,yBAAyB;IACjC,aAAa;IACb,8BAA8B;IAC9B,mCAAmC;IACnC,cAAc;IACd,6BAA6B;IAC7B,kBAAkB;AACtB","sourcesContent":[".border {\n    /* border: 1px solid black; */\n    border-radius: 14px;\n}\n\n.button {\n    cursor: pointer;\n}\n\n.card {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    grid-template-rows: 1fr 1fr;\n    grid-template-areas: 'icon count' 'title .';\n    align-items: center;\n    padding: 10px;\n    background-color: var(--card);\n    gap: 5px;\n}\n\n.close-btn {\n    background-color: red;\n    color: white;\n    border-radius: 5px;\n    padding: 0 2px;\n}\n\n.close-btn:hover {\n    scale: 1.2;\n}\n\n.completed {\n    text-decoration: line-through;\n}\n\n.input {\n    background-color: var(--input);\n    border: 0;\n    padding: 6px;\n    border-radius: 14px;\n}\n\n.list-wrapper {\n    display: grid;\n}\n\n.modal {\n    /* display: grid; */\n    grid-template-columns: repeat(3, 1fr);\n    background-color: var(--modal-background);\n    position: absolute;\n    inset: 0;\n    z-index: 10;\n    /* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.modal-close-btn {\n    position: absolute;\n    right: -0;\n    top: -0;\n}\n\n.visible {\n    display: grid;\n}\n\n.wrapper {  /* same as form-wrapper */\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: max-content 1fr;\n    grid-column: 2;\n    background-color: var(--card);\n    position: relative;\n}"],"sourceRoot":""}]);
+.wrapper {
+	/* same as form-wrapper */
+	display: grid;
+	grid-template-columns: subgrid;
+	grid-template-rows: max-content 1fr;
+	grid-column: 2;
+	background-color: var(--card);
+	position: relative;
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,2BAA2B;CAC3B,2CAA2C;CAC3C,mBAAmB;CACnB,aAAa;CACb,6BAA6B;CAC7B,QAAQ;AACT;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;CACC,8BAA8B;CAC9B,SAAS;CACT,YAAY;CACZ,mBAAmB;AACpB;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,OAAO;AACR;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,yBAAyB;CACzB,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,6BAA6B;CAC7B,kBAAkB;AACnB","sourcesContent":[".border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.button {\n\tcursor: pointer;\n}\n\n.card {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgrid-template-rows: 1fr 1fr;\n\tgrid-template-areas: 'icon count' 'title .';\n\talign-items: center;\n\tpadding: 10px;\n\tbackground-color: var(--card);\n\tgap: 5px;\n}\n\n.close-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.close-btn:hover {\n\tscale: 1.2;\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.input {\n\tbackground-color: var(--input);\n\tborder: 0;\n\tpadding: 6px;\n\tborder-radius: 14px;\n}\n\n.list-wrapper {\n\tdisplay: grid;\n}\n\n.modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tright: -0;\n\ttop: -0;\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\t/* same as form-wrapper */\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tbackground-color: var(--card);\n\tposition: relative;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2817,95 +2818,96 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `#reminder-modal {
-    /* display: grid; */
+	/* display: grid; */
 }
 
 #reminder-modal .form-wrapper {
-    min-height: 100vh;
+	min-height: 100vh;
 }
 
 #reminder-modal form {
-    gap: 30px 0;
-    grid-template-columns: minmax(50px,1fr) 100px 200px minmax(50px,1fr);
-    grid-template-areas: '. title titleInput .'
-                         '. notes notesInput .' 
-                         '. date dateInput .' 
-                         '. time timeInput .' 
-                         '. priority prioritySelect .'
-                         '. list listSelect .' 
-                         '. done reset .';
+	gap: 30px 0;
+	grid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);
+	grid-template-areas:
+		'. title titleInput .'
+		'. notes notesInput .'
+		'. date dateInput .'
+		'. time timeInput .'
+		'. priority prioritySelect .'
+		'. list listSelect .'
+		'. done reset .';
 }
 
 #reminder-modal input {
-    width: 150px;
+	width: 150px;
 }
 
 #reminder-modal select {
-    text-align: center;
-    width: 150px;
+	text-align: center;
+	width: 150px;
 }
 
 #reminder-modal label:first-of-type {
-    grid-area: title;
+	grid-area: title;
 }
 
 #reminder-modal input:first-of-type {
-    grid-area: titleInput;
+	grid-area: titleInput;
 }
 
 #reminder-modal label:nth-of-type(2) {
-    grid-area: notes;
+	grid-area: notes;
 }
 
 #reminder-modal input:nth-of-type(2) {
-    grid-area: notesInput;
+	grid-area: notesInput;
 }
 
 #reminder-modal label:nth-of-type(3) {
-    grid-area: date;
+	grid-area: date;
 }
 
 #reminder-modal input:nth-of-type(3) {
-    grid-area: dateInput;
+	grid-area: dateInput;
 }
 
 #reminder-modal label:nth-of-type(4) {
-    grid-area: time;
+	grid-area: time;
 }
 
 #reminder-modal input:nth-of-type(4) {
-    grid-area: timeInput;
+	grid-area: timeInput;
 }
 
 #reminder-modal label:nth-of-type(5) {
-    grid-area: priority;
+	grid-area: priority;
 }
 
 #reminder-modal select:nth-of-type(1) {
-    grid-area: prioritySelect;
+	grid-area: prioritySelect;
 }
 
 #reminder-modal label:nth-of-type(6) {
-    grid-area: list;
+	grid-area: list;
 }
 
 #reminder-modal select:nth-of-type(2) {
-    grid-area: listSelect;
+	grid-area: listSelect;
 }
 
 #reminder-modal button {
-    width: 100px;
+	width: 100px;
 }
 
 #reminder-modal button:first-of-type {
-    grid-area: done;
-    /* justify-self: end; */
+	grid-area: done;
+	/* justify-self: end; */
 }
 
 #reminder-modal button:last-of-type {
-    grid-area: reset;
+	grid-area: reset;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/reminderModal.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,WAAW;IACX,oEAAoE;IACpE;;;;;;yCAMqC;AACzC;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,eAAe;IACf,uBAAuB;AAC3B;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["#reminder-modal {\n    /* display: grid; */\n}\n\n#reminder-modal .form-wrapper {\n    min-height: 100vh;\n}\n\n#reminder-modal form {\n    gap: 30px 0;\n    grid-template-columns: minmax(50px,1fr) 100px 200px minmax(50px,1fr);\n    grid-template-areas: '. title titleInput .'\n                         '. notes notesInput .' \n                         '. date dateInput .' \n                         '. time timeInput .' \n                         '. priority prioritySelect .'\n                         '. list listSelect .' \n                         '. done reset .';\n}\n\n#reminder-modal input {\n    width: 150px;\n}\n\n#reminder-modal select {\n    text-align: center;\n    width: 150px;\n}\n\n#reminder-modal label:first-of-type {\n    grid-area: title;\n}\n\n#reminder-modal input:first-of-type {\n    grid-area: titleInput;\n}\n\n#reminder-modal label:nth-of-type(2) {\n    grid-area: notes;\n}\n\n#reminder-modal input:nth-of-type(2) {\n    grid-area: notesInput;\n}\n\n#reminder-modal label:nth-of-type(3) {\n    grid-area: date;\n}\n\n#reminder-modal input:nth-of-type(3) {\n    grid-area: dateInput;\n}\n\n#reminder-modal label:nth-of-type(4) {\n    grid-area: time;\n}\n\n#reminder-modal input:nth-of-type(4) {\n    grid-area: timeInput;\n}\n\n#reminder-modal label:nth-of-type(5) {\n    grid-area: priority;\n}\n\n#reminder-modal select:nth-of-type(1) {\n    grid-area: prioritySelect;\n}\n\n#reminder-modal label:nth-of-type(6) {\n    grid-area: list;\n}\n\n#reminder-modal select:nth-of-type(2) {\n    grid-area: listSelect;\n}\n\n#reminder-modal button {\n    width: 100px;\n}\n\n#reminder-modal button:first-of-type {\n    grid-area: done;\n    /* justify-self: end; */\n}\n\n#reminder-modal button:last-of-type {\n    grid-area: reset;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/reminderModal.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;AACpB;;AAEA;CACC,iBAAiB;AAClB;;AAEA;CACC,WAAW;CACX,sEAAsE;CACtE;;;;;;;kBAOiB;AAClB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,kBAAkB;CAClB,YAAY;AACb;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,eAAe;CACf,uBAAuB;AACxB;;AAEA;CACC,gBAAgB;AACjB","sourcesContent":["#reminder-modal {\n\t/* display: grid; */\n}\n\n#reminder-modal .form-wrapper {\n\tmin-height: 100vh;\n}\n\n#reminder-modal form {\n\tgap: 30px 0;\n\tgrid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);\n\tgrid-template-areas:\n\t\t'. title titleInput .'\n\t\t'. notes notesInput .'\n\t\t'. date dateInput .'\n\t\t'. time timeInput .'\n\t\t'. priority prioritySelect .'\n\t\t'. list listSelect .'\n\t\t'. done reset .';\n}\n\n#reminder-modal input {\n\twidth: 150px;\n}\n\n#reminder-modal select {\n\ttext-align: center;\n\twidth: 150px;\n}\n\n#reminder-modal label:first-of-type {\n\tgrid-area: title;\n}\n\n#reminder-modal input:first-of-type {\n\tgrid-area: titleInput;\n}\n\n#reminder-modal label:nth-of-type(2) {\n\tgrid-area: notes;\n}\n\n#reminder-modal input:nth-of-type(2) {\n\tgrid-area: notesInput;\n}\n\n#reminder-modal label:nth-of-type(3) {\n\tgrid-area: date;\n}\n\n#reminder-modal input:nth-of-type(3) {\n\tgrid-area: dateInput;\n}\n\n#reminder-modal label:nth-of-type(4) {\n\tgrid-area: time;\n}\n\n#reminder-modal input:nth-of-type(4) {\n\tgrid-area: timeInput;\n}\n\n#reminder-modal label:nth-of-type(5) {\n\tgrid-area: priority;\n}\n\n#reminder-modal select:nth-of-type(1) {\n\tgrid-area: prioritySelect;\n}\n\n#reminder-modal label:nth-of-type(6) {\n\tgrid-area: list;\n}\n\n#reminder-modal select:nth-of-type(2) {\n\tgrid-area: listSelect;\n}\n\n#reminder-modal button {\n\twidth: 100px;\n}\n\n#reminder-modal button:first-of-type {\n\tgrid-area: done;\n\t/* justify-self: end; */\n}\n\n#reminder-modal button:last-of-type {\n\tgrid-area: reset;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3840,7 +3842,7 @@ var ___HTML_LOADER_REPLACEMENT_2___ = _node_modules_html_loader_dist_runtime_get
 var ___HTML_LOADER_REPLACEMENT_3___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_3___);
 var ___HTML_LOADER_REPLACEMENT_4___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_4___);
 var ___HTML_LOADER_REPLACEMENT_5___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_5___);
-var code = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>To-Do List</title>\n    <link rel=\"shortcut icon\" href=\"#\">\n</head>\n<body>\n    <div id=\"wrapper\">\n        <header>\n            <input id=\"search\" type=\"text\" placeholder=\"&#x1F50D; Type search term and press Enter\" class=\"input\">\n        </header>\n        <main>\n            <div id=\"today\" class=\"card button border modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\"><p>Today</p><span class=\"counter\">0</span></div>\n\n            <div class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span class=\"modal-close-btn button\">&times;</span>\n                    <div class=\"modal-content\">\n                        <!-- will add reminders here -->\n                    </div>\n                </div>\n            </div>\n\n            <div id=\"scheduled\" class=\"card button border modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\"><p>Scheduled</p><span class=\"counter\">0</span></div>\n\n            <div class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span class=\"modal-close-btn button\">&times;</span>\n                    <div class=\"modal-content\">\n                        <!-- will add reminders here -->\n                    </div>\n                </div>\n            </div>\n\n            <div id=\"all\" class=\"card button border modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\"><p>All</p><span class=\"counter\">0</span></div>\n\n            <div class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span class=\"modal-close-btn button\">&times;</span>\n                    <div class=\"modal-content\">\n                        <!-- will add reminders here -->\n                    </div>\n                </div>\n            </div>\n\n            <div id=\"completed\" class=\"card button border modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\"><p>Completed</p><span class=\"counter\">0</span></div>\n\n            <div class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span class=\"modal-close-btn button\">&times;</span>\n                    <div class=\"modal-content\">\n                        <!-- will add reminders here -->\n                    </div>\n                </div>\n            </div>\n            \n            <article id=\"lists\">\n                <h2>My Lists</h2>\n                <div id=\"reminder-list\" class=\"button banner border\">\n                    <img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\">\n                    <p>Reminders</p>\n                    <span class=\"counter\"></span>\n                    <span class=\"banner-close-btn\">&times;</span>\n                    <div id=\"reminders\" class=\"drop-down\" hidden></div>   \n                </div>            \n            </article>\n        </main>\n           <footer>\n            <button id=\"new-reminder\" class=\"button modal-btn\"><img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\">New Reminder</button>\n            <div id=\"reminder-modal\" class=\"modal \" hidden>\n                <div class=\"wrapper\">\n                    <span id=\"reminder-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n                    <form id=\"reminderForm\" action=\"/\">\n                        <label>Title</label>\n                        <input type=\"text\" placeholder=\"take dogs for a walk\" name=\"reminderTitle\" maxlength=\"20\" class=\"input\">\n                        <label>Notes</label>\n                        <input type=\"text\" placeholder=\"bring poop bags\" name=\"reminderNotes\" maxlength=\"20\" class=\"input\">\n                        <label>Due Date</label>\n                        <input type=\"date\" name=\"reminderDueDate\" class=\"input\">\n                        <label>Due Time</label>\n                        <input type=\"time\" name=\"reminderDueTime\" class=\"input\">\n                        <label>Priority</label>\n                        <select name=\"reminderPriority\">\n                            <option value=\"1\">low</option>\n                            <option value=\"2\" selected>medium</option>\n                            <option value=\"3\">high</option>\n                        </select>\n                        <label>List</label>\n                        <select name=\"listOptions\">\n                            <option value=\"reminders\">Reminders</option>\n                        </select>\n                        <button id=\"publishReminder\" type=\"button\">Done</button>\n                        <button type=\"reset\">Reset</button> \n                    </form>\n                </div>\n            </div>\n            <button id=\"openListModal\" class=\"button modal-btn\"><span>Add List</span></button>\n            <div id=\"list-modal\" class=\"modal\" hidden>\n                <div class=\"wrapper\">\n                    <span id=\"list-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n                    <form id=\"listForm\" action=\"/\">\n                        <input type=\"text\" placeholder=\"List name\" class=\"input\" maxlength=\"30\">\n                        <input type=\"color\" class=\"\">\n                        <button id=\"addList\" type=\"submit\">Done</button>\n                        <button type=\"reset\">Reset</button>\n                    </form>\n                </div>\n            </div>\n           </footer>\n    </div>\n</body>\n</html>";
+var code = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n\t<title>To-Do List</title>\n\t<link rel=\"shortcut icon\" href=\"#\" />\n</head>\n\n<body>\n\t<div id=\"wrapper\">\n\t\t<header>\n\t\t\t<input id=\"search\" type=\"text\" placeholder=\"&#x1F50D; Type search term and press Enter\" class=\"input\" />\n\t\t</header>\n\t\t<main>\n\t\t\t<div id=\"today\" class=\"card button border modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\" />\n\t\t\t\t<p>Today</p>\n\t\t\t\t<span class=\"counter\">0</span>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t\t<div class=\"modal-content\">\n\t\t\t\t\t\t<!-- will add reminders here -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div id=\"scheduled\" class=\"card button border modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\" />\n\t\t\t\t<p>Scheduled</p>\n\t\t\t\t<span class=\"counter\">0</span>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t\t<div class=\"modal-content\">\n\t\t\t\t\t\t<!-- will add reminders here -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div id=\"all\" class=\"card button border modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\" />\n\t\t\t\t<p>All</p>\n\t\t\t\t<span class=\"counter\">0</span>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t\t<div class=\"modal-content\">\n\t\t\t\t\t\t<!-- will add reminders here -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div id=\"completed\" class=\"card button border modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\" />\n\t\t\t\t<p>Completed</p>\n\t\t\t\t<span class=\"counter\">0</span>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t\t<div class=\"modal-content\">\n\t\t\t\t\t\t<!-- will add reminders here -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<article id=\"lists\">\n\t\t\t\t<h2>My Lists</h2>\n\t\t\t\t<div id=\"reminder-list\" class=\"button banner border\">\n\t\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\" />\n\t\t\t\t\t<p>Reminders</p>\n\t\t\t\t\t<span class=\"counter\"></span>\n\t\t\t\t\t<span class=\"banner-close-btn\">&times;</span>\n\t\t\t\t\t<div id=\"reminders\" class=\"drop-down\" hidden></div>\n\t\t\t\t</div>\n\t\t\t</article>\n\t\t</main>\n\t\t<footer>\n\t\t\t<button id=\"new-reminder\" class=\"button modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\" />New Reminder\n\t\t\t</button>\n\t\t\t<div id=\"reminder-modal\" class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span id=\"reminder-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t\t\t<form id=\"reminderForm\" action=\"/\">\n\t\t\t\t\t\t<label>Title</label>\n\t\t\t\t\t\t<input type=\"text\" placeholder=\"take dogs for a walk\" name=\"reminderTitle\" maxlength=\"20\"\n\t\t\t\t\t\t\tclass=\"input\" />\n\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t<input type=\"text\" placeholder=\"bring poop bags\" name=\"reminderNotes\" maxlength=\"20\"\n\t\t\t\t\t\t\tclass=\"input\" />\n\t\t\t\t\t\t<label>Due Date</label>\n\t\t\t\t\t\t<input type=\"date\" name=\"reminderDueDate\" class=\"input\" />\n\t\t\t\t\t\t<label>Due Time</label>\n\t\t\t\t\t\t<input type=\"time\" name=\"reminderDueTime\" class=\"input\" />\n\t\t\t\t\t\t<label>Priority</label>\n\t\t\t\t\t\t<select name=\"reminderPriority\">\n\t\t\t\t\t\t\t<option value=\"1\">low</option>\n\t\t\t\t\t\t\t<option value=\"2\" selected>medium</option>\n\t\t\t\t\t\t\t<option value=\"3\">high</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t<label>List</label>\n\t\t\t\t\t\t<select name=\"listOptions\">\n\t\t\t\t\t\t\t<option value=\"reminders\">Reminders</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t<button id=\"publishReminder\" type=\"button\">\n\t\t\t\t\t\t\tDone\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<button id=\"openListModal\" class=\"button modal-btn\">\n\t\t\t\t<span>Add List</span>\n\t\t\t</button>\n\t\t\t<div id=\"list-modal\" class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span id=\"list-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t\t\t<form id=\"listForm\" action=\"/\">\n\t\t\t\t\t\t<input type=\"text\" placeholder=\"List name\" class=\"input\" maxlength=\"30\" />\n\t\t\t\t\t\t<input type=\"color\" class=\"\" />\n\t\t\t\t\t\t<button id=\"addList\" type=\"submit\">Done</button>\n\t\t\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</footer>\n\t</div>\n</body>\n\n</html>";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
@@ -4615,92 +4617,77 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function crossOutHtml(e) {
+	if (e.target.type === 'checkbox') {
+		e.target.nextElementSibling.classList.toggle('completed')
 
-    if (e.target.type === "checkbox") {
+		let reminder = e.target.nextElementSibling.children[0].innerHTML
 
-        e.target.nextElementSibling.classList.toggle("completed");
-
-        let reminder = e.target.nextElementSibling.children[0].innerHTML;
-
-        markComplete(reminder);
-
-    }
+		markComplete(reminder)
+	}
 }
 
 function markComplete(item) {
-    // switches reminderCompleted prop based on item checked
+	// switches reminderCompleted prop based on item checked
 
-    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
+	for (let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
+		if (!_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted) {
+			if (_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle === item) {
+				_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted = true
+			}
+		} else if (_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted) {
+			if (_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle === item) {
+				_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted = false
 
-        if(!_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted) {
+				purgeCompleted(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle)
+			}
+		}
+	}
 
-            if(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle === item) {
+	// getCompleted()
 
-                _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted = true
-            } 
+	// console.log(reminders);
 
-        } else if(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted) {
-
-            if(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle === item) {
-
-                _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted = false
-
-                purgeCompleted(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle)
-            }
-        }
-    }
-
-    // getCompleted()
-
-    // console.log(reminders);
-
-    showCompleted()
+	showCompleted()
 }
 
 function getCompleted() {
-    // creates array with completed reminders
+	// creates array with completed reminders
 
-    let completed = []
+	let completed = []
 
-    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length ; i++) {
+	for (let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
+		if (_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted) {
+			completed.push(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i])
+		}
+	}
 
-        if(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderCompleted) {
+	// console.log(completed)
 
-            completed.push(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i])
-        }
-    }
-
-    // console.log(completed)
-
-    return completed.filter((obj, index) => completed.indexOf(obj) === index)
+	return completed.filter((obj, index) => completed.indexOf(obj) === index)
 }
 
 function purgeCompleted(reminder) {
-
-    for(let i = 0; i < completed.length; i++) {
-
-        if(completed.reminderTitle === reminder) {
-
-            completed.splice(i,1)
-        }
-    }
+	for (let i = 0; i < completed.length; i++) {
+		if (completed.reminderTitle === reminder) {
+			completed.splice(i, 1)
+		}
+	}
 }
 
 function showCompleted(e) {
+	console.log(e.target)
 
-    console.log(e.target)
+	// let completed = getCompleted()
 
-    // let completed = getCompleted()
+	// let modal = e.target.firstElementChild.children[1]
 
-    // let modal = e.target.firstElementChild.children[1]
+	// return function() {
 
-    // return function() {
+	//     for(let obj of completed) {
 
-    //     for(let obj of completed) {
-
-    //         modal.append(makeLongReminder(obj))
-    //     }
-    // }   
+	//         modal.append(makeLongReminder(obj))
+	//     }
+	// }
 }
 
 
@@ -5584,9 +5571,13 @@ __webpack_require__.r(__webpack_exports__);
 
 // EVENT LISTENERS
 
-document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.publishReminder)
+document
+	.querySelector('button#publishReminder')
+	.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.publishReminder)
 
-document.querySelector('button#addList').addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_9__.addListToPage)
+document
+	.querySelector('button#addList')
+	.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_9__.addListToPage)
 
 document.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_9__.showDropDownList)
 
@@ -5597,6 +5588,7 @@ document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_13__.closeMod
 document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_13__.openModal)
 
 document.addEventListener('click', _completed_js__WEBPACK_IMPORTED_MODULE_14__.crossOutHtml)
+
 })();
 
 /******/ })()
