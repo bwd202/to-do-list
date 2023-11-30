@@ -15,11 +15,12 @@ function closeModal(e) {
 
 }
 
-function openModal(e) { //open modal
+function openModal(e) { //show modal
 
     if(e.target.classList.contains('modal-btn')) {
 
-        e.target.nextElementSibling.classList.add('visible')    //show modal
+        e.target.nextElementSibling.classList.add('visible')
+        // e.target.closest('.modal').classList.add('visible')
 
     }
 
