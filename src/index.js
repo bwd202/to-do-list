@@ -17,9 +17,13 @@ import { showDropDown } from './banner.js'
 
 // EVENT LISTENERS
 
-document.querySelector('button#publishReminder').addEventListener('click', publishReminder)
+let publishReminderBtn = document.querySelector('button#publishReminder')
 
-document.querySelector('button#addList').addEventListener('click', addListToPage)
+publishReminderBtn.addEventListener('click', publishReminder)
+
+let addListBtn = document.querySelector('button#addList')
+
+addListBtn.addEventListener('click', addListToPage)
 
 document.addEventListener('click', showDropDown)
 
