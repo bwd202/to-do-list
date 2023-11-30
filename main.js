@@ -5594,9 +5594,13 @@ __webpack_require__.r(__webpack_exports__);
 
 // EVENT LISTENERS
 
-document.querySelector('button#publishReminder').addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.publishReminder)
+let publishReminderBtn = document.querySelector('button#publishReminder')
 
-document.querySelector('button#addList').addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_9__.addListToPage)
+publishReminderBtn.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.publishReminder)
+
+let addListBtn = document.querySelector('button#addList')
+
+addListBtn.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_9__.addListToPage)
 
 document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_15__.showDropDown)
 
