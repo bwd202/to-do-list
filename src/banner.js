@@ -5,6 +5,7 @@ export {showDropDown}
 // icons
 let chevronDown1 = new Image(15,15)
 chevronDown1.src = chevronDown
+chevronDown1.classList.add('button')
 
 document.querySelector('.chevron').append(chevronDown1)
 
