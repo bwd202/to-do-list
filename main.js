@@ -4622,8 +4622,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   showDropDown: () => (/* binding */ showDropDown)
 /* harmony export */ });
+/* harmony import */ var _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/chevron-up-solid.svg */ "./src/icons/chevron-up-solid.svg");
+/* harmony import */ var _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons/chevron-down-solid.svg */ "./src/icons/chevron-down-solid.svg");
 
 
+
+
+// icons
+let chevronDown1 = new Image(15,15)
+chevronDown1.src = _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_1__
+
+document.querySelector('.chevron').append(chevronDown1)
+
+let chevronUp1 = new Image(15,15)
+chevronUp1.src = _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_0__
+
+// fns
 function showDropDown(e) {
 
     if(e.target.classList.contains('banner')) {
@@ -5429,6 +5443,28 @@ module.exports = __webpack_require__.p + "ab58307c4579e18946a8.svg";
 "use strict";
 module.exports = __webpack_require__.p + "219cb3f5774dc4da59ea.svg";
 
+/***/ }),
+
+/***/ "./src/icons/chevron-down-solid.svg":
+/*!******************************************!*\
+  !*** ./src/icons/chevron-down-solid.svg ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "19f60b34ab6ecc29fee4.svg";
+
+/***/ }),
+
+/***/ "./src/icons/chevron-up-solid.svg":
+/*!****************************************!*\
+  !*** ./src/icons/chevron-up-solid.svg ***!
+  \****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "c1c53dda3ab61ae3f7d2.svg";
+
 /***/ })
 
 /******/ 	});
@@ -5609,10 +5645,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// ICONS
-
 // EVENT LISTENERS
-
 let publishReminderBtn = document.querySelector('button#publishReminder')
 
 publishReminderBtn.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.publishReminder)
