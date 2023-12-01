@@ -4631,6 +4631,7 @@ __webpack_require__.r(__webpack_exports__);
 // icons
 let chevronDown1 = new Image(15,15)
 chevronDown1.src = _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_1__
+chevronDown1.classList.add('button')
 
 document.querySelector('.chevron').append(chevronDown1)
 
