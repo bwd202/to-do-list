@@ -24,7 +24,9 @@ function showDropDown(e) {
 
 function reverseChevron() {
 
-    let container = document.querySelectorAll('.chevron')
+    let container = document.querySelector('.chevron')
 
-    container.innerHTML = '2b9d'
+    container.firstElementChild.remove()
+
+    container.append(chevronUp1)
 }
