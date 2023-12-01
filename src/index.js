@@ -15,6 +15,8 @@ import { openModal, closeModal, updateModals } from './modal'
 import { crossOutHtml } from './completed.js'
 import { showDropDown } from './banner.js'
 
+// ICONS
+
 // EVENT LISTENERS
 
 let publishReminderBtn = document.querySelector('button#publishReminder')

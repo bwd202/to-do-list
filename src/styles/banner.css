@@ -45,12 +45,9 @@
     grid-area: drop-down;
 }
 
-.chevron::after {
+/* .chevron::after {
     content: '\2b9f';
     color: var(--input);
-}
+} */
 
-.visible ~ .chevron::after {
-    content: "\2b9d";
-}
 
