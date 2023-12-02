@@ -4828,9 +4828,14 @@ let chevronDown1 = new Image(15,15)
 
 chevronDown1.src = _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_2__
 
+chevronDown1.style.filter = css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default().hexToFilter('#d3d3d3').color
+
 let chevronUp1 = new Image(15,15)
 
 chevronUp1.src = _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_1__
+
+chevronUp1.style.filter = css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default().hexToFilter('#d3d3d3').color
+
 
 // banner
 class listIcon {
