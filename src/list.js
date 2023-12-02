@@ -1,7 +1,8 @@
-export {addListToPage}
-import listIcon from './icons/calendar-text.svg'
-import CssFilterConverter from 'css-filter-converter'
+// import CssFilterConverter from 'css-filter-converter'
 import { lists } from './storage'
+import {listIcon} from './icon'
+export {addListToPage}
+
 
 class List {
     constructor({name = 'New List', color = '#0f0'}={}) {
@@ -63,17 +64,16 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     listBanner.classList.add('banner','button','border')
 
-    let icon = new Image(50,50)
+    let icon = new listIcon().make()
 
-    icon.src = listIcon
-
-    let iconColor = CssFilterConverter.hexToFilter(obj.listColor).color  //color is a prop of the obj returned by cssFilterConverter
+    // let iconColor = CssFilterConverter.hexToFilter(obj.listColor).color  //color is a prop of the obj returned by cssFilterConverter
 
     let p = document.createElement('p')
 
     let name = obj.name
 
-    icon.style.filter = iconColor
+    // icon.style.filter = iconColor
+    // icon.color = iconColor
 
     p.append(name)
 

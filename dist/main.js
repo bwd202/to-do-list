@@ -4809,10 +4809,16 @@ function countReminders(list) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   chevronDown1: () => (/* binding */ chevronDown1),
-/* harmony export */   chevronUp1: () => (/* binding */ chevronUp1)
+/* harmony export */   chevronUp1: () => (/* binding */ chevronUp1),
+/* harmony export */   listIcon: () => (/* binding */ listIcon)
 /* harmony export */ });
-/* harmony import */ var _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/chevron-up-solid.svg */ "./src/icons/chevron-up-solid.svg");
-/* harmony import */ var _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons/chevron-down-solid.svg */ "./src/icons/chevron-down-solid.svg");
+/* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
+/* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(css_filter_converter__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons/chevron-up-solid.svg */ "./src/icons/chevron-up-solid.svg");
+/* harmony import */ var _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icons/chevron-down-solid.svg */ "./src/icons/chevron-down-solid.svg");
+/* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
+
+
 
 
 
@@ -4820,11 +4826,45 @@ __webpack_require__.r(__webpack_exports__);
 // chevron
 let chevronDown1 = new Image(15,15)
 
-chevronDown1.src = _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_1__
+chevronDown1.src = _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_2__
 
 let chevronUp1 = new Image(15,15)
 
-chevronUp1.src = _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_0__
+chevronUp1.src = _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_1__
+
+// banner
+
+class listIcon {
+
+    constructor({src = _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_3__ , color = '#0f0'}={}) {
+
+        this._src = src
+        this._color = color
+    }
+
+    get color() {
+
+        return this._color
+    }
+
+    set color(name) {
+
+        this._color = css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default().hexToFilter(name).color
+    }
+
+    make() {
+
+        let icon = new Image(50,50)
+
+        icon.src = this._src
+
+        icon.style.filter = this._color
+
+        return icon
+    }
+
+
+}
 
 /***/ }),
 
@@ -4839,12 +4879,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   addListToPage: () => (/* binding */ addListToPage)
 /* harmony export */ });
-/* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
-/* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
-/* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_filter_converter__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon */ "./src/icon.js");
+// import CssFilterConverter from 'css-filter-converter'
 
-;
+
 
 
 
@@ -4886,7 +4925,7 @@ class List {
 }
 
 function storeList() {
-    _storage__WEBPACK_IMPORTED_MODULE_2__.lists.push(getListInputs())
+    _storage__WEBPACK_IMPORTED_MODULE_0__.lists.push(getListInputs())
 }
 
 function getListInputs() {   //creates obj from inputs and returns it
@@ -4908,17 +4947,16 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     listBanner.classList.add('banner','button','border')
 
-    let icon = new Image(50,50)
+    let icon = new _icon__WEBPACK_IMPORTED_MODULE_1__.listIcon().make()
 
-    icon.src = _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_0__
-
-    let iconColor = css_filter_converter__WEBPACK_IMPORTED_MODULE_1___default().hexToFilter(obj.listColor).color  //color is a prop of the obj returned by cssFilterConverter
+    // let iconColor = CssFilterConverter.hexToFilter(obj.listColor).color  //color is a prop of the obj returned by cssFilterConverter
 
     let p = document.createElement('p')
 
     let name = obj.name
 
-    icon.style.filter = iconColor
+    // icon.style.filter = iconColor
+    // icon.color = iconColor
 
     p.append(name)
 
@@ -4990,7 +5028,7 @@ function addListToPage(e) { //shows html list on the page
 
     storeList()
 
-    let listObj = _storage__WEBPACK_IMPORTED_MODULE_2__.lists.at(-1)
+    let listObj = _storage__WEBPACK_IMPORTED_MODULE_0__.lists.at(-1)
 
     addNewListInputOption(listObj)
 
