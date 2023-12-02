@@ -9,9 +9,14 @@ let chevronDown1 = new Image(15,15)
 
 chevronDown1.src = chevronDown
 
+chevronDown1.style.filter = CssFilterConverter.hexToFilter('#d3d3d3').color
+
 let chevronUp1 = new Image(15,15)
 
 chevronUp1.src = chevronUp
+
+chevronUp1.style.filter = CssFilterConverter.hexToFilter('#d3d3d3').color
+
 
 // banner
 class listIcon {
