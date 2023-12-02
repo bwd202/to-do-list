@@ -4833,12 +4833,11 @@ let chevronUp1 = new Image(15,15)
 chevronUp1.src = _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_1__
 
 // banner
-
 class listIcon {
 
-    constructor({src = _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_3__ , color = '#0f0'}={}) {
+    constructor({color = '#0f0'}={}) {
 
-        this._src = src
+        this._src = _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_3__
         this._color = color
     }
 
@@ -4862,8 +4861,6 @@ class listIcon {
 
         return icon
     }
-
-
 }
 
 /***/ }),
@@ -4881,7 +4878,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon */ "./src/icon.js");
-// import CssFilterConverter from 'css-filter-converter'
 
 
 
@@ -4953,14 +4949,9 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     let icon1 = icon.make()
 
-    // let iconColor = CssFilterConverter.hexToFilter(obj.listColor).color  //color is a prop of the obj returned by cssFilterConverter
-
     let p = document.createElement('p')
 
     let name = obj.name
-
-    // icon.style.filter = iconColor
-    // icon.color = iconColor
 
     p.append(name)
 

@@ -14,12 +14,11 @@ let chevronUp1 = new Image(15,15)
 chevronUp1.src = chevronUp
 
 // banner
-
 class listIcon {
 
-    constructor({src = listIcon1 , color = '#0f0'}={}) {
+    constructor({color = '#0f0'}={}) {
 
-        this._src = src
+        this._src = listIcon1
         this._color = color
     }
 
@@ -43,6 +42,4 @@ class listIcon {
 
         return icon
     }
-
-
 }

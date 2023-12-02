@@ -1,4 +1,3 @@
-// import CssFilterConverter from 'css-filter-converter'
 import { lists } from './storage'
 import {listIcon} from './icon'
 export {addListToPage}
@@ -70,14 +69,9 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     let icon1 = icon.make()
 
-    // let iconColor = CssFilterConverter.hexToFilter(obj.listColor).color  //color is a prop of the obj returned by cssFilterConverter
-
     let p = document.createElement('p')
 
     let name = obj.name
-
-    // icon.style.filter = iconColor
-    // icon.color = iconColor
 
     p.append(name)
 
