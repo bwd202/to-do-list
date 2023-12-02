@@ -4617,21 +4617,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   expandCollapseBanner: () => (/* binding */ expandCollapseBanner)
 /* harmony export */ });
-/* harmony import */ var _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/chevron-up-solid.svg */ "./src/icons/chevron-up-solid.svg");
-/* harmony import */ var _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons/chevron-down-solid.svg */ "./src/icons/chevron-down-solid.svg");
+/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon */ "./src/icon.js");
 
 
 
-
-// icons
-let chevronDown1 = new Image(15,15)
-
-chevronDown1.src = _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_1__
-
-document.querySelector('.chevron').append(chevronDown1)
-
-let chevronUp1 = new Image(15,15)
-chevronUp1.src = _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_0__
+document.querySelector('.chevron').append(_icon__WEBPACK_IMPORTED_MODULE_0__.chevronDown1)
 
 function expandCollapseBanner(e) {
 
@@ -4660,11 +4650,11 @@ function switchChevron(direction) {
 
         case 'collapse':
             container.firstElementChild.remove()
-            container.append(chevronDown1)
+            container.append(_icon__WEBPACK_IMPORTED_MODULE_0__.chevronDown1)
             break;
         case 'expand':
             container.firstElementChild.remove()
-            container.append(chevronUp1)
+            container.append(_icon__WEBPACK_IMPORTED_MODULE_0__.chevronUp1)
     }
 }
 
@@ -4806,6 +4796,35 @@ function countReminders(list) {
 // filter reminders in storage based on list/category prop
 
 // show filtered array length in respective counter innerHtml
+
+/***/ }),
+
+/***/ "./src/icon.js":
+/*!*********************!*\
+  !*** ./src/icon.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   chevronDown1: () => (/* binding */ chevronDown1),
+/* harmony export */   chevronUp1: () => (/* binding */ chevronUp1)
+/* harmony export */ });
+/* harmony import */ var _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/chevron-up-solid.svg */ "./src/icons/chevron-up-solid.svg");
+/* harmony import */ var _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons/chevron-down-solid.svg */ "./src/icons/chevron-down-solid.svg");
+
+
+
+
+// chevron
+let chevronDown1 = new Image(15,15)
+
+chevronDown1.src = _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_1__
+
+let chevronUp1 = new Image(15,15)
+
+chevronUp1.src = _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_0__
 
 /***/ }),
 

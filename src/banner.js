@@ -1,16 +1,7 @@
-import chevronUp from './icons/chevron-up-solid.svg'
-import chevronDown from './icons/chevron-down-solid.svg'
+import { chevronDown1, chevronUp1 } from "./icon"
 export {expandCollapseBanner}
 
-// icons
-let chevronDown1 = new Image(15,15)
-
-chevronDown1.src = chevronDown
-
 document.querySelector('.chevron').append(chevronDown1)
-
-let chevronUp1 = new Image(15,15)
-chevronUp1.src = chevronUp
 
 function expandCollapseBanner(e) {
 
