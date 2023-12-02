@@ -6,7 +6,7 @@ class Icon {
     constructor(src, color) {
 
         this._src = src
-        this._color = color
+        this._color = CssFilterConverter.hexToFilter(color).color
     }
 
     make(type) {
@@ -16,13 +16,13 @@ class Icon {
             case 'list':
                 let icon = new Image(50,50)
                 icon.src = this._src
-                icon.style.filter = CssFilterConverter.hexToFilter(this._color).color
+                icon.style.filter = this._color
                 return icon
 
             case 'chevron':
                 let icon2 = new Image(15,15)
                 icon2.src = this._src
-                icon2.style.filter = CssFilterConverter.hexToFilter(this._color).color
+                icon2.style.filter = this._color
                 return icon2
         }
 

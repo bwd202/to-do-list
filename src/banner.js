@@ -1,4 +1,4 @@
-import { chevronDown1, chevronUp1 } from "./icon"
+// import { chevronDown1, chevronUp1 } from "./icon"
 export {expandCollapseBanner}
 
 // document.querySelector('.chevron').append(chevronDown1)
@@ -11,29 +11,29 @@ function expandCollapseBanner(e) {
 
             e.target.lastElementChild.classList.remove('visible')
 
-            switchChevron('collapse')
+            // switchChevron('collapse')
         }
         
         else {
             e.target.lastElementChild.classList.add('visible')
             
-            switchChevron('expand')
+            // switchChevron('expand')
         }
     }
 }
 
-function switchChevron(direction) {
+// function switchChevron(direction) {
 
-    let container = document.querySelector('.chevron')
+//     let container = document.querySelector('.chevron')
 
-    switch(direction) {
+//     switch(direction) {
 
-        case 'collapse':
-            container.firstElementChild.remove()
-            container.append(chevronDown1)
-            break;
-        case 'expand':
-            container.firstElementChild.remove()
-            container.append(chevronUp1)
-    }
-}
+//         case 'collapse':
+//             container.firstElementChild.remove()
+//             container.append(chevronDown1)
+//             break;
+//         case 'expand':
+//             container.firstElementChild.remove()
+//             container.append(chevronUp1)
+//     }
+// }

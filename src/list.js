@@ -1,7 +1,7 @@
-import { lists } from './storage'
-import {Icon} from './icon'
 import chevronDown from './icons/chevron-down-solid.svg'
 import listIcon from './icons/calendar-text.svg'
+import { lists } from './storage'
+import {Icon} from './icon'
 export {addListToPage}
 
 
@@ -67,8 +67,6 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     let icon = new Icon(listIcon, obj.listColor)
 
-    // icon.color = obj.listColor
-
     let icon1 = icon.make('list')
 
     let p = document.createElement('p')
@@ -85,7 +83,7 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     chevron.classList.add('chevron')
 
-    let chevronIcon = new Icon(chevronDown,'d3d3d3')
+    let chevronIcon = new Icon(chevronDown,'#d3d3d3')
 
     let chevronIcon1 = chevronIcon.make('chevron')
 
