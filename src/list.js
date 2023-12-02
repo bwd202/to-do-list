@@ -64,7 +64,11 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     listBanner.classList.add('banner','button','border')
 
-    let icon = new listIcon().make()
+    let icon = new listIcon()
+
+    icon.color = obj.listColor
+
+    let icon1 = icon.make()
 
     // let iconColor = CssFilterConverter.hexToFilter(obj.listColor).color  //color is a prop of the obj returned by cssFilterConverter
 
@@ -94,7 +98,7 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     dropDown.setAttribute('hidden','')
 
-    listBanner.append(icon, p, count, closeBtn, dropDown)
+    listBanner.append(icon1, p, count, closeBtn, dropDown)
 
     wrapper.append(listBanner)
 
