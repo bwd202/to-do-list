@@ -1,7 +1,7 @@
 import { chevronDown1, chevronUp1 } from "./icon"
 export {expandCollapseBanner}
 
-document.querySelector('.chevron').append(chevronDown1)
+// document.querySelector('.chevron').append(chevronDown1)
 
 function expandCollapseBanner(e) {
 

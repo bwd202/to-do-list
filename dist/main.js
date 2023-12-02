@@ -4621,7 +4621,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-document.querySelector('.chevron').append(_icon__WEBPACK_IMPORTED_MODULE_0__.chevronDown1)
+// document.querySelector('.chevron').append(chevronDown1)
 
 function expandCollapseBanner(e) {
 
@@ -4808,63 +4808,39 @@ function countReminders(list) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   chevronDown1: () => (/* binding */ chevronDown1),
-/* harmony export */   chevronUp1: () => (/* binding */ chevronUp1),
-/* harmony export */   listIcon: () => (/* binding */ listIcon)
+/* harmony export */   Icon: () => (/* binding */ Icon)
 /* harmony export */ });
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! css-filter-converter */ "./node_modules/css-filter-converter/lib/index.js");
 /* harmony import */ var css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(css_filter_converter__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons/chevron-up-solid.svg */ "./src/icons/chevron-up-solid.svg");
-/* harmony import */ var _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icons/chevron-down-solid.svg */ "./src/icons/chevron-down-solid.svg");
-/* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
 
 
 
+class Icon {
 
+    constructor(src, color) {
 
-
-// chevron
-let chevronDown1 = new Image(15,15)
-
-chevronDown1.src = _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_2__
-
-chevronDown1.style.filter = css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default().hexToFilter('#d3d3d3').color
-
-let chevronUp1 = new Image(15,15)
-
-chevronUp1.src = _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_1__
-
-chevronUp1.style.filter = css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default().hexToFilter('#d3d3d3').color
-
-
-// banner
-class listIcon {
-
-    constructor({color = '#0f0'}={}) {
-
-        this._src = _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_3__
+        this._src = src
         this._color = color
     }
 
-    get color() {
+    make(type) {
 
-        return this._color
-    }
+        switch(type) {
+            
+            case 'list':
+                let icon = new Image(50,50)
+                icon.src = this._src
+                icon.style.filter = css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default().hexToFilter(this._color).color
+                return icon
 
-    set color(name) {
+            case 'chevron':
+                let icon2 = new Image(15,15)
+                icon2.src = this._src
+                icon2.style.filter = css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default().hexToFilter(this._color).color
+                return icon2
+        }
 
-        this._color = css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default().hexToFilter(name).color
-    }
-
-    make() {
-
-        let icon = new Image(50,50)
-
-        icon.src = this._src
-
-        icon.style.filter = this._color
-
-        return icon
+        
     }
 }
 
@@ -4883,6 +4859,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon */ "./src/icon.js");
+/* harmony import */ var _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icons/chevron-down-solid.svg */ "./src/icons/chevron-down-solid.svg");
+/* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
+
+
 
 
 
@@ -4948,11 +4928,11 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     listBanner.classList.add('banner','button','border')
 
-    let icon = new _icon__WEBPACK_IMPORTED_MODULE_1__.listIcon()
+    let icon = new _icon__WEBPACK_IMPORTED_MODULE_1__.Icon(_icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_3__, obj.listColor)
 
-    icon.color = obj.listColor
+    // icon.color = obj.listColor
 
-    let icon1 = icon.make()
+    let icon1 = icon.make('list')
 
     let p = document.createElement('p')
 
@@ -4963,6 +4943,16 @@ function makeHtmlList(obj) {    //creates html list banner from obj
     let count = document.createElement('span')
 
     count.classList.add('counter')
+
+    let chevron = document.createElement('span')
+
+    chevron.classList.add('chevron')
+
+    let chevronIcon = new _icon__WEBPACK_IMPORTED_MODULE_1__.Icon(_icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_2__,'d3d3d3')
+
+    let chevronIcon1 = chevronIcon.make('chevron')
+
+    chevron.append(chevronIcon1)
 
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
@@ -4977,7 +4967,7 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     dropDown.setAttribute('hidden','')
 
-    listBanner.append(icon1, p, count, closeBtn, dropDown)
+    listBanner.append(icon1, p, count, chevron, closeBtn, dropDown)
 
     wrapper.append(listBanner)
 
@@ -5523,17 +5513,6 @@ module.exports = __webpack_require__.p + "219cb3f5774dc4da59ea.svg";
 
 "use strict";
 module.exports = __webpack_require__.p + "19f60b34ab6ecc29fee4.svg";
-
-/***/ }),
-
-/***/ "./src/icons/chevron-up-solid.svg":
-/*!****************************************!*\
-  !*** ./src/icons/chevron-up-solid.svg ***!
-  \****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "c1c53dda3ab61ae3f7d2.svg";
 
 /***/ })
 

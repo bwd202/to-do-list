@@ -1,50 +1,31 @@
 import CssFilterConverter from 'css-filter-converter'
-import chevronUp from './icons/chevron-up-solid.svg'
-import chevronDown from './icons/chevron-down-solid.svg'
-import listIcon1 from './icons/calendar-text.svg'
-export {chevronDown1, chevronUp1, listIcon}
+export {Icon}
 
-// chevron
-let chevronDown1 = new Image(15,15)
+class Icon {
 
-chevronDown1.src = chevronDown
+    constructor(src, color) {
 
-chevronDown1.style.filter = CssFilterConverter.hexToFilter('#d3d3d3').color
-
-let chevronUp1 = new Image(15,15)
-
-chevronUp1.src = chevronUp
-
-chevronUp1.style.filter = CssFilterConverter.hexToFilter('#d3d3d3').color
-
-
-// banner
-class listIcon {
-
-    constructor({color = '#0f0'}={}) {
-
-        this._src = listIcon1
+        this._src = src
         this._color = color
     }
 
-    get color() {
+    make(type) {
 
-        return this._color
-    }
+        switch(type) {
+            
+            case 'list':
+                let icon = new Image(50,50)
+                icon.src = this._src
+                icon.style.filter = CssFilterConverter.hexToFilter(this._color).color
+                return icon
 
-    set color(name) {
+            case 'chevron':
+                let icon2 = new Image(15,15)
+                icon2.src = this._src
+                icon2.style.filter = CssFilterConverter.hexToFilter(this._color).color
+                return icon2
+        }
 
-        this._color = CssFilterConverter.hexToFilter(name).color
-    }
-
-    make() {
-
-        let icon = new Image(50,50)
-
-        icon.src = this._src
-
-        icon.style.filter = this._color
-
-        return icon
+        
     }
 }

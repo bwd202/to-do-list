@@ -1,5 +1,7 @@
 import { lists } from './storage'
-import {listIcon} from './icon'
+import {Icon} from './icon'
+import chevronDown from './icons/chevron-down-solid.svg'
+import listIcon from './icons/calendar-text.svg'
 export {addListToPage}
 
 
@@ -63,11 +65,11 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     listBanner.classList.add('banner','button','border')
 
-    let icon = new listIcon()
+    let icon = new Icon(listIcon, obj.listColor)
 
-    icon.color = obj.listColor
+    // icon.color = obj.listColor
 
-    let icon1 = icon.make()
+    let icon1 = icon.make('list')
 
     let p = document.createElement('p')
 
@@ -78,6 +80,16 @@ function makeHtmlList(obj) {    //creates html list banner from obj
     let count = document.createElement('span')
 
     count.classList.add('counter')
+
+    let chevron = document.createElement('span')
+
+    chevron.classList.add('chevron')
+
+    let chevronIcon = new Icon(chevronDown,'d3d3d3')
+
+    let chevronIcon1 = chevronIcon.make('chevron')
+
+    chevron.append(chevronIcon1)
 
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
@@ -92,7 +104,7 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     dropDown.setAttribute('hidden','')
 
-    listBanner.append(icon1, p, count, closeBtn, dropDown)
+    listBanner.append(icon1, p, count, chevron, closeBtn, dropDown)
 
     wrapper.append(listBanner)
 
