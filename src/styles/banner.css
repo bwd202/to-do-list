@@ -6,7 +6,7 @@
     background-color: var(--card);
     grid-template-columns: max-content 1fr 50px repeat(2, max-content);
     grid-template-rows: 50px 1fr;
-    grid-template-areas: 'icon title count btn1 btn2' 
+    grid-template-areas: 'icon title count chevron btn2' 
                          'drop-down drop-down drop-down drop-down drop-down';
     align-items: center;
     gap: 5px;
@@ -27,8 +27,8 @@
 }
 
 .banner > span:nth-of-type(2) {
-    grid-area: btn1;
-    padding: 0 5px;
+    grid-area: chevron;
+    padding: 5px;
 }
 
 .banner-close-btn {
@@ -44,10 +44,5 @@
 .banner .drop-down {
     grid-area: drop-down;
 }
-
-/* .chevron::after {
-    content: '\2b9f';
-    color: var(--input);
-} */
 
 

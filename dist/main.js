@@ -2269,7 +2269,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner {
     background-color: var(--card);
     grid-template-columns: max-content 1fr 50px repeat(2, max-content);
     grid-template-rows: 50px 1fr;
-    grid-template-areas: 'icon title count btn1 btn2' 
+    grid-template-areas: 'icon title count chevron btn2' 
                          'drop-down drop-down drop-down drop-down drop-down';
     align-items: center;
     gap: 5px;
@@ -2290,8 +2290,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner {
 }
 
 .banner > span:nth-of-type(2) {
-    grid-area: btn1;
-    padding: 0 5px;
+    grid-area: chevron;
+    padding: 5px;
 }
 
 .banner-close-btn {
@@ -2308,13 +2308,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner {
     grid-area: drop-down;
 }
 
-/* .chevron::after {
-    content: '\\2b9f';
-    color: var(--input);
-} */
 
-
-`, "",{"version":3,"sources":["webpack://./src/styles/banner.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,6BAA6B;IAC7B,kEAAkE;IAClE,4BAA4B;IAC5B;4EACwE;IACxE,mBAAmB;IACnB,QAAQ;AACZ;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,UAAU;AACd;;AAEA;IACI,oBAAoB;AACxB;;AAEA;;;GAGG","sourcesContent":[".banner {\n    position: relative;\n    display: grid;\n    grid-auto-flow: column;\n    padding: 10px;\n    background-color: var(--card);\n    grid-template-columns: max-content 1fr 50px repeat(2, max-content);\n    grid-template-rows: 50px 1fr;\n    grid-template-areas: 'icon title count btn1 btn2' \n                         'drop-down drop-down drop-down drop-down drop-down';\n    align-items: center;\n    gap: 5px;\n}\n\n.banner img {\n    grid-area: icon;\n}\n\n.banner p {\n    grid-area: title;\n    justify-self: start;\n}\n\n.banner > span:first-of-type {\n    grid-area: count;\n    place-self: center;\n}\n\n.banner > span:nth-of-type(2) {\n    grid-area: btn1;\n    padding: 0 5px;\n}\n\n.banner-close-btn {\n    color: var(--input);\n    grid-area: btn2;\n}\n\n.banner-close-btn:hover {\n    scale: 1.7;\n    color: red;\n}\n\n.banner .drop-down {\n    grid-area: drop-down;\n}\n\n/* .chevron::after {\n    content: '\\2b9f';\n    color: var(--input);\n} */\n\n\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/banner.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,6BAA6B;IAC7B,kEAAkE;IAClE,4BAA4B;IAC5B;4EACwE;IACxE,mBAAmB;IACnB,QAAQ;AACZ;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,UAAU;AACd;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":[".banner {\n    position: relative;\n    display: grid;\n    grid-auto-flow: column;\n    padding: 10px;\n    background-color: var(--card);\n    grid-template-columns: max-content 1fr 50px repeat(2, max-content);\n    grid-template-rows: 50px 1fr;\n    grid-template-areas: 'icon title count chevron btn2' \n                         'drop-down drop-down drop-down drop-down drop-down';\n    align-items: center;\n    gap: 5px;\n}\n\n.banner img {\n    grid-area: icon;\n}\n\n.banner p {\n    grid-area: title;\n    justify-self: start;\n}\n\n.banner > span:first-of-type {\n    grid-area: count;\n    place-self: center;\n}\n\n.banner > span:nth-of-type(2) {\n    grid-area: chevron;\n    padding: 5px;\n}\n\n.banner-close-btn {\n    color: var(--input);\n    grid-area: btn2;\n}\n\n.banner-close-btn:hover {\n    scale: 1.7;\n    color: red;\n}\n\n.banner .drop-down {\n    grid-area: drop-down;\n}\n\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4620,7 +4615,7 @@ module.exports = styleTagTransform;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   showDropDown: () => (/* binding */ showDropDown)
+/* harmony export */   expandCollapseBanner: () => (/* binding */ expandCollapseBanner)
 /* harmony export */ });
 /* harmony import */ var _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/chevron-up-solid.svg */ "./src/icons/chevron-up-solid.svg");
 /* harmony import */ var _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons/chevron-down-solid.svg */ "./src/icons/chevron-down-solid.svg");
@@ -4630,32 +4625,47 @@ __webpack_require__.r(__webpack_exports__);
 
 // icons
 let chevronDown1 = new Image(15,15)
+
 chevronDown1.src = _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_1__
-chevronDown1.classList.add('button')
 
 document.querySelector('.chevron').append(chevronDown1)
 
 let chevronUp1 = new Image(15,15)
 chevronUp1.src = _icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_0__
 
-// fns
-function showDropDown(e) {
+function expandCollapseBanner(e) {
 
     if(e.target.classList.contains('banner')) {
-        
-        e.target.lastElementChild.classList.toggle('visible')
 
-        reverseChevron()
+        if(e.target.lastElementChild.classList.contains('visible')) {
+
+            e.target.lastElementChild.classList.remove('visible')
+
+            switchChevron('collapse')
+        }
+        
+        else {
+            e.target.lastElementChild.classList.add('visible')
+            
+            switchChevron('expand')
+        }
     }
 }
 
-function reverseChevron() {
+function switchChevron(direction) {
 
     let container = document.querySelector('.chevron')
 
-    container.firstElementChild.remove()
+    switch(direction) {
 
-    container.append(chevronUp1)
+        case 'collapse':
+            container.firstElementChild.remove()
+            container.append(chevronDown1)
+            break;
+        case 'expand':
+            container.firstElementChild.remove()
+            container.append(chevronUp1)
+    }
 }
 
 /***/ }),
@@ -5657,7 +5667,7 @@ let addListBtn = document.querySelector('button#addList')
 
 addListBtn.addEventListener('click', _list__WEBPACK_IMPORTED_MODULE_9__.addListToPage)
 
-document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_15__.showDropDown)
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_15__.expandCollapseBanner)
 
 document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.deleteReminderHtml)
 

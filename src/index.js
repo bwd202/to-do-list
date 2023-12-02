@@ -13,7 +13,7 @@ import { reminders } from './storage'
 import { updateCounters } from './counters.js'
 import { openModal, closeModal, updateModals } from './modal'
 import { crossOutHtml } from './completed.js'
-import { showDropDown } from './banner.js'
+import { expandCollapseBanner } from './banner.js'
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
@@ -24,7 +24,7 @@ let addListBtn = document.querySelector('button#addList')
 
 addListBtn.addEventListener('click', addListToPage)
 
-document.addEventListener('click', showDropDown)
+document.addEventListener('click', expandCollapseBanner)
 
 document.addEventListener('click', deleteReminderHtml)
 

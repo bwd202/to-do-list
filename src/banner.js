@@ -1,33 +1,48 @@
 import chevronUp from './icons/chevron-up-solid.svg'
 import chevronDown from './icons/chevron-down-solid.svg'
-export {showDropDown}
+export {expandCollapseBanner}
 
 // icons
 let chevronDown1 = new Image(15,15)
+
 chevronDown1.src = chevronDown
-chevronDown1.classList.add('button')
 
 document.querySelector('.chevron').append(chevronDown1)
 
 let chevronUp1 = new Image(15,15)
 chevronUp1.src = chevronUp
 
-// fns
-function showDropDown(e) {
+function expandCollapseBanner(e) {
 
     if(e.target.classList.contains('banner')) {
-        
-        e.target.lastElementChild.classList.toggle('visible')
 
-        reverseChevron()
+        if(e.target.lastElementChild.classList.contains('visible')) {
+
+            e.target.lastElementChild.classList.remove('visible')
+
+            switchChevron('collapse')
+        }
+        
+        else {
+            e.target.lastElementChild.classList.add('visible')
+            
+            switchChevron('expand')
+        }
     }
 }
 
-function reverseChevron() {
+function switchChevron(direction) {
 
     let container = document.querySelector('.chevron')
 
-    container.firstElementChild.remove()
+    switch(direction) {
 
-    container.append(chevronUp1)
+        case 'collapse':
+            container.firstElementChild.remove()
+            container.append(chevronDown1)
+            break;
+        case 'expand':
+            container.firstElementChild.remove()
+            container.append(chevronUp1)
+    }
 }
