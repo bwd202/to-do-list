@@ -4617,8 +4617,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   expandCollapseBanner: () => (/* binding */ expandCollapseBanner)
 /* harmony export */ });
-/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon */ "./src/icon.js");
-
+// import { chevronDown1, chevronUp1 } from "./icon"
 
 
 // document.querySelector('.chevron').append(chevronDown1)
@@ -4631,32 +4630,32 @@ function expandCollapseBanner(e) {
 
             e.target.lastElementChild.classList.remove('visible')
 
-            switchChevron('collapse')
+            // switchChevron('collapse')
         }
         
         else {
             e.target.lastElementChild.classList.add('visible')
             
-            switchChevron('expand')
+            // switchChevron('expand')
         }
     }
 }
 
-function switchChevron(direction) {
+// function switchChevron(direction) {
 
-    let container = document.querySelector('.chevron')
+//     let container = document.querySelector('.chevron')
 
-    switch(direction) {
+//     switch(direction) {
 
-        case 'collapse':
-            container.firstElementChild.remove()
-            container.append(_icon__WEBPACK_IMPORTED_MODULE_0__.chevronDown1)
-            break;
-        case 'expand':
-            container.firstElementChild.remove()
-            container.append(_icon__WEBPACK_IMPORTED_MODULE_0__.chevronUp1)
-    }
-}
+//         case 'collapse':
+//             container.firstElementChild.remove()
+//             container.append(chevronDown1)
+//             break;
+//         case 'expand':
+//             container.firstElementChild.remove()
+//             container.append(chevronUp1)
+//     }
+// }
 
 /***/ }),
 
@@ -4820,7 +4819,7 @@ class Icon {
     constructor(src, color) {
 
         this._src = src
-        this._color = color
+        this._color = css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default().hexToFilter(color).color
     }
 
     make(type) {
@@ -4830,13 +4829,13 @@ class Icon {
             case 'list':
                 let icon = new Image(50,50)
                 icon.src = this._src
-                icon.style.filter = css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default().hexToFilter(this._color).color
+                icon.style.filter = this._color
                 return icon
 
             case 'chevron':
                 let icon2 = new Image(15,15)
                 icon2.src = this._src
-                icon2.style.filter = css_filter_converter__WEBPACK_IMPORTED_MODULE_0___default().hexToFilter(this._color).color
+                icon2.style.filter = this._color
                 return icon2
         }
 
@@ -4857,10 +4856,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   addListToPage: () => (/* binding */ addListToPage)
 /* harmony export */ });
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icon */ "./src/icon.js");
-/* harmony import */ var _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icons/chevron-down-solid.svg */ "./src/icons/chevron-down-solid.svg");
-/* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
+/* harmony import */ var _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/chevron-down-solid.svg */ "./src/icons/chevron-down-solid.svg");
+/* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icon */ "./src/icon.js");
 
 
 
@@ -4906,7 +4905,7 @@ class List {
 }
 
 function storeList() {
-    _storage__WEBPACK_IMPORTED_MODULE_0__.lists.push(getListInputs())
+    _storage__WEBPACK_IMPORTED_MODULE_2__.lists.push(getListInputs())
 }
 
 function getListInputs() {   //creates obj from inputs and returns it
@@ -4928,9 +4927,7 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     listBanner.classList.add('banner','button','border')
 
-    let icon = new _icon__WEBPACK_IMPORTED_MODULE_1__.Icon(_icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_3__, obj.listColor)
-
-    // icon.color = obj.listColor
+    let icon = new _icon__WEBPACK_IMPORTED_MODULE_3__.Icon(_icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_1__, obj.listColor)
 
     let icon1 = icon.make('list')
 
@@ -4948,7 +4945,7 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     chevron.classList.add('chevron')
 
-    let chevronIcon = new _icon__WEBPACK_IMPORTED_MODULE_1__.Icon(_icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_2__,'d3d3d3')
+    let chevronIcon = new _icon__WEBPACK_IMPORTED_MODULE_3__.Icon(_icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_0__,'#d3d3d3')
 
     let chevronIcon1 = chevronIcon.make('chevron')
 
@@ -5018,7 +5015,7 @@ function addListToPage(e) { //shows html list on the page
 
     storeList()
 
-    let listObj = _storage__WEBPACK_IMPORTED_MODULE_0__.lists.at(-1)
+    let listObj = _storage__WEBPACK_IMPORTED_MODULE_2__.lists.at(-1)
 
     addNewListInputOption(listObj)
 
