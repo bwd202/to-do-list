@@ -2,6 +2,7 @@ export {publishReminder,Reminder,deleteReminderFromStorage,deleteReminderHtml,ma
 import {reminders} from "./storage"
 import { updateCounters } from "./counters"
 import { updateModals } from "./modal"
+import { appendChevronIcon } from "./list"
 
 class Reminder {
 
@@ -185,6 +186,7 @@ function publishReminder() {//event listener fn
 
         if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder
             
+            appendChevronIcon(container.parentElement)
             document.querySelector(listId).classList.add('visible')
         }
 

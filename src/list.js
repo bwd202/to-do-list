@@ -2,7 +2,7 @@ import chevronDown from './icons/chevron-down-solid.svg'
 import listIcon from './icons/calendar-text.svg'
 import { lists } from './storage'
 import {Icon} from './icon'
-export {addListToPage}
+export {addListToPage,appendChevronIcon}
 
 
 class List {
@@ -83,11 +83,11 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     chevron.classList.add('chevron')
 
-    let chevronIcon = new Icon(chevronDown,'#d3d3d3')
+    // let chevronIcon = new Icon(chevronDown,'#d3d3d3')
 
-    let chevronIcon1 = chevronIcon.make('chevron')
+    // let chevronIcon1 = chevronIcon.make('chevron')
 
-    chevron.append(chevronIcon1)
+    // chevron.append(chevronIcon1)
 
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
@@ -107,6 +107,18 @@ function makeHtmlList(obj) {    //creates html list banner from obj
     wrapper.append(listBanner)
 
     return wrapper
+}
+
+function appendChevronIcon(container) {
+
+    let target = container.querySelector('.chevron')
+
+    let chevronIcon = new Icon(chevronDown,'#d3d3d3')
+
+    let chevronIcon1 = chevronIcon.make('chevron')
+
+    target.append(chevronIcon1)
+
 }
 
 function removeHtmlList(e) { //deletes html list banner
