@@ -132,24 +132,33 @@ function expandCollapseBanner(e) {
 
             e.target.lastElementChild.classList.remove('visible')
 
-            chevronSpan.firstElementChild.remove()
+            if(chevronSpan.firstElementChild) {
+                
+                chevronSpan.firstElementChild.remove()
 
-            let chevronIcon = new Icon(chevronDown,'#d3d3d3')
-            let chevron1 = chevronIcon.make('chevron')
-            chevronSpan.append(chevron1)
+                let chevronIcon = new Icon(chevronDown,'#d3d3d3')
+                let chevron1 = chevronIcon.make('chevron')
+                chevronSpan.append(chevron1)
+
+            }
         }
         
         else {
 
             e.target.lastElementChild.classList.add('visible')
+
+            if(chevronSpan.firstElementChild) { 
+
+                chevronSpan.firstElementChild.remove()
+
+                let chevronIcon = new Icon(chevronUp,'#d3d3d3')
+                let chevron1 = chevronIcon.make('chevron')
+                chevronSpan.append(chevron1)
+    
+                chevronSpan.append(chevron1)
+            }
             
-            chevronSpan.firstElementChild.remove()
-
-            let chevronIcon = new Icon(chevronUp,'#d3d3d3')
-            let chevron1 = chevronIcon.make('chevron')
-            chevronSpan.append(chevron1)
-
-            chevronSpan.append(chevron1)
+           
         }
     }
 }
