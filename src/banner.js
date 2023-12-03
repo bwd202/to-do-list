@@ -126,36 +126,45 @@ function expandCollapseBanner(e) {
 
     if(e.target.classList.contains('banner')) {
 
-        // let chevron = e.target.closest('.chevron')
+        let chevronSpan = e.target.children[3]
 
         if(e.target.lastElementChild.classList.contains('visible')) {
 
             e.target.lastElementChild.classList.remove('visible')
 
-            // switchChevron('collapse')
+            chevronSpan.firstElementChild.remove()
+
+            let chevronIcon = new Icon(chevronDown,'#d3d3d3')
+            let chevron1 = chevronIcon.make('chevron')
+            chevronSpan.append(chevron1)
         }
         
         else {
 
             e.target.lastElementChild.classList.add('visible')
             
-            // switchChevron('expand')
+            chevronSpan.firstElementChild.remove()
+
+            let chevronIcon = new Icon(chevronUp,'#d3d3d3')
+            let chevron1 = chevronIcon.make('chevron')
+            chevronSpan.append(chevron1)
+
+            chevronSpan.append(chevron1)
         }
     }
 }
 
-function flipChevron(e) {
+// function flipChevron(direction) {
 
-    let banner = e.target.closest('.chevron')
+//     let container = chevron
 
-    switch(direction) {
+//     switch(direction) {
 
-        case 'down':
-            container.firstElementChild.remove()
-            container.append(chevronDown1)
-            break;
-        case 'up':
-            container.firstElementChild.remove()
-            container.append(chevronUp1)
-    }
-}
+//         case 'down':
+            
+//             break;
+
+//         case 'up':
+            
+//     }
+// }
