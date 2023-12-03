@@ -4757,13 +4757,11 @@ function makeBanner(obj) {    //creates html
 
 function appendChevronIcon(container) {
 
-    let target = container.querySelector('.chevron')
-
     let chevronIcon = new _icon__WEBPACK_IMPORTED_MODULE_0__.Icon(_icons_chevron_up_solid_svg__WEBPACK_IMPORTED_MODULE_4__,'#d3d3d3')
 
     let chevronIcon1 = chevronIcon.make('chevron')
 
-    target.append(chevronIcon1)
+    container.append(chevronIcon1)
 
 }
 
@@ -5401,13 +5399,17 @@ function publishReminder() {//event listener fn
 
         let listId = "#" + reminder.list
 
-        let container = document.querySelector(listId)
+        let accordion = document.querySelector(listId)
 
-        if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder
+        if(accordion.childElementCount === 0) { //shows drop-down by default after adding first reminder
 
-            if(!container.parentElement.children[3].firstChild) {   //prevents adding extra chevron icons
+            let banner = accordion.parentElement
 
-                (0,_banner__WEBPACK_IMPORTED_MODULE_3__.appendChevronIcon)(container.parentElement)
+            let chevronSpan = banner.children[3]
+
+            if(!chevronSpan.firstChild) {   //prevents adding extra chevron icons (bug)
+
+                (0,_banner__WEBPACK_IMPORTED_MODULE_3__.appendChevronIcon)(chevronSpan)
 
             }
             
