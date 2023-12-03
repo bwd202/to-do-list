@@ -1,0 +1,20 @@
+.button {
+	cursor: pointer;
+}
+
+.del-btn {
+	background-color: red;
+	color: white;
+	border-radius: 5px;
+	padding: 0 2px;
+}
+
+.del-btn:hover {
+	scale: 1.2;
+}
+
+.modal-close-btn {
+	position: absolute;
+	right: -0;
+	top: -0;
+}

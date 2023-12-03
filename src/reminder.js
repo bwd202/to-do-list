@@ -228,13 +228,13 @@ function publishReminder() {//event listener fn
 
 function deleteReminderHtml(e) {
 
-    let closeBtn = e.target
+    if(e.target.classList.contains('del-btn')) {
+
+        let btn = e.target
     
-    let reminder = closeBtn.parentElement
+        let reminder = btn.parentElement
 
-    if(closeBtn.classList.contains('close-btn')) {
-
-        deleteReminderFromStorage(closeBtn.previousElementSibling.innerHTML) //matches html reminder's h4 to reminderTitle prop
+        deleteReminderFromStorage(btn.previousElementSibling.children[0].innerHTML) //matches h4 text to reminderTitle prop value
 
         updateCounters(reminder.parentElement.id)
 

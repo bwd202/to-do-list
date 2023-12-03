@@ -3,10 +3,6 @@
 	border-radius: 14px;
 }
 
-.button {
-	cursor: pointer;
-}
-
 .card {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -16,17 +12,6 @@
 	padding: 10px;
 	background-color: var(--card);
 	gap: 5px;
-}
-
-.close-btn {
-	background-color: red;
-	color: white;
-	border-radius: 5px;
-	padding: 0 2px;
-}
-
-.close-btn:hover {
-	scale: 1.2;
 }
 
 .completed {
@@ -51,12 +36,6 @@
 	inset: 0;
 	z-index: 10;
 	/* fixes issue with add list button icon showing on top of reminder modal */
-}
-
-.modal-close-btn {
-	position: absolute;
-	right: -0;
-	top: -0;
 }
 
 .visible {
