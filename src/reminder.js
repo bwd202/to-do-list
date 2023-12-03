@@ -141,7 +141,7 @@ function makeLongReminder(obj) {  //html reminder for modal categories
 
     let closeBtn = document.createElement('span')
 
-    closeBtn.classList.add('button','close-btn')
+    closeBtn.classList.add('button','del-btn')
 
     closeBtn.innerHTML = '&times;'
 
