@@ -1,11 +1,132 @@
-// import { chevronDown1, chevronUp1 } from "./icon"
-export {expandCollapseBanner}
+import {Icon} from "./icon"
+import {List,storeList} from './list'
+import { lists } from "./storage"
+import chevronDown from './icons/chevron-down-solid.svg'
+import chevronUp from './icons/chevron-up-solid.svg'
+import bannerIcon from './icons/calendar-text.svg'
+export {expandCollapseBanner,appendBanner,appendChevronIcon}
 
-// document.querySelector('.chevron').append(chevronDown1)
+function makeBanner(obj) {    //creates html
+
+    let wrapper = new DocumentFragment()
+
+    let listBanner = document.createElement('div')
+
+    listBanner.classList.add('banner','button','border')
+
+    let icon = new Icon(bannerIcon, obj.listColor)
+
+    let icon1 = icon.make('list')
+
+    let p = document.createElement('p')
+
+    let name = obj.name
+
+    p.append(name)
+
+    let count = document.createElement('span')
+
+    count.classList.add('counter')
+
+    let chevron = document.createElement('span')
+
+    chevron.classList.add('chevron')
+
+    let closeBtn = document.createElement('span')
+    closeBtn.classList.add('banner-close-btn')
+    closeBtn.innerHTML = '&times;'
+    closeBtn.addEventListener('click', removeHtmlList)
+
+    let dropDown = document.createElement('div')
+
+    dropDown.classList.add('drop-down')
+
+    dropDown.setAttribute('id',obj.id)
+
+    dropDown.setAttribute('hidden','')
+
+    listBanner.append(icon1, p, count, chevron, closeBtn, dropDown)
+
+    wrapper.append(listBanner)
+
+    return wrapper
+}
+
+function appendChevronIcon(container) {
+
+    let target = container.querySelector('.chevron')
+
+    let chevronIcon = new Icon(chevronUp,'#d3d3d3')
+
+    let chevronIcon1 = chevronIcon.make('chevron')
+
+    target.append(chevronIcon1)
+
+}
+
+function removeHtmlList(e) { //deletes html list banner
+
+    let targetBanner = e.target.parentElement
+
+    targetBanner.remove()
+
+    let listId = targetBanner.lastElementChild.id
+
+    removeListOption(listId)
+}
+
+function removeListOption(name) {   //removes list name from reminder modal
+
+    let reminderModalListOptions = document.querySelector('#selectList').children
+
+    for(let i = 0; i < reminderModalListOptions.length; i++) {
+
+        if(reminderModalListOptions[i].value === name) {
+
+            reminderModalListOptions[i].remove()
+        }
+    }
+}
+
+function addNewListOption(obj) {   //adds new input to reminder modal form
+
+    let container = document.querySelector('[name="listOptions"]')
+
+    let newListOption = document.createElement('option')
+
+    newListOption.setAttribute('value', obj.id)
+
+    newListOption.innerHTML = obj.id
+
+    container.append(newListOption)
+
+}
+
+function appendBanner(e) { //adds new banner to document
+
+    e.preventDefault()
+
+    storeList()
+
+    let listObj = lists.at(-1)
+
+    addNewListOption(listObj)
+
+    let newBanner = makeBanner(listObj)
+
+    let container = document.querySelector('article')
+
+    container.append(newBanner)
+
+    listForm.reset()
+}
+
 
 function expandCollapseBanner(e) {
 
     if(e.target.classList.contains('banner')) {
+
+        // let chevron = e.target.closest('.chevron')
 
         if(e.target.lastElementChild.classList.contains('visible')) {
 
@@ -15,6 +136,7 @@ function expandCollapseBanner(e) {
         }
         
         else {
+
             e.target.lastElementChild.classList.add('visible')
             
             // switchChevron('expand')
@@ -22,18 +144,18 @@ function expandCollapseBanner(e) {
     }
 }
 
-// function switchChevron(direction) {
+function flipChevron(e) {
 
-//     let container = document.querySelector('.chevron')
+    let banner = e.target.closest('.chevron')
 
-//     switch(direction) {
+    switch(direction) {
 
-//         case 'collapse':
-//             container.firstElementChild.remove()
-//             container.append(chevronDown1)
-//             break;
-//         case 'expand':
-//             container.firstElementChild.remove()
-//             container.append(chevronUp1)
-//     }
-// }
+        case 'down':
+            container.firstElementChild.remove()
+            container.append(chevronDown1)
+            break;
+        case 'up':
+            container.firstElementChild.remove()
+            container.append(chevronUp1)
+    }
+}
