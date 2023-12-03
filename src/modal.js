@@ -1,5 +1,6 @@
-export {openModal,closeModal}
-import { showCompleted } from "./completed"
+import { reminders } from "./storage"
+import { makeLongReminder } from "./reminder"
+export {openModal,closeModal, showCompleted}
 
 function closeModal(e) {
 
@@ -30,6 +31,20 @@ function openModal(e) { //show modal
 
     // }
 
+}
+
+function showCompleted() {
+
+	let container = document.querySelector('#completed + .modal').firstElementChild.children[1]
+
+	for(let item of reminders) {
+
+		if(item.reminderCompleted) {
+
+			// console.log(item)
+			container.append(makeLongReminder(item))
+		}
+	}
 }
 
 // function updateModals() {

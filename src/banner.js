@@ -1,10 +1,10 @@
 import {Icon} from "./icon"
-import {List,storeList} from './list'
-import { lists } from "./storage"
+import {storeList} from './list'
+import { lists, markComplete } from "./storage"
 import chevronDown from './icons/chevron-down-solid.svg'
 import chevronUp from './icons/chevron-up-solid.svg'
 import bannerIcon from './icons/calendar-text.svg'
-export {expandCollapseBanner,appendBanner,appendChevronIcon}
+export {expandCollapseBanner,appendBanner,appendChevronIcon,crossOutHtml}
 
 function makeBanner(obj) {    //creates html
 
@@ -167,4 +167,16 @@ function flipChevron(direction) {
             let icon2 = chevronIcon2.make('chevron')
             return icon2
     }
+}
+
+function crossOutHtml(e) {
+
+	if (e.target.type === 'checkbox') {
+
+		e.target.nextElementSibling.classList.toggle('completed')
+
+		let reminder = e.target.nextElementSibling.children[0].innerHTML
+
+		markComplete(reminder)
+	}
 }

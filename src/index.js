@@ -8,12 +8,11 @@ import './styles/banner.css'
 import './styles/reminder.css'
 import './styles/modal.css'
 import './styles/button.css'
-import { publishReminder, deleteReminderHtml, showCompleted } from './reminder.js'
+import { publishReminder, deleteReminderHtml} from './reminder.js'
 import { reminders } from './storage'
 import { updateCounters } from './counters.js'
-import { openModal, closeModal, updateModals } from './modal'
-import { crossOutHtml } from './completed.js'
-import { expandCollapseBanner, appendBanner } from './banner.js'
+import { openModal, closeModal, showCompleted } from './modal'
+import { expandCollapseBanner, appendBanner, crossOutHtml } from './banner.js'
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
@@ -33,3 +32,5 @@ document.addEventListener('click', closeModal)
 document.addEventListener('click', openModal)
 
 document.addEventListener('click', crossOutHtml)
+
+document.querySelector('article').addEventListener('input', showCompleted)

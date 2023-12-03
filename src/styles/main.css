@@ -32,7 +32,6 @@ textarea {
                         'main main' 
                         'footer footer';
     padding: 20px;
-    background-color: white;
     background-color: var(--wrapper);
     min-height: 100vh;
 }
