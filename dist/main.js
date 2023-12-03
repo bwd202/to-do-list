@@ -4775,6 +4775,7 @@ function expandCollapseBanner(e) {
                 chevronSpan.firstElementChild.remove()
 
                 chevronSpan.append(flipChevron('up'))
+                
             }
         }
     }
@@ -5258,7 +5259,7 @@ function makeShortReminder(obj) {   //creates html
 
     let button = document.createElement('span')
 
-    button.classList.add('button','close-btn')
+    button.classList.add('button','del-btn')
 
     button.innerHTML = '&times;'
 

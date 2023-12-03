@@ -148,6 +148,7 @@ function expandCollapseBanner(e) {
                 chevronSpan.firstElementChild.remove()
 
                 chevronSpan.append(flipChevron('up'))
+                
             }
         }
     }

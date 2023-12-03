@@ -106,7 +106,7 @@ function makeShortReminder(obj) {   //creates html
 
     let button = document.createElement('span')
 
-    button.classList.add('button','close-btn')
+    button.classList.add('button','del-btn')
 
     button.innerHTML = '&times;'
 
