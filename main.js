@@ -4840,6 +4840,7 @@ function expandCollapseBanner(e) {
 
                 chevronSpan.append(flipChevron('down'))
             }
+
         }
         
         else {
@@ -4851,7 +4852,7 @@ function expandCollapseBanner(e) {
                 chevronSpan.firstElementChild.remove()
 
                 chevronSpan.append(flipChevron('up'))
-                
+
             }
         }
     }
@@ -5282,18 +5283,7 @@ function storeReminder() {
     // console.log(reminderStorage)
 }
 
-function deleteReminderFromStorage(name) {
 
-    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
-
-        if(name === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
-
-            _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.splice(i, 1)
-        }
-    }
-
-    // console.log(reminderStorage)
-}
 
 function makeShortReminder(obj) {   //creates html
 
@@ -5414,8 +5404,13 @@ function publishReminder() {//event listener fn
         let container = document.querySelector(listId)
 
         if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder
+
+            if(!container.parentElement.children[3].firstChild) {   //prevents adding extra chevron icons
+
+                (0,_banner__WEBPACK_IMPORTED_MODULE_3__.appendChevronIcon)(container.parentElement)
+
+            }
             
-            (0,_banner__WEBPACK_IMPORTED_MODULE_3__.appendChevronIcon)(container.parentElement)
             document.querySelector(listId).classList.add('visible')
         }
 
@@ -5469,6 +5464,19 @@ function deleteReminderHtml(e) {
 
         reminder.remove()
     }
+}
+
+function deleteReminderFromStorage(name) {
+
+    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
+
+        if(name === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
+
+            _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.splice(i, 1)
+        }
+    }
+
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders)
 }
 
 function addReminderToModal(modal, reminder) {
