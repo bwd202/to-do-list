@@ -171,13 +171,17 @@ function publishReminder() {//event listener fn
 
         let listId = "#" + reminder.list
 
-        let container = document.querySelector(listId)
+        let accordion = document.querySelector(listId)
 
-        if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder
+        if(accordion.childElementCount === 0) { //shows drop-down by default after adding first reminder
 
-            if(!container.parentElement.children[3].firstChild) {   //prevents adding extra chevron icons
+            let banner = accordion.parentElement
 
-                appendChevronIcon(container.parentElement)
+            let chevronSpan = banner.children[3]
+
+            if(!chevronSpan.firstChild) {   //prevents adding extra chevron icons (bug)
+
+                appendChevronIcon(chevronSpan)
 
             }
             

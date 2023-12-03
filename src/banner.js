@@ -54,13 +54,11 @@ function makeBanner(obj) {    //creates html
 
 function appendChevronIcon(container) {
 
-    let target = container.querySelector('.chevron')
-
     let chevronIcon = new Icon(chevronUp,'#d3d3d3')
 
     let chevronIcon1 = chevronIcon.make('chevron')
 
-    target.append(chevronIcon1)
+    container.append(chevronIcon1)
 
 }
 
