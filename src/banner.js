@@ -121,7 +121,6 @@ function appendBanner(e) { //adds new banner to document
     listForm.reset()
 }
 
-
 function expandCollapseBanner(e) {
 
     if(e.target.classList.contains('banner')) {
@@ -136,10 +135,7 @@ function expandCollapseBanner(e) {
                 
                 chevronSpan.firstElementChild.remove()
 
-                let chevronIcon = new Icon(chevronDown,'#d3d3d3')
-                let chevron1 = chevronIcon.make('chevron')
-                chevronSpan.append(chevron1)
-
+                chevronSpan.append(flipChevron('down'))
             }
         }
         
@@ -151,29 +147,24 @@ function expandCollapseBanner(e) {
 
                 chevronSpan.firstElementChild.remove()
 
-                let chevronIcon = new Icon(chevronUp,'#d3d3d3')
-                let chevron1 = chevronIcon.make('chevron')
-                chevronSpan.append(chevron1)
-    
-                chevronSpan.append(chevron1)
+                chevronSpan.append(flipChevron('up'))
             }
-            
-           
         }
     }
 }
 
-// function flipChevron(direction) {
+function flipChevron(direction) {
 
-//     let container = chevron
+    switch(direction) {
 
-//     switch(direction) {
+        case 'down':
+            let chevronIcon1 = new Icon(chevronDown,'#d3d3d3')
+            let icon1 = chevronIcon1.make('chevron')
+            return icon1
 
-//         case 'down':
-            
-//             break;
-
-//         case 'up':
-            
-//     }
-// }
+        case 'up':
+            let chevronIcon2 = new Icon(chevronUp,'#d3d3d3')
+            let icon2 = chevronIcon2.make('chevron')
+            return icon2
+    }
+}
