@@ -4854,7 +4854,8 @@ class Icon {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   addListToPage: () => (/* binding */ addListToPage)
+/* harmony export */   addListToPage: () => (/* binding */ addListToPage),
+/* harmony export */   appendChevronIcon: () => (/* binding */ appendChevronIcon)
 /* harmony export */ });
 /* harmony import */ var _icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/chevron-down-solid.svg */ "./src/icons/chevron-down-solid.svg");
 /* harmony import */ var _icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons/calendar-text.svg */ "./src/icons/calendar-text.svg");
@@ -4945,11 +4946,11 @@ function makeHtmlList(obj) {    //creates html list banner from obj
 
     chevron.classList.add('chevron')
 
-    let chevronIcon = new _icon__WEBPACK_IMPORTED_MODULE_3__.Icon(_icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_0__,'#d3d3d3')
+    // let chevronIcon = new Icon(chevronDown,'#d3d3d3')
 
-    let chevronIcon1 = chevronIcon.make('chevron')
+    // let chevronIcon1 = chevronIcon.make('chevron')
 
-    chevron.append(chevronIcon1)
+    // chevron.append(chevronIcon1)
 
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
@@ -4969,6 +4970,18 @@ function makeHtmlList(obj) {    //creates html list banner from obj
     wrapper.append(listBanner)
 
     return wrapper
+}
+
+function appendChevronIcon(container) {
+
+    let target = container.querySelector('.chevron')
+
+    let chevronIcon = new _icon__WEBPACK_IMPORTED_MODULE_3__.Icon(_icons_chevron_down_solid_svg__WEBPACK_IMPORTED_MODULE_0__,'#d3d3d3')
+
+    let chevronIcon1 = chevronIcon.make('chevron')
+
+    target.append(chevronIcon1)
+
 }
 
 function removeHtmlList(e) { //deletes html list banner
@@ -5126,8 +5139,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _counters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counters */ "./src/counters.js");
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
+/* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./list */ "./src/list.js");
 
 ;
+
 
 
 
@@ -5313,6 +5328,7 @@ function publishReminder() {//event listener fn
 
         if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder
             
+            (0,_list__WEBPACK_IMPORTED_MODULE_3__.appendChevronIcon)(container.parentElement)
             document.querySelector(listId).classList.add('visible')
         }
 
