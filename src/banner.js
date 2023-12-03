@@ -137,6 +137,7 @@ function expandCollapseBanner(e) {
 
                 chevronSpan.append(flipChevron('down'))
             }
+
         }
         
         else {
@@ -148,7 +149,7 @@ function expandCollapseBanner(e) {
                 chevronSpan.firstElementChild.remove()
 
                 chevronSpan.append(flipChevron('up'))
-                
+
             }
         }
     }

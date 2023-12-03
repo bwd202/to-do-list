@@ -53,18 +53,7 @@ function storeReminder() {
     // console.log(reminderStorage)
 }
 
-function deleteReminderFromStorage(name) {
 
-    for(let i = 0; i < reminders.length; i++) {
-
-        if(name === reminders[i].reminderTitle) {
-
-            reminders.splice(i, 1)
-        }
-    }
-
-    // console.log(reminderStorage)
-}
 
 function makeShortReminder(obj) {   //creates html
 
@@ -185,8 +174,13 @@ function publishReminder() {//event listener fn
         let container = document.querySelector(listId)
 
         if(container.childElementCount === 0) { //shows drop-down by default after adding first reminder
+
+            if(!container.parentElement.children[3].firstChild) {   //prevents adding extra chevron icons
+
+                appendChevronIcon(container.parentElement)
+
+            }
             
-            appendChevronIcon(container.parentElement)
             document.querySelector(listId).classList.add('visible')
         }
 
@@ -240,6 +234,19 @@ function deleteReminderHtml(e) {
 
         reminder.remove()
     }
+}
+
+function deleteReminderFromStorage(name) {
+
+    for(let i = 0; i < reminders.length; i++) {
+
+        if(name === reminders[i].reminderTitle) {
+
+            reminders.splice(i, 1)
+        }
+    }
+
+    console.log(reminders)
 }
 
 function addReminderToModal(modal, reminder) {
