@@ -102,7 +102,7 @@ function addNewListOption(obj) {   //adds new input to reminder modal form
 
 function appendBanner(e) { //adds new banner to document
 
-    e.preventDefault()
+    // e.preventDefault()
 
     storeList()
 

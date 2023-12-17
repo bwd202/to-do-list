@@ -163,7 +163,9 @@ function makeLongReminder(obj) {  //html reminder for modal categories
     // container.append(reminderHtmlWrapper)
 }
 
-function publishReminder() {//event listener fn
+function publishReminder(e) {//event listener fn
+
+    // e.preventDefault()
     
         storeReminder()
 

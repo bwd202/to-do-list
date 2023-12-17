@@ -95,7 +95,7 @@
 					<span id="reminder-modal-close-btn" class="button modal-close-btn">&times;</span>
 					<form id="reminderForm" action="/">
 						<label>Title</label>
-						<input type="text" placeholder="take dogs for a walk" name="reminderTitle" maxlength="20" />
+						<input type="text" placeholder="take dogs for a walk" name="reminderTitle" maxlength="20" required />
 						<label>Notes</label>
 						<input type="text" placeholder="bring poop bags" name="reminderNotes" maxlength="20" />
 						<label>Due Date</label>
@@ -112,7 +112,7 @@
 						<select name="listOptions">
 							<option value="reminders">Reminders</option>
 						</select>
-						<button id="publishReminder" type="button">
+						<button id="publishReminder" type="submit">
 							Done
 						</button>
 						<button type="reset">Reset</button>
@@ -126,7 +126,7 @@
 				<div class="wrapper">
 					<span id="list-modal-close-btn" class="button modal-close-btn">&times;</span>
 					<form id="listForm" action="/">
-						<input type="text" placeholder="List name" maxlength="30" />
+						<input type="text" placeholder="List name" maxlength="30" required />
 						<input type="color" />
 						<button id="addList" type="submit">Done</button>
 						<button type="reset">Reset</button>
