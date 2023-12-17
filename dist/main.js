@@ -2581,9 +2581,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, `input[type=text] {
 	border-radius: 14px;
 }
 
+input:focus {
+    outline: none;
+}
+
 input:invalid {
     border: 1px solid red;
-}`, "",{"version":3,"sources":["webpack://./src/styles/forms.css"],"names":[],"mappings":"AAAA;IACI,8BAA8B;CACjC,SAAS;CACT,YAAY;CACZ,mBAAmB;AACpB;;AAEA;IACI,qBAAqB;AACzB","sourcesContent":["input[type=text] {\n    background-color: var(--input);\n\tborder: 0;\n\tpadding: 8px;\n\tborder-radius: 14px;\n}\n\ninput:invalid {\n    border: 1px solid red;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/forms.css"],"names":[],"mappings":"AAAA;IACI,8BAA8B;CACjC,SAAS;CACT,YAAY;CACZ,mBAAmB;AACpB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,qBAAqB;AACzB","sourcesContent":["input[type=text] {\n    background-color: var(--input);\n\tborder: 0;\n\tpadding: 8px;\n\tborder-radius: 14px;\n}\n\ninput:focus {\n    outline: none;\n}\n\ninput:invalid {\n    border: 1px solid red;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
