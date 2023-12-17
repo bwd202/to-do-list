@@ -10,3 +10,8 @@ see [live](https://bwd202.github.io/to-do-list/)
 - multiple list colors to choose from
 - reminder counter per list and category
 - search feature
+
+### HTML/CSS
+
+- pseudo-classes
+- pseudo-elements

@@ -5,11 +5,8 @@ input[type=text] {
 	border-radius: 14px;
 }
 
-input:focus {
+input:invalid:focus {
     outline: none;
-}
-
-input:invalid {
     border: 1px solid red;
 }
 
@@ -41,6 +38,11 @@ input:invalid {
 
 #reminder-modal label:first-of-type {
 	grid-area: title;
+}
+
+#reminder-modal label:first-of-type::after {
+    content: '*';
+    color: red;
 }
 
 #reminder-modal input:first-of-type {
