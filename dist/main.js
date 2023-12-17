@@ -2265,7 +2265,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner {
     position: relative;
     display: grid;
     grid-auto-flow: column;
-    padding: 10px;
     background-color: var(--card);
     grid-template-columns: max-content 1fr 50px repeat(2, max-content);
     grid-template-rows: 50px 1fr;
@@ -2309,7 +2308,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner {
 }
 
 
-`, "",{"version":3,"sources":["webpack://./src/styles/banner.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,aAAa;IACb,6BAA6B;IAC7B,kEAAkE;IAClE,4BAA4B;IAC5B;4EACwE;IACxE,mBAAmB;IACnB,QAAQ;AACZ;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,UAAU;AACd;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":[".banner {\n    position: relative;\n    display: grid;\n    grid-auto-flow: column;\n    padding: 10px;\n    background-color: var(--card);\n    grid-template-columns: max-content 1fr 50px repeat(2, max-content);\n    grid-template-rows: 50px 1fr;\n    grid-template-areas: 'icon title count chevron btn2' \n                         'drop-down drop-down drop-down drop-down drop-down';\n    align-items: center;\n    gap: 5px;\n}\n\n.banner img {\n    grid-area: icon;\n}\n\n.banner p {\n    grid-area: title;\n    justify-self: start;\n}\n\n.banner > span:first-of-type {\n    grid-area: count;\n    place-self: center;\n}\n\n.banner > span:nth-of-type(2) {\n    grid-area: chevron;\n    padding: 5px;\n}\n\n.banner-close-btn {\n    color: var(--input);\n    grid-area: btn2;\n}\n\n.banner-close-btn:hover {\n    scale: 1.7;\n    color: red;\n}\n\n.banner .drop-down {\n    grid-area: drop-down;\n}\n\n\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/banner.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,6BAA6B;IAC7B,kEAAkE;IAClE,4BAA4B;IAC5B;4EACwE;IACxE,mBAAmB;IACnB,QAAQ;AACZ;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,UAAU;AACd;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":[".banner {\n    position: relative;\n    display: grid;\n    grid-auto-flow: column;\n    background-color: var(--card);\n    grid-template-columns: max-content 1fr 50px repeat(2, max-content);\n    grid-template-rows: 50px 1fr;\n    grid-template-areas: 'icon title count chevron btn2' \n                         'drop-down drop-down drop-down drop-down drop-down';\n    align-items: center;\n    gap: 5px;\n}\n\n.banner img {\n    grid-area: icon;\n}\n\n.banner p {\n    grid-area: title;\n    justify-self: start;\n}\n\n.banner > span:first-of-type {\n    grid-area: count;\n    place-self: center;\n}\n\n.banner > span:nth-of-type(2) {\n    grid-area: chevron;\n    padding: 5px;\n}\n\n.banner-close-btn {\n    color: var(--input);\n    grid-area: btn2;\n}\n\n.banner-close-btn:hover {\n    scale: 1.7;\n    color: red;\n}\n\n.banner .drop-down {\n    grid-area: drop-down;\n}\n\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2365,7 +2364,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.border {
+___CSS_LOADER_EXPORT___.push([module.id, `.banner, .card {
+	padding: 15px;
+}
+
+.border {
 	/* border: 1px solid black; */
 	border-radius: 14px;
 }
@@ -2397,7 +2400,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.border {
 	grid-template-rows: 1fr 1fr;
 	grid-template-areas: 'icon count' 'title .';
 	align-items: center;
-	padding: 10px;
 	background-color: var(--card);
 	gap: 5px;
 }
@@ -2434,7 +2436,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.border {
 	background-color: var(--card);
 	position: relative;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,OAAO;AACR;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,2BAA2B;CAC3B,2CAA2C;CAC3C,mBAAmB;CACnB,aAAa;CACb,6BAA6B;CAC7B,QAAQ;AACT;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;CACC,8BAA8B;CAC9B,SAAS;CACT,YAAY;CACZ,mBAAmB;AACpB;;AAEA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,6BAA6B;CAC7B,kBAAkB;AACnB","sourcesContent":[".border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tright: -0;\n\ttop: -0;\n}\n\n.card {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgrid-template-rows: 1fr 1fr;\n\tgrid-template-areas: 'icon count' 'title .';\n\talign-items: center;\n\tpadding: 10px;\n\tbackground-color: var(--card);\n\tgap: 5px;\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.input {\n\tbackground-color: var(--input);\n\tborder: 0;\n\tpadding: 6px;\n\tborder-radius: 14px;\n}\n\n.modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tbackground-color: var(--card);\n\tposition: relative;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;CACC,aAAa;AACd;;AAEA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,OAAO;AACR;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,2BAA2B;CAC3B,2CAA2C;CAC3C,mBAAmB;CACnB,6BAA6B;CAC7B,QAAQ;AACT;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;CACC,8BAA8B;CAC9B,SAAS;CACT,YAAY;CACZ,mBAAmB;AACpB;;AAEA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,6BAA6B;CAC7B,kBAAkB;AACnB","sourcesContent":[".banner, .card {\n\tpadding: 15px;\n}\n\n.border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tright: -0;\n\ttop: -0;\n}\n\n.card {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgrid-template-rows: 1fr 1fr;\n\tgrid-template-areas: 'icon count' 'title .';\n\talign-items: center;\n\tbackground-color: var(--card);\n\tgap: 5px;\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.input {\n\tbackground-color: var(--input);\n\tborder: 0;\n\tpadding: 6px;\n\tborder-radius: 14px;\n}\n\n.modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tbackground-color: var(--card);\n\tposition: relative;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

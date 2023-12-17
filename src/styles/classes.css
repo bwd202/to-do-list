@@ -1,3 +1,7 @@
+.banner, .card {
+	padding: 15px;
+}
+
 .border {
 	/* border: 1px solid black; */
 	border-radius: 14px;
@@ -30,7 +34,6 @@
 	grid-template-rows: 1fr 1fr;
 	grid-template-areas: 'icon count' 'title .';
 	align-items: center;
-	padding: 10px;
 	background-color: var(--card);
 	gap: 5px;
 }
