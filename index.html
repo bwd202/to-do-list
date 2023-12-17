@@ -6,8 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>To-Do List</title>
 	<link rel="shortcut icon" href="#" />
-	<!-- <script defer src="./icons/fontawesome/faAngry.js"></script> -->
-	<!-- <script defer src="./icons/fontawesome/index.js"></script> -->
 <script defer src="main.js"></script></head>
 
 <body>
@@ -97,15 +95,13 @@
 					<span id="reminder-modal-close-btn" class="button modal-close-btn">&times;</span>
 					<form id="reminderForm" action="/">
 						<label>Title</label>
-						<input type="text" placeholder="take dogs for a walk" name="reminderTitle" maxlength="20"
-							class="input" />
+						<input type="text" placeholder="take dogs for a walk" name="reminderTitle" maxlength="20" />
 						<label>Notes</label>
-						<input type="text" placeholder="bring poop bags" name="reminderNotes" maxlength="20"
-							class="input" />
+						<input type="text" placeholder="bring poop bags" name="reminderNotes" maxlength="20" />
 						<label>Due Date</label>
-						<input type="date" name="reminderDueDate" class="input" />
+						<input type="date" name="reminderDueDate" />
 						<label>Due Time</label>
-						<input type="time" name="reminderDueTime" class="input" />
+						<input type="time" name="reminderDueTime" />
 						<label>Priority</label>
 						<select name="reminderPriority">
 							<option value="1">low</option>
@@ -130,8 +126,8 @@
 				<div class="wrapper">
 					<span id="list-modal-close-btn" class="button modal-close-btn">&times;</span>
 					<form id="listForm" action="/">
-						<input type="text" placeholder="List name" class="input" maxlength="30" />
-						<input type="color" class="" />
+						<input type="text" placeholder="List name" maxlength="30" />
+						<input type="color" />
 						<button id="addList" type="submit">Done</button>
 						<button type="reset">Reset</button>
 					</form>
