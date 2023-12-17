@@ -2316,10 +2316,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/button.css":
-/*!*********************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/button.css ***!
-  \*********************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/buttons.css":
+/*!**********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/buttons.css ***!
+  \**********************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2338,6 +2338,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.button {
 	cursor: pointer;
+	box-shadow: 0 5px 5px rgba(0,0,0,0.5);
 }
 
 .del-btn {
@@ -2355,7 +2356,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.button {
 	position: absolute;
 	right: -0;
 	top: -0;
-}`, "",{"version":3,"sources":["webpack://./src/styles/button.css"],"names":[],"mappings":"AAAA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,OAAO;AACR","sourcesContent":[".button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tright: -0;\n\ttop: -0;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/buttons.css"],"names":[],"mappings":"AAAA;CACC,eAAe;CACf,qCAAqC;AACtC;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,OAAO;AACR","sourcesContent":[".button {\n\tcursor: pointer;\n\tbox-shadow: 0 5px 5px rgba(0,0,0,0.5);\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tright: -0;\n\ttop: -0;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2385,6 +2386,28 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, `.border {
 	/* border: 1px solid black; */
 	border-radius: 14px;
+}
+
+.button {
+	cursor: pointer;
+	box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+}
+
+.del-btn {
+	background-color: red;
+	color: white;
+	border-radius: 5px;
+	padding: 0 2px;
+}
+
+.del-btn:hover {
+	scale: 1.2;
+}
+
+.modal-close-btn {
+	position: absolute;
+	right: -0;
+	top: -0;
 }
 
 .card {
@@ -2430,7 +2453,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.border {
 	background-color: var(--card);
 	position: relative;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,2BAA2B;CAC3B,2CAA2C;CAC3C,mBAAmB;CACnB,aAAa;CACb,6BAA6B;CAC7B,QAAQ;AACT;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;CACC,8BAA8B;CAC9B,SAAS;CACT,YAAY;CACZ,mBAAmB;AACpB;;AAEA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,6BAA6B;CAC7B,kBAAkB;AACnB","sourcesContent":[".border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.card {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgrid-template-rows: 1fr 1fr;\n\tgrid-template-areas: 'icon count' 'title .';\n\talign-items: center;\n\tpadding: 10px;\n\tbackground-color: var(--card);\n\tgap: 5px;\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.input {\n\tbackground-color: var(--input);\n\tborder: 0;\n\tpadding: 6px;\n\tborder-radius: 14px;\n}\n\n.modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tbackground-color: var(--card);\n\tposition: relative;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,eAAe;CACf,qCAAqC;AACtC;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,OAAO;AACR;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,2BAA2B;CAC3B,2CAA2C;CAC3C,mBAAmB;CACnB,aAAa;CACb,6BAA6B;CAC7B,QAAQ;AACT;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;CACC,8BAA8B;CAC9B,SAAS;CACT,YAAY;CACZ,mBAAmB;AACpB;;AAEA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,6BAA6B;CAC7B,kBAAkB;AACnB","sourcesContent":[".border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.button {\n\tcursor: pointer;\n\tbox-shadow: 0 5px 5px rgba(0,0,0,0.5);\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tright: -0;\n\ttop: -0;\n}\n\n.card {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgrid-template-rows: 1fr 1fr;\n\tgrid-template-areas: 'icon count' 'title .';\n\talign-items: center;\n\tpadding: 10px;\n\tbackground-color: var(--card);\n\tgap: 5px;\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.input {\n\tbackground-color: var(--input);\n\tborder: 0;\n\tpadding: 6px;\n\tborder-radius: 14px;\n}\n\n.modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tbackground-color: var(--card);\n\tposition: relative;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4004,10 +4027,10 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./src/styles/button.css":
-/*!*******************************!*\
-  !*** ./src/styles/button.css ***!
-  \*******************************/
+/***/ "./src/styles/buttons.css":
+/*!********************************!*\
+  !*** ./src/styles/buttons.css ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4027,7 +4050,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_button_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./button.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/button.css");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_buttons_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./buttons.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/buttons.css");
 
       
       
@@ -4049,12 +4072,12 @@ options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWi
 options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
 options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_button_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_buttons_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
 
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_button_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_button_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_button_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_buttons_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_buttons_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_buttons_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -5800,7 +5823,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_banner_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/banner.css */ "./src/styles/banner.css");
 /* harmony import */ var _styles_reminder_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/reminder.css */ "./src/styles/reminder.css");
 /* harmony import */ var _styles_modal_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/modal.css */ "./src/styles/modal.css");
-/* harmony import */ var _styles_button_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/button.css */ "./src/styles/button.css");
+/* harmony import */ var _styles_buttons_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/buttons.css */ "./src/styles/buttons.css");
 /* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");

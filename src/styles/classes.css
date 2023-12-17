@@ -3,6 +3,28 @@
 	border-radius: 14px;
 }
 
+.button {
+	cursor: pointer;
+	box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+}
+
+.del-btn {
+	background-color: red;
+	color: white;
+	border-radius: 5px;
+	padding: 0 2px;
+}
+
+.del-btn:hover {
+	scale: 1.2;
+}
+
+.modal-close-btn {
+	position: absolute;
+	right: -0;
+	top: -0;
+}
+
 .card {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
