@@ -88,3 +88,26 @@ input:invalid:focus {
 #reminder-modal select:nth-of-type(2) {
 	grid-area: listSelect;
 }
+
+#list-modal form {
+    grid-template-areas: '. input input .' 
+                         '. color color .' 
+                         '. done reset .';
+}
+
+#list-modal input:first-of-type {
+    width: 250px;
+    grid-area: input;
+}
+
+#list-modal input:nth-of-type(2) {
+    grid-area: color;
+}
+
+#list-modal button:first-of-type {
+    grid-area: done;
+}
+
+#list-modal button:last-of-type {
+    grid-area: reset;
+}

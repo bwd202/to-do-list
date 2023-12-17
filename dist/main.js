@@ -2663,7 +2663,30 @@ input:invalid:focus {
 
 #reminder-modal select:nth-of-type(2) {
 	grid-area: listSelect;
-}`, "",{"version":3,"sources":["webpack://./src/styles/forms.css"],"names":[],"mappings":"AAAA;IACI,8BAA8B;CACjC,SAAS;CACT,YAAY;CACZ,mBAAmB;AACpB;;AAEA;IACI,aAAa;IACb,qBAAqB;AACzB;;AAEA;CACC,WAAW;CACX,sEAAsE;CACtE;;;;;;;kBAOiB;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,kBAAkB;CAClB,YAAY;AACb;;AAEA;CACC,gBAAgB;AACjB;;AAEA;IACI,YAAY;IACZ,UAAU;AACd;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB","sourcesContent":["input[type=text] {\n    background-color: var(--input);\n\tborder: 0;\n\tpadding: 8px;\n\tborder-radius: 14px;\n}\n\ninput:invalid:focus {\n    outline: none;\n    border: 1px solid red;\n}\n\n#reminder-modal form {\n\tgap: 30px 0;\n\tgrid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);\n\tgrid-template-areas:\n\t\t'. title titleInput .'\n\t\t'. notes notesInput .'\n\t\t'. date dateInput .'\n\t\t'. time timeInput .'\n\t\t'. priority prioritySelect .'\n\t\t'. list listSelect .'\n\t\t'. done reset .';\n}\n\n#reminder-modal label {\n    justify-self: end;\n}\n\n#reminder-modal input {\n\twidth: 150px;\n}\n\n#reminder-modal select {\n\ttext-align: center;\n\twidth: 150px;\n}\n\n#reminder-modal label:first-of-type {\n\tgrid-area: title;\n}\n\n#reminder-modal label:first-of-type::after {\n    content: '*';\n    color: red;\n}\n\n#reminder-modal input:first-of-type {\n\tgrid-area: titleInput;\n}\n\n#reminder-modal label:nth-of-type(2) {\n\tgrid-area: notes;\n}\n\n#reminder-modal input:nth-of-type(2) {\n\tgrid-area: notesInput;\n}\n\n#reminder-modal label:nth-of-type(3) {\n\tgrid-area: date;\n}\n\n#reminder-modal input:nth-of-type(3) {\n\tgrid-area: dateInput;\n}\n\n#reminder-modal label:nth-of-type(4) {\n\tgrid-area: time;\n}\n\n#reminder-modal input:nth-of-type(4) {\n\tgrid-area: timeInput;\n}\n\n#reminder-modal label:nth-of-type(5) {\n\tgrid-area: priority;\n}\n\n#reminder-modal select:nth-of-type(1) {\n\tgrid-area: prioritySelect;\n}\n\n#reminder-modal label:nth-of-type(6) {\n\tgrid-area: list;\n}\n\n#reminder-modal select:nth-of-type(2) {\n\tgrid-area: listSelect;\n}"],"sourceRoot":""}]);
+}
+
+#list-modal form {
+    grid-template-areas: '. input input .' 
+                         '. color color .' 
+                         '. done reset .';
+}
+
+#list-modal input:first-of-type {
+    width: 250px;
+    grid-area: input;
+}
+
+#list-modal input:nth-of-type(2) {
+    grid-area: color;
+}
+
+#list-modal button:first-of-type {
+    grid-area: done;
+}
+
+#list-modal button:last-of-type {
+    grid-area: reset;
+}`, "",{"version":3,"sources":["webpack://./src/styles/forms.css"],"names":[],"mappings":"AAAA;IACI,8BAA8B;CACjC,SAAS;CACT,YAAY;CACZ,mBAAmB;AACpB;;AAEA;IACI,aAAa;IACb,qBAAqB;AACzB;;AAEA;CACC,WAAW;CACX,sEAAsE;CACtE;;;;;;;kBAOiB;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,kBAAkB;CAClB,YAAY;AACb;;AAEA;CACC,gBAAgB;AACjB;;AAEA;IACI,YAAY;IACZ,UAAU;AACd;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;IACI;;yCAEqC;AACzC;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["input[type=text] {\n    background-color: var(--input);\n\tborder: 0;\n\tpadding: 8px;\n\tborder-radius: 14px;\n}\n\ninput:invalid:focus {\n    outline: none;\n    border: 1px solid red;\n}\n\n#reminder-modal form {\n\tgap: 30px 0;\n\tgrid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);\n\tgrid-template-areas:\n\t\t'. title titleInput .'\n\t\t'. notes notesInput .'\n\t\t'. date dateInput .'\n\t\t'. time timeInput .'\n\t\t'. priority prioritySelect .'\n\t\t'. list listSelect .'\n\t\t'. done reset .';\n}\n\n#reminder-modal label {\n    justify-self: end;\n}\n\n#reminder-modal input {\n\twidth: 150px;\n}\n\n#reminder-modal select {\n\ttext-align: center;\n\twidth: 150px;\n}\n\n#reminder-modal label:first-of-type {\n\tgrid-area: title;\n}\n\n#reminder-modal label:first-of-type::after {\n    content: '*';\n    color: red;\n}\n\n#reminder-modal input:first-of-type {\n\tgrid-area: titleInput;\n}\n\n#reminder-modal label:nth-of-type(2) {\n\tgrid-area: notes;\n}\n\n#reminder-modal input:nth-of-type(2) {\n\tgrid-area: notesInput;\n}\n\n#reminder-modal label:nth-of-type(3) {\n\tgrid-area: date;\n}\n\n#reminder-modal input:nth-of-type(3) {\n\tgrid-area: dateInput;\n}\n\n#reminder-modal label:nth-of-type(4) {\n\tgrid-area: time;\n}\n\n#reminder-modal input:nth-of-type(4) {\n\tgrid-area: timeInput;\n}\n\n#reminder-modal label:nth-of-type(5) {\n\tgrid-area: priority;\n}\n\n#reminder-modal select:nth-of-type(1) {\n\tgrid-area: prioritySelect;\n}\n\n#reminder-modal label:nth-of-type(6) {\n\tgrid-area: list;\n}\n\n#reminder-modal select:nth-of-type(2) {\n\tgrid-area: listSelect;\n}\n\n#list-modal form {\n    grid-template-areas: '. input input .' \n                         '. color color .' \n                         '. done reset .';\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2835,7 +2858,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#reminder-modal {
 	min-height: 100vh;
 }
 
-
 #reminder-modal button {
 	width: 100px;
 }
@@ -2848,31 +2870,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#reminder-modal {
 #reminder-modal button:last-of-type {
 	grid-area: reset;
 }
-
-/* LIST MODAL */
-#list-modal form {
-    grid-template-areas: '. input input .' 
-                         '. color color .' 
-                         '. done reset .';
-}
-
-#list-modal input:first-of-type {
-    width: 250px;
-    grid-area: input;
-}
-
-#list-modal input:nth-of-type(2) {
-    grid-area: color;
-}
-
-#list-modal button:first-of-type {
-    grid-area: done;
-}
-
-#list-modal button:last-of-type {
-    grid-area: reset;
-}
-`, "",{"version":3,"sources":["webpack://./src/styles/modal.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,iBAAiB;AAClB;;;AAGA;CACC,YAAY;AACb;;AAEA;CACC,eAAe;CACf,uBAAuB;AACxB;;AAEA;CACC,gBAAgB;AACjB;;AAEA,eAAe;AACf;IACI;;yCAEqC;AACzC;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["#reminder-modal {\n\t/* display: grid; */\n\tmin-height: 100vh;\n}\n\n\n#reminder-modal button {\n\twidth: 100px;\n}\n\n#reminder-modal button:first-of-type {\n\tgrid-area: done;\n\t/* justify-self: end; */\n}\n\n#reminder-modal button:last-of-type {\n\tgrid-area: reset;\n}\n\n/* LIST MODAL */\n#list-modal form {\n    grid-template-areas: '. input input .' \n                         '. color color .' \n                         '. done reset .';\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/modal.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,iBAAiB;AAClB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,eAAe;CACf,uBAAuB;AACxB;;AAEA;CACC,gBAAgB;AACjB","sourcesContent":["#reminder-modal {\n\t/* display: grid; */\n\tmin-height: 100vh;\n}\n\n#reminder-modal button {\n\twidth: 100px;\n}\n\n#reminder-modal button:first-of-type {\n\tgrid-area: done;\n\t/* justify-self: end; */\n}\n\n#reminder-modal button:last-of-type {\n\tgrid-area: reset;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
