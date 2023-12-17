@@ -2621,7 +2621,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
 body {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1)), url(${___CSS_LOADER_URL_REPLACEMENT_0___});
     display: grid;
-    grid-template-columns: repeat(4, max(300px, 25%));
+    grid-template-columns: 1fr repeat(2, max(250px, 20%)) 1fr;
     width: 100%;
     min-width: 800px;
     justify-content: center;
@@ -2653,7 +2653,7 @@ main {
     grid-area: main;
     display: grid;
     grid-template-columns: subgrid;
-    gap: 10px;
+    gap: 15px;
 }
 
 /* CARDS */
@@ -2688,7 +2688,7 @@ article {
 
 article > div {
     grid-column: inherit;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;IACV,4BAA4B;AAChC;;AAEA;IACI,oGAAqF;IACrF,aAAa;IACb,iDAAiD;IACjD,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA;;;;EAIE,oBAAoB;EACpB,eAAe;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,mCAAmC;IACnC;;uCAEmC;IACnC,aAAa;IACb,gCAAgC;IAChC,iBAAiB;AACrB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,SAAS;AACb;;AAEA,UAAU;;AAEV;IACI,eAAe;IACf,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,iBAAiB;IACjB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,YAAY,IAAI,uBAAuB;AAC3C;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,2BAA2B;IAC3B,kBAAkB;IAClB,mBAAmB;IACnB,SAAS;AACb;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":["* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    /* border: 1px dotted red; */\n}\n\nbody {\n    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1)), url('../background.jpg');\n    display: grid;\n    grid-template-columns: repeat(4, max(300px, 25%));\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    position: relative;\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n}\n\n#wrapper {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' \n                        'main main' \n                        'footer footer';\n    padding: 20px;\n    background-color: var(--wrapper);\n    min-height: 100vh;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    gap: 10px;\n}\n\n/* CARDS */\n\n.card img {\n    grid-area: icon;\n    align-self: end;\n}\n\n.card span {\n    grid-area: count;\n    align-self: start;\n    justify-self: end;\n    padding: 10px;\n}\n\n.card p {\n    grid-area: title;\n    align-self: start;\n    padding: 5px;   /* to align with icon */\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: 30px max-content;\n    grid-auto-rows: max-content;\n    align-items: start;\n    grid-column: span 2;\n    gap: 10px;\n}\n\narticle > div {\n    grid-column: inherit;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;IACV,4BAA4B;AAChC;;AAEA;IACI,oGAAqF;IACrF,aAAa;IACb,yDAAyD;IACzD,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA;;;;EAIE,oBAAoB;EACpB,eAAe;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,mCAAmC;IACnC;;uCAEmC;IACnC,aAAa;IACb,gCAAgC;IAChC,iBAAiB;AACrB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,SAAS;AACb;;AAEA,UAAU;;AAEV;IACI,eAAe;IACf,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,iBAAiB;IACjB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,YAAY,IAAI,uBAAuB;AAC3C;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,2BAA2B;IAC3B,kBAAkB;IAClB,mBAAmB;IACnB,SAAS;AACb;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":["* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    /* border: 1px dotted red; */\n}\n\nbody {\n    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1)), url('../background.jpg');\n    display: grid;\n    grid-template-columns: 1fr repeat(2, max(250px, 20%)) 1fr;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    position: relative;\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n}\n\n#wrapper {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' \n                        'main main' \n                        'footer footer';\n    padding: 20px;\n    background-color: var(--wrapper);\n    min-height: 100vh;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    gap: 15px;\n}\n\n/* CARDS */\n\n.card img {\n    grid-area: icon;\n    align-self: end;\n}\n\n.card span {\n    grid-area: count;\n    align-self: start;\n    justify-self: end;\n    padding: 10px;\n}\n\n.card p {\n    grid-area: title;\n    align-self: start;\n    padding: 5px;   /* to align with icon */\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: 30px max-content;\n    grid-auto-rows: max-content;\n    align-items: start;\n    grid-column: span 2;\n    gap: 10px;\n}\n\narticle > div {\n    grid-column: inherit;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
