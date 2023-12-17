@@ -12,3 +12,77 @@ input:focus {
 input:invalid {
     border: 1px solid red;
 }
+
+#reminder-modal form {
+	gap: 30px 0;
+	grid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);
+	grid-template-areas:
+		'. title titleInput .'
+		'. notes notesInput .'
+		'. date dateInput .'
+		'. time timeInput .'
+		'. priority prioritySelect .'
+		'. list listSelect .'
+		'. done reset .';
+}
+
+#reminder-modal label {
+    justify-self: end;
+}
+
+#reminder-modal input {
+	width: 150px;
+}
+
+#reminder-modal select {
+	text-align: center;
+	width: 150px;
+}
+
+#reminder-modal label:first-of-type {
+	grid-area: title;
+}
+
+#reminder-modal input:first-of-type {
+	grid-area: titleInput;
+}
+
+#reminder-modal label:nth-of-type(2) {
+	grid-area: notes;
+}
+
+#reminder-modal input:nth-of-type(2) {
+	grid-area: notesInput;
+}
+
+#reminder-modal label:nth-of-type(3) {
+	grid-area: date;
+}
+
+#reminder-modal input:nth-of-type(3) {
+	grid-area: dateInput;
+}
+
+#reminder-modal label:nth-of-type(4) {
+	grid-area: time;
+}
+
+#reminder-modal input:nth-of-type(4) {
+	grid-area: timeInput;
+}
+
+#reminder-modal label:nth-of-type(5) {
+	grid-area: priority;
+}
+
+#reminder-modal select:nth-of-type(1) {
+	grid-area: prioritySelect;
+}
+
+#reminder-modal label:nth-of-type(6) {
+	grid-area: list;
+}
+
+#reminder-modal select:nth-of-type(2) {
+	grid-area: listSelect;
+}
