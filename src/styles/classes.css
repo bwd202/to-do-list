@@ -43,10 +43,7 @@
 }
 
 .input {
-	background-color: var(--input);
-	border: 0;
-	padding: 6px;
-	border-radius: 14px;
+	
 }
 
 .modal {

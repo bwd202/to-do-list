@@ -2409,10 +2409,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner, .card {
 }
 
 .input {
-	background-color: var(--input);
-	border: 0;
-	padding: 6px;
-	border-radius: 14px;
+	
 }
 
 .modal {
@@ -2436,7 +2433,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner, .card {
 	background-color: var(--card);
 	position: relative;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;CACC,aAAa;AACd;;AAEA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,OAAO;AACR;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,2BAA2B;CAC3B,2CAA2C;CAC3C,mBAAmB;CACnB,6BAA6B;CAC7B,QAAQ;AACT;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;CACC,8BAA8B;CAC9B,SAAS;CACT,YAAY;CACZ,mBAAmB;AACpB;;AAEA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,6BAA6B;CAC7B,kBAAkB;AACnB","sourcesContent":[".banner, .card {\n\tpadding: 15px;\n}\n\n.border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tright: -0;\n\ttop: -0;\n}\n\n.card {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgrid-template-rows: 1fr 1fr;\n\tgrid-template-areas: 'icon count' 'title .';\n\talign-items: center;\n\tbackground-color: var(--card);\n\tgap: 5px;\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.input {\n\tbackground-color: var(--input);\n\tborder: 0;\n\tpadding: 6px;\n\tborder-radius: 14px;\n}\n\n.modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tbackground-color: var(--card);\n\tposition: relative;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;CACC,aAAa;AACd;;AAEA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,OAAO;AACR;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,2BAA2B;CAC3B,2CAA2C;CAC3C,mBAAmB;CACnB,6BAA6B;CAC7B,QAAQ;AACT;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;;AAEA;;AAEA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,6BAA6B;CAC7B,kBAAkB;AACnB","sourcesContent":[".banner, .card {\n\tpadding: 15px;\n}\n\n.border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tright: -0;\n\ttop: -0;\n}\n\n.card {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgrid-template-rows: 1fr 1fr;\n\tgrid-template-areas: 'icon count' 'title .';\n\talign-items: center;\n\tbackground-color: var(--card);\n\tgap: 5px;\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.input {\n\t\n}\n\n.modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tbackground-color: var(--card);\n\tposition: relative;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2551,6 +2548,38 @@ button#openListModal {
     height: 70px;
     justify-items: center;
 }`, "",{"version":3,"sources":["webpack://./src/styles/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,gBAAgB;IAChB,SAAS;AACb;;AAEA;IACI,aAAa;IACb,mCAAmC;IACnC,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;IACrB,iBAAiB;AACrB;;AAEA;IACI,SAAS;IACT,mBAAmB;IACnB,aAAa;IACb,YAAY;IACZ,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,oBAAoB;IACpB,QAAQ;AACZ;;AAEA;IACI,sCAAsC;;AAE1C;;AAEA;IACI,YAAY;IACZ,qBAAqB;AACzB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-items: end; \n    gap: 10px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-rows: repeat(7, 50px);\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n    padding-top: 60px;\n}\n\nfooter > button {\n    border: 0;\n    border-radius: 14px;\n    padding: 10px;\n    width: 200px;\n    color: blue;\n    display: grid;\n    align-items: center;\n    justify-items: start;\n    gap: 5px;\n}\n\nbutton#new-reminder {\n    grid-template-columns: max-content 1fr;\n\n}\n\nbutton#openListModal {\n    height: 70px;\n    justify-items: center;\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/forms.css":
+/*!********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/forms.css ***!
+  \********************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `input[type=text] {
+    background-color: var(--input);
+	border: 0;
+	padding: 8px;
+	border-radius: 14px;
+}`, "",{"version":3,"sources":["webpack://./src/styles/forms.css"],"names":[],"mappings":"AAAA;IACI,8BAA8B;CACjC,SAAS;CACT,YAAY;CACZ,mBAAmB;AACpB","sourcesContent":["input[type=text] {\n    background-color: var(--input);\n\tborder: 0;\n\tpadding: 8px;\n\tborder-radius: 14px;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3913,7 +3942,7 @@ var ___HTML_LOADER_REPLACEMENT_2___ = _node_modules_html_loader_dist_runtime_get
 var ___HTML_LOADER_REPLACEMENT_3___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_3___);
 var ___HTML_LOADER_REPLACEMENT_4___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_4___);
 var ___HTML_LOADER_REPLACEMENT_5___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_5___);
-var code = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n\t<title>To-Do List</title>\n\t<link rel=\"shortcut icon\" href=\"#\" />\n\t<!-- <" + "script defer src=\"./icons/fontawesome/faAngry.js\"><" + "/script> -->\n\t<!-- <" + "script defer src=\"./icons/fontawesome/index.js\"><" + "/script> -->\n</head>\n\n<body>\n\t<div id=\"wrapper\">\n\t\t<header>\n\t\t\t<input id=\"search\" type=\"text\" placeholder=\"&#x1F50D; Type search term and press Enter\" class=\"input\" />\n\t\t</header>\n\t\t<main>\n\t\t\t<div id=\"today\" class=\"card button border modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\" />\n\t\t\t\t<p>Today</p>\n\t\t\t\t<span class=\"counter\">0</span>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t\t<div class=\"modal-content\">\n\t\t\t\t\t\t<!-- will add reminders here -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div id=\"scheduled\" class=\"card button border modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\" />\n\t\t\t\t<p>Scheduled</p>\n\t\t\t\t<span class=\"counter\">0</span>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t\t<div class=\"modal-content\">\n\t\t\t\t\t\t<!-- will add reminders here -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div id=\"all\" class=\"card button border modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\" />\n\t\t\t\t<p>All</p>\n\t\t\t\t<span class=\"counter\">0</span>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t\t<div class=\"modal-content\">\n\t\t\t\t\t\t<!-- will add reminders here -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div id=\"completed\" class=\"card button border modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\" />\n\t\t\t\t<p>Completed</p>\n\t\t\t\t<span class=\"counter\">0</span>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t\t<div class=\"modal-content\">\n\t\t\t\t\t\t<!-- will add reminders here -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<article id=\"lists\">\n\t\t\t\t<h2>My Lists</h2>\n\t\t\t\t<div id=\"reminder-list\" class=\"button banner border\">\n\t\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\" />\n\t\t\t\t\t<p>Reminders</p>\n\t\t\t\t\t<span class=\"counter\"></span>\n\t\t\t\t\t<span class=\"chevron\"></span>\n\t\t\t\t\t<span class=\"banner-close-btn\">&times;</span>\n\t\t\t\t\t<div id=\"reminders\" class=\"drop-down\" hidden></div>\n\t\t\t\t</div>\n\t\t\t</article>\n\t\t</main>\n\t\t<footer>\n\t\t\t<button id=\"new-reminder\" class=\"button modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\" />New Reminder\n\t\t\t</button>\n\t\t\t<div id=\"reminder-modal\" class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span id=\"reminder-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t\t\t<form id=\"reminderForm\" action=\"/\">\n\t\t\t\t\t\t<label>Title</label>\n\t\t\t\t\t\t<input type=\"text\" placeholder=\"take dogs for a walk\" name=\"reminderTitle\" maxlength=\"20\"\n\t\t\t\t\t\t\tclass=\"input\" />\n\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t<input type=\"text\" placeholder=\"bring poop bags\" name=\"reminderNotes\" maxlength=\"20\"\n\t\t\t\t\t\t\tclass=\"input\" />\n\t\t\t\t\t\t<label>Due Date</label>\n\t\t\t\t\t\t<input type=\"date\" name=\"reminderDueDate\" class=\"input\" />\n\t\t\t\t\t\t<label>Due Time</label>\n\t\t\t\t\t\t<input type=\"time\" name=\"reminderDueTime\" class=\"input\" />\n\t\t\t\t\t\t<label>Priority</label>\n\t\t\t\t\t\t<select name=\"reminderPriority\">\n\t\t\t\t\t\t\t<option value=\"1\">low</option>\n\t\t\t\t\t\t\t<option value=\"2\" selected>medium</option>\n\t\t\t\t\t\t\t<option value=\"3\">high</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t<label>List</label>\n\t\t\t\t\t\t<select name=\"listOptions\">\n\t\t\t\t\t\t\t<option value=\"reminders\">Reminders</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t<button id=\"publishReminder\" type=\"button\">\n\t\t\t\t\t\t\tDone\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<button id=\"openListModal\" class=\"button modal-btn\">\n\t\t\t\tAdd List\n\t\t\t</button>\n\t\t\t<div id=\"list-modal\" class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span id=\"list-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t\t\t<form id=\"listForm\" action=\"/\">\n\t\t\t\t\t\t<input type=\"text\" placeholder=\"List name\" class=\"input\" maxlength=\"30\" />\n\t\t\t\t\t\t<input type=\"color\" class=\"\" />\n\t\t\t\t\t\t<button id=\"addList\" type=\"submit\">Done</button>\n\t\t\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</footer>\n\t</div>\n</body>\n\n</html>";
+var code = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n\t<title>To-Do List</title>\n\t<link rel=\"shortcut icon\" href=\"#\" />\n</head>\n\n<body>\n\t<div id=\"wrapper\">\n\t\t<header>\n\t\t\t<input id=\"search\" type=\"text\" placeholder=\"&#x1F50D; Type search term and press Enter\" class=\"input\" />\n\t\t</header>\n\t\t<main>\n\t\t\t<div id=\"today\" class=\"card button border modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\" />\n\t\t\t\t<p>Today</p>\n\t\t\t\t<span class=\"counter\">0</span>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t\t<div class=\"modal-content\">\n\t\t\t\t\t\t<!-- will add reminders here -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div id=\"scheduled\" class=\"card button border modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\" />\n\t\t\t\t<p>Scheduled</p>\n\t\t\t\t<span class=\"counter\">0</span>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t\t<div class=\"modal-content\">\n\t\t\t\t\t\t<!-- will add reminders here -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div id=\"all\" class=\"card button border modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\" />\n\t\t\t\t<p>All</p>\n\t\t\t\t<span class=\"counter\">0</span>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t\t<div class=\"modal-content\">\n\t\t\t\t\t\t<!-- will add reminders here -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div id=\"completed\" class=\"card button border modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\" />\n\t\t\t\t<p>Completed</p>\n\t\t\t\t<span class=\"counter\">0</span>\n\t\t\t</div>\n\n\t\t\t<div class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t\t<div class=\"modal-content\">\n\t\t\t\t\t\t<!-- will add reminders here -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<article id=\"lists\">\n\t\t\t\t<h2>My Lists</h2>\n\t\t\t\t<div id=\"reminder-list\" class=\"button banner border\">\n\t\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\" />\n\t\t\t\t\t<p>Reminders</p>\n\t\t\t\t\t<span class=\"counter\"></span>\n\t\t\t\t\t<span class=\"chevron\"></span>\n\t\t\t\t\t<span class=\"banner-close-btn\">&times;</span>\n\t\t\t\t\t<div id=\"reminders\" class=\"drop-down\" hidden></div>\n\t\t\t\t</div>\n\t\t\t</article>\n\t\t</main>\n\t\t<footer>\n\t\t\t<button id=\"new-reminder\" class=\"button modal-btn\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\" />New Reminder\n\t\t\t</button>\n\t\t\t<div id=\"reminder-modal\" class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span id=\"reminder-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t\t\t<form id=\"reminderForm\" action=\"/\">\n\t\t\t\t\t\t<label>Title</label>\n\t\t\t\t\t\t<input type=\"text\" placeholder=\"take dogs for a walk\" name=\"reminderTitle\" maxlength=\"20\" />\n\t\t\t\t\t\t<label>Notes</label>\n\t\t\t\t\t\t<input type=\"text\" placeholder=\"bring poop bags\" name=\"reminderNotes\" maxlength=\"20\" />\n\t\t\t\t\t\t<label>Due Date</label>\n\t\t\t\t\t\t<input type=\"date\" name=\"reminderDueDate\" />\n\t\t\t\t\t\t<label>Due Time</label>\n\t\t\t\t\t\t<input type=\"time\" name=\"reminderDueTime\" />\n\t\t\t\t\t\t<label>Priority</label>\n\t\t\t\t\t\t<select name=\"reminderPriority\">\n\t\t\t\t\t\t\t<option value=\"1\">low</option>\n\t\t\t\t\t\t\t<option value=\"2\" selected>medium</option>\n\t\t\t\t\t\t\t<option value=\"3\">high</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t<label>List</label>\n\t\t\t\t\t\t<select name=\"listOptions\">\n\t\t\t\t\t\t\t<option value=\"reminders\">Reminders</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t<button id=\"publishReminder\" type=\"button\">\n\t\t\t\t\t\t\tDone\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<button id=\"openListModal\" class=\"button modal-btn\">\n\t\t\t\tAdd List\n\t\t\t</button>\n\t\t\t<div id=\"list-modal\" class=\"modal\" hidden>\n\t\t\t\t<div class=\"wrapper\">\n\t\t\t\t\t<span id=\"list-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t\t\t<form id=\"listForm\" action=\"/\">\n\t\t\t\t\t\t<input type=\"text\" placeholder=\"List name\" maxlength=\"30\" />\n\t\t\t\t\t\t<input type=\"color\" />\n\t\t\t\t\t\t<button id=\"addList\" type=\"submit\">Done</button>\n\t\t\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</footer>\n\t</div>\n</body>\n\n</html>";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
@@ -4226,6 +4255,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_footer_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_footer_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_footer_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/styles/forms.css":
+/*!******************************!*\
+  !*** ./src/styles/forms.css ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_forms_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./forms.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/forms.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_forms_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_forms_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_forms_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_forms_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -5807,11 +5891,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_reminder_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/reminder.css */ "./src/styles/reminder.css");
 /* harmony import */ var _styles_modal_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/modal.css */ "./src/styles/modal.css");
 /* harmony import */ var _styles_buttons_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/buttons.css */ "./src/styles/buttons.css");
-/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-/* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
-/* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
+/* harmony import */ var _styles_forms_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/forms.css */ "./src/styles/forms.css");
+/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
+/* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
+
 
 
 
@@ -5831,23 +5917,23 @@ __webpack_require__.r(__webpack_exports__);
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
 
-publishReminderBtn.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.publishReminder)
+publishReminderBtn.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_11__.publishReminder)
 
 let addListBtn = document.querySelector('button#addList')
 
-addListBtn.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_14__.appendBanner)
+addListBtn.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_15__.appendBanner)
 
-document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_14__.expandCollapseBanner)
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_15__.expandCollapseBanner)
 
-document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.deleteReminderHtml)
+document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_11__.deleteReminderHtml)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_13__.closeModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_14__.closeModal)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_13__.openModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_14__.openModal)
 
-document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_14__.crossOutHtml)
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_15__.crossOutHtml)
 
-document.querySelector('article').addEventListener('input', _modal__WEBPACK_IMPORTED_MODULE_13__.showCompleted)
+document.querySelector('article').addEventListener('input', _modal__WEBPACK_IMPORTED_MODULE_14__.showCompleted)
 
 })();
 
