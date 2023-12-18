@@ -3,3 +3,8 @@ header {
     grid-area: header;
     align-items: start;
 }
+
+#search {
+    padding-left: 35px;
+    background: url('../icons/magnifying-glass-solid.svg') no-repeat 10px 10px;
+}
