@@ -12,7 +12,7 @@ function makeBanner(obj) {    //creates html
 
     let listBanner = document.createElement('div')
 
-    listBanner.classList.add('banner','button','border')
+    listBanner.classList.add('banner','button','border','shadow')
 
     let icon = new Icon(bannerIcon, obj.listColor)
 

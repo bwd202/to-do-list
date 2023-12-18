@@ -11,11 +11,10 @@
 <body>
 	<div id="wrapper">
 		<header>
-			<!-- <input id="search" type="text" placeholder="&#x1F50D; Search" class="input" /> -->
 			<input id="search" type="text" placeholder="Search" class="input" />
 		</header>
 		<main>
-			<div id="today" class="card button border modal-btn">
+			<div id="today" class="card button modal-btn">
 				<img src="./icons/calendar-badge.svg" alt="" width="50" height="50" class="filter-blue" />
 				<p>Today</p>
 				<span class="counter">0</span>
@@ -30,7 +29,7 @@
 				</div>
 			</div>
 
-			<div id="scheduled" class="card button border modal-btn">
+			<div id="scheduled" class="card button modal-btn">
 				<img src="./icons/calendar-clock.svg" alt="" width="50" height="50" class="filter-red" />
 				<p>Scheduled</p>
 				<span class="counter">0</span>
@@ -45,7 +44,7 @@
 				</div>
 			</div>
 
-			<div id="all" class="card button border modal-btn">
+			<div id="all" class="card button modal-btn">
 				<img src="./icons/calendar-multiselect.svg" alt="" width="50" height="50" />
 				<p>All</p>
 				<span class="counter">0</span>
@@ -60,7 +59,7 @@
 				</div>
 			</div>
 
-			<div id="completed" class="card button border modal-btn">
+			<div id="completed" class="card button modal-btn">
 				<img src="./icons/calendar-multiple-check.svg" alt="" width="50" height="50" class="filter-gray" />
 				<p>Completed</p>
 				<span class="counter">0</span>
@@ -77,7 +76,7 @@
 
 			<article id="lists">
 				<h2>My Lists</h2>
-				<div id="reminder-list" class="button banner border">
+				<div id="reminder-list" class="button banner shadow">
 					<img src="./icons/calendar-text.svg" width="50" height="50" alt="" class="filter-green" />
 					<p>Reminders</p>
 					<span class="counter"></span>
@@ -88,7 +87,7 @@
 			</article>
 		</main>
 		<footer>
-			<button id="new-reminder" class="button modal-btn">
+			<button id="new-reminder" class="button modal-btn shadow">
 				<img src="./icons/calendar-plus.svg" width="50" height="50" alt="" class="filter-blue" />New Reminder
 			</button>
 			<div id="reminder-modal" class="modal" hidden>
@@ -120,7 +119,7 @@
 					</form>
 				</div>
 			</div>
-			<button id="openListModal" class="button modal-btn">
+			<button id="openListModal" class="button modal-btn shadow">
 				Add List
 			</button>
 			<div id="list-modal" class="modal" hidden>
