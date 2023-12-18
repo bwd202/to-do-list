@@ -15,3 +15,4 @@ see [live](https://bwd202.github.io/to-do-list/)
 
 - pseudo-classes
 - pseudo-elements
+- background images
