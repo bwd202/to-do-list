@@ -11,6 +11,22 @@
     /* border: 1px dotted red; */
 }
 
+#wrapper {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 2 / span 2;
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-areas: 'header header' 
+                        'main main' 
+                        'footer footer';
+    padding: 20px;
+    min-height: 100vh;
+}
+
+#wrapper, .wrapper {
+    background: linear-gradient(rgb(230, 230, 230,1), rgba(158, 106, 106, 0.7));
+}
+
 .banner, .card {
 	padding: 15px;
     background-color: white;
@@ -53,22 +69,6 @@ select,
 textarea {
   font-family: inherit;
   font-size: 100%;
-}
-
-#wrapper {
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-column: 2 / span 2;
-    grid-template-rows: 100px 1fr 100px;
-    grid-template-areas: 'header header' 
-                        'main main' 
-                        'footer footer';
-    padding: 20px;
-    min-height: 100vh;
-}
-
-#wrapper, .wrapper {
-    background: linear-gradient(rgb(230, 230, 230,1), rgba(158, 106, 106, 0.7));
 }
 
 main {

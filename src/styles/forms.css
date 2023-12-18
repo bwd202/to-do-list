@@ -1,18 +1,19 @@
-/* input[type=text] {
-    background-color: white;
-	border: 0; 
-	padding: 8px; 
-	border-radius: 14px; 
-} */
-
-.modal input {
-	padding: 6px;
-	border-radius: 12px;
+#reminder-modal {
+	/* display: grid; */
+	min-height: 100vh;
 }
 
-input:invalid:focus {
-    outline: none;
-    border: 1px solid red;
+#reminder-modal button {
+	width: 100px;
+}
+
+#reminder-modal button:first-of-type {
+	grid-area: done;
+	/* justify-self: end; */
+}
+
+#reminder-modal button:last-of-type {
+	grid-area: reset;
 }
 
 #reminder-modal form {
@@ -115,4 +116,23 @@ input:invalid:focus {
 
 #list-modal button:last-of-type {
     grid-area: reset;
+}
+
+.modal {
+	grid-template-columns: repeat(3, 1fr);
+	background-color: var(--modal-background);
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+	/* fixes issue with add list button icon showing on top of reminder modal */
+}
+
+.modal input {
+	padding: 6px;
+	border-radius: 12px;
+}
+
+input:invalid:focus {
+    outline: none;
+    border: 1px solid red;
 }
