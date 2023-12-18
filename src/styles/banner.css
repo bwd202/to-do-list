@@ -9,6 +9,7 @@
                          'drop-down drop-down drop-down drop-down drop-down';
     align-items: center;
     gap: 5px;
+    border: 1px solid var(--subtext);
 }
 
 .banner img {

@@ -1,3 +1,12 @@
+.modal {
+	grid-template-columns: repeat(3, 1fr);
+	background-color: var(--modal-background);
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+	/* fixes issue with add list button icon showing on top of reminder modal */
+}
+
 #reminder-modal {
 	/* display: grid; */
 	min-height: 100vh;

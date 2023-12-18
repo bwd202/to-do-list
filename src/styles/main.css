@@ -1,8 +1,42 @@
+:root {
+    --modal-background: rgba(0,0,0,0.5);
+    --input: lightgrey;
+    --card: white;
+    --subtext: darkgrey;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     /* border: 1px dotted red; */
+}
+
+.banner, .card {
+	padding: 15px;
+    background-color: var(--card);
+}
+
+.border {
+	/* border: 1px solid black; */
+	border-radius: 14px;
+}
+
+.completed {
+	text-decoration: line-through;
+}
+
+.visible {
+	display: grid;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-columns: subgrid;
+	grid-template-rows: max-content 1fr;
+	grid-column: 2;
+	background-color: var(--subtext);
+	position: relative;
 }
 
 body {
@@ -32,8 +66,8 @@ textarea {
                         'main main' 
                         'footer footer';
     padding: 20px;
-    background-color: var(--wrapper);
     min-height: 100vh;
+    background: linear-gradient(rgb(230, 230, 230,0.8), rgba(158, 106, 106, 0.4));
 }
 
 main {
@@ -41,26 +75,6 @@ main {
     display: grid;
     grid-template-columns: subgrid;
     gap: 15px;
-}
-
-/* CARDS */
-
-.card img {
-    grid-area: icon;
-    align-self: end;
-}
-
-.card span {
-    grid-area: count;
-    align-self: start;
-    justify-self: end;
-    padding: 10px;
-}
-
-.card p {
-    grid-area: title;
-    align-self: start;
-    padding: 5px;   /* to align with icon */
 }
 
 article {
