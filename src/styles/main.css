@@ -35,7 +35,6 @@
 	grid-template-rows: max-content 1fr;
 	grid-column: 2;
 	position: relative;
-    background-color: white;
 }
 
 body {
@@ -66,7 +65,10 @@ textarea {
                         'footer footer';
     padding: 20px;
     min-height: 100vh;
-    background: linear-gradient(rgb(230, 230, 230,0.8), rgba(158, 106, 106, 0.4));
+}
+
+#wrapper, .wrapper {
+    background: linear-gradient(rgb(230, 230, 230,1), rgba(158, 106, 106, 0.7));
 }
 
 main {
