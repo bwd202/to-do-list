@@ -2265,14 +2265,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner {
     position: relative;
     display: grid;
     grid-auto-flow: column;
-    background-color: var(--card);
     grid-template-columns: max-content 1fr 50px repeat(2, max-content);
     grid-template-rows: 50px 1fr;
     grid-template-areas: 'icon title count chevron btn2' 
                          'drop-down drop-down drop-down drop-down drop-down';
     align-items: center;
     gap: 5px;
-    border: 1px solid var(--subtext);
 }
 
 .banner img {
@@ -2309,7 +2307,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner {
 }
 
 
-`, "",{"version":3,"sources":["webpack://./src/styles/banner.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,6BAA6B;IAC7B,kEAAkE;IAClE,4BAA4B;IAC5B;4EACwE;IACxE,mBAAmB;IACnB,QAAQ;IACR,gCAAgC;AACpC;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,UAAU;AACd;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":[".banner {\n    position: relative;\n    display: grid;\n    grid-auto-flow: column;\n    background-color: var(--card);\n    grid-template-columns: max-content 1fr 50px repeat(2, max-content);\n    grid-template-rows: 50px 1fr;\n    grid-template-areas: 'icon title count chevron btn2' \n                         'drop-down drop-down drop-down drop-down drop-down';\n    align-items: center;\n    gap: 5px;\n    border: 1px solid var(--subtext);\n}\n\n.banner img {\n    grid-area: icon;\n}\n\n.banner p {\n    grid-area: title;\n    justify-self: start;\n}\n\n.banner > span:first-of-type {\n    grid-area: count;\n    place-self: center;\n}\n\n.banner > span:nth-of-type(2) {\n    grid-area: chevron;\n    padding: 5px;\n}\n\n.banner-close-btn {\n    color: var(--input);\n    grid-area: btn2;\n}\n\n.banner-close-btn:hover {\n    scale: 1.7;\n    color: red;\n}\n\n.banner .drop-down {\n    grid-area: drop-down;\n}\n\n\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/banner.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,kEAAkE;IAClE,4BAA4B;IAC5B;4EACwE;IACxE,mBAAmB;IACnB,QAAQ;AACZ;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,UAAU;AACd;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":[".banner {\n    position: relative;\n    display: grid;\n    grid-auto-flow: column;\n    grid-template-columns: max-content 1fr 50px repeat(2, max-content);\n    grid-template-rows: 50px 1fr;\n    grid-template-areas: 'icon title count chevron btn2' \n                         'drop-down drop-down drop-down drop-down drop-down';\n    align-items: center;\n    gap: 5px;\n}\n\n.banner img {\n    grid-area: icon;\n}\n\n.banner p {\n    grid-area: title;\n    justify-self: start;\n}\n\n.banner > span:first-of-type {\n    grid-area: count;\n    place-self: center;\n}\n\n.banner > span:nth-of-type(2) {\n    grid-area: chevron;\n    padding: 5px;\n}\n\n.banner-close-btn {\n    color: var(--input);\n    grid-area: btn2;\n}\n\n.banner-close-btn:hover {\n    scale: 1.7;\n    color: red;\n}\n\n.banner .drop-down {\n    grid-area: drop-down;\n}\n\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2524,7 +2522,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `input[type=text] {
-    background-color: var(--input);
+    background-color: white;
 	/* border: 0; */
 	padding: 8px;
 	border-radius: 14px;
@@ -2635,7 +2633,7 @@ input:invalid:focus {
 
 #list-modal button:last-of-type {
     grid-area: reset;
-}`, "",{"version":3,"sources":["webpack://./src/styles/forms.css"],"names":[],"mappings":"AAAA;IACI,8BAA8B;CACjC,eAAe;CACf,YAAY;CACZ,mBAAmB;AACpB;;AAEA;IACI,aAAa;IACb,qBAAqB;AACzB;;AAEA;CACC,WAAW;CACX,sEAAsE;CACtE;;;;;;;kBAOiB;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,kBAAkB;CAClB,YAAY;AACb;;AAEA;CACC,gBAAgB;AACjB;;AAEA;IACI,YAAY;IACZ,UAAU;AACd;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;IACI;;yCAEqC;AACzC;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["input[type=text] {\n    background-color: var(--input);\n\t/* border: 0; */\n\tpadding: 8px;\n\tborder-radius: 14px;\n}\n\ninput:invalid:focus {\n    outline: none;\n    border: 1px solid red;\n}\n\n#reminder-modal form {\n\tgap: 30px 0;\n\tgrid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);\n\tgrid-template-areas:\n\t\t'. title titleInput .'\n\t\t'. notes notesInput .'\n\t\t'. date dateInput .'\n\t\t'. time timeInput .'\n\t\t'. priority prioritySelect .'\n\t\t'. list listSelect .'\n\t\t'. done reset .';\n}\n\n#reminder-modal label {\n    justify-self: end;\n}\n\n#reminder-modal input {\n\twidth: 150px;\n}\n\n#reminder-modal select {\n\ttext-align: center;\n\twidth: 150px;\n}\n\n#reminder-modal label:first-of-type {\n\tgrid-area: title;\n}\n\n#reminder-modal label:first-of-type::after {\n    content: '*';\n    color: red;\n}\n\n#reminder-modal input:first-of-type {\n\tgrid-area: titleInput;\n}\n\n#reminder-modal label:nth-of-type(2) {\n\tgrid-area: notes;\n}\n\n#reminder-modal input:nth-of-type(2) {\n\tgrid-area: notesInput;\n}\n\n#reminder-modal label:nth-of-type(3) {\n\tgrid-area: date;\n}\n\n#reminder-modal input:nth-of-type(3) {\n\tgrid-area: dateInput;\n}\n\n#reminder-modal label:nth-of-type(4) {\n\tgrid-area: time;\n}\n\n#reminder-modal input:nth-of-type(4) {\n\tgrid-area: timeInput;\n}\n\n#reminder-modal label:nth-of-type(5) {\n\tgrid-area: priority;\n}\n\n#reminder-modal select:nth-of-type(1) {\n\tgrid-area: prioritySelect;\n}\n\n#reminder-modal label:nth-of-type(6) {\n\tgrid-area: list;\n}\n\n#reminder-modal select:nth-of-type(2) {\n\tgrid-area: listSelect;\n}\n\n#list-modal form {\n    grid-template-areas: '. input input .' \n                         '. color color .' \n                         '. done reset .';\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/forms.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;CAC1B,eAAe;CACf,YAAY;CACZ,mBAAmB;AACpB;;AAEA;IACI,aAAa;IACb,qBAAqB;AACzB;;AAEA;CACC,WAAW;CACX,sEAAsE;CACtE;;;;;;;kBAOiB;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,kBAAkB;CAClB,YAAY;AACb;;AAEA;CACC,gBAAgB;AACjB;;AAEA;IACI,YAAY;IACZ,UAAU;AACd;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;IACI;;yCAEqC;AACzC;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["input[type=text] {\n    background-color: white;\n\t/* border: 0; */\n\tpadding: 8px;\n\tborder-radius: 14px;\n}\n\ninput:invalid:focus {\n    outline: none;\n    border: 1px solid red;\n}\n\n#reminder-modal form {\n\tgap: 30px 0;\n\tgrid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);\n\tgrid-template-areas:\n\t\t'. title titleInput .'\n\t\t'. notes notesInput .'\n\t\t'. date dateInput .'\n\t\t'. time timeInput .'\n\t\t'. priority prioritySelect .'\n\t\t'. list listSelect .'\n\t\t'. done reset .';\n}\n\n#reminder-modal label {\n    justify-self: end;\n}\n\n#reminder-modal input {\n\twidth: 150px;\n}\n\n#reminder-modal select {\n\ttext-align: center;\n\twidth: 150px;\n}\n\n#reminder-modal label:first-of-type {\n\tgrid-area: title;\n}\n\n#reminder-modal label:first-of-type::after {\n    content: '*';\n    color: red;\n}\n\n#reminder-modal input:first-of-type {\n\tgrid-area: titleInput;\n}\n\n#reminder-modal label:nth-of-type(2) {\n\tgrid-area: notes;\n}\n\n#reminder-modal input:nth-of-type(2) {\n\tgrid-area: notesInput;\n}\n\n#reminder-modal label:nth-of-type(3) {\n\tgrid-area: date;\n}\n\n#reminder-modal input:nth-of-type(3) {\n\tgrid-area: dateInput;\n}\n\n#reminder-modal label:nth-of-type(4) {\n\tgrid-area: time;\n}\n\n#reminder-modal input:nth-of-type(4) {\n\tgrid-area: timeInput;\n}\n\n#reminder-modal label:nth-of-type(5) {\n\tgrid-area: priority;\n}\n\n#reminder-modal select:nth-of-type(1) {\n\tgrid-area: prioritySelect;\n}\n\n#reminder-modal label:nth-of-type(6) {\n\tgrid-area: list;\n}\n\n#reminder-modal select:nth-of-type(2) {\n\tgrid-area: listSelect;\n}\n\n#list-modal form {\n    grid-template-areas: '. input input .' \n                         '. color color .' \n                         '. done reset .';\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2675,8 +2673,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `header {
 
 #search {
     padding-left: 35px;
-    background: var(--input) url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat 10px 10px;
-}`, "",{"version":3,"sources":["webpack://./src/styles/header.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,oFAAuF;AAC3F","sourcesContent":["header {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}\n\n#search {\n    padding-left: 35px;\n    background: var(--input) url('../icons/magnifying-glass-solid.svg') no-repeat 10px 10px;\n}"],"sourceRoot":""}]);
+    background: var(--modal-background) url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat 10px 10px;
+    color: white;
+    border: 0;
+    outline: none;
+}`, "",{"version":3,"sources":["webpack://./src/styles/header.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,+FAAkG;IAClG,YAAY;IACZ,SAAS;IACT,aAAa;AACjB","sourcesContent":["header {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}\n\n#search {\n    padding-left: 35px;\n    background: var(--modal-background) url('../icons/magnifying-glass-solid.svg') no-repeat 10px 10px;\n    color: white;\n    border: 0;\n    outline: none;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2711,7 +2712,6 @@ var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_g
 ___CSS_LOADER_EXPORT___.push([module.id, `:root {
     --modal-background: rgba(0,0,0,0.5);
     --input: lightgrey;
-    --card: white;
     --subtext: darkgrey;
 }
 
@@ -2724,7 +2724,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 
 .banner, .card {
 	padding: 15px;
-    background-color: var(--card);
+    background-color: white;
 }
 
 .border {
@@ -2745,8 +2745,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 	grid-template-columns: subgrid;
 	grid-template-rows: max-content 1fr;
 	grid-column: 2;
-	background-color: var(--subtext);
 	position: relative;
+    background-color: white;
 }
 
 body {
@@ -2799,7 +2799,7 @@ article {
 
 article > div {
     grid-column: inherit;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,mCAAmC;IACnC,kBAAkB;IAClB,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;IACV,4BAA4B;AAChC;;AAEA;CACC,aAAa;IACV,6BAA6B;AACjC;;AAEA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,gCAAgC;CAChC,kBAAkB;AACnB;;AAEA;IACI,oGAAqF;IACrF,aAAa;IACb,yDAAyD;IACzD,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA;;;;EAIE,oBAAoB;EACpB,eAAe;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,mCAAmC;IACnC;;uCAEmC;IACnC,aAAa;IACb,iBAAiB;IACjB,6EAA6E;AACjF;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,SAAS;AACb;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,2BAA2B;IAC3B,kBAAkB;IAClB,mBAAmB;IACnB,SAAS;AACb;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":[":root {\n    --modal-background: rgba(0,0,0,0.5);\n    --input: lightgrey;\n    --card: white;\n    --subtext: darkgrey;\n}\n\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    /* border: 1px dotted red; */\n}\n\n.banner, .card {\n\tpadding: 15px;\n    background-color: var(--card);\n}\n\n.border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tbackground-color: var(--subtext);\n\tposition: relative;\n}\n\nbody {\n    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1)), url('../background.jpg');\n    display: grid;\n    grid-template-columns: 1fr repeat(2, max(250px, 20%)) 1fr;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    position: relative;\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n}\n\n#wrapper {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' \n                        'main main' \n                        'footer footer';\n    padding: 20px;\n    min-height: 100vh;\n    background: linear-gradient(rgb(230, 230, 230,0.8), rgba(158, 106, 106, 0.4));\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    gap: 15px;\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: 30px max-content;\n    grid-auto-rows: max-content;\n    align-items: start;\n    grid-column: span 2;\n    gap: 10px;\n}\n\narticle > div {\n    grid-column: inherit;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,mCAAmC;IACnC,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;IACV,4BAA4B;AAChC;;AAEA;CACC,aAAa;IACV,uBAAuB;AAC3B;;AAEA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,kBAAkB;IACf,uBAAuB;AAC3B;;AAEA;IACI,oGAAqF;IACrF,aAAa;IACb,yDAAyD;IACzD,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA;;;;EAIE,oBAAoB;EACpB,eAAe;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,mCAAmC;IACnC;;uCAEmC;IACnC,aAAa;IACb,iBAAiB;IACjB,6EAA6E;AACjF;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,SAAS;AACb;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,2BAA2B;IAC3B,kBAAkB;IAClB,mBAAmB;IACnB,SAAS;AACb;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":[":root {\n    --modal-background: rgba(0,0,0,0.5);\n    --input: lightgrey;\n    --subtext: darkgrey;\n}\n\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    /* border: 1px dotted red; */\n}\n\n.banner, .card {\n\tpadding: 15px;\n    background-color: white;\n}\n\n.border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tposition: relative;\n    background-color: white;\n}\n\nbody {\n    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1)), url('../background.jpg');\n    display: grid;\n    grid-template-columns: 1fr repeat(2, max(250px, 20%)) 1fr;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    position: relative;\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n}\n\n#wrapper {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' \n                        'main main' \n                        'footer footer';\n    padding: 20px;\n    min-height: 100vh;\n    background: linear-gradient(rgb(230, 230, 230,0.8), rgba(158, 106, 106, 0.4));\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    gap: 15px;\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: 30px max-content;\n    grid-auto-rows: max-content;\n    align-items: start;\n    grid-column: span 2;\n    gap: 10px;\n}\n\narticle > div {\n    grid-column: inherit;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

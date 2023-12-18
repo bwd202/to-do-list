@@ -2,14 +2,12 @@
     position: relative;
     display: grid;
     grid-auto-flow: column;
-    background-color: var(--card);
     grid-template-columns: max-content 1fr 50px repeat(2, max-content);
     grid-template-rows: 50px 1fr;
     grid-template-areas: 'icon title count chevron btn2' 
                          'drop-down drop-down drop-down drop-down drop-down';
     align-items: center;
     gap: 5px;
-    border: 1px solid var(--subtext);
 }
 
 .banner img {

@@ -1,7 +1,6 @@
 :root {
     --modal-background: rgba(0,0,0,0.5);
     --input: lightgrey;
-    --card: white;
     --subtext: darkgrey;
 }
 
@@ -14,7 +13,7 @@
 
 .banner, .card {
 	padding: 15px;
-    background-color: var(--card);
+    background-color: white;
 }
 
 .border {
@@ -35,8 +34,8 @@
 	grid-template-columns: subgrid;
 	grid-template-rows: max-content 1fr;
 	grid-column: 2;
-	background-color: var(--subtext);
 	position: relative;
+    background-color: white;
 }
 
 body {

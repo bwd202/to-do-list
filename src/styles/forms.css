@@ -1,5 +1,5 @@
 input[type=text] {
-    background-color: var(--input);
+    background-color: white;
 	/* border: 0; */
 	padding: 8px;
 	border-radius: 14px;
