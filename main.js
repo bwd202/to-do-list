@@ -2272,6 +2272,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner {
                          'drop-down drop-down drop-down drop-down drop-down';
     align-items: center;
     gap: 5px;
+    border: 1px solid var(--subtext);
 }
 
 .banner img {
@@ -2308,7 +2309,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner {
 }
 
 
-`, "",{"version":3,"sources":["webpack://./src/styles/banner.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,6BAA6B;IAC7B,kEAAkE;IAClE,4BAA4B;IAC5B;4EACwE;IACxE,mBAAmB;IACnB,QAAQ;AACZ;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,UAAU;AACd;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":[".banner {\n    position: relative;\n    display: grid;\n    grid-auto-flow: column;\n    background-color: var(--card);\n    grid-template-columns: max-content 1fr 50px repeat(2, max-content);\n    grid-template-rows: 50px 1fr;\n    grid-template-areas: 'icon title count chevron btn2' \n                         'drop-down drop-down drop-down drop-down drop-down';\n    align-items: center;\n    gap: 5px;\n}\n\n.banner img {\n    grid-area: icon;\n}\n\n.banner p {\n    grid-area: title;\n    justify-self: start;\n}\n\n.banner > span:first-of-type {\n    grid-area: count;\n    place-self: center;\n}\n\n.banner > span:nth-of-type(2) {\n    grid-area: chevron;\n    padding: 5px;\n}\n\n.banner-close-btn {\n    color: var(--input);\n    grid-area: btn2;\n}\n\n.banner-close-btn:hover {\n    scale: 1.7;\n    color: red;\n}\n\n.banner .drop-down {\n    grid-area: drop-down;\n}\n\n\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/banner.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,6BAA6B;IAC7B,kEAAkE;IAClE,4BAA4B;IAC5B;4EACwE;IACxE,mBAAmB;IACnB,QAAQ;IACR,gCAAgC;AACpC;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,UAAU;IACV,UAAU;AACd;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":[".banner {\n    position: relative;\n    display: grid;\n    grid-auto-flow: column;\n    background-color: var(--card);\n    grid-template-columns: max-content 1fr 50px repeat(2, max-content);\n    grid-template-rows: 50px 1fr;\n    grid-template-areas: 'icon title count chevron btn2' \n                         'drop-down drop-down drop-down drop-down drop-down';\n    align-items: center;\n    gap: 5px;\n    border: 1px solid var(--subtext);\n}\n\n.banner img {\n    grid-area: icon;\n}\n\n.banner p {\n    grid-area: title;\n    justify-self: start;\n}\n\n.banner > span:first-of-type {\n    grid-area: count;\n    place-self: center;\n}\n\n.banner > span:nth-of-type(2) {\n    grid-area: chevron;\n    padding: 5px;\n}\n\n.banner-close-btn {\n    color: var(--input);\n    grid-area: btn2;\n}\n\n.banner-close-btn:hover {\n    scale: 1.7;\n    color: red;\n}\n\n.banner .drop-down {\n    grid-area: drop-down;\n}\n\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2335,45 +2336,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `footer > .button {
-	box-shadow: 0 5px 5px rgba(0,0,0,0.5);
-}`, "",{"version":3,"sources":["webpack://./src/styles/buttons.css"],"names":[],"mappings":"AAAA;CACC,qCAAqC;AACtC","sourcesContent":["footer > .button {\n\tbox-shadow: 0 5px 5px rgba(0,0,0,0.5);\n}"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/classes.css":
-/*!**********************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/classes.css ***!
-  \**********************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, `.banner, .card {
-	padding: 15px;
-}
-
-.border {
-	/* border: 1px solid black; */
-	border-radius: 14px;
-}
-
-.button {
+___CSS_LOADER_EXPORT___.push([module.id, `.button {
 	cursor: pointer;
 }
 
@@ -2388,59 +2351,25 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner, .card {
 	scale: 1.2;
 }
 
+footer > .button {
+	box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+}
+
 .modal-close-btn {
 	position: absolute;
 	right: -0;
 	top: -0;
-}
-
-.card {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	grid-template-areas: 'icon count' 'title .';
-	align-items: center;
-	/* background-color: var(--card); */
-	gap: 5px;
-	border: 1px solid var(--subtext);
-}
-
-.completed {
-	text-decoration: line-through;
-}
-
-.modal {
-	grid-template-columns: repeat(3, 1fr);
-	background-color: var(--modal-background);
-	position: absolute;
-	inset: 0;
-	z-index: 10;
-	/* fixes issue with add list button icon showing on top of reminder modal */
-}
-
-.visible {
-	display: grid;
-}
-
-.wrapper {
-	display: grid;
-	grid-template-columns: subgrid;
-	grid-template-rows: max-content 1fr;
-	grid-column: 2;
-	background-color: var(--wrapper);
-	position: relative;
-}
-`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;CACC,aAAa;AACd;;AAEA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,OAAO;AACR;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,2BAA2B;CAC3B,2CAA2C;CAC3C,mBAAmB;CACnB,mCAAmC;CACnC,QAAQ;CACR,gCAAgC;AACjC;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,gCAAgC;CAChC,kBAAkB;AACnB","sourcesContent":[".banner, .card {\n\tpadding: 15px;\n}\n\n.border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tright: -0;\n\ttop: -0;\n}\n\n.card {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgrid-template-rows: 1fr 1fr;\n\tgrid-template-areas: 'icon count' 'title .';\n\talign-items: center;\n\t/* background-color: var(--card); */\n\tgap: 5px;\n\tborder: 1px solid var(--subtext);\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tbackground-color: var(--wrapper);\n\tposition: relative;\n}\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/buttons.css"],"names":[],"mappings":"AAAA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,qCAAqC;AACtC;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,OAAO;AACR","sourcesContent":[".button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\nfooter > .button {\n\tbox-shadow: 0 5px 5px rgba(0,0,0,0.5);\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tright: -0;\n\ttop: -0;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/colors.css":
-/*!*********************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/colors.css ***!
-  \*********************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/card.css":
+/*!*******************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/card.css ***!
+  \*******************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2457,12 +2386,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `:root {
-    --modal-background: rgba(0,0,0,0.5);
-    --input: lightgrey;
-    --wrapper: white;
-    --subtext: darkgrey;
-}
+___CSS_LOADER_EXPORT___.push([module.id, `/* icon colors */
 
 .filter-blue {
     filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);
@@ -2478,7 +2402,36 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 
 .filter-green {
     filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);
-}`, "",{"version":3,"sources":["webpack://./src/styles/colors.css"],"names":[],"mappings":"AAAA;IACI,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,iGAAiG;AACrG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,6FAA6F;AACjG","sourcesContent":[":root {\n    --modal-background: rgba(0,0,0,0.5);\n    --input: lightgrey;\n    --wrapper: white;\n    --subtext: darkgrey;\n}\n\n.filter-blue {\n    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);\n}\n\n.filter-red {\n    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);\n}\n\n.filter-gray {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.filter-green {\n    filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);\n}"],"sourceRoot":""}]);
+}
+
+.card {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: 'icon count' 'title .';
+	align-items: center;
+	/* background-color: rgba(112, 73, 73,1); */
+	gap: 5px;
+	border: 1px solid var(--subtext);
+}
+
+.card img {
+    grid-area: icon;
+    align-self: end;
+}
+
+.card span {
+    grid-area: count;
+    align-self: start;
+    justify-self: end;
+    padding: 10px;
+}
+
+.card p {
+    grid-area: title;
+    align-self: start;
+    padding: 5px;   /* to align with icon */
+}`, "",{"version":3,"sources":["webpack://./src/styles/card.css"],"names":[],"mappings":"AAAA,gBAAgB;;AAEhB;IACI,iGAAiG;AACrG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,6FAA6F;AACjG;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,2BAA2B;CAC3B,2CAA2C;CAC3C,mBAAmB;CACnB,2CAA2C;CAC3C,QAAQ;CACR,gCAAgC;AACjC;;AAEA;IACI,eAAe;IACf,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,iBAAiB;IACjB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,YAAY,IAAI,uBAAuB;AAC3C","sourcesContent":["/* icon colors */\n\n.filter-blue {\n    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);\n}\n\n.filter-red {\n    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);\n}\n\n.filter-gray {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.filter-green {\n    filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);\n}\n\n.card {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgrid-template-rows: 1fr 1fr;\n\tgrid-template-areas: 'icon count' 'title .';\n\talign-items: center;\n\t/* background-color: rgba(112, 73, 73,1); */\n\tgap: 5px;\n\tborder: 1px solid var(--subtext);\n}\n\n.card img {\n    grid-area: icon;\n    align-self: end;\n}\n\n.card span {\n    grid-area: count;\n    align-self: start;\n    justify-self: end;\n    padding: 10px;\n}\n\n.card p {\n    grid-area: title;\n    align-self: start;\n    padding: 5px;   /* to align with icon */\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2755,11 +2708,45 @@ var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `* {
+___CSS_LOADER_EXPORT___.push([module.id, `:root {
+    --modal-background: rgba(0,0,0,0.5);
+    --input: lightgrey;
+    --card: white;
+    --subtext: darkgrey;
+}
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     /* border: 1px dotted red; */
+}
+
+.banner, .card {
+	padding: 15px;
+    background-color: var(--card);
+}
+
+.border {
+	/* border: 1px solid black; */
+	border-radius: 14px;
+}
+
+.completed {
+	text-decoration: line-through;
+}
+
+.visible {
+	display: grid;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-columns: subgrid;
+	grid-template-rows: max-content 1fr;
+	grid-column: 2;
+	background-color: var(--subtext);
+	position: relative;
 }
 
 body {
@@ -2789,8 +2776,8 @@ textarea {
                         'main main' 
                         'footer footer';
     padding: 20px;
-    background-color: var(--wrapper);
     min-height: 100vh;
+    background: linear-gradient(rgb(230, 230, 230,0.8), rgba(158, 106, 106, 0.4));
 }
 
 main {
@@ -2798,26 +2785,6 @@ main {
     display: grid;
     grid-template-columns: subgrid;
     gap: 15px;
-}
-
-/* CARDS */
-
-.card img {
-    grid-area: icon;
-    align-self: end;
-}
-
-.card span {
-    grid-area: count;
-    align-self: start;
-    justify-self: end;
-    padding: 10px;
-}
-
-.card p {
-    grid-area: title;
-    align-self: start;
-    padding: 5px;   /* to align with icon */
 }
 
 article {
@@ -2832,7 +2799,7 @@ article {
 
 article > div {
     grid-column: inherit;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;IACV,4BAA4B;AAChC;;AAEA;IACI,oGAAqF;IACrF,aAAa;IACb,yDAAyD;IACzD,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA;;;;EAIE,oBAAoB;EACpB,eAAe;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,mCAAmC;IACnC;;uCAEmC;IACnC,aAAa;IACb,gCAAgC;IAChC,iBAAiB;AACrB;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,SAAS;AACb;;AAEA,UAAU;;AAEV;IACI,eAAe;IACf,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,iBAAiB;IACjB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,YAAY,IAAI,uBAAuB;AAC3C;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,2BAA2B;IAC3B,kBAAkB;IAClB,mBAAmB;IACnB,SAAS;AACb;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":["* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    /* border: 1px dotted red; */\n}\n\nbody {\n    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1)), url('../background.jpg');\n    display: grid;\n    grid-template-columns: 1fr repeat(2, max(250px, 20%)) 1fr;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    position: relative;\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n}\n\n#wrapper {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' \n                        'main main' \n                        'footer footer';\n    padding: 20px;\n    background-color: var(--wrapper);\n    min-height: 100vh;\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    gap: 15px;\n}\n\n/* CARDS */\n\n.card img {\n    grid-area: icon;\n    align-self: end;\n}\n\n.card span {\n    grid-area: count;\n    align-self: start;\n    justify-self: end;\n    padding: 10px;\n}\n\n.card p {\n    grid-area: title;\n    align-self: start;\n    padding: 5px;   /* to align with icon */\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: 30px max-content;\n    grid-auto-rows: max-content;\n    align-items: start;\n    grid-column: span 2;\n    gap: 10px;\n}\n\narticle > div {\n    grid-column: inherit;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"AAAA;IACI,mCAAmC;IACnC,kBAAkB;IAClB,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,sBAAsB;IACtB,SAAS;IACT,UAAU;IACV,4BAA4B;AAChC;;AAEA;CACC,aAAa;IACV,6BAA6B;AACjC;;AAEA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,gCAAgC;CAChC,kBAAkB;AACnB;;AAEA;IACI,oGAAqF;IACrF,aAAa;IACb,yDAAyD;IACzD,WAAW;IACX,gBAAgB;IAChB,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA;;;;EAIE,oBAAoB;EACpB,eAAe;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,uBAAuB;IACvB,mCAAmC;IACnC;;uCAEmC;IACnC,aAAa;IACb,iBAAiB;IACjB,6EAA6E;AACjF;;AAEA;IACI,eAAe;IACf,aAAa;IACb,8BAA8B;IAC9B,SAAS;AACb;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,oCAAoC;IACpC,2BAA2B;IAC3B,kBAAkB;IAClB,mBAAmB;IACnB,SAAS;AACb;;AAEA;IACI,oBAAoB;AACxB","sourcesContent":[":root {\n    --modal-background: rgba(0,0,0,0.5);\n    --input: lightgrey;\n    --card: white;\n    --subtext: darkgrey;\n}\n\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    /* border: 1px dotted red; */\n}\n\n.banner, .card {\n\tpadding: 15px;\n    background-color: var(--card);\n}\n\n.border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tbackground-color: var(--subtext);\n\tposition: relative;\n}\n\nbody {\n    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,1)), url('../background.jpg');\n    display: grid;\n    grid-template-columns: 1fr repeat(2, max(250px, 20%)) 1fr;\n    width: 100%;\n    min-width: 800px;\n    justify-content: center;\n    position: relative;\n}\n\nbutton,\ninput,\nselect,\ntextarea {\n  font-family: inherit;\n  font-size: 100%;\n}\n\n#wrapper {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-column: 2 / span 2;\n    grid-template-rows: 100px 1fr 100px;\n    grid-template-areas: 'header header' \n                        'main main' \n                        'footer footer';\n    padding: 20px;\n    min-height: 100vh;\n    background: linear-gradient(rgb(230, 230, 230,0.8), rgba(158, 106, 106, 0.4));\n}\n\nmain {\n    grid-area: main;\n    display: grid;\n    grid-template-columns: subgrid;\n    gap: 15px;\n}\n\narticle {\n    display: grid;\n    grid-template-columns: subgrid;\n    grid-template-rows: 30px max-content;\n    grid-auto-rows: max-content;\n    align-items: start;\n    grid-column: span 2;\n    gap: 10px;\n}\n\narticle > div {\n    grid-column: inherit;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2859,7 +2826,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `#reminder-modal {
+___CSS_LOADER_EXPORT___.push([module.id, `.modal {
+	grid-template-columns: repeat(3, 1fr);
+	background-color: var(--modal-background);
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+	/* fixes issue with add list button icon showing on top of reminder modal */
+}
+
+#reminder-modal {
 	/* display: grid; */
 	min-height: 100vh;
 }
@@ -2876,7 +2852,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `#reminder-modal {
 #reminder-modal button:last-of-type {
 	grid-area: reset;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/modal.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,iBAAiB;AAClB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,eAAe;CACf,uBAAuB;AACxB;;AAEA;CACC,gBAAgB;AACjB","sourcesContent":["#reminder-modal {\n\t/* display: grid; */\n\tmin-height: 100vh;\n}\n\n#reminder-modal button {\n\twidth: 100px;\n}\n\n#reminder-modal button:first-of-type {\n\tgrid-area: done;\n\t/* justify-self: end; */\n}\n\n#reminder-modal button:last-of-type {\n\tgrid-area: reset;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/modal.css"],"names":[],"mappings":"AAAA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,mBAAmB;CACnB,iBAAiB;AAClB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,eAAe;CACf,uBAAuB;AACxB;;AAEA;CACC,gBAAgB;AACjB","sourcesContent":[".modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n#reminder-modal {\n\t/* display: grid; */\n\tmin-height: 100vh;\n}\n\n#reminder-modal button {\n\twidth: 100px;\n}\n\n#reminder-modal button:first-of-type {\n\tgrid-area: done;\n\t/* justify-self: end; */\n}\n\n#reminder-modal button:last-of-type {\n\tgrid-area: reset;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4113,10 +4089,10 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./src/styles/classes.css":
-/*!********************************!*\
-  !*** ./src/styles/classes.css ***!
-  \********************************/
+/***/ "./src/styles/card.css":
+/*!*****************************!*\
+  !*** ./src/styles/card.css ***!
+  \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -4136,7 +4112,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_classes_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./classes.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/classes.css");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_card_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./card.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/card.css");
 
       
       
@@ -4158,67 +4134,12 @@ options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWi
 options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
 options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_classes_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_card_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
 
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_classes_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_classes_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_classes_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
-
-
-/***/ }),
-
-/***/ "./src/styles/colors.css":
-/*!*******************************!*\
-  !*** ./src/styles/colors.css ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_colors_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./colors.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/colors.css");
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var options = {};
-
-options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
-options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
-
-      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
-    
-options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
-options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_colors_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
-
-
-
-
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_colors_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_colors_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_colors_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_card_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_card_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_card_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -5914,22 +5835,20 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.html */ "./src/index.html");
-/* harmony import */ var _styles_colors_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/colors.css */ "./src/styles/colors.css");
-/* harmony import */ var _styles_classes_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/classes.css */ "./src/styles/classes.css");
-/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/header.css */ "./src/styles/header.css");
-/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
-/* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/footer.css */ "./src/styles/footer.css");
-/* harmony import */ var _styles_banner_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/banner.css */ "./src/styles/banner.css");
-/* harmony import */ var _styles_reminder_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/reminder.css */ "./src/styles/reminder.css");
-/* harmony import */ var _styles_modal_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/modal.css */ "./src/styles/modal.css");
-/* harmony import */ var _styles_buttons_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/buttons.css */ "./src/styles/buttons.css");
-/* harmony import */ var _styles_forms_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./styles/forms.css */ "./src/styles/forms.css");
-/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-/* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
-/* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
-
+/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _styles_buttons_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/buttons.css */ "./src/styles/buttons.css");
+/* harmony import */ var _styles_banner_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/banner.css */ "./src/styles/banner.css");
+/* harmony import */ var _styles_card_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/card.css */ "./src/styles/card.css");
+/* harmony import */ var _styles_forms_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/forms.css */ "./src/styles/forms.css");
+/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/header.css */ "./src/styles/header.css");
+/* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/footer.css */ "./src/styles/footer.css");
+/* harmony import */ var _styles_reminder_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/reminder.css */ "./src/styles/reminder.css");
+/* harmony import */ var _styles_modal_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/modal.css */ "./src/styles/modal.css");
+/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
+/* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
 
 
 
@@ -5949,23 +5868,23 @@ __webpack_require__.r(__webpack_exports__);
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
 
-publishReminderBtn.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_11__.publishReminder)
+publishReminderBtn.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.publishReminder)
 
 let addListBtn = document.querySelector('button#addList')
 
-addListBtn.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_15__.appendBanner)
+addListBtn.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_14__.appendBanner)
 
-document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_15__.expandCollapseBanner)
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_14__.expandCollapseBanner)
 
-document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_11__.deleteReminderHtml)
+document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_10__.deleteReminderHtml)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_14__.closeModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_13__.closeModal)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_14__.openModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_13__.openModal)
 
-document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_15__.crossOutHtml)
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_14__.crossOutHtml)
 
-document.querySelector('article').addEventListener('input', _modal__WEBPACK_IMPORTED_MODULE_14__.showCompleted)
+document.querySelector('article').addEventListener('input', _modal__WEBPACK_IMPORTED_MODULE_13__.showCompleted)
 
 })();
 
