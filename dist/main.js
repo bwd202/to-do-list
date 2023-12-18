@@ -2669,11 +2669,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `header {
 
 #search {
     padding-left: 35px;
-    background: var(--modal-background) url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat 10px 10px;
-    color: white;
-    border: 0;
+    background: white url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat 10px 10px;
     outline: none;
-}`, "",{"version":3,"sources":["webpack://./src/styles/header.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,+FAAkG;IAClG,YAAY;IACZ,SAAS;IACT,aAAa;AACjB","sourcesContent":["header {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}\n\n#search {\n    padding-left: 35px;\n    background: var(--modal-background) url('../icons/magnifying-glass-solid.svg') no-repeat 10px 10px;\n    color: white;\n    border: 0;\n    outline: none;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/header.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,6EAAgF;IAChF,aAAa;AACjB","sourcesContent":["header {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}\n\n#search {\n    padding-left: 35px;\n    background: white url('../icons/magnifying-glass-solid.svg') no-repeat 10px 10px;\n    outline: none;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

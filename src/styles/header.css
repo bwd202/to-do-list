@@ -6,8 +6,6 @@ header {
 
 #search {
     padding-left: 35px;
-    background: var(--modal-background) url('../icons/magnifying-glass-solid.svg') no-repeat 10px 10px;
-    color: white;
-    border: 0;
+    background: white url('../icons/magnifying-glass-solid.svg') no-repeat 10px 10px;
     outline: none;
 }
