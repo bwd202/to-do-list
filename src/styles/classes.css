@@ -34,16 +34,13 @@
 	grid-template-rows: 1fr 1fr;
 	grid-template-areas: 'icon count' 'title .';
 	align-items: center;
-	background-color: var(--card);
+	/* background-color: var(--card); */
 	gap: 5px;
+	border: 1px solid var(--subtext);
 }
 
 .completed {
 	text-decoration: line-through;
-}
-
-.input {
-	
 }
 
 .modal {
@@ -64,6 +61,6 @@
 	grid-template-columns: subgrid;
 	grid-template-rows: max-content 1fr;
 	grid-column: 2;
-	background-color: var(--card);
+	background-color: var(--wrapper);
 	position: relative;
 }

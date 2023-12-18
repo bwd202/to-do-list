@@ -1,8 +1,7 @@
 :root {
-    --card: white;
     --modal-background: rgba(0,0,0,0.5);
     --input: lightgrey;
-    --wrapper: rgb(235, 235, 235);
+    --wrapper: white;
     --subtext: darkgrey;
 }
 

@@ -2400,16 +2400,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner, .card {
 	grid-template-rows: 1fr 1fr;
 	grid-template-areas: 'icon count' 'title .';
 	align-items: center;
-	background-color: var(--card);
+	/* background-color: var(--card); */
 	gap: 5px;
+	border: 1px solid var(--subtext);
 }
 
 .completed {
 	text-decoration: line-through;
-}
-
-.input {
-	
 }
 
 .modal {
@@ -2430,10 +2427,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.banner, .card {
 	grid-template-columns: subgrid;
 	grid-template-rows: max-content 1fr;
 	grid-column: 2;
-	background-color: var(--card);
+	background-color: var(--wrapper);
 	position: relative;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;CACC,aAAa;AACd;;AAEA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,OAAO;AACR;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,2BAA2B;CAC3B,2CAA2C;CAC3C,mBAAmB;CACnB,6BAA6B;CAC7B,QAAQ;AACT;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;;AAEA;;AAEA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,6BAA6B;CAC7B,kBAAkB;AACnB","sourcesContent":[".banner, .card {\n\tpadding: 15px;\n}\n\n.border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tright: -0;\n\ttop: -0;\n}\n\n.card {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgrid-template-rows: 1fr 1fr;\n\tgrid-template-areas: 'icon count' 'title .';\n\talign-items: center;\n\tbackground-color: var(--card);\n\tgap: 5px;\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.input {\n\t\n}\n\n.modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tbackground-color: var(--card);\n\tposition: relative;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/classes.css"],"names":[],"mappings":"AAAA;CACC,aAAa;AACd;;AAEA;CACC,6BAA6B;CAC7B,mBAAmB;AACpB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,SAAS;CACT,OAAO;AACR;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,2BAA2B;CAC3B,2CAA2C;CAC3C,mBAAmB;CACnB,mCAAmC;CACnC,QAAQ;CACR,gCAAgC;AACjC;;AAEA;CACC,6BAA6B;AAC9B;;AAEA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,mCAAmC;CACnC,cAAc;CACd,gCAAgC;CAChC,kBAAkB;AACnB","sourcesContent":[".banner, .card {\n\tpadding: 15px;\n}\n\n.border {\n\t/* border: 1px solid black; */\n\tborder-radius: 14px;\n}\n\n.button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tright: -0;\n\ttop: -0;\n}\n\n.card {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgrid-template-rows: 1fr 1fr;\n\tgrid-template-areas: 'icon count' 'title .';\n\talign-items: center;\n\t/* background-color: var(--card); */\n\tgap: 5px;\n\tborder: 1px solid var(--subtext);\n}\n\n.completed {\n\ttext-decoration: line-through;\n}\n\n.modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.visible {\n\tdisplay: grid;\n}\n\n.wrapper {\n\tdisplay: grid;\n\tgrid-template-columns: subgrid;\n\tgrid-template-rows: max-content 1fr;\n\tgrid-column: 2;\n\tbackground-color: var(--wrapper);\n\tposition: relative;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2461,10 +2458,9 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `:root {
-    --card: white;
     --modal-background: rgba(0,0,0,0.5);
     --input: lightgrey;
-    --wrapper: rgb(235, 235, 235);
+    --wrapper: white;
     --subtext: darkgrey;
 }
 
@@ -2482,7 +2478,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 
 .filter-green {
     filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);
-}`, "",{"version":3,"sources":["webpack://./src/styles/colors.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,mCAAmC;IACnC,kBAAkB;IAClB,6BAA6B;IAC7B,mBAAmB;AACvB;;AAEA;IACI,iGAAiG;AACrG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,6FAA6F;AACjG","sourcesContent":[":root {\n    --card: white;\n    --modal-background: rgba(0,0,0,0.5);\n    --input: lightgrey;\n    --wrapper: rgb(235, 235, 235);\n    --subtext: darkgrey;\n}\n\n.filter-blue {\n    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);\n}\n\n.filter-red {\n    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);\n}\n\n.filter-gray {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.filter-green {\n    filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/colors.css"],"names":[],"mappings":"AAAA;IACI,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,iGAAiG;AACrG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,6FAA6F;AACjG","sourcesContent":[":root {\n    --modal-background: rgba(0,0,0,0.5);\n    --input: lightgrey;\n    --wrapper: white;\n    --subtext: darkgrey;\n}\n\n.filter-blue {\n    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);\n}\n\n.filter-red {\n    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);\n}\n\n.filter-gray {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.filter-green {\n    filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2576,7 +2572,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `input[type=text] {
     background-color: var(--input);
-	border: 0;
+	/* border: 0; */
 	padding: 8px;
 	border-radius: 14px;
 }
@@ -2686,7 +2682,7 @@ input:invalid:focus {
 
 #list-modal button:last-of-type {
     grid-area: reset;
-}`, "",{"version":3,"sources":["webpack://./src/styles/forms.css"],"names":[],"mappings":"AAAA;IACI,8BAA8B;CACjC,SAAS;CACT,YAAY;CACZ,mBAAmB;AACpB;;AAEA;IACI,aAAa;IACb,qBAAqB;AACzB;;AAEA;CACC,WAAW;CACX,sEAAsE;CACtE;;;;;;;kBAOiB;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,kBAAkB;CAClB,YAAY;AACb;;AAEA;CACC,gBAAgB;AACjB;;AAEA;IACI,YAAY;IACZ,UAAU;AACd;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;IACI;;yCAEqC;AACzC;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["input[type=text] {\n    background-color: var(--input);\n\tborder: 0;\n\tpadding: 8px;\n\tborder-radius: 14px;\n}\n\ninput:invalid:focus {\n    outline: none;\n    border: 1px solid red;\n}\n\n#reminder-modal form {\n\tgap: 30px 0;\n\tgrid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);\n\tgrid-template-areas:\n\t\t'. title titleInput .'\n\t\t'. notes notesInput .'\n\t\t'. date dateInput .'\n\t\t'. time timeInput .'\n\t\t'. priority prioritySelect .'\n\t\t'. list listSelect .'\n\t\t'. done reset .';\n}\n\n#reminder-modal label {\n    justify-self: end;\n}\n\n#reminder-modal input {\n\twidth: 150px;\n}\n\n#reminder-modal select {\n\ttext-align: center;\n\twidth: 150px;\n}\n\n#reminder-modal label:first-of-type {\n\tgrid-area: title;\n}\n\n#reminder-modal label:first-of-type::after {\n    content: '*';\n    color: red;\n}\n\n#reminder-modal input:first-of-type {\n\tgrid-area: titleInput;\n}\n\n#reminder-modal label:nth-of-type(2) {\n\tgrid-area: notes;\n}\n\n#reminder-modal input:nth-of-type(2) {\n\tgrid-area: notesInput;\n}\n\n#reminder-modal label:nth-of-type(3) {\n\tgrid-area: date;\n}\n\n#reminder-modal input:nth-of-type(3) {\n\tgrid-area: dateInput;\n}\n\n#reminder-modal label:nth-of-type(4) {\n\tgrid-area: time;\n}\n\n#reminder-modal input:nth-of-type(4) {\n\tgrid-area: timeInput;\n}\n\n#reminder-modal label:nth-of-type(5) {\n\tgrid-area: priority;\n}\n\n#reminder-modal select:nth-of-type(1) {\n\tgrid-area: prioritySelect;\n}\n\n#reminder-modal label:nth-of-type(6) {\n\tgrid-area: list;\n}\n\n#reminder-modal select:nth-of-type(2) {\n\tgrid-area: listSelect;\n}\n\n#list-modal form {\n    grid-template-areas: '. input input .' \n                         '. color color .' \n                         '. done reset .';\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/forms.css"],"names":[],"mappings":"AAAA;IACI,8BAA8B;CACjC,eAAe;CACf,YAAY;CACZ,mBAAmB;AACpB;;AAEA;IACI,aAAa;IACb,qBAAqB;AACzB;;AAEA;CACC,WAAW;CACX,sEAAsE;CACtE;;;;;;;kBAOiB;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,kBAAkB;CAClB,YAAY;AACb;;AAEA;CACC,gBAAgB;AACjB;;AAEA;IACI,YAAY;IACZ,UAAU;AACd;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;IACI;;yCAEqC;AACzC;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":["input[type=text] {\n    background-color: var(--input);\n\t/* border: 0; */\n\tpadding: 8px;\n\tborder-radius: 14px;\n}\n\ninput:invalid:focus {\n    outline: none;\n    border: 1px solid red;\n}\n\n#reminder-modal form {\n\tgap: 30px 0;\n\tgrid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);\n\tgrid-template-areas:\n\t\t'. title titleInput .'\n\t\t'. notes notesInput .'\n\t\t'. date dateInput .'\n\t\t'. time timeInput .'\n\t\t'. priority prioritySelect .'\n\t\t'. list listSelect .'\n\t\t'. done reset .';\n}\n\n#reminder-modal label {\n    justify-self: end;\n}\n\n#reminder-modal input {\n\twidth: 150px;\n}\n\n#reminder-modal select {\n\ttext-align: center;\n\twidth: 150px;\n}\n\n#reminder-modal label:first-of-type {\n\tgrid-area: title;\n}\n\n#reminder-modal label:first-of-type::after {\n    content: '*';\n    color: red;\n}\n\n#reminder-modal input:first-of-type {\n\tgrid-area: titleInput;\n}\n\n#reminder-modal label:nth-of-type(2) {\n\tgrid-area: notes;\n}\n\n#reminder-modal input:nth-of-type(2) {\n\tgrid-area: notesInput;\n}\n\n#reminder-modal label:nth-of-type(3) {\n\tgrid-area: date;\n}\n\n#reminder-modal input:nth-of-type(3) {\n\tgrid-area: dateInput;\n}\n\n#reminder-modal label:nth-of-type(4) {\n\tgrid-area: time;\n}\n\n#reminder-modal input:nth-of-type(4) {\n\tgrid-area: timeInput;\n}\n\n#reminder-modal label:nth-of-type(5) {\n\tgrid-area: priority;\n}\n\n#reminder-modal select:nth-of-type(1) {\n\tgrid-area: prioritySelect;\n}\n\n#reminder-modal label:nth-of-type(6) {\n\tgrid-area: list;\n}\n\n#reminder-modal select:nth-of-type(2) {\n\tgrid-area: listSelect;\n}\n\n#list-modal form {\n    grid-template-areas: '. input input .' \n                         '. color color .' \n                         '. done reset .';\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2726,8 +2722,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `header {
 
 #search {
     padding-left: 35px;
-    background: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat 10px 10px;
-}`, "",{"version":3,"sources":["webpack://./src/styles/header.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,uEAA0E;AAC9E","sourcesContent":["header {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}\n\n#search {\n    padding-left: 35px;\n    background: url('../icons/magnifying-glass-solid.svg') no-repeat 10px 10px;\n}"],"sourceRoot":""}]);
+    background: var(--input) url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat 10px 10px;
+}`, "",{"version":3,"sources":["webpack://./src/styles/header.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,oFAAuF;AAC3F","sourcesContent":["header {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}\n\n#search {\n    padding-left: 35px;\n    background: var(--input) url('../icons/magnifying-glass-solid.svg') no-repeat 10px 10px;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
