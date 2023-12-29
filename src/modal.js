@@ -21,16 +21,7 @@ function openModal(e) { //show modal
     if(e.target.classList.contains('modal-btn')) {
 
         e.target.nextElementSibling.classList.add('visible')
-        // e.target.closest('.modal').classList.add('visible')
-
     }
-
-    // if(e.target.id === 'completed') {
-        
-    //     showCompleted(e)
-
-    // }
-
 }
 
 function showCompleted() {
@@ -46,30 +37,3 @@ function showCompleted() {
 		}
 	}
 }
-
-// function updateModals() {
-
-//     let todayModal = document.querySelector('#today + .modal')
-
-//     let scheduledModal = document.querySelector('#scheduled + .modal')
-
-//     let allModal = document.querySelector('#all + .modal')
-
-//     let completedModal = document.querySelector('#completed + .modal')
-
-//     let completedReminders = filterCompleted()
-
-//     for(let i = 0; i < completedReminders.length; i++) {
-
-//         completedModal.closest('modal-content').append(makeLongReminder(completedReminders[i]))
-
-//     }
-
-// }
-
-// function filterCompleted() {
-
-//     let completed = reminders.filter(item => item.reminderCompleted === true)
-
-//     return completed
-// }

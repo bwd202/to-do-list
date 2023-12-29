@@ -25,7 +25,5 @@ class Icon {
                 icon2.style.filter = this._color
                 return icon2
         }
-
-        
     }
 }

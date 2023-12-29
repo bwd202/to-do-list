@@ -1,7 +1,6 @@
 export {publishReminder,Reminder,deleteReminderFromStorage,deleteReminderHtml,makeLongReminder,showCompleted}
 import {reminders} from "./storage"
 import { updateCounters } from "./counters"
-import { updateModals } from "./modal"
 import { appendChevronIcon } from "./banner"
 
 class Reminder {

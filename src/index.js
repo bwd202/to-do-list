@@ -8,8 +8,6 @@ import './styles/header.css'
 import './styles/footer.css'
 import './styles/reminder.css'
 import { publishReminder, deleteReminderHtml} from './reminder.js'
-import { reminders } from './storage'
-import { updateCounters } from './counters.js'
 import { openModal, closeModal, showCompleted } from './modal'
 import { expandCollapseBanner, appendBanner, crossOutHtml } from './banner.js'
 

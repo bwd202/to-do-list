@@ -3,7 +3,6 @@ export {storeList}
 
 class List {
     constructor({name = 'New List', color = '#0f0'}={}) {
-        // this.listName = name
         this._name = name
         this.listColor = color
     }
@@ -20,19 +19,19 @@ class List {
     }
 
     get id() {
-        return this.sanitize(this.name)
+        return this.camelCase(this.name)
     }
 
-    // creates camelCase id
-    sanitize(str) {
+    // for ID
+    camelCase(str) {
 
-        let splitStr = str.split(' ')   //returns an array
+        let splitted = str.split(' ')   //array
 
-        let modifyWords = splitStr.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
+        let camelized = splitted.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
 
-        let newString = modifyWords.join('')
+        let newStr = camelized.join('')
 
-        return newString
+        return newStr
     }
 
 }
