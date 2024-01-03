@@ -4753,18 +4753,18 @@ function removeBanner(e) { //removes html
 
     let name = banner.lastElementChild.id
 
-    removeListOption(name)
+    removeListName(name)
 }
 
-function removeListOption(name) {   //removes list name from reminder input form
+function removeListName(string) {   //removes name from options in reminder form's select input elem
 
-    let reminderModalListOptions = document.querySelector('#list').children
+    let options = document.querySelector('#list').children
 
-    for(let i = 0; i < reminderModalListOptions.length; i++) {
+    for(let i = 0; i < options.length; i++) {
 
-        if(reminderModalListOptions[i].value === name) {
+        if(options[i].value === string) {
 
-            reminderModalListOptions[i].remove()
+            options[i].remove()
         }
     }
 }
