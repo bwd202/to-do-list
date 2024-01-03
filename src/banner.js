@@ -35,7 +35,7 @@ function makeBanner(obj) {    //creates html
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
     closeBtn.innerHTML = '&times;'
-    closeBtn.addEventListener('click', removeHtmlList)
+    closeBtn.addEventListener('click', removeBanner)
 
     let dropDown = document.createElement('div')
 
@@ -62,20 +62,20 @@ function appendChevronIcon(container) {
 
 }
 
-function removeHtmlList(e) { //deletes html list banner
+function removeBanner(e) { //removes html
 
-    let targetBanner = e.target.parentElement
+    let banner = e.target.parentElement
 
-    targetBanner.remove()
+    banner.remove()
 
-    let listId = targetBanner.lastElementChild.id
+    let name = banner.lastElementChild.id
 
-    removeListOption(listId)
+    removeListOption(name)
 }
 
-function removeListOption(name) {   //removes list name from reminder modal
+function removeListOption(name) {   //removes list name from reminder input form
 
-    let reminderModalListOptions = document.querySelector('#selectList').children
+    let reminderModalListOptions = document.querySelector('#list').children
 
     for(let i = 0; i < reminderModalListOptions.length; i++) {
 
