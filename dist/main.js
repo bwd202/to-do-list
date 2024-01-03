@@ -4673,7 +4673,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   appendBanner: () => (/* binding */ appendBanner),
 /* harmony export */   appendChevronIcon: () => (/* binding */ appendChevronIcon),
 /* harmony export */   crossOutHtml: () => (/* binding */ crossOutHtml),
-/* harmony export */   expandCollapseBanner: () => (/* binding */ expandCollapseBanner)
+/* harmony export */   expandCollapseBanner: () => (/* binding */ expandCollapseBanner),
+/* harmony export */   removeBanner: () => (/* binding */ removeBanner)
 /* harmony export */ });
 /* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon */ "./src/icon.js");
 /* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list */ "./src/list.js");
@@ -4718,7 +4719,6 @@ function makeBanner(obj) {    //creates html
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
     closeBtn.innerHTML = '&times;'
-    closeBtn.addEventListener('click', removeBanner)
 
     let dropDown = document.createElement('div')
 
@@ -4745,15 +4745,18 @@ function appendChevronIcon(container) {
 
 }
 
-function removeBanner(e) { //removes html
+function removeBanner(e) { //'deletes' list banner
 
-    let banner = e.target.parentElement
+    if(e.target.classList.contains('banner-close-btn')) {
 
-    banner.remove()
+        let banner = e.target.parentElement
 
-    let name = banner.lastElementChild.id
+        banner.remove()
 
-    removeListName(name)
+        let name = banner.lastElementChild.id
+
+        removeListName(name)
+    }
 }
 
 function removeListName(string) {   //removes name from options in reminder form's select input elem
@@ -5752,6 +5755,8 @@ document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.openModa
 document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.crossOutHtml)
 
 document.querySelector('article').addEventListener('input', _modal__WEBPACK_IMPORTED_MODULE_10__.showCompleted)
+
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.removeBanner)
 
 })();
 

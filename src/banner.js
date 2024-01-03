@@ -4,7 +4,7 @@ import { lists, markComplete } from "./storage"
 import chevronDown from './icons/chevron-down-solid.svg'
 import chevronUp from './icons/chevron-up-solid.svg'
 import bannerIcon from './icons/calendar-text.svg'
-export {expandCollapseBanner,appendBanner,appendChevronIcon,crossOutHtml}
+export {expandCollapseBanner,appendBanner,appendChevronIcon,crossOutHtml, removeBanner}
 
 function makeBanner(obj) {    //creates html
 
@@ -35,7 +35,6 @@ function makeBanner(obj) {    //creates html
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
     closeBtn.innerHTML = '&times;'
-    closeBtn.addEventListener('click', removeBanner)
 
     let dropDown = document.createElement('div')
 
@@ -62,15 +61,18 @@ function appendChevronIcon(container) {
 
 }
 
-function removeBanner(e) { //removes html
+function removeBanner(e) { //'deletes' list banner
 
-    let banner = e.target.parentElement
+    if(e.target.classList.contains('banner-close-btn')) {
 
-    banner.remove()
+        let banner = e.target.parentElement
 
-    let name = banner.lastElementChild.id
+        banner.remove()
 
-    removeListName(name)
+        let name = banner.lastElementChild.id
+
+        removeListName(name)
+    }
 }
 
 function removeListName(string) {   //removes name from options in reminder form's select input elem
