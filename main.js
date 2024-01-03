@@ -4718,7 +4718,7 @@ function makeBanner(obj) {    //creates html
     let closeBtn = document.createElement('span')
     closeBtn.classList.add('banner-close-btn')
     closeBtn.innerHTML = '&times;'
-    closeBtn.addEventListener('click', removeHtmlList)
+    closeBtn.addEventListener('click', removeBanner)
 
     let dropDown = document.createElement('div')
 
@@ -4745,20 +4745,20 @@ function appendChevronIcon(container) {
 
 }
 
-function removeHtmlList(e) { //deletes html list banner
+function removeBanner(e) { //removes html
 
-    let targetBanner = e.target.parentElement
+    let banner = e.target.parentElement
 
-    targetBanner.remove()
+    banner.remove()
 
-    let listId = targetBanner.lastElementChild.id
+    let name = banner.lastElementChild.id
 
-    removeListOption(listId)
+    removeListOption(name)
 }
 
-function removeListOption(name) {   //removes list name from reminder modal
+function removeListOption(name) {   //removes list name from reminder input form
 
-    let reminderModalListOptions = document.querySelector('#selectList').children
+    let reminderModalListOptions = document.querySelector('#list').children
 
     for(let i = 0; i < reminderModalListOptions.length; i++) {
 
@@ -4949,8 +4949,6 @@ class Icon {
                 icon2.style.filter = this._color
                 return icon2
         }
-
-        
     }
 }
 
@@ -4973,7 +4971,6 @@ __webpack_require__.r(__webpack_exports__);
 
 class List {
     constructor({name = 'New List', color = '#0f0'}={}) {
-        // this.listName = name
         this._name = name
         this.listColor = color
     }
@@ -4990,19 +4987,19 @@ class List {
     }
 
     get id() {
-        return this.sanitize(this.name)
+        return this.camelCase(this.name)
     }
 
-    // creates camelCase id
-    sanitize(str) {
+    // for ID
+    camelCase(str) {
 
-        let splitStr = str.split(' ')   //returns an array
+        let splitted = str.split(' ')   //array
 
-        let modifyWords = splitStr.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
+        let camelized = splitted.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
 
-        let newString = modifyWords.join('')
+        let newStr = camelized.join('')
 
-        return newString
+        return newStr
     }
 
 }
@@ -5063,16 +5060,7 @@ function openModal(e) { //show modal
     if(e.target.classList.contains('modal-btn')) {
 
         e.target.nextElementSibling.classList.add('visible')
-        // e.target.closest('.modal').classList.add('visible')
-
     }
-
-    // if(e.target.id === 'completed') {
-        
-    //     showCompleted(e)
-
-    // }
-
 }
 
 function showCompleted() {
@@ -5088,33 +5076,6 @@ function showCompleted() {
 		}
 	}
 }
-
-// function updateModals() {
-
-//     let todayModal = document.querySelector('#today + .modal')
-
-//     let scheduledModal = document.querySelector('#scheduled + .modal')
-
-//     let allModal = document.querySelector('#all + .modal')
-
-//     let completedModal = document.querySelector('#completed + .modal')
-
-//     let completedReminders = filterCompleted()
-
-//     for(let i = 0; i < completedReminders.length; i++) {
-
-//         completedModal.closest('modal-content').append(makeLongReminder(completedReminders[i]))
-
-//     }
-
-// }
-
-// function filterCompleted() {
-
-//     let completed = reminders.filter(item => item.reminderCompleted === true)
-
-//     return completed
-// }
 
 
 /***/ }),
@@ -5137,11 +5098,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _counters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counters */ "./src/counters.js");
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
-/* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./banner */ "./src/banner.js");
+/* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./banner */ "./src/banner.js");
 
 ;
-
 
 
 
@@ -5324,7 +5283,7 @@ function publishReminder(e) {//event listener fn
 
             if(!chevronSpan.firstChild) {   //prevents adding extra chevron icons (bug)
 
-                (0,_banner__WEBPACK_IMPORTED_MODULE_3__.appendChevronIcon)(chevronSpan)
+                (0,_banner__WEBPACK_IMPORTED_MODULE_2__.appendChevronIcon)(chevronSpan)
 
             }
             
@@ -5758,12 +5717,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/footer.css */ "./src/styles/footer.css");
 /* harmony import */ var _styles_reminder_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/reminder.css */ "./src/styles/reminder.css");
 /* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-/* harmony import */ var _counters_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./counters.js */ "./src/counters.js");
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
-/* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
-
-
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
+/* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
 
 
 
@@ -5784,19 +5739,19 @@ publishReminderBtn.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODU
 
 let addListBtn = document.querySelector('button#addList')
 
-addListBtn.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_13__.appendBanner)
+addListBtn.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.appendBanner)
 
-document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_13__.expandCollapseBanner)
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.expandCollapseBanner)
 
 document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_9__.deleteReminderHtml)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_12__.closeModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.closeModal)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_12__.openModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.openModal)
 
-document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_13__.crossOutHtml)
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.crossOutHtml)
 
-document.querySelector('article').addEventListener('input', _modal__WEBPACK_IMPORTED_MODULE_12__.showCompleted)
+document.querySelector('article').addEventListener('input', _modal__WEBPACK_IMPORTED_MODULE_10__.showCompleted)
 
 })();
 
