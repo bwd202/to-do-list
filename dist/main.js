@@ -4690,23 +4690,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function makeBanner(obj) {    //creates html
+function makeBanner(obj) {    //creates html representation of list
 
     let wrapper = new DocumentFragment()
 
-    let listBanner = document.createElement('div')
+    let banner = document.createElement('div')
 
-    listBanner.classList.add('banner','button','border','shadow')
+    banner.classList.add('banner','button','border','shadow')
 
     let icon = new _icon__WEBPACK_IMPORTED_MODULE_0__.Icon(_icons_calendar_text_svg__WEBPACK_IMPORTED_MODULE_5__, obj.listColor)
 
-    let icon1 = icon.make('list')
+    let listIcon = icon.make('list')
 
-    let p = document.createElement('p')
-
-    let name = obj.name
-
-    p.append(name)
+    let listName = document.createElement('p')
+    
+    listName.append(obj.name)
 
     let count = document.createElement('span')
 
@@ -4728,9 +4726,9 @@ function makeBanner(obj) {    //creates html
 
     dropDown.setAttribute('hidden','')
 
-    listBanner.append(icon1, p, count, chevron, closeBtn, dropDown)
+    banner.append(listIcon, listName, count, chevron, closeBtn, dropDown)
 
-    wrapper.append(listBanner)
+    wrapper.append(banner)
 
     return wrapper
 }
