@@ -24,8 +24,17 @@ function checkCompleted(reminder) {
             pushCompleted(item)
         }
 
-        else removeCompleted(reminder)
+        else if(item.reminderTitle === reminder && item.reminderCompleted === true) {
+
+            removeCompleted(reminder)
+
+            item.reminderCompleted = false
+
+        }
+        
     }
+
+    // console.log(completed)
 }
 
 function removeCompleted(item) {
@@ -40,6 +49,9 @@ function removeCompleted(item) {
             completed.splice(index, 1)
         }
     }
+
+    console.log(completed)
+
 }
 
 function pushCompleted(reminder) {

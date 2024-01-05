@@ -4892,8 +4892,17 @@ function checkCompleted(reminder) {
             pushCompleted(item)
         }
 
-        else removeCompleted(reminder)
+        else if(item.reminderTitle === reminder && item.reminderCompleted === true) {
+
+            removeCompleted(reminder)
+
+            item.reminderCompleted = false
+
+        }
+        
     }
+
+    // console.log(completed)
 }
 
 function removeCompleted(item) {
@@ -4908,6 +4917,9 @@ function removeCompleted(item) {
             _storage__WEBPACK_IMPORTED_MODULE_0__.completed.splice(index, 1)
         }
     }
+
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.completed)
+
 }
 
 function pushCompleted(reminder) {
