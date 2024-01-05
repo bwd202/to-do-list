@@ -69,5 +69,3 @@ function pushCompleted(reminder) {
     console.log(completed)
 }
 
-
-
