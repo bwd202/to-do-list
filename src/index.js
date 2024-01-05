@@ -9,7 +9,8 @@ import './styles/footer.css'
 import './styles/reminder.css'
 import { publishReminder, deleteReminderHtml} from './reminder.js'
 import { openModal, closeModal, showCompleted } from './modal'
-import { expandCollapseBanner, appendBanner, crossOutHtml, removeBanner } from './banner.js'
+import { expandCollapseBanner, appendBanner, removeBanner } from './banner.js'
+import {crossOutCompleted} from './checkCompleted.js'
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
@@ -28,8 +29,8 @@ document.addEventListener('click', closeModal)
 
 document.addEventListener('click', openModal)
 
-document.addEventListener('click', crossOutHtml)
-
 document.querySelector('article').addEventListener('input', showCompleted)
 
 document.addEventListener('click', removeBanner)
+
+document.addEventListener('click', crossOutCompleted)
