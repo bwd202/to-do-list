@@ -4672,7 +4672,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   appendBanner: () => (/* binding */ appendBanner),
 /* harmony export */   appendChevronIcon: () => (/* binding */ appendChevronIcon),
-/* harmony export */   crossOutHtml: () => (/* binding */ crossOutHtml),
 /* harmony export */   expandCollapseBanner: () => (/* binding */ expandCollapseBanner),
 /* harmony export */   removeBanner: () => (/* binding */ removeBanner)
 /* harmony export */ });
@@ -4853,17 +4852,82 @@ function flipChevron(direction) {
     }
 }
 
-function crossOutHtml(e) {
+/***/ }),
+
+/***/ "./src/checkCompleted.js":
+/*!*******************************!*\
+  !*** ./src/checkCompleted.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   crossOutCompleted: () => (/* binding */ crossOutCompleted)
+/* harmony export */ });
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+
+;
+
+function crossOutCompleted(e) {
 
 	if (e.target.type === 'checkbox') {
 
 		e.target.nextElementSibling.classList.toggle('completed')
 
 		let reminder = e.target.nextElementSibling.children[0].innerHTML
-
-		;(0,_storage__WEBPACK_IMPORTED_MODULE_2__.markComplete)(reminder)
+        
+        checkCompleted(reminder)
 	}
 }
+
+function checkCompleted(reminder) {
+
+    for(let item of _storage__WEBPACK_IMPORTED_MODULE_0__.reminders) {
+
+        if(item.reminderTitle === reminder && item.reminderCompleted === false) {
+
+            item.reminderCompleted = true
+
+            pushCompleted(item)
+        }
+
+        else removeCompleted(reminder)
+    }
+}
+
+function removeCompleted(item) {
+
+    // Array.indexOf()
+    for(let target of _storage__WEBPACK_IMPORTED_MODULE_0__.completed) {
+
+        if(target.reminderTitle === item) {
+
+            let index = _storage__WEBPACK_IMPORTED_MODULE_0__.completed.indexOf(target)
+
+            _storage__WEBPACK_IMPORTED_MODULE_0__.completed.splice(index, 1)
+        }
+    }
+}
+
+function pushCompleted(reminder) {
+
+    // Array.findIndex()
+    function completedTest() {
+
+       let test = _storage__WEBPACK_IMPORTED_MODULE_0__.completed.findIndex(obj => obj.reminderTitle === reminder)
+
+       return test
+    }
+
+    if(completedTest() === -1) _storage__WEBPACK_IMPORTED_MODULE_0__.completed.push(reminder)
+
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.completed)
+}
+
+
+
+
 
 /***/ }),
 
@@ -5413,8 +5477,8 @@ function getCompleted(e) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   completed: () => (/* binding */ completed),
 /* harmony export */   lists: () => (/* binding */ lists),
-/* harmony export */   markComplete: () => (/* binding */ markComplete),
 /* harmony export */   reminders: () => (/* binding */ reminders)
 /* harmony export */ });
 
@@ -5423,25 +5487,27 @@ let lists = []
 
 let reminders = []
 
-function markComplete(item) {
-	// switches reminderCompleted prop based on item checked
+let completed = []
 
-	for (let i = 0; i < reminders.length; i++) {
-		if (!reminders[i].reminderCompleted) {
-			if (reminders[i].reminderTitle === item) {
-				reminders[i].reminderCompleted = true
-			}
-		} else if (reminders[i].reminderCompleted) {
-			if (reminders[i].reminderTitle === item) {
-				reminders[i].reminderCompleted = false
+// function markComplete(item) {
+// 	// switches reminderCompleted prop based on item checked
 
-				purgeCompleted(reminders[i].reminderTitle)
-			}
-		}
-	}
+// 	for (let i = 0; i < reminders.length; i++) {
+// 		if (!reminders[i].reminderCompleted) {
+// 			if (reminders[i].reminderTitle === item) {
+// 				reminders[i].reminderCompleted = true
+// 			}
+// 		} else if (reminders[i].reminderCompleted) {
+// 			if (reminders[i].reminderTitle === item) {
+// 				reminders[i].reminderCompleted = false
 
-	// console.log(reminders);
-}
+// 				purgeCompleted(reminders[i].reminderTitle)
+// 			}
+// 		}
+// 	}
+
+// 	// console.log(reminders);
+// }
 
 // function purgeCompleted(reminder) {
     // 	for (let i = 0; i < completed.length; i++) {
@@ -5720,6 +5786,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
 /* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
+/* harmony import */ var _checkCompleted_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./checkCompleted.js */ "./src/checkCompleted.js");
+
 
 
 
@@ -5750,11 +5818,11 @@ document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.closeMod
 
 document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.openModal)
 
-document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.crossOutHtml)
-
 document.querySelector('article').addEventListener('input', _modal__WEBPACK_IMPORTED_MODULE_10__.showCompleted)
 
 document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.removeBanner)
+
+document.addEventListener('click', _checkCompleted_js__WEBPACK_IMPORTED_MODULE_12__.crossOutCompleted)
 
 })();
 
