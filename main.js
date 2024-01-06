@@ -4866,8 +4866,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   crossOutCompleted: () => (/* binding */ crossOutCompleted)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
 
 ;
+
+
 
 function crossOutCompleted(e) {
 
@@ -4878,7 +4881,9 @@ function crossOutCompleted(e) {
 		let reminder = e.target.nextElementSibling.children[0].innerHTML
         
         checkCompleted(reminder)
+
 	}
+
 }
 
 function checkCompleted(reminder) {
@@ -4918,7 +4923,7 @@ function removeCompleted(item) {
         }
     }
 
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.completed)
+    // console.log(completed)
 
 }
 
@@ -4934,10 +4939,23 @@ function pushCompleted(reminder) {
 
     if(completedTest() === -1) _storage__WEBPACK_IMPORTED_MODULE_0__.completed.push(reminder)
 
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.completed)
+    showInModal(reminder)
+
+    // console.log(completed)
 }
 
+function showInModal(reminder) {
 
+	let container = document.querySelector('#completed + .modal .modal-content')
+
+    container.append((0,_reminder__WEBPACK_IMPORTED_MODULE_1__.makeLongReminder)(reminder))
+
+}
+
+function removeFromModal(reminder) {
+
+    // let items = 
+}
 
 /***/ }),
 
@@ -5107,13 +5125,8 @@ function getListInputs() {   //creates obj from list modal inputs, returns obj
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   closeModal: () => (/* binding */ closeModal),
-/* harmony export */   openModal: () => (/* binding */ openModal),
-/* harmony export */   showCompleted: () => (/* binding */ showCompleted)
+/* harmony export */   openModal: () => (/* binding */ openModal)
 /* harmony export */ });
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
-
-
 
 
 function closeModal(e) {
@@ -5138,19 +5151,7 @@ function openModal(e) { //show modal
     }
 }
 
-function showCompleted() {
 
-	let container = document.querySelector('#completed + .modal').firstElementChild.children[1]
-
-	for(let item of _storage__WEBPACK_IMPORTED_MODULE_0__.reminders) {
-
-		if(item.reminderCompleted) {
-
-			// console.log(item)
-			container.append((0,_reminder__WEBPACK_IMPORTED_MODULE_1__.makeLongReminder)(item))
-		}
-	}
-}
 
 
 /***/ }),
@@ -5800,7 +5801,7 @@ document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.closeMod
 
 document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.openModal)
 
-document.querySelector('article').addEventListener('input', _modal__WEBPACK_IMPORTED_MODULE_10__.showCompleted)
+// document.querySelector('article').addEventListener('input', showCompleted)
 
 document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.removeBanner)
 
