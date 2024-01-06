@@ -2,7 +2,7 @@ export {crossOutCompleted}
 import { completed, reminders } from "./storage"
 import { reminderForModal } from "./reminder"
 
-let container = document.querySelector('#completed + .modal .modal-content')
+let completedModal = document.querySelector('#completed + .modal .modal-content')
 
 function crossOutCompleted(e) {
 
@@ -15,7 +15,6 @@ function crossOutCompleted(e) {
         checkCompleted(reminder)
 
 	}
-
 }
 
 function checkCompleted(reminder) {
@@ -31,35 +30,29 @@ function checkCompleted(reminder) {
 
         else if(item.reminderTitle === reminder && item.reminderCompleted === true) {
 
-            removeCompleted(reminder)
+            deleteCompleted(reminder)
 
             item.reminderCompleted = false
 
         }
-        
     }
-
-    // console.log(completed)
 }
 
-function removeCompleted(item) {
+function deleteCompleted(reminder) {    //removes from completed array
 
     // Array.indexOf()
-    for(let target of completed) {
+    for(let item of completed) {
 
-        if(target.reminderTitle === item) {
+        if(item.reminderTitle === reminder) {
 
-            let index = completed.indexOf(target)
+            let index = completed.indexOf(item)
 
             completed.splice(index, 1)
 
-            removeFromModal(item)
+            removeFromModal(reminder)
 
         }
     }
-
-    // console.log(completed)
-
 }
 
 function pushCompleted(reminder) {
@@ -67,32 +60,30 @@ function pushCompleted(reminder) {
     // Array.findIndex()
     function completedTest() {
 
-       let test = completed.findIndex(obj => obj.reminderTitle === reminder)
+       let test = completed.findIndex(item => item.reminderTitle === reminder)
 
        return test
     }
 
-    if(completedTest() === -1) completed.push(reminder)
+    if(completedTest() === -1) completed.push(reminder) // tests true if reminder is not found in array
 
     showInModal(reminder)
 
-    // console.log(completed)
 }
 
 function showInModal(reminder) {
 
-    container.append(reminderForModal(reminder))
+    completedModal.append(reminderForModal(reminder))
 
 }
 
 function removeFromModal(reminder) {
 
-    for(let item of container.children) {
+    for(let item of completedModal.children) {
 
-        if(item.attributes[0].value === reminder) {
+        if(item.attributes[0].value === reminder) {    // data-title: <reminder's title>
 
             item.remove()
         }
     }
-
 }
