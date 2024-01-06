@@ -1,7 +1,8 @@
 export {crossOutCompleted}
 import { completed, reminders } from "./storage"
-import { makeLongReminder } from "./reminder"
+import { reminderForModal } from "./reminder"
 
+let container = document.querySelector('#completed + .modal .modal-content')
 
 function crossOutCompleted(e) {
 
@@ -77,13 +78,13 @@ function pushCompleted(reminder) {
 
 function showInModal(reminder) {
 
-	let container = document.querySelector('#completed + .modal .modal-content')
-
-    container.append(makeLongReminder(reminder))
+    container.append(reminderForModal(reminder))
 
 }
 
 function removeFromModal(reminder) {
+
+    
 
     // let items = 
 }

@@ -1,4 +1,4 @@
-export {publishReminder,Reminder,deleteReminderFromStorage,deleteReminderHtml,makeLongReminder,showCompleted}
+export {publishReminder,Reminder,deleteReminderFromStorage,deleteReminderHtml,reminderForModal}
 import {reminders} from "./storage"
 import { updateCounters } from "./counters"
 import { appendChevronIcon } from "./banner"
@@ -109,7 +109,7 @@ function makeShortReminder(obj) {   //creates html
     container.append(wrapper)
 }
 
-function makeLongReminder(obj) {  //html reminder for modal categories
+function reminderForModal(obj) {  //html reminder for modal categories
 
     let reminderHtmlWrapper = document.createElement('div')
 
@@ -254,48 +254,22 @@ function deleteReminderFromStorage(name) {
     console.log(reminders)
 }
 
-function addReminderToModal(modal, reminder) {
+// function getCompleted(e) {
 
-    switch(modal) {
-        case 'completed':
-            document.querySelector('#completed + .modal').firstElementChild.children[1].append(makeLongReminder(reminder))
-            break;
-    }
-}
+//     let title = e.target.nextElementSibling.children[0].innerHTML
 
-function removeReminderFromModal(modal, reminder) {
+//     let completed = []
 
-    switch(modal) {
-        case 'completed':
-            document.querySelector('#completed + .modal').firstElementChild.children[1].remove(reminder)
-            break;
-    }
-}
+//     for(let i = 0; i < reminders.length; i++) {
 
-function showCompleted(arr) {   // shows reminders in modal
-
-    for(let i = 0; i < arr.length; i++) {
-
-            document.querySelector('#completed + .modal').firstElementChild.children[1].append(makeLongReminder(arr[i]))
-        }
-    }
-
-function getCompleted(e) {
-
-    let title = e.target.nextElementSibling.children[0].innerHTML
-
-    let completed = []
-
-    for(let i = 0; i < reminders.length; i++) {
-
-        let reminder = reminders[i]
+//         let reminder = reminders[i]
         
-        if(title === reminder.reminderTitle) {
+//         if(title === reminder.reminderTitle) {
 
-            if(!completed.includes(reminder)) {
+//             if(!completed.includes(reminder)) {
 
-                completed.push(reminder)
-            }            
-        }
-    }
-}
+//                 completed.push(reminder)
+//             }            
+//         }
+//     }
+// }
