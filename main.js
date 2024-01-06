@@ -4871,7 +4871,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-let container = document.querySelector('#completed + .modal .modal-content')
+let completedModal = document.querySelector('#completed + .modal .modal-content')
 
 function crossOutCompleted(e) {
 
@@ -4884,7 +4884,6 @@ function crossOutCompleted(e) {
         checkCompleted(reminder)
 
 	}
-
 }
 
 function checkCompleted(reminder) {
@@ -4900,35 +4899,29 @@ function checkCompleted(reminder) {
 
         else if(item.reminderTitle === reminder && item.reminderCompleted === true) {
 
-            removeCompleted(reminder)
+            deleteCompleted(reminder)
 
             item.reminderCompleted = false
 
         }
-        
     }
-
-    // console.log(completed)
 }
 
-function removeCompleted(item) {
+function deleteCompleted(reminder) {    //removes from completed array
 
     // Array.indexOf()
-    for(let target of _storage__WEBPACK_IMPORTED_MODULE_0__.completed) {
+    for(let item of _storage__WEBPACK_IMPORTED_MODULE_0__.completed) {
 
-        if(target.reminderTitle === item) {
+        if(item.reminderTitle === reminder) {
 
-            let index = _storage__WEBPACK_IMPORTED_MODULE_0__.completed.indexOf(target)
+            let index = _storage__WEBPACK_IMPORTED_MODULE_0__.completed.indexOf(item)
 
             _storage__WEBPACK_IMPORTED_MODULE_0__.completed.splice(index, 1)
 
-            removeFromModal(item)
+            removeFromModal(reminder)
 
         }
     }
-
-    // console.log(completed)
-
 }
 
 function pushCompleted(reminder) {
@@ -4936,34 +4929,32 @@ function pushCompleted(reminder) {
     // Array.findIndex()
     function completedTest() {
 
-       let test = _storage__WEBPACK_IMPORTED_MODULE_0__.completed.findIndex(obj => obj.reminderTitle === reminder)
+       let test = _storage__WEBPACK_IMPORTED_MODULE_0__.completed.findIndex(item => item.reminderTitle === reminder)
 
        return test
     }
 
-    if(completedTest() === -1) _storage__WEBPACK_IMPORTED_MODULE_0__.completed.push(reminder)
+    if(completedTest() === -1) _storage__WEBPACK_IMPORTED_MODULE_0__.completed.push(reminder) // tests true if reminder is not found in array
 
     showInModal(reminder)
 
-    // console.log(completed)
 }
 
 function showInModal(reminder) {
 
-    container.append((0,_reminder__WEBPACK_IMPORTED_MODULE_1__.reminderForModal)(reminder))
+    completedModal.append((0,_reminder__WEBPACK_IMPORTED_MODULE_1__.reminderForModal)(reminder))
 
 }
 
 function removeFromModal(reminder) {
 
-    for(let item of container.children) {
+    for(let item of completedModal.children) {
 
-        if(item.attributes[0].value === reminder) {
+        if(item.attributes[0].value === reminder) {    // data-title: <reminder's title>
 
             item.remove()
         }
     }
-
 }
 
 /***/ }),
