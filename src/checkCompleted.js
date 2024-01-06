@@ -1,5 +1,7 @@
 export {crossOutCompleted}
 import { completed, reminders } from "./storage"
+import { makeLongReminder } from "./reminder"
+
 
 function crossOutCompleted(e) {
 
@@ -10,7 +12,9 @@ function crossOutCompleted(e) {
 		let reminder = e.target.nextElementSibling.children[0].innerHTML
         
         checkCompleted(reminder)
+
 	}
+
 }
 
 function checkCompleted(reminder) {
@@ -50,7 +54,7 @@ function removeCompleted(item) {
         }
     }
 
-    console.log(completed)
+    // console.log(completed)
 
 }
 
@@ -66,6 +70,20 @@ function pushCompleted(reminder) {
 
     if(completedTest() === -1) completed.push(reminder)
 
-    console.log(completed)
+    showInModal(reminder)
+
+    // console.log(completed)
 }
 
+function showInModal(reminder) {
+
+	let container = document.querySelector('#completed + .modal .modal-content')
+
+    container.append(makeLongReminder(reminder))
+
+}
+
+function removeFromModal(reminder) {
+
+    // let items = 
+}

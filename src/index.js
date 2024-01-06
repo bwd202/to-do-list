@@ -8,7 +8,7 @@ import './styles/header.css'
 import './styles/footer.css'
 import './styles/reminder.css'
 import { publishReminder, deleteReminderHtml} from './reminder.js'
-import { openModal, closeModal, showCompleted } from './modal'
+import { openModal, closeModal} from './modal'
 import { expandCollapseBanner, appendBanner, removeBanner } from './banner.js'
 import {crossOutCompleted} from './checkCompleted.js'
 
@@ -29,7 +29,7 @@ document.addEventListener('click', closeModal)
 
 document.addEventListener('click', openModal)
 
-document.querySelector('article').addEventListener('input', showCompleted)
+// document.querySelector('article').addEventListener('input', showCompleted)
 
 document.addEventListener('click', removeBanner)
 
