@@ -4921,6 +4921,9 @@ function removeCompleted(item) {
             let index = _storage__WEBPACK_IMPORTED_MODULE_0__.completed.indexOf(target)
 
             _storage__WEBPACK_IMPORTED_MODULE_0__.completed.splice(index, 1)
+
+            removeFromModal(item)
+
         }
     }
 
@@ -4953,9 +4956,14 @@ function showInModal(reminder) {
 
 function removeFromModal(reminder) {
 
-    
+    for(let item of container.children) {
 
-    // let items = 
+        if(item.attributes[0].value === reminder) {
+
+            item.remove()
+        }
+    }
+
 }
 
 /***/ }),
@@ -5286,9 +5294,11 @@ function makeShortReminder(obj) {   //creates html
     container.append(wrapper)
 }
 
-function reminderForModal(obj) {  //html reminder for modal categories
+function reminderForModal(obj) {  //creates html elements
 
     let reminderHtmlWrapper = document.createElement('div')
+
+    reminderHtmlWrapper.setAttribute('data-title', obj.reminderTitle)
 
     reminderHtmlWrapper.classList.add('reminder')
 
@@ -5297,8 +5307,6 @@ function reminderForModal(obj) {  //html reminder for modal categories
     let checkbox = document.createElement('input')
     
     checkbox.setAttribute('type','checkbox')
-
-    // checkbox.addEventListener('change', markComplete)
 
     let reminderTitle = document.createElement('h4')
 

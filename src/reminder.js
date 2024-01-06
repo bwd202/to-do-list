@@ -109,9 +109,11 @@ function makeShortReminder(obj) {   //creates html
     container.append(wrapper)
 }
 
-function reminderForModal(obj) {  //html reminder for modal categories
+function reminderForModal(obj) {  //creates html elements
 
     let reminderHtmlWrapper = document.createElement('div')
+
+    reminderHtmlWrapper.setAttribute('data-title', obj.reminderTitle)
 
     reminderHtmlWrapper.classList.add('reminder')
 
@@ -120,8 +122,6 @@ function reminderForModal(obj) {  //html reminder for modal categories
     let checkbox = document.createElement('input')
     
     checkbox.setAttribute('type','checkbox')
-
-    // checkbox.addEventListener('change', markComplete)
 
     let reminderTitle = document.createElement('h4')
 

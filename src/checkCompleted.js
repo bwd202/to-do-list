@@ -52,6 +52,9 @@ function removeCompleted(item) {
             let index = completed.indexOf(target)
 
             completed.splice(index, 1)
+
+            removeFromModal(item)
+
         }
     }
 
@@ -84,7 +87,12 @@ function showInModal(reminder) {
 
 function removeFromModal(reminder) {
 
-    
+    for(let item of container.children) {
 
-    // let items = 
+        if(item.attributes[0].value === reminder) {
+
+            item.remove()
+        }
+    }
+
 }
