@@ -1,4 +1,4 @@
-export {publishReminder,Reminder,deleteReminderFromStorage,deleteReminderHtml,reminderForModal}
+export {publishReminder,Reminder,reminderForModal}
 import {reminders} from "./storage"
 import { updateCounters } from "./counters"
 import { appendChevronIcon } from "./banner"
@@ -203,73 +203,3 @@ function publishReminder(e) {//event listener fn
 
         reminderForm.reset()
 }
-
-// function filterReminders(modal) {
-
-//     // let today = filter by dueDate matches today's date
-
-//     // let scheduled filter all reminders with dueDate
-
-//     let all = reminders.slice()
-
-//     let completed = reminders.filter(item => item.reminderCompleted === true)
-
-//     switch(modal) {
-
-//         case 'all':
-//             return all
-
-//         case 'completed':
-//             return completed
-//     }
-
-// }
-
-function deleteReminderHtml(e) {
-
-    if(e.target.classList.contains('del-btn')) {
-
-        let btn = e.target
-    
-        let reminder = btn.parentElement
-
-        deleteReminderFromStorage(btn.previousElementSibling.children[0].innerHTML) //matches h4 text to reminderTitle prop value
-
-        updateCounters(reminder.parentElement.id)
-
-        reminder.remove()
-    }
-}
-
-function deleteReminderFromStorage(name) {
-
-    for(let i = 0; i < reminders.length; i++) {
-
-        if(name === reminders[i].reminderTitle) {
-
-            reminders.splice(i, 1)
-        }
-    }
-
-    console.log(reminders)
-}
-
-// function getCompleted(e) {
-
-//     let title = e.target.nextElementSibling.children[0].innerHTML
-
-//     let completed = []
-
-//     for(let i = 0; i < reminders.length; i++) {
-
-//         let reminder = reminders[i]
-        
-//         if(title === reminder.reminderTitle) {
-
-//             if(!completed.includes(reminder)) {
-
-//                 completed.push(reminder)
-//             }            
-//         }
-//     }
-// }

@@ -7,10 +7,11 @@ import './styles/forms.css'
 import './styles/header.css'
 import './styles/footer.css'
 import './styles/reminder.css'
-import { publishReminder, deleteReminderHtml} from './reminder.js'
+import { publishReminder} from './reminder.js'
 import { openModal, closeModal} from './modal'
 import { expandCollapseBanner, appendBanner, removeBanner } from './banner.js'
 import {crossOutCompleted} from './checkCompleted.js'
+import { deleteReminderHtml } from './delete.js'
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')

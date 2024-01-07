@@ -5002,6 +5002,54 @@ function countReminders(list) {
 
 /***/ }),
 
+/***/ "./src/delete.js":
+/*!***********************!*\
+  !*** ./src/delete.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   deleteReminderHtml: () => (/* binding */ deleteReminderHtml)
+/* harmony export */ });
+/* harmony import */ var _counters__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./counters */ "./src/counters.js");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+
+
+ 
+
+function deleteReminderHtml(e) {
+
+    if(e.target.classList.contains('del-btn')) {
+
+        let btn = e.target
+    
+        let reminder = btn.parentElement
+
+        deleteReminderFromStorage(btn.previousElementSibling.children[0].innerHTML) //matches h4 text to reminderTitle prop value
+
+        ;(0,_counters__WEBPACK_IMPORTED_MODULE_0__.updateCounters)(reminder.parentElement.id)
+
+        reminder.remove()
+    }
+}
+
+function deleteReminderFromStorage(name) {
+
+    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_1__.reminders.length; i++) {
+
+        if(name === _storage__WEBPACK_IMPORTED_MODULE_1__.reminders[i].reminderTitle) {
+
+            _storage__WEBPACK_IMPORTED_MODULE_1__.reminders.splice(i, 1)
+        }
+    }
+
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_1__.reminders)
+}
+
+/***/ }),
+
 /***/ "./src/icon.js":
 /*!*********************!*\
   !*** ./src/icon.js ***!
@@ -5166,8 +5214,6 @@ function openModal(e) { //show modal
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Reminder: () => (/* binding */ Reminder),
-/* harmony export */   deleteReminderFromStorage: () => (/* binding */ deleteReminderFromStorage),
-/* harmony export */   deleteReminderHtml: () => (/* binding */ deleteReminderHtml),
 /* harmony export */   publishReminder: () => (/* binding */ publishReminder),
 /* harmony export */   reminderForModal: () => (/* binding */ reminderForModal)
 /* harmony export */ });
@@ -5379,76 +5425,6 @@ function publishReminder(e) {//event listener fn
 
         reminderForm.reset()
 }
-
-// function filterReminders(modal) {
-
-//     // let today = filter by dueDate matches today's date
-
-//     // let scheduled filter all reminders with dueDate
-
-//     let all = reminders.slice()
-
-//     let completed = reminders.filter(item => item.reminderCompleted === true)
-
-//     switch(modal) {
-
-//         case 'all':
-//             return all
-
-//         case 'completed':
-//             return completed
-//     }
-
-// }
-
-function deleteReminderHtml(e) {
-
-    if(e.target.classList.contains('del-btn')) {
-
-        let btn = e.target
-    
-        let reminder = btn.parentElement
-
-        deleteReminderFromStorage(btn.previousElementSibling.children[0].innerHTML) //matches h4 text to reminderTitle prop value
-
-        ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.parentElement.id)
-
-        reminder.remove()
-    }
-}
-
-function deleteReminderFromStorage(name) {
-
-    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
-
-        if(name === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
-
-            _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.splice(i, 1)
-        }
-    }
-
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders)
-}
-
-// function getCompleted(e) {
-
-//     let title = e.target.nextElementSibling.children[0].innerHTML
-
-//     let completed = []
-
-//     for(let i = 0; i < reminders.length; i++) {
-
-//         let reminder = reminders[i]
-        
-//         if(title === reminder.reminderTitle) {
-
-//             if(!completed.includes(reminder)) {
-
-//                 completed.push(reminder)
-//             }            
-//         }
-//     }
-// }
 
 /***/ }),
 
@@ -5743,6 +5719,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
 /* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
 /* harmony import */ var _checkCompleted_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./checkCompleted.js */ "./src/checkCompleted.js");
+/* harmony import */ var _delete_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./delete.js */ "./src/delete.js");
+
 
 
 
@@ -5768,7 +5746,7 @@ addListBtn.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.ap
 
 document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.expandCollapseBanner)
 
-document.addEventListener('click', _reminder_js__WEBPACK_IMPORTED_MODULE_9__.deleteReminderHtml)
+document.addEventListener('click', _delete_js__WEBPACK_IMPORTED_MODULE_13__.deleteReminderHtml)
 
 document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.closeModal)
 
