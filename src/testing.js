@@ -8,6 +8,8 @@ function testReminder() {
     let clickEvent = new Event('click')
 
     document.querySelector('#publishReminder').dispatchEvent(clickEvent)
+
+    document.querySelector('#reminders').classList.add('visible')
 }
 
 // document.querySelector('#list-modal').classList.add('visible')  
