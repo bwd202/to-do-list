@@ -14,12 +14,12 @@ import {crossOutCompleted} from './checkCompleted.js'
 import { deleteReminderHtml } from './delete.js'
 import { testReminder } from './testing.js'
 
-// testReminder()
+testReminder()
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
 
-publishReminderBtn.addEventListener('click', publishReminder())
+// publishReminderBtn.addEventListener('click', publishReminder())
 
 let addListBtn = document.querySelector('button#addList')
 
