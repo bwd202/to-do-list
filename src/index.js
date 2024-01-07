@@ -12,11 +12,14 @@ import { openModal, closeModal} from './modal'
 import { expandCollapseBanner, appendBanner, removeBanner } from './banner.js'
 import {crossOutCompleted} from './checkCompleted.js'
 import { deleteReminderHtml } from './delete.js'
+import { testReminder } from './testing.js'
+
+testReminder()
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
 
-publishReminderBtn.addEventListener('click', publishReminder)
+// publishReminderBtn.addEventListener('click', publishReminder())
 
 let addListBtn = document.querySelector('button#addList')
 
@@ -29,8 +32,6 @@ document.addEventListener('click', deleteReminderHtml)
 document.addEventListener('click', closeModal)
 
 document.addEventListener('click', openModal)
-
-// document.querySelector('article').addEventListener('input', showCompleted)
 
 document.addEventListener('click', removeBanner)
 

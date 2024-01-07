@@ -46,24 +46,24 @@
 
 /* SHORT REMINDER */
 .reminder-short {
+    display: grid;
     padding: 10px;
     border-top: 1px solid darkgrey;
-    display: grid;
     grid-template-columns: 30px 1fr max-content;
-    grid-template-areas: 'checkbox info btn'; 
-}
-
-.reminder-short input {
-    grid-area: checkbox;
+    /* grid-template-areas: 'checkbox info btn';  */
 }
 
 .reminder-short > div {
     display: grid;
     grid-area: info;
-    grid-template-areas: 'title date time priority';
-    grid-template-columns: 1fr 100px 100px 50px;
+    grid-template-areas: 'checkbox title date time priority button';
+    grid-template-columns: max-content 1fr 100px 50px 10px max-content;
     justify-items: center;
 
+}
+
+.reminder-short input {
+    grid-area: checkbox;
 }
 
 .reminder-short > div h4 {
@@ -84,5 +84,5 @@
 }
 
 .reminder-short span {
-    grid-area: btn;
+    grid-area: button;
 }

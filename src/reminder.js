@@ -60,15 +60,13 @@ function makeShortReminder(obj) {   //creates html
 
     wrapper.classList.add('reminder-short')
 
-    let content = []
+    let reminderBox = []
 
     let checkbox = document.createElement('input')
     
     checkbox.setAttribute('type','checkbox')
 
-    // checkbox.addEventListener('change', markComplete)
-
-    let info = document.createElement('div')
+    let content = document.createElement('div')
 
     let title = document.createElement('h4')
 
@@ -90,21 +88,21 @@ function makeShortReminder(obj) {   //creates html
 
     priority.innerHTML = obj.reminderPriority
 
-    info.append(title,date,time,priority)
-
     let button = document.createElement('span')
 
     button.classList.add('button','del-btn')
 
     button.innerHTML = '&times;'
 
+    content.append(checkbox,title,date,time,priority,button)
+
     let listId = "#" + obj.list
 
     let container = document.querySelector(listId)
 
-    content.push(checkbox,info,button)
+    reminderBox.push(content)
 
-    wrapper.append(...content)
+    wrapper.append(...reminderBox)
 
     container.append(wrapper)
 }
@@ -162,44 +160,52 @@ function reminderForModal(obj) {  //creates html elements
     // container.append(reminderHtmlWrapper)
 }
 
-function publishReminder(e) {//event listener fn
+function publishReminder(test) {
 
-    // e.preventDefault()
-    
-        storeReminder()
 
-        let reminder = reminders.at(-1)
+   return function(e) {
 
-        let listId = "#" + reminder.list
+        if(test) {
 
-        let accordion = document.querySelector(listId)
+            e.preventDefault()
 
-        if(accordion.childElementCount === 0) { //shows drop-down by default after adding first reminder
+            let testReminder = new Reminder()
 
-            let banner = accordion.parentElement
+            makeShortReminder(testReminder)
 
-            let chevronSpan = banner.children[3]
-
-            if(!chevronSpan.firstChild) {   //prevents adding extra chevron icons (bug)
-
-                appendChevronIcon(chevronSpan)
-
-            }
-            
-            document.querySelector(listId).classList.add('visible')
+            return
         }
 
-        // makeHtmlReminder(reminder)
+            e.preventDefault()
+    
+            storeReminder()
 
-        makeShortReminder(reminder)
+            let reminder = reminders.at(-1)
+    
+            let listId = "#" + reminder.list
+    
+            let accordion = document.querySelector(listId)
+    
+            if(accordion.childElementCount === 0) { //shows drop-down by default after adding first reminder
+    
+                let banner = accordion.parentElement
+    
+                let chevronSpan = banner.children[3]
+    
+                if(!chevronSpan.firstChild) {   //prevents adding extra chevron icons (bug)
+    
+                    appendChevronIcon(chevronSpan)
+    
+                }
+                
+                document.querySelector(listId).classList.add('visible')
+            }
+    
+            makeShortReminder(reminder)
+    
+            updateCounters(reminder.reminderList)
+    
+            reminderForm.reset()
+    }
 
-        // makeShortReminder(new Reminder())
-
-        // addReminderToModal()
-
-        // console.log(reminders)
-
-        updateCounters(reminder.reminderList)
-
-        reminderForm.reset()
 }
