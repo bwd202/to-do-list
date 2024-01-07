@@ -163,9 +163,9 @@ function reminderForModal(obj) {  //creates html elements
 function publishReminder(test) {
 
 
-   return function(e) {
+   return function(e) { 
 
-        if(test) {
+        if(test) {  //test function
 
             e.preventDefault()
 

@@ -49,15 +49,12 @@
     display: grid;
     padding: 10px;
     border-top: 1px solid darkgrey;
-    grid-template-columns: 30px 1fr max-content;
-    /* grid-template-areas: 'checkbox info btn';  */
 }
 
 .reminder-short > div {
     display: grid;
-    grid-area: info;
     grid-template-areas: 'checkbox title date time priority button';
-    grid-template-columns: max-content 1fr 100px 50px 10px max-content;
+    grid-template-columns: max-content 1fr 100px 100px 100px max-content;
     justify-items: center;
 
 }

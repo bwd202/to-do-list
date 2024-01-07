@@ -8,11 +8,11 @@ function crossOutCompleted(e) {
 
 	if (e.target.type === 'checkbox') {
 
-		e.target.nextElementSibling.classList.toggle('completed')
+        e.target.parentElement.classList.toggle('completed')
 
-		let reminder = e.target.nextElementSibling.children[0].innerHTML
+        let reminderName = e.target.parentElement.children[1].innerHTML
         
-        checkCompleted(reminder)
+        checkCompleted(reminderName)
 
 	}
 }

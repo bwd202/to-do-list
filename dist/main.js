@@ -2899,15 +2899,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.reminder {
     display: grid;
     padding: 10px;
     border-top: 1px solid darkgrey;
-    grid-template-columns: 30px 1fr max-content;
-    /* grid-template-areas: 'checkbox info btn';  */
 }
 
 .reminder-short > div {
     display: grid;
-    grid-area: info;
     grid-template-areas: 'checkbox title date time priority button';
-    grid-template-columns: max-content 1fr 100px 50px 10px max-content;
+    grid-template-columns: max-content 1fr 100px 100px 100px max-content;
     justify-items: center;
 
 }
@@ -2935,7 +2932,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.reminder {
 
 .reminder-short span {
     grid-area: button;
-}`, "",{"version":3,"sources":["webpack://./src/styles/reminder.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,6BAA6B;IAC7B,8BAA8B;IAC9B,iDAAiD;IACjD,8CAA8C;IAC9C;;;oDAGgD;IAChD,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;IAChB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;AACvB;;AAEA,mBAAmB;AACnB;IACI,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,2CAA2C;IAC3C,+CAA+C;AACnD;;AAEA;IACI,aAAa;IACb,eAAe;IACf,+DAA+D;IAC/D,kEAAkE;IAClE,qBAAqB;;AAEzB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;AACrB","sourcesContent":[".reminder {\n    display: grid;\n    background-color: var(--card);\n    border-top: 1px solid darkgrey;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' \n                        'checkbox title title closeBtn' \n                        '. notes notes notes' \n                        '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n.reminder [type='checkbox'] {\n    grid-area: checkbox;\n    align-self: start;\n}\n\n.reminder h4 {\n    grid-area: title;\n}\n\n.reminder span {\n    grid-area: closeBtn;\n    align-self: start;\n}\n\n.reminder p:nth-of-type(1) {\n    grid-area: notes;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(2) {\n    grid-area: dueDate; \n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(3) {\n    grid-area: dueTime;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(4) {\n    grid-area: priority;\n}\n\n/* SHORT REMINDER */\n.reminder-short {\n    display: grid;\n    padding: 10px;\n    border-top: 1px solid darkgrey;\n    grid-template-columns: 30px 1fr max-content;\n    /* grid-template-areas: 'checkbox info btn';  */\n}\n\n.reminder-short > div {\n    display: grid;\n    grid-area: info;\n    grid-template-areas: 'checkbox title date time priority button';\n    grid-template-columns: max-content 1fr 100px 50px 10px max-content;\n    justify-items: center;\n\n}\n\n.reminder-short input {\n    grid-area: checkbox;\n}\n\n.reminder-short > div h4 {\n    grid-area: title;\n    justify-self: start;\n}\n\n.reminder-short > div p:first-of-type {\n    grid-area: date;\n}\n\n.reminder-short > div p:nth-of-type(2) {\n    grid-area: time;\n}\n\n.reminder-short > div p:last-of-type {\n    grid-area: priority;\n}\n\n.reminder-short span {\n    grid-area: button;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/reminder.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,6BAA6B;IAC7B,8BAA8B;IAC9B,iDAAiD;IACjD,8CAA8C;IAC9C;;;oDAGgD;IAChD,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;IAChB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;AACvB;;AAEA,mBAAmB;AACnB;IACI,aAAa;IACb,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,aAAa;IACb,+DAA+D;IAC/D,oEAAoE;IACpE,qBAAqB;;AAEzB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;AACrB","sourcesContent":[".reminder {\n    display: grid;\n    background-color: var(--card);\n    border-top: 1px solid darkgrey;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' \n                        'checkbox title title closeBtn' \n                        '. notes notes notes' \n                        '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n.reminder [type='checkbox'] {\n    grid-area: checkbox;\n    align-self: start;\n}\n\n.reminder h4 {\n    grid-area: title;\n}\n\n.reminder span {\n    grid-area: closeBtn;\n    align-self: start;\n}\n\n.reminder p:nth-of-type(1) {\n    grid-area: notes;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(2) {\n    grid-area: dueDate; \n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(3) {\n    grid-area: dueTime;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(4) {\n    grid-area: priority;\n}\n\n/* SHORT REMINDER */\n.reminder-short {\n    display: grid;\n    padding: 10px;\n    border-top: 1px solid darkgrey;\n}\n\n.reminder-short > div {\n    display: grid;\n    grid-template-areas: 'checkbox title date time priority button';\n    grid-template-columns: max-content 1fr 100px 100px 100px max-content;\n    justify-items: center;\n\n}\n\n.reminder-short input {\n    grid-area: checkbox;\n}\n\n.reminder-short > div h4 {\n    grid-area: title;\n    justify-self: start;\n}\n\n.reminder-short > div p:first-of-type {\n    grid-area: date;\n}\n\n.reminder-short > div p:nth-of-type(2) {\n    grid-area: time;\n}\n\n.reminder-short > div p:last-of-type {\n    grid-area: priority;\n}\n\n.reminder-short span {\n    grid-area: button;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4877,11 +4874,11 @@ function crossOutCompleted(e) {
 
 	if (e.target.type === 'checkbox') {
 
-		e.target.nextElementSibling.classList.toggle('completed')
+        e.target.parentElement.classList.toggle('completed')
 
-		let reminder = e.target.nextElementSibling.children[0].innerHTML
+        let reminderName = e.target.parentElement.children[1].innerHTML
         
-        checkCompleted(reminder)
+        checkCompleted(reminderName)
 
 	}
 }
@@ -5027,9 +5024,9 @@ function deleteReminderHtml(e) {
     
         let reminder = btn.parentElement
 
-        deleteReminderFromStorage(btn.previousElementSibling.children[0].innerHTML) //matches h4 text to reminderTitle prop value
+        deleteReminderFromStorage(reminder.children[1].innerHTML)
 
-        ;(0,_counters__WEBPACK_IMPORTED_MODULE_0__.updateCounters)(reminder.parentElement.id)
+        // updateCounters(reminder.parentElement.id)
 
         reminder.remove()
     }
@@ -5045,7 +5042,7 @@ function deleteReminderFromStorage(name) {
         }
     }
 
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_1__.reminders)
+    // console.log(reminders)
 }
 
 /***/ }),
@@ -5385,9 +5382,9 @@ function reminderForModal(obj) {  //creates html elements
 function publishReminder(test) {
 
 
-   return function(e) {
+   return function(e) { 
 
-        if(test) {
+        if(test) {  //test function
 
             e.preventDefault()
 
@@ -5776,12 +5773,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_testing_js__WEBPACK_IMPORTED_MODULE_14__.testReminder)()
+// testReminder()
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
 
-// publishReminderBtn.addEventListener('click', publishReminder())
+publishReminderBtn.addEventListener('click', (0,_reminder_js__WEBPACK_IMPORTED_MODULE_9__.publishReminder)())
 
 let addListBtn = document.querySelector('button#addList')
 

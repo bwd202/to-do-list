@@ -10,9 +10,9 @@ function deleteReminderHtml(e) {
     
         let reminder = btn.parentElement
 
-        deleteReminderFromStorage(btn.previousElementSibling.children[0].innerHTML) //matches h4 text to reminderTitle prop value
+        deleteReminderFromStorage(reminder.children[1].innerHTML)
 
-        updateCounters(reminder.parentElement.id)
+        // updateCounters(reminder.parentElement.id)
 
         reminder.remove()
     }
@@ -28,5 +28,5 @@ function deleteReminderFromStorage(name) {
         }
     }
 
-    console.log(reminders)
+    // console.log(reminders)
 }
