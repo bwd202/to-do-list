@@ -10,16 +10,16 @@ import './styles/reminder.css'
 import { publishReminder} from './reminder.js'
 import { openModal, closeModal} from './modal'
 import { expandCollapseBanner, appendBanner, removeBanner } from './banner.js'
-import {crossOutCompleted} from './checkCompleted.js'
+import {crossOutCompleted} from './completed.js'
 import { deleteReminderHtml } from './delete.js'
 import { testReminder } from './testing.js'
 
-testReminder()
+// testReminder()
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
 
-// publishReminderBtn.addEventListener('click', publishReminder())
+publishReminderBtn.addEventListener('click', publishReminder())
 
 let addListBtn = document.querySelector('button#addList')
 

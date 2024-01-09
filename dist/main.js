@@ -4851,10 +4851,10 @@ function flipChevron(direction) {
 
 /***/ }),
 
-/***/ "./src/checkCompleted.js":
-/*!*******************************!*\
-  !*** ./src/checkCompleted.js ***!
-  \*******************************/
+/***/ "./src/completed.js":
+/*!**************************!*\
+  !*** ./src/completed.js ***!
+  \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -5757,7 +5757,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
 /* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
-/* harmony import */ var _checkCompleted_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./checkCompleted.js */ "./src/checkCompleted.js");
+/* harmony import */ var _completed_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./completed.js */ "./src/completed.js");
 /* harmony import */ var _delete_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./delete.js */ "./src/delete.js");
 /* harmony import */ var _testing_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./testing.js */ "./src/testing.js");
 
@@ -5776,12 +5776,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_testing_js__WEBPACK_IMPORTED_MODULE_14__.testReminder)()
+// testReminder()
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
 
-// publishReminderBtn.addEventListener('click', publishReminder())
+publishReminderBtn.addEventListener('click', (0,_reminder_js__WEBPACK_IMPORTED_MODULE_9__.publishReminder)())
 
 let addListBtn = document.querySelector('button#addList')
 
@@ -5797,7 +5797,7 @@ document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.openModa
 
 document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.removeBanner)
 
-document.addEventListener('click', _checkCompleted_js__WEBPACK_IMPORTED_MODULE_12__.crossOutCompleted)
+document.addEventListener('click', _completed_js__WEBPACK_IMPORTED_MODULE_12__.crossOutCompleted)
 
 })();
 
