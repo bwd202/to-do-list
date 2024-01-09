@@ -1,6 +1,6 @@
 export {crossOutCompleted}
 import { completed, reminders } from "./storage"
-import { reminderForModal } from "./reminder"
+import { showInModal } from "./modal"
 
 let completedModal = document.querySelector('#completed + .modal .modal-content')
 
@@ -70,13 +70,7 @@ function pushCompleted(reminder) {
 
     if(completedTest() === -1) completed.push(reminder) // tests true if reminder is not found in array
 
-    showInModal(reminder)
-
-}
-
-function showInModal(reminder) {
-
-    completedModal.append(reminderForModal(reminder))
+    showInModal(reminder, completedModal)
 
 }
 

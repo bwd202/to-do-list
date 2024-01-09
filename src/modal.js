@@ -1,4 +1,5 @@
-export {openModal,closeModal}
+export {openModal,closeModal,showInModal}
+import { reminderForModal } from "./reminder"
 
 function closeModal(e) {
 
@@ -22,4 +23,8 @@ function openModal(e) { //show modal
     }
 }
 
+function showInModal(reminder, modal) {
 
+    modal.append(reminderForModal(reminder))
+
+}

@@ -4863,7 +4863,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   crossOutCompleted: () => (/* binding */ crossOutCompleted)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
 
 ;
 
@@ -4936,13 +4936,7 @@ function pushCompleted(reminder) {
 
     if(completedTest() === -1) _storage__WEBPACK_IMPORTED_MODULE_0__.completed.push(reminder) // tests true if reminder is not found in array
 
-    showInModal(reminder)
-
-}
-
-function showInModal(reminder) {
-
-    completedModal.append((0,_reminder__WEBPACK_IMPORTED_MODULE_1__.reminderForModal)(reminder))
+    ;(0,_modal__WEBPACK_IMPORTED_MODULE_1__.showInModal)(reminder, completedModal)
 
 }
 
@@ -5173,9 +5167,12 @@ function getListInputs() {   //creates obj from list modal inputs, returns obj
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   closeModal: () => (/* binding */ closeModal),
-/* harmony export */   openModal: () => (/* binding */ openModal)
+/* harmony export */   openModal: () => (/* binding */ openModal),
+/* harmony export */   showInModal: () => (/* binding */ showInModal)
 /* harmony export */ });
+/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
 
+;
 
 function closeModal(e) {
 
@@ -5199,8 +5196,11 @@ function openModal(e) { //show modal
     }
 }
 
+function showInModal(reminder, modal) {
 
+    modal.append((0,_reminder__WEBPACK_IMPORTED_MODULE_0__.reminderForModal)(reminder))
 
+}
 
 /***/ }),
 
