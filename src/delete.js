@@ -1,5 +1,5 @@
-import { updateCounters } from "./counters"
 import { reminders } from "./storage"
+import { updateCounters } from "./banner"
 export {deleteReminderHtml} 
 
 function deleteReminderHtml(e) {
@@ -8,11 +8,13 @@ function deleteReminderHtml(e) {
 
         let btn = e.target
     
-        let reminder = btn.parentElement
+        let reminder = btn.parentElement.parentElement
 
-        deleteReminderFromStorage(reminder.children[1].innerHTML)
+        let dropDown = '#' + reminder.parentElement.id
 
-        // updateCounters(reminder.parentElement.id)
+        deleteReminderFromStorage(reminder.firstElementChild.children[1].innerHTML)
+
+        updateCounters(dropDown)
 
         reminder.remove()
     }

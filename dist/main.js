@@ -4670,7 +4670,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   appendBanner: () => (/* binding */ appendBanner),
 /* harmony export */   appendChevronIcon: () => (/* binding */ appendChevronIcon),
 /* harmony export */   expandCollapseBanner: () => (/* binding */ expandCollapseBanner),
-/* harmony export */   removeBanner: () => (/* binding */ removeBanner)
+/* harmony export */   removeBanner: () => (/* binding */ removeBanner),
+/* harmony export */   updateCounters: () => (/* binding */ updateCounters)
 /* harmony export */ });
 /* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon */ "./src/icon.js");
 /* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list */ "./src/list.js");
@@ -4849,6 +4850,18 @@ function flipChevron(direction) {
     }
 }
 
+function updateCounters(listId) {
+
+    let dropDown = document.querySelector(listId)
+   
+    let banner = dropDown.parentElement
+
+    let counter = banner.querySelector('.counter')
+
+    counter.innerHTML = dropDown.children.length
+
+}
+
 /***/ }),
 
 /***/ "./src/completed.js":
@@ -4953,49 +4966,6 @@ function removeFromModal(reminder) {
 
 /***/ }),
 
-/***/ "./src/counters.js":
-/*!*************************!*\
-  !*** ./src/counters.js ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   updateCounters: () => (/* binding */ updateCounters)
-/* harmony export */ });
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-
-;
-
-function updateCounters(listId) {
-   
-    let banner = document.querySelector(listId).parentElement
-
-    let reminderCounter = banner.querySelector('.counter')
-
-    reminderCounter.innerHTML = countReminders(list)
-
-    // let allCounter = document.querySelector('#all').parentElement.children[2]    //BUG 
-
-    // allCounter.innerHTML = reminderStorage.length
-}
-
-function countReminders(list) {
-
-    let filtered = _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.filter(item => item.reminderList === list)
-
-    return filtered.length
-}
-
-// fn updateCounters
-
-// filter reminders in storage based on list/category prop
-
-// show filtered array length in respective counter innerHtml
-
-/***/ }),
-
 /***/ "./src/delete.js":
 /*!***********************!*\
   !*** ./src/delete.js ***!
@@ -5007,8 +4977,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   deleteReminderHtml: () => (/* binding */ deleteReminderHtml)
 /* harmony export */ });
-/* harmony import */ var _counters__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./counters */ "./src/counters.js");
-/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./banner */ "./src/banner.js");
 
 
  
@@ -5019,11 +4989,13 @@ function deleteReminderHtml(e) {
 
         let btn = e.target
     
-        let reminder = btn.parentElement
+        let reminder = btn.parentElement.parentElement
 
-        deleteReminderFromStorage(reminder.children[1].innerHTML)
+        let dropDown = '#' + reminder.parentElement.id
 
-        // updateCounters(reminder.parentElement.id)
+        deleteReminderFromStorage(reminder.firstElementChild.children[1].innerHTML)
+
+        ;(0,_banner__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(dropDown)
 
         reminder.remove()
     }
@@ -5031,11 +5003,11 @@ function deleteReminderHtml(e) {
 
 function deleteReminderFromStorage(name) {
 
-    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_1__.reminders.length; i++) {
+    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
 
-        if(name === _storage__WEBPACK_IMPORTED_MODULE_1__.reminders[i].reminderTitle) {
+        if(name === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
 
-            _storage__WEBPACK_IMPORTED_MODULE_1__.reminders.splice(i, 1)
+            _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.splice(i, 1)
         }
     }
 
@@ -5218,11 +5190,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   reminderForModal: () => (/* binding */ reminderForModal)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-/* harmony import */ var _counters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counters */ "./src/counters.js");
-/* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./banner */ "./src/banner.js");
+/* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./banner */ "./src/banner.js");
 
 ;
-
 
 
 class Reminder {
@@ -5410,7 +5380,7 @@ function publishReminder(test) {
     
                 if(!chevronSpan.firstChild) {   //prevents adding extra chevron icons (bug)
     
-                    (0,_banner__WEBPACK_IMPORTED_MODULE_2__.appendChevronIcon)(chevronSpan)
+                    (0,_banner__WEBPACK_IMPORTED_MODULE_1__.appendChevronIcon)(chevronSpan)
     
                 }
                 
@@ -5419,7 +5389,7 @@ function publishReminder(test) {
 
             accordion.append(makeShortReminder(reminder))
         
-            ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(list)
+            ;(0,_banner__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(list)
     
             reminderForm.reset()
     }

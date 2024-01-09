@@ -4,7 +4,7 @@ import { lists} from "./storage"
 import chevronDown from './icons/chevron-down-solid.svg'
 import chevronUp from './icons/chevron-up-solid.svg'
 import bannerIcon from './icons/calendar-text.svg'
-export {expandCollapseBanner,appendBanner,appendChevronIcon, removeBanner}
+export {expandCollapseBanner,appendBanner,appendChevronIcon, removeBanner,updateCounters}
 
 function makeBanner(obj) {    //creates html representation of list
 
@@ -167,4 +167,16 @@ function flipChevron(direction) {
             let icon2 = chevronIcon2.make('chevron')
             return icon2
     }
+}
+
+function updateCounters(listId) {
+
+    let dropDown = document.querySelector(listId)
+   
+    let banner = dropDown.parentElement
+
+    let counter = banner.querySelector('.counter')
+
+    counter.innerHTML = dropDown.children.length
+
 }
