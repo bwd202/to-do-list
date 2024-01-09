@@ -54,13 +54,13 @@ function storeReminder() {
 
 
 
-function makeShortReminder(obj) {   //creates html
+function makeShortReminder(obj) {   //makes reminder html to be shown in list accordion
 
-    let wrapper = document.createElement('div')
+    let box = document.createElement('div')
 
-    wrapper.classList.add('reminder-short')
+    box.classList.add('reminder-short')
 
-    let reminderBox = []
+    let wrapper = []
 
     let checkbox = document.createElement('input')
     
@@ -96,18 +96,14 @@ function makeShortReminder(obj) {   //creates html
 
     content.append(checkbox,title,date,time,priority,button)
 
-    let listId = "#" + obj.list
+    wrapper.push(content)
 
-    let container = document.querySelector(listId)
+    box.append(...wrapper)
 
-    reminderBox.push(content)
-
-    wrapper.append(...reminderBox)
-
-    container.append(wrapper)
+    return box
 }
 
-function reminderForModal(obj) {  //creates html elements
+function reminderForModal(obj) { 
 
     let reminderHtmlWrapper = document.createElement('div')
 
@@ -157,11 +153,14 @@ function reminderForModal(obj) {  //creates html elements
 
     return reminderHtmlWrapper
 
-    // container.append(reminderHtmlWrapper)
+}
+
+function reminderListId(reminder) {
+
+    return '#' + reminder.list
 }
 
 function publishReminder(test) {
-
 
    return function(e) { 
 
@@ -182,7 +181,7 @@ function publishReminder(test) {
 
             let reminder = reminders.at(-1)
     
-            let listId = "#" + reminder.list
+            let listId = reminderListId(reminder)
     
             let accordion = document.querySelector(listId)
     
@@ -200,9 +199,9 @@ function publishReminder(test) {
                 
                 document.querySelector(listId).classList.add('visible')
             }
-    
-            makeShortReminder(reminder)
-    
+
+            accordion.append(makeShortReminder(reminder))
+        
             updateCounters(reminder.reminderList)
     
             reminderForm.reset()
