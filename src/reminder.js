@@ -18,8 +18,8 @@ class Reminder {
         this.reminderCompleted = completed
     }
 
-    get list() {
-        return this.reminderList
+    get listId() {
+        return '#' + this.reminderList
     }
 
     set list(name) {
@@ -155,11 +155,6 @@ function reminderForModal(obj) {
 
 }
 
-function reminderListId(reminder) {
-
-    return '#' + reminder.list
-}
-
 function publishReminder(test) {
 
    return function(e) { 
@@ -181,9 +176,9 @@ function publishReminder(test) {
 
             let reminder = reminders.at(-1)
     
-            let listId = reminderListId(reminder)
+            let list = reminder.listId
     
-            let accordion = document.querySelector(listId)
+            let accordion = document.querySelector(list)
     
             if(accordion.childElementCount === 0) { //shows drop-down by default after adding first reminder
     
@@ -197,12 +192,12 @@ function publishReminder(test) {
     
                 }
                 
-                document.querySelector(listId).classList.add('visible')
+                document.querySelector(list).classList.add('visible')
             }
 
             accordion.append(makeShortReminder(reminder))
         
-            updateCounters(reminder.reminderList)
+            updateCounters(list)
     
             reminderForm.reset()
     }

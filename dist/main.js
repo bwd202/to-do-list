@@ -4968,9 +4968,9 @@ __webpack_require__.r(__webpack_exports__);
 
 ;
 
-function updateCounters(list) {
+function updateCounters(listId) {
    
-    let banner = document.querySelector('#' + list).parentElement
+    let banner = document.querySelector(listId).parentElement
 
     let reminderCounter = banner.querySelector('.counter')
 
@@ -5240,8 +5240,8 @@ class Reminder {
         this.reminderCompleted = completed
     }
 
-    get list() {
-        return this.reminderList
+    get listId() {
+        return '#' + this.reminderList
     }
 
     set list(name) {
@@ -5377,11 +5377,6 @@ function reminderForModal(obj) {
 
 }
 
-function reminderListId(reminder) {
-
-    return '#' + reminder.list
-}
-
 function publishReminder(test) {
 
    return function(e) { 
@@ -5403,9 +5398,9 @@ function publishReminder(test) {
 
             let reminder = _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.at(-1)
     
-            let listId = reminderListId(reminder)
+            let list = reminder.listId
     
-            let accordion = document.querySelector(listId)
+            let accordion = document.querySelector(list)
     
             if(accordion.childElementCount === 0) { //shows drop-down by default after adding first reminder
     
@@ -5419,12 +5414,12 @@ function publishReminder(test) {
     
                 }
                 
-                document.querySelector(listId).classList.add('visible')
+                document.querySelector(list).classList.add('visible')
             }
 
             accordion.append(makeShortReminder(reminder))
         
-            ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(reminder.reminderList)
+            ;(0,_counters__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(list)
     
             reminderForm.reset()
     }

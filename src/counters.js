@@ -1,9 +1,9 @@
 export {updateCounters}
 import { reminders } from "./storage"
 
-function updateCounters(list) {
+function updateCounters(listId) {
    
-    let banner = document.querySelector('#' + list).parentElement
+    let banner = document.querySelector(listId).parentElement
 
     let reminderCounter = banner.querySelector('.counter')
 
