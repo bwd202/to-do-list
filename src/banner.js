@@ -169,14 +169,10 @@ function flipChevron(direction) {
     }
 }
 
-function updateCounters(listId) {
+function updateCounters(banner) {
 
-    let dropDown = document.querySelector(listId)
+    let dropDown = banner.lastElementChild
    
-    let banner = dropDown.parentElement
-
-    let counter = banner.querySelector('.counter')
-
-    counter.innerHTML = dropDown.children.length
-
+    banner.querySelector('.counter').innerHTML = dropDown.children.length
+    
 }

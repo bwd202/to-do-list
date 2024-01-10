@@ -10,13 +10,13 @@ function deleteReminderHtml(e) {
     
         let reminder = btn.parentElement
 
-        let dropDown = '#' + reminder.parentElement.id
+        let banner = reminder.parentElement.parentElement
 
         deleteReminderFromStorage(reminder.firstElementChild.innerHTML)
 
         reminder.remove()
 
-        updateCounters(dropDown)
+        updateCounters(banner)
     }
 }
 
@@ -30,5 +30,5 @@ function deleteReminderFromStorage(name) {
         }
     }
 
-    // console.log(reminders)
+    console.log(reminders)
 }

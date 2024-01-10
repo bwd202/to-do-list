@@ -173,12 +173,12 @@ function publishReminder(test) {
 
             let list = reminder.listId
 
-            let accordion = document.querySelector(list)
+            let dropDown = document.querySelector(list)
+
+            let banner = dropDown.parentElement
     
-            if(accordion.childElementCount === 0) { //shows drop-down by default after adding first reminder
-    
-                let banner = accordion.parentElement
-    
+            if(dropDown.childElementCount === 0) { //shows drop-down by default after adding first reminder
+        
                 let chevronSpan = banner.children[3]
     
                 if(!chevronSpan.firstChild) {   //prevents adding extra chevron icons (bug)
@@ -190,9 +190,9 @@ function publishReminder(test) {
                 document.querySelector(list).classList.add('visible')
             }
 
-            accordion.append(makeShortReminder(reminder))
+            dropDown.append(makeShortReminder(reminder))
         
-            updateCounters(list)
+            updateCounters(banner)
     
             reminderForm.reset()
     }

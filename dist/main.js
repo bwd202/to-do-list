@@ -4845,16 +4845,12 @@ function flipChevron(direction) {
     }
 }
 
-function updateCounters(listId) {
+function updateCounters(banner) {
 
-    let dropDown = document.querySelector(listId)
+    let dropDown = banner.lastElementChild
    
-    let banner = dropDown.parentElement
-
-    let counter = banner.querySelector('.counter')
-
-    counter.innerHTML = dropDown.children.length
-
+    banner.querySelector('.counter').innerHTML = dropDown.children.length
+    
 }
 
 /***/ }),
@@ -4986,13 +4982,13 @@ function deleteReminderHtml(e) {
     
         let reminder = btn.parentElement
 
-        let dropDown = '#' + reminder.parentElement.id
+        let banner = reminder.parentElement.parentElement
 
         deleteReminderFromStorage(reminder.firstElementChild.innerHTML)
 
         reminder.remove()
 
-        ;(0,_banner__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(dropDown)
+        ;(0,_banner__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(banner)
     }
 }
 
@@ -5006,7 +5002,7 @@ function deleteReminderFromStorage(name) {
         }
     }
 
-    // console.log(reminders)
+    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders)
 }
 
 /***/ }),
@@ -5361,12 +5357,12 @@ function publishReminder(test) {
 
             let list = reminder.listId
 
-            let accordion = document.querySelector(list)
+            let dropDown = document.querySelector(list)
+
+            let banner = dropDown.parentElement
     
-            if(accordion.childElementCount === 0) { //shows drop-down by default after adding first reminder
-    
-                let banner = accordion.parentElement
-    
+            if(dropDown.childElementCount === 0) { //shows drop-down by default after adding first reminder
+        
                 let chevronSpan = banner.children[3]
     
                 if(!chevronSpan.firstChild) {   //prevents adding extra chevron icons (bug)
@@ -5378,9 +5374,9 @@ function publishReminder(test) {
                 document.querySelector(list).classList.add('visible')
             }
 
-            accordion.append(makeShortReminder(reminder))
+            dropDown.append(makeShortReminder(reminder))
         
-            ;(0,_banner__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(list)
+            ;(0,_banner__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(banner)
     
             reminderForm.reset()
     }
