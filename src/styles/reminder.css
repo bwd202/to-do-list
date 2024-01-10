@@ -49,37 +49,32 @@
     display: grid;
     padding: 10px;
     border-top: 1px solid darkgrey;
-}
-
-.reminder-short > div {
-    display: grid;
     grid-template-areas: 'checkbox title date time priority button';
     grid-template-columns: max-content 1fr 100px 100px 100px max-content;
-    justify-items: center;
-
+    /* justify-items: center; */
 }
 
-.reminder-short input {
+.reminder-short > input {
     grid-area: checkbox;
 }
 
-.reminder-short > div h4 {
+.reminder-short > h4 {
     grid-area: title;
     justify-self: start;
 }
 
-.reminder-short > div p:first-of-type {
+.reminder-short > p:first-of-type {
     grid-area: date;
 }
 
-.reminder-short > div p:nth-of-type(2) {
+.reminder-short > p:nth-of-type(2) {
     grid-area: time;
 }
 
-.reminder-short > div p:last-of-type {
+.reminder-short > p:last-of-type {
     grid-area: priority;
 }
 
-.reminder-short span {
+.reminder-short > span {
     grid-area: button;
 }

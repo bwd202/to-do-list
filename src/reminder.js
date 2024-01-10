@@ -158,9 +158,9 @@ function publishReminder(test) {
 
             e.preventDefault()
 
-            let testReminder = new Reminder()
+            let defaultList = document.querySelector('#reminders')
 
-            makeShortReminder(testReminder)
+            defaultList.append(makeShortReminder(new Reminder()))
 
             return
         }
@@ -170,9 +170,9 @@ function publishReminder(test) {
             storeReminder()
 
             let reminder = reminders.at(-1)
-    
+
             let list = reminder.listId
-    
+
             let accordion = document.querySelector(list)
     
             if(accordion.childElementCount === 0) { //shows drop-down by default after adding first reminder

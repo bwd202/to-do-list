@@ -2899,40 +2899,35 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.reminder {
     display: grid;
     padding: 10px;
     border-top: 1px solid darkgrey;
-}
-
-.reminder-short > div {
-    display: grid;
     grid-template-areas: 'checkbox title date time priority button';
     grid-template-columns: max-content 1fr 100px 100px 100px max-content;
-    justify-items: center;
-
+    /* justify-items: center; */
 }
 
-.reminder-short input {
+.reminder-short > input {
     grid-area: checkbox;
 }
 
-.reminder-short > div h4 {
+.reminder-short > h4 {
     grid-area: title;
     justify-self: start;
 }
 
-.reminder-short > div p:first-of-type {
+.reminder-short > p:first-of-type {
     grid-area: date;
 }
 
-.reminder-short > div p:nth-of-type(2) {
+.reminder-short > p:nth-of-type(2) {
     grid-area: time;
 }
 
-.reminder-short > div p:last-of-type {
+.reminder-short > p:last-of-type {
     grid-area: priority;
 }
 
-.reminder-short span {
+.reminder-short > span {
     grid-area: button;
-}`, "",{"version":3,"sources":["webpack://./src/styles/reminder.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,6BAA6B;IAC7B,8BAA8B;IAC9B,iDAAiD;IACjD,8CAA8C;IAC9C;;;oDAGgD;IAChD,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;IAChB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;AACvB;;AAEA,mBAAmB;AACnB;IACI,aAAa;IACb,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,aAAa;IACb,+DAA+D;IAC/D,oEAAoE;IACpE,qBAAqB;;AAEzB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;AACrB","sourcesContent":[".reminder {\n    display: grid;\n    background-color: var(--card);\n    border-top: 1px solid darkgrey;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' \n                        'checkbox title title closeBtn' \n                        '. notes notes notes' \n                        '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n.reminder [type='checkbox'] {\n    grid-area: checkbox;\n    align-self: start;\n}\n\n.reminder h4 {\n    grid-area: title;\n}\n\n.reminder span {\n    grid-area: closeBtn;\n    align-self: start;\n}\n\n.reminder p:nth-of-type(1) {\n    grid-area: notes;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(2) {\n    grid-area: dueDate; \n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(3) {\n    grid-area: dueTime;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(4) {\n    grid-area: priority;\n}\n\n/* SHORT REMINDER */\n.reminder-short {\n    display: grid;\n    padding: 10px;\n    border-top: 1px solid darkgrey;\n}\n\n.reminder-short > div {\n    display: grid;\n    grid-template-areas: 'checkbox title date time priority button';\n    grid-template-columns: max-content 1fr 100px 100px 100px max-content;\n    justify-items: center;\n\n}\n\n.reminder-short input {\n    grid-area: checkbox;\n}\n\n.reminder-short > div h4 {\n    grid-area: title;\n    justify-self: start;\n}\n\n.reminder-short > div p:first-of-type {\n    grid-area: date;\n}\n\n.reminder-short > div p:nth-of-type(2) {\n    grid-area: time;\n}\n\n.reminder-short > div p:last-of-type {\n    grid-area: priority;\n}\n\n.reminder-short span {\n    grid-area: button;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/reminder.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,6BAA6B;IAC7B,8BAA8B;IAC9B,iDAAiD;IACjD,8CAA8C;IAC9C;;;oDAGgD;IAChD,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;IAChB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;AACvB;;AAEA,mBAAmB;AACnB;IACI,aAAa;IACb,aAAa;IACb,8BAA8B;IAC9B,+DAA+D;IAC/D,oEAAoE;IACpE,2BAA2B;AAC/B;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;AACrB","sourcesContent":[".reminder {\n    display: grid;\n    background-color: var(--card);\n    border-top: 1px solid darkgrey;\n    grid-template-columns: 50px 100px 1fr max-content;\n    grid-template-rows: max-content repeat(3, 1fr);\n    grid-template-areas: 'heading heading heading heading' \n                        'checkbox title title closeBtn' \n                        '. notes notes notes' \n                        '. dueDate dueTime priority';\n    padding: 10px;\n}\n\n.reminder [type='checkbox'] {\n    grid-area: checkbox;\n    align-self: start;\n}\n\n.reminder h4 {\n    grid-area: title;\n}\n\n.reminder span {\n    grid-area: closeBtn;\n    align-self: start;\n}\n\n.reminder p:nth-of-type(1) {\n    grid-area: notes;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(2) {\n    grid-area: dueDate; \n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(3) {\n    grid-area: dueTime;\n    color: var(--subtext);\n}\n\n.reminder p:nth-of-type(4) {\n    grid-area: priority;\n}\n\n/* SHORT REMINDER */\n.reminder-short {\n    display: grid;\n    padding: 10px;\n    border-top: 1px solid darkgrey;\n    grid-template-areas: 'checkbox title date time priority button';\n    grid-template-columns: max-content 1fr 100px 100px 100px max-content;\n    /* justify-items: center; */\n}\n\n.reminder-short > input {\n    grid-area: checkbox;\n}\n\n.reminder-short > h4 {\n    grid-area: title;\n    justify-self: start;\n}\n\n.reminder-short > p:first-of-type {\n    grid-area: date;\n}\n\n.reminder-short > p:nth-of-type(2) {\n    grid-area: time;\n}\n\n.reminder-short > p:last-of-type {\n    grid-area: priority;\n}\n\n.reminder-short > span {\n    grid-area: button;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4989,15 +4984,15 @@ function deleteReminderHtml(e) {
 
         let btn = e.target
     
-        let reminder = btn.parentElement.parentElement
+        let reminder = btn.parentElement
 
         let dropDown = '#' + reminder.parentElement.id
 
-        deleteReminderFromStorage(reminder.firstElementChild.children[1].innerHTML)
-
-        ;(0,_banner__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(dropDown)
+        deleteReminderFromStorage(reminder.firstElementChild.innerHTML)
 
         reminder.remove()
+
+        ;(0,_banner__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(dropDown)
     }
 }
 
@@ -5351,9 +5346,9 @@ function publishReminder(test) {
 
             e.preventDefault()
 
-            let testReminder = new Reminder()
+            let defaultList = document.querySelector('#reminders')
 
-            makeShortReminder(testReminder)
+            defaultList.append(makeShortReminder(new Reminder()))
 
             return
         }
@@ -5363,9 +5358,9 @@ function publishReminder(test) {
             storeReminder()
 
             let reminder = _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.at(-1)
-    
+
             let list = reminder.listId
-    
+
             let accordion = document.querySelector(list)
     
             if(accordion.childElementCount === 0) { //shows drop-down by default after adding first reminder
