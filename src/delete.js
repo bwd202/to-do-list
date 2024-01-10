@@ -12,7 +12,7 @@ function deleteReminderHtml(e) {
 
         let banner = reminder.parentElement.parentElement
 
-        deleteReminderFromStorage(reminder.firstElementChild.innerHTML)
+        deleteReminderFromStorage(reminder.children[1].innerHTML)
 
         reminder.remove()
 
