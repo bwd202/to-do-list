@@ -65,8 +65,6 @@ function makeShortReminder(obj) {   //makes reminder html to be shown in list ac
     
     checkbox.setAttribute('type','checkbox')
 
-    let content = document.createElement('div')
-
     let title = document.createElement('h4')
 
     title.innerHTML = obj.reminderTitle
@@ -93,9 +91,7 @@ function makeShortReminder(obj) {   //makes reminder html to be shown in list ac
 
     button.innerHTML = '&times;'
 
-    content.append(checkbox,title,date,time,priority,button)
-
-    wrapper.push(content)
+    wrapper.push(checkbox,title,date,time,priority,button)
 
     box.append(...wrapper)
 
