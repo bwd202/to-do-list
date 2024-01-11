@@ -1,6 +1,6 @@
 import { reminders } from "./storage"
 import { updateCounters } from "./banner"
-export {deleteReminderHtml} 
+export {deleteReminderHtml, deleteFromStorage, removeFromModal} 
 
 function deleteReminderHtml(e) {
 
@@ -31,4 +31,30 @@ function deleteReminderFromStorage(name) {
     }
 
     console.log(reminders)
+}
+
+function deleteFromStorage(reminder, array) {    //removes from array
+
+    // Array.indexOf()
+    for(let item of array) {
+
+        if(item.reminderTitle === reminder) {
+
+            let index = array.indexOf(item)
+
+            array.splice(index, 1)
+
+        }
+    }
+}
+
+function removeFromModal(reminder, modal) {
+
+    for(let item of modal.children) {
+
+        if(item.attributes[0].value === reminder) {    // data-title == <reminder's title>
+
+            item.remove()
+        }
+    }
 }

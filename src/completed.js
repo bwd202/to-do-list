@@ -1,8 +1,7 @@
 export {crossOutCompleted}
 import { completed, reminders } from "./storage"
-import { showInModal } from "./modal"
-
-let completedModal = document.querySelector('#completed + .modal .modal-content')
+import { showInModal, completedModal } from "./modal"
+import {deleteFromStorage, removeFromModal}  from './delete'
 
 function crossOutCompleted(e) {
 
@@ -33,26 +32,11 @@ function checkCompleted(reminder) {
 
         else if(item.reminderTitle === reminder && item.reminderCompleted === true) {
 
-            deleteCompleted(reminder)
+            deleteFromStorage(reminder, completed)
+
+            removeFromModal(reminder, completedModal)
 
             item.reminderCompleted = false
-
-        }
-    }
-}
-
-function deleteCompleted(reminder) {    //removes from completed array
-
-    // Array.indexOf()
-    for(let item of completed) {
-
-        if(item.reminderTitle === reminder) {
-
-            let index = completed.indexOf(item)
-
-            completed.splice(index, 1)
-
-            removeFromModal(reminder)
 
         }
     }
@@ -72,15 +56,4 @@ function pushCompleted(reminder) {
 
     showInModal(reminder, completedModal)
 
-}
-
-function removeFromModal(reminder) {
-
-    for(let item of completedModal.children) {
-
-        if(item.attributes[0].value === reminder) {    // data-title: <reminder's title>
-
-            item.remove()
-        }
-    }
 }

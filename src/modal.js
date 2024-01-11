@@ -1,5 +1,7 @@
-export {openModal,closeModal,showInModal}
+export {openModal,closeModal,showInModal, completedModal}
 import { reminderForModal } from "./reminder"
+
+let completedModal = document.querySelector('#completed + .modal .modal-content')
 
 function closeModal(e) {
 
