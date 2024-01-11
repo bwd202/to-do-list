@@ -2400,32 +2400,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* icon colors */
 
 .card {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	grid-template-areas: 'icon count' 'title .';
-	align-items: center;
-	/* background-color: rgba(112, 73, 73,1); */
+    justify-items: center;
+	grid-template-rows: repeat(3, 50px);
+    align-content: center;
 	gap: 5px;
 	border: 1px solid var(--subtext);
 }
 
-.card img {
-    grid-area: icon;
-    align-self: end;
-}
-
-.card span {
-    grid-area: count;
-    align-self: start;
-    justify-self: end;
-    padding: 10px;
-}
-
 .card p {
-    grid-area: title;
-    align-self: start;
-    padding: 5px;   /* to align with icon */
-}`, "",{"version":3,"sources":["webpack://./src/styles/card.css"],"names":[],"mappings":"AAAA,gBAAgB;;AAEhB;IACI,iGAAiG;AACrG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,6FAA6F;AACjG;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,2BAA2B;CAC3B,2CAA2C;CAC3C,mBAAmB;CACnB,2CAA2C;CAC3C,QAAQ;CACR,gCAAgC;AACjC;;AAEA;IACI,eAAe;IACf,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,iBAAiB;IACjB,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,YAAY,IAAI,uBAAuB;AAC3C","sourcesContent":["/* icon colors */\n\n.filter-blue {\n    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);\n}\n\n.filter-red {\n    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);\n}\n\n.filter-gray {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.filter-green {\n    filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);\n}\n\n.card {\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 1fr;\n\tgrid-template-rows: 1fr 1fr;\n\tgrid-template-areas: 'icon count' 'title .';\n\talign-items: center;\n\t/* background-color: rgba(112, 73, 73,1); */\n\tgap: 5px;\n\tborder: 1px solid var(--subtext);\n}\n\n.card img {\n    grid-area: icon;\n    align-self: end;\n}\n\n.card span {\n    grid-area: count;\n    align-self: start;\n    justify-self: end;\n    padding: 10px;\n}\n\n.card p {\n    grid-area: title;\n    align-self: start;\n    padding: 5px;   /* to align with icon */\n}"],"sourceRoot":""}]);
+    padding: 5px;   
+}`, "",{"version":3,"sources":["webpack://./src/styles/card.css"],"names":[],"mappings":"AAAA,gBAAgB;;AAEhB;IACI,iGAAiG;AACrG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,8FAA8F;AAClG;;AAEA;IACI,6FAA6F;AACjG;;AAEA;CACC,aAAa;IACV,qBAAqB;CACxB,mCAAmC;IAChC,qBAAqB;CACxB,QAAQ;CACR,gCAAgC;AACjC;;AAEA;IACI,YAAY;AAChB","sourcesContent":["/* icon colors */\n\n.filter-blue {\n    filter: invert(17%) sepia(97%) saturate(4457%) hue-rotate(241deg) brightness(115%) contrast(139%);\n}\n\n.filter-red {\n    filter: invert(26%) sepia(90%) saturate(2174%) hue-rotate(9deg) brightness(99%) contrast(102%);\n}\n\n.filter-gray {\n    filter: invert(36%) sepia(9%) saturate(1550%) hue-rotate(200deg) brightness(93%) contrast(89%);\n}\n\n.filter-green {\n    filter: invert(57%) sepia(48%) saturate(661%) hue-rotate(76deg) brightness(93%) contrast(89%);\n}\n\n.card {\n\tdisplay: grid;\n    justify-items: center;\n\tgrid-template-rows: repeat(3, 50px);\n    align-content: center;\n\tgap: 5px;\n\tborder: 1px solid var(--subtext);\n}\n\n.card p {\n    padding: 5px;   \n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

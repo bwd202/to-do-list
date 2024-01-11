@@ -18,29 +18,13 @@
 
 .card {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	grid-template-areas: 'icon count' 'title .';
-	align-items: center;
-	/* background-color: rgba(112, 73, 73,1); */
+    justify-items: center;
+	grid-template-rows: repeat(3, 50px);
+    align-content: center;
 	gap: 5px;
 	border: 1px solid var(--subtext);
 }
 
-.card img {
-    grid-area: icon;
-    align-self: end;
-}
-
-.card span {
-    grid-area: count;
-    align-self: start;
-    justify-self: end;
-    padding: 10px;
-}
-
 .card p {
-    grid-area: title;
-    align-self: start;
-    padding: 5px;   /* to align with icon */
+    padding: 5px;   
 }
