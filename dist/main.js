@@ -4944,25 +4944,15 @@ function deleteReminderHtml(e) {
 
         let banner = reminder.parentElement.parentElement
 
-        deleteReminderFromStorage(reminder.children[1].innerHTML)
+        let reminderName = reminder.children[1].innerHTML
+
+        deleteFromStorage(reminderName, _storage__WEBPACK_IMPORTED_MODULE_0__.reminders)
 
         reminder.remove()
 
         ;(0,_banner__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(banner)
+
     }
-}
-
-function deleteReminderFromStorage(name) {
-
-    for(let i = 0; i < _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.length; i++) {
-
-        if(name === _storage__WEBPACK_IMPORTED_MODULE_0__.reminders[i].reminderTitle) {
-
-            _storage__WEBPACK_IMPORTED_MODULE_0__.reminders.splice(i, 1)
-        }
-    }
-
-    console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders)
 }
 
 function deleteFromStorage(reminder, array) {    //removes from array

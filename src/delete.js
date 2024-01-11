@@ -12,25 +12,15 @@ function deleteReminderHtml(e) {
 
         let banner = reminder.parentElement.parentElement
 
-        deleteReminderFromStorage(reminder.children[1].innerHTML)
+        let reminderName = reminder.children[1].innerHTML
+
+        deleteFromStorage(reminderName, reminders)
 
         reminder.remove()
 
         updateCounters(banner)
+
     }
-}
-
-function deleteReminderFromStorage(name) {
-
-    for(let i = 0; i < reminders.length; i++) {
-
-        if(name === reminders[i].reminderTitle) {
-
-            reminders.splice(i, 1)
-        }
-    }
-
-    console.log(reminders)
 }
 
 function deleteFromStorage(reminder, array) {    //removes from array
