@@ -4879,6 +4879,9 @@ function crossOutCompleted(e) {
         checkCompleted(reminderName)
 
 	}
+
+    (0,_counter__WEBPACK_IMPORTED_MODULE_3__.updateModalCounter)(_modal__WEBPACK_IMPORTED_MODULE_1__.completedModal)
+
 }
 
 function checkCompleted(reminder) {
@@ -4918,7 +4921,6 @@ function pushCompleted(reminder) {
 
     ;(0,_modal__WEBPACK_IMPORTED_MODULE_1__.showInModal)(reminder, _modal__WEBPACK_IMPORTED_MODULE_1__.completedModal)
 
-    ;(0,_counter__WEBPACK_IMPORTED_MODULE_3__.updateModalCounter)(_modal__WEBPACK_IMPORTED_MODULE_1__.completedModal)
 }
 
 /***/ }),
@@ -4947,7 +4949,7 @@ function updateCounter(banner) {
 
 function updateModalCounter(modal) {
 
-    let counter = modal.previousElementSibling.querySelector('.counter')
+    let counter = modal.parentElement.previousElementSibling.querySelector('.counter')
 
     counter.innerHTML = modal.children.length
 }

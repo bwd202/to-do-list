@@ -10,7 +10,7 @@ function updateCounter(banner) {
 
 function updateModalCounter(modal) {
 
-    let counter = modal.previousElementSibling.querySelector('.counter')
+    let counter = modal.parentElement.previousElementSibling.querySelector('.counter')
 
     counter.innerHTML = modal.children.length
 }

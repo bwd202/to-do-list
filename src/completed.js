@@ -18,6 +18,9 @@ function crossOutCompleted(e) {
         checkCompleted(reminderName)
 
 	}
+
+    updateModalCounter(completedModal)
+
 }
 
 function checkCompleted(reminder) {
@@ -57,5 +60,4 @@ function pushCompleted(reminder) {
 
     showInModal(reminder, completedModal)
 
-    updateModalCounter(completedModal)
 }
