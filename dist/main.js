@@ -4880,7 +4880,7 @@ function crossOutCompleted(e) {
 
 	}
 
-    (0,_counter__WEBPACK_IMPORTED_MODULE_3__.updateModalCounter)(_modal__WEBPACK_IMPORTED_MODULE_1__.completedModal)
+    (0,_counter__WEBPACK_IMPORTED_MODULE_3__.updateModalCounter)('completed')
 
 }
 
@@ -4899,7 +4899,7 @@ function checkCompleted(reminder) {
 
             (0,_delete__WEBPACK_IMPORTED_MODULE_2__.deleteFromStorage)(reminder, _storage__WEBPACK_IMPORTED_MODULE_0__.completed)
 
-            ;(0,_delete__WEBPACK_IMPORTED_MODULE_2__.removeFromModal)(reminder, _modal__WEBPACK_IMPORTED_MODULE_1__.completedModal)
+            ;(0,_delete__WEBPACK_IMPORTED_MODULE_2__.removeFromModal)(reminder, 'completed')
 
             item.reminderCompleted = false
 
@@ -4919,7 +4919,7 @@ function pushCompleted(reminder) {
 
     if(completedTest() === -1) _storage__WEBPACK_IMPORTED_MODULE_0__.completed.push(reminder) // tests true if reminder is not found in array
 
-    ;(0,_modal__WEBPACK_IMPORTED_MODULE_1__.showInModal)(reminder, _modal__WEBPACK_IMPORTED_MODULE_1__.completedModal)
+    ;(0,_modal__WEBPACK_IMPORTED_MODULE_1__.showInModal)(reminder, 'completed')
 
 }
 
@@ -4937,7 +4937,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   updateCounter: () => (/* binding */ updateCounter),
 /* harmony export */   updateModalCounter: () => (/* binding */ updateModalCounter)
 /* harmony export */ });
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
 
+;
 
 function updateCounter(banner) {
 
@@ -4947,11 +4949,13 @@ function updateCounter(banner) {
     
 }
 
-function updateModalCounter(modal) {
+function updateModalCounter(modalName) {
 
-    let counter = modal.parentElement.previousElementSibling.querySelector('.counter')
+    let modalHtml = (0,_modal__WEBPACK_IMPORTED_MODULE_0__.chooseModal)(modalName)
 
-    counter.innerHTML = modal.children.length
+    let counter = modalHtml.parentElement.previousElementSibling.querySelector('.counter')
+
+    counter.innerHTML = modalHtml.children.length
 }
 
 /***/ }),
@@ -4971,6 +4975,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _counter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counter */ "./src/counter.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
+
 
 
  
@@ -5011,9 +5017,11 @@ function deleteFromStorage(reminder, array) {    //removes from array
     }
 }
 
-function removeFromModal(reminder, modal) {
+function removeFromModal(reminder, modalName) {
 
-    for(let item of modal.children) {
+    let modalHtml = (0,_modal__WEBPACK_IMPORTED_MODULE_2__.chooseModal)(modalName)
+
+    for(let item of modalHtml.children) {
 
         if(item.attributes[0].value === reminder) {    // data-title == <reminder's title>
 
@@ -5146,8 +5154,8 @@ function getListInputs() {   //creates obj from list modal inputs, returns obj
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   chooseModal: () => (/* binding */ chooseModal),
 /* harmony export */   closeModal: () => (/* binding */ closeModal),
-/* harmony export */   completedModal: () => (/* binding */ completedModal),
 /* harmony export */   openModal: () => (/* binding */ openModal),
 /* harmony export */   showInModal: () => (/* binding */ showInModal)
 /* harmony export */ });
@@ -5156,6 +5164,20 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 let completedModal = document.querySelector('#completed + .modal .modal-content')
+
+function chooseModal(name) {    //returns appropriate html element
+
+    switch(name) {
+        case 'today':
+            return document.querySelector('#today + .modal .modal-content')
+        case 'scheduled':
+            return document.querySelector('#scheduled + .modal .modal-content')
+        case 'all':
+            return document.querySelector('#all + .modal .modal-content')
+        case 'completed':
+            return document.querySelector('#completed + .modal .modal-content')
+    }
+}
 
 function closeModal(e) {
 
@@ -5179,9 +5201,11 @@ function openModal(e) { //show modal
     }
 }
 
-function showInModal(reminder, modal) {
+function showInModal(reminder, modalName) {
 
-    modal.append((0,_reminder__WEBPACK_IMPORTED_MODULE_0__.reminderForModal)(reminder))
+    let modalHtml = chooseModal(modalName)
+
+    modalHtml.append((0,_reminder__WEBPACK_IMPORTED_MODULE_0__.reminderForModal)(reminder))
 
 }
 
@@ -5400,9 +5424,7 @@ function publishReminder(test) {
 
             dropDown.append(makeShortReminder(reminder))
 
-            let allRemindersModal = document.querySelector('#all + .modal .modal-content')
-
-            ;(0,_modal__WEBPACK_IMPORTED_MODULE_3__.showInModal)(reminder, allRemindersModal)
+            ;(0,_modal__WEBPACK_IMPORTED_MODULE_3__.showInModal)(reminder, 'all')
         
             ;(0,_counter__WEBPACK_IMPORTED_MODULE_2__.updateCounter)(banner)
     

@@ -1,5 +1,6 @@
 import { reminders } from "./storage"
 import { updateCounter } from "./counter"
+import { chooseModal } from "./modal"
 export {deleteReminderHtml, deleteFromStorage, removeFromModal} 
 
 function deleteReminderHtml(e) {
@@ -38,9 +39,11 @@ function deleteFromStorage(reminder, array) {    //removes from array
     }
 }
 
-function removeFromModal(reminder, modal) {
+function removeFromModal(reminder, modalName) {
 
-    for(let item of modal.children) {
+    let modalHtml = chooseModal(modalName)
+
+    for(let item of modalHtml.children) {
 
         if(item.attributes[0].value === reminder) {    // data-title == <reminder's title>
 

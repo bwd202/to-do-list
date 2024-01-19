@@ -1,6 +1,6 @@
 export {crossOutCompleted}
 import { completed, reminders } from "./storage"
-import { showInModal, completedModal } from "./modal"
+import { showInModal} from "./modal"
 import {deleteFromStorage, removeFromModal}  from './delete'
 import { updateModalCounter } from "./counter"
 
@@ -19,7 +19,7 @@ function crossOutCompleted(e) {
 
 	}
 
-    updateModalCounter(completedModal)
+    updateModalCounter('completed')
 
 }
 
@@ -38,7 +38,7 @@ function checkCompleted(reminder) {
 
             deleteFromStorage(reminder, completed)
 
-            removeFromModal(reminder, completedModal)
+            removeFromModal(reminder, 'completed')
 
             item.reminderCompleted = false
 
@@ -58,6 +58,6 @@ function pushCompleted(reminder) {
 
     if(completedTest() === -1) completed.push(reminder) // tests true if reminder is not found in array
 
-    showInModal(reminder, completedModal)
+    showInModal(reminder, 'completed')
 
 }

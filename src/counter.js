@@ -1,4 +1,5 @@
 export {updateCounter, updateModalCounter}
+import {chooseModal} from './modal'
 
 function updateCounter(banner) {
 
@@ -8,9 +9,11 @@ function updateCounter(banner) {
     
 }
 
-function updateModalCounter(modal) {
+function updateModalCounter(modalName) {
 
-    let counter = modal.parentElement.previousElementSibling.querySelector('.counter')
+    let modalHtml = chooseModal(modalName)
 
-    counter.innerHTML = modal.children.length
+    let counter = modalHtml.parentElement.previousElementSibling.querySelector('.counter')
+
+    counter.innerHTML = modalHtml.children.length
 }

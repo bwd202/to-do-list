@@ -194,9 +194,7 @@ function publishReminder(test) {
 
             dropDown.append(makeShortReminder(reminder))
 
-            let allRemindersModal = document.querySelector('#all + .modal .modal-content')
-
-            showInModal(reminder, allRemindersModal)
+            showInModal(reminder, 'all')
         
             updateCounter(banner)
     
