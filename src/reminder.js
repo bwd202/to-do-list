@@ -1,6 +1,7 @@
 export {publishReminder,Reminder,reminderForModal}
 import {reminders} from "./storage"
-import { appendChevronIcon, updateCounters } from "./banner"
+import { appendChevronIcon} from "./banner"
+import { updateCounter } from "./counter"
 import { showInModal } from "./modal"
 
 class Reminder {
@@ -197,7 +198,7 @@ function publishReminder(test) {
 
             showInModal(reminder, allRemindersModal)
         
-            updateCounters(banner)
+            updateCounter(banner)
     
             reminderForm.reset()
     }

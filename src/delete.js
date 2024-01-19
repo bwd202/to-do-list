@@ -1,5 +1,5 @@
 import { reminders } from "./storage"
-import { updateCounters } from "./banner"
+import { updateCounter } from "./counter"
 export {deleteReminderHtml, deleteFromStorage, removeFromModal} 
 
 function deleteReminderHtml(e) {
@@ -18,7 +18,7 @@ function deleteReminderHtml(e) {
 
         reminder.remove()
 
-        updateCounters(banner)
+        updateCounter(banner)
 
     }
 }

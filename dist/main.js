@@ -4649,8 +4649,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   appendBanner: () => (/* binding */ appendBanner),
 /* harmony export */   appendChevronIcon: () => (/* binding */ appendChevronIcon),
 /* harmony export */   expandCollapseBanner: () => (/* binding */ expandCollapseBanner),
-/* harmony export */   removeBanner: () => (/* binding */ removeBanner),
-/* harmony export */   updateCounters: () => (/* binding */ updateCounters)
+/* harmony export */   removeBanner: () => (/* binding */ removeBanner)
 /* harmony export */ });
 /* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icon */ "./src/icon.js");
 /* harmony import */ var _list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list */ "./src/list.js");
@@ -4829,14 +4828,6 @@ function flipChevron(direction) {
     }
 }
 
-function updateCounters(banner) {
-
-    let dropDown = banner.lastElementChild
-   
-    banner.querySelector('.counter').innerHTML = dropDown.children.length
-    
-}
-
 /***/ }),
 
 /***/ "./src/completed.js":
@@ -4915,6 +4906,29 @@ function pushCompleted(reminder) {
 
 /***/ }),
 
+/***/ "./src/counter.js":
+/*!************************!*\
+  !*** ./src/counter.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   updateCounter: () => (/* binding */ updateCounter)
+/* harmony export */ });
+
+
+function updateCounter(banner) {
+
+    let dropDown = banner.lastElementChild
+   
+    banner.querySelector('.counter').innerHTML = dropDown.children.length
+    
+}
+
+/***/ }),
+
 /***/ "./src/delete.js":
 /*!***********************!*\
   !*** ./src/delete.js ***!
@@ -4929,7 +4943,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   removeFromModal: () => (/* binding */ removeFromModal)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
-/* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./banner */ "./src/banner.js");
+/* harmony import */ var _counter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counter */ "./src/counter.js");
 
 
  
@@ -4950,7 +4964,7 @@ function deleteReminderHtml(e) {
 
         reminder.remove()
 
-        ;(0,_banner__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(banner)
+        ;(0,_counter__WEBPACK_IMPORTED_MODULE_1__.updateCounter)(banner)
 
     }
 }
@@ -5161,9 +5175,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./banner */ "./src/banner.js");
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
+/* harmony import */ var _counter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./counter */ "./src/counter.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
 
 ;
+
 
 
 
@@ -5359,9 +5375,9 @@ function publishReminder(test) {
 
             let allRemindersModal = document.querySelector('#all + .modal .modal-content')
 
-            ;(0,_modal__WEBPACK_IMPORTED_MODULE_2__.showInModal)(reminder, allRemindersModal)
+            ;(0,_modal__WEBPACK_IMPORTED_MODULE_3__.showInModal)(reminder, allRemindersModal)
         
-            ;(0,_banner__WEBPACK_IMPORTED_MODULE_1__.updateCounters)(banner)
+            ;(0,_counter__WEBPACK_IMPORTED_MODULE_2__.updateCounter)(banner)
     
             reminderForm.reset()
     }
