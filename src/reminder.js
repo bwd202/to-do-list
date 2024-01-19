@@ -1,7 +1,7 @@
 export {publishReminder,Reminder,reminderForModal}
 import {reminders} from "./storage"
 import { appendChevronIcon} from "./banner"
-import { updateCounter } from "./counter"
+import { updateCounter, updateModalCounter } from "./counter"
 import { showInModal } from "./modal"
 
 class Reminder {
@@ -195,6 +195,8 @@ function publishReminder(test) {
             dropDown.append(makeShortReminder(reminder))
 
             showInModal(reminder, 'all')
+
+            updateModalCounter('all')
         
             updateCounter(banner)
     

@@ -1,7 +1,5 @@
-export {openModal,closeModal,showInModal, chooseModal}
+export {openModal,closeModal,showInModal, chooseModal, removeFromModal}
 import { reminderForModal } from "./reminder"
-
-let completedModal = document.querySelector('#completed + .modal .modal-content')
 
 function chooseModal(name) {    //returns appropriate html element
 
@@ -45,4 +43,17 @@ function showInModal(reminder, modalName) {
 
     modalHtml.append(reminderForModal(reminder))
 
+}
+
+function removeFromModal(reminder, modalName) {
+
+    let modalHtml = chooseModal(modalName)
+
+    for(let item of modalHtml.children) {
+
+        if(item.attributes[0].value === reminder) {    // data-title == <reminder's title>
+
+            item.remove()
+        }
+    }
 }

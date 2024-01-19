@@ -4865,6 +4865,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function crossOutCompleted(e) {
 
 	if (e.target.type === 'checkbox') {
@@ -4899,7 +4900,7 @@ function checkCompleted(reminder) {
 
             (0,_delete__WEBPACK_IMPORTED_MODULE_2__.deleteFromStorage)(reminder, _storage__WEBPACK_IMPORTED_MODULE_0__.completed)
 
-            ;(0,_delete__WEBPACK_IMPORTED_MODULE_2__.removeFromModal)(reminder, 'completed')
+            ;(0,_modal__WEBPACK_IMPORTED_MODULE_1__.removeFromModal)(reminder, 'completed')
 
             item.reminderCompleted = false
 
@@ -4970,8 +4971,7 @@ function updateModalCounter(modalName) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   deleteFromStorage: () => (/* binding */ deleteFromStorage),
-/* harmony export */   deleteReminderHtml: () => (/* binding */ deleteReminderHtml),
-/* harmony export */   removeFromModal: () => (/* binding */ removeFromModal)
+/* harmony export */   deleteReminderHtml: () => (/* binding */ deleteReminderHtml)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 /* harmony import */ var _counter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counter */ "./src/counter.js");
@@ -4994,10 +4994,16 @@ function deleteReminderHtml(e) {
         let reminderName = reminder.children[1].innerHTML
 
         deleteFromStorage(reminderName, _storage__WEBPACK_IMPORTED_MODULE_0__.reminders)
-
+        
         reminder.remove()
 
+        ;(0,_modal__WEBPACK_IMPORTED_MODULE_2__.removeFromModal)(reminderName, 'all')
+
+        ;(0,_modal__WEBPACK_IMPORTED_MODULE_2__.removeFromModal)(reminderName, 'completed')
+
         ;(0,_counter__WEBPACK_IMPORTED_MODULE_1__.updateCounter)(banner)
+
+        ;(0,_counter__WEBPACK_IMPORTED_MODULE_1__.updateModalCounter)('all')
 
     }
 }
@@ -5013,19 +5019,6 @@ function deleteFromStorage(reminder, array) {    //removes from array
 
             array.splice(index, 1)
 
-        }
-    }
-}
-
-function removeFromModal(reminder, modalName) {
-
-    let modalHtml = (0,_modal__WEBPACK_IMPORTED_MODULE_2__.chooseModal)(modalName)
-
-    for(let item of modalHtml.children) {
-
-        if(item.attributes[0].value === reminder) {    // data-title == <reminder's title>
-
-            item.remove()
         }
     }
 }
@@ -5157,13 +5150,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   chooseModal: () => (/* binding */ chooseModal),
 /* harmony export */   closeModal: () => (/* binding */ closeModal),
 /* harmony export */   openModal: () => (/* binding */ openModal),
+/* harmony export */   removeFromModal: () => (/* binding */ removeFromModal),
 /* harmony export */   showInModal: () => (/* binding */ showInModal)
 /* harmony export */ });
 /* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
 
 ;
-
-let completedModal = document.querySelector('#completed + .modal .modal-content')
 
 function chooseModal(name) {    //returns appropriate html element
 
@@ -5207,6 +5199,19 @@ function showInModal(reminder, modalName) {
 
     modalHtml.append((0,_reminder__WEBPACK_IMPORTED_MODULE_0__.reminderForModal)(reminder))
 
+}
+
+function removeFromModal(reminder, modalName) {
+
+    let modalHtml = chooseModal(modalName)
+
+    for(let item of modalHtml.children) {
+
+        if(item.attributes[0].value === reminder) {    // data-title == <reminder's title>
+
+            item.remove()
+        }
+    }
 }
 
 /***/ }),
@@ -5425,6 +5430,8 @@ function publishReminder(test) {
             dropDown.append(makeShortReminder(reminder))
 
             ;(0,_modal__WEBPACK_IMPORTED_MODULE_3__.showInModal)(reminder, 'all')
+
+            ;(0,_counter__WEBPACK_IMPORTED_MODULE_2__.updateModalCounter)('all')
         
             ;(0,_counter__WEBPACK_IMPORTED_MODULE_2__.updateCounter)(banner)
     

@@ -1,7 +1,7 @@
 import { reminders } from "./storage"
-import { updateCounter } from "./counter"
-import { chooseModal } from "./modal"
-export {deleteReminderHtml, deleteFromStorage, removeFromModal} 
+import { updateCounter, updateModalCounter } from "./counter"
+import { removeFromModal } from "./modal"
+export {deleteReminderHtml, deleteFromStorage} 
 
 function deleteReminderHtml(e) {
 
@@ -16,10 +16,16 @@ function deleteReminderHtml(e) {
         let reminderName = reminder.children[1].innerHTML
 
         deleteFromStorage(reminderName, reminders)
-
+        
         reminder.remove()
 
+        removeFromModal(reminderName, 'all')
+
+        removeFromModal(reminderName, 'completed')
+
         updateCounter(banner)
+
+        updateModalCounter('all')
 
     }
 }
@@ -35,19 +41,6 @@ function deleteFromStorage(reminder, array) {    //removes from array
 
             array.splice(index, 1)
 
-        }
-    }
-}
-
-function removeFromModal(reminder, modalName) {
-
-    let modalHtml = chooseModal(modalName)
-
-    for(let item of modalHtml.children) {
-
-        if(item.attributes[0].value === reminder) {    // data-title == <reminder's title>
-
-            item.remove()
         }
     }
 }
