@@ -20,12 +20,8 @@
 			</div>
 
 			<div class="modal" hidden>
-				<div class="wrapper">
 					<span class="modal-close-btn button">&times;</span>
-					<div class="modal-content">
-						<!-- will add reminders here -->
-					</div>
-				</div>
+					<div class="modal-content"></div>
 			</div>
 
 			<div id="scheduled" class="card button modal-btn">
@@ -35,12 +31,8 @@
 			</div>
 
 			<div class="modal" hidden>
-				<div class="wrapper">
 					<span class="modal-close-btn button">&times;</span>
-					<div class="modal-content">
-						<!-- will add reminders here -->
-					</div>
-				</div>
+					<div class="modal-content"></div>
 			</div>
 
 			<div id="all" class="card button modal-btn">
@@ -50,12 +42,8 @@
 			</div>
 
 			<div class="modal" hidden>
-				<div class="wrapper">
 					<span class="modal-close-btn button">&times;</span>
-					<div class="modal-content">
-						<!-- will add reminders here -->
-					</div>
-				</div>
+					<div class="modal-content"></div>
 			</div>
 
 			<div id="completed" class="card button modal-btn">
@@ -65,12 +53,8 @@
 			</div>
 
 			<div class="modal" hidden>
-				<div class="wrapper">
 					<span class="modal-close-btn button">&times;</span>
-					<div class="modal-content">
-						<!-- will add reminders here -->
-					</div>
-				</div>
+					<div class="modal-content"></div>
 			</div>
 
 			<article id="lists">
@@ -90,9 +74,8 @@
 				<img src="./icons/calendar-plus.svg" width="50" height="50" alt="" class="filter-blue" />New Reminder
 			</button>
 			<div id="reminder-modal" class="modal" hidden>
-				<div class="wrapper">
 					<span id="reminder-modal-close-btn" class="button modal-close-btn">&times;</span>
-					<form id="reminderForm" action="/">
+					<form id="reminderForm" class="modal-content" action="/">
 						<label for="title">Title</label>
 						<input id="title" type="text" placeholder="walk dog" name="reminderTitle" maxlength="20" required />
 						<label for="notes">Notes</label>
@@ -116,21 +99,18 @@
 						</button>
 						<button type="reset">Reset</button>
 					</form>
-				</div>
 			</div>
 			<button id="openListModal" class="button modal-btn shadow">
 				Add List
 			</button>
 			<div id="list-modal" class="modal" hidden>
-				<div class="wrapper">
 					<span id="list-modal-close-btn" class="button modal-close-btn">&times;</span>
-					<form id="listForm" action="/">
+					<form id="listForm" class="modal-content" action="/">
 						<input type="text" placeholder="List name" maxlength="30" required />
 						<input type="color" />
 						<button id="addList" type="submit">Done</button>
 						<button type="reset">Reset</button>
 					</form>
-				</div>
 			</div>
 		</footer>
 </body>

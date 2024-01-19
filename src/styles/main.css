@@ -29,12 +29,28 @@
 	display: grid;
 }
 
-.wrapper {
+/* .wrapper {
 	display: grid;
 	grid-template-columns: subgrid;
 	grid-template-rows: max-content 1fr;
 	grid-column: 2;
 	position: relative;
+    background: linear-gradient(rgb(230, 230, 230,1), rgba(158, 106, 106, 0.7));
+} */
+
+.modal {
+    /* display: grid; */
+	/* grid-template-columns: subgrid; */
+    grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: max-content 1fr;
+	/* grid-column: 2; */
+	/* position: relative; */
+    grid-template-areas: '. content .'
+                         '. content .';
+}
+
+.modal-content {
+    grid-area: content;
     background: linear-gradient(rgb(230, 230, 230,1), rgba(158, 106, 106, 0.7));
 }
 
