@@ -2,6 +2,7 @@ export {crossOutCompleted}
 import { completed, reminders } from "./storage"
 import { showInModal, completedModal } from "./modal"
 import {deleteFromStorage, removeFromModal}  from './delete'
+import { updateModalCounter } from "./counter"
 
 function crossOutCompleted(e) {
 
@@ -56,4 +57,5 @@ function pushCompleted(reminder) {
 
     showInModal(reminder, completedModal)
 
+    updateModalCounter(completedModal)
 }
