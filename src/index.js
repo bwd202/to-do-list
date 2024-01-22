@@ -1,5 +1,5 @@
 import './index.html'
-import './styles/main.css'
+import './styles/body.css'
 import './styles/buttons.css'
 import './styles/banner.css'
 import './styles/card.css'
@@ -13,13 +13,14 @@ import { expandCollapseBanner, appendBanner, removeBanner } from './banner.js'
 import {crossOutCompleted} from './completed.js'
 import { deleteReminderHtml } from './delete.js'
 import { testReminder } from './testing.js'
+import { editReminder } from './edit.js'
 
-// testReminder()
+testReminder()
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
 
-publishReminderBtn.addEventListener('click', publishReminder())
+// publishReminderBtn.addEventListener('click', publishReminder())
 
 let addListBtn = document.querySelector('button#addList')
 
@@ -36,3 +37,5 @@ document.addEventListener('click', openModal)
 document.addEventListener('click', removeBanner)
 
 document.addEventListener('click', crossOutCompleted)
+
+document.addEventListener('click', editReminder)
