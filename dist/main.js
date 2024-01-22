@@ -2480,7 +2480,19 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.button {
 	scale: 1.5;
 	right: 5px;
 	top: 5px;
-}`, "",{"version":3,"sources":["webpack://./src/styles/buttons.css"],"names":[],"mappings":"AAAA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,YAAY;CACZ,UAAU;CACV,UAAU;CACV,QAAQ;AACT","sourcesContent":[".button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tcolor: white;\n\tscale: 1.5;\n\tright: 5px;\n\ttop: 5px;\n}"],"sourceRoot":""}]);
+}
+
+form button {
+	width: 100px;
+}
+
+form button:first-of-type {
+	grid-area: done;
+}
+
+form button:last-of-type {
+	grid-area: reset;
+}`, "",{"version":3,"sources":["webpack://./src/styles/buttons.css"],"names":[],"mappings":"AAAA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,YAAY;CACZ,UAAU;CACV,UAAU;CACV,QAAQ;AACT;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,gBAAgB;AACjB","sourcesContent":[".button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tcolor: white;\n\tscale: 1.5;\n\tright: 5px;\n\ttop: 5px;\n}\n\nform button {\n\twidth: 100px;\n}\n\nform button:first-of-type {\n\tgrid-area: done;\n}\n\nform button:last-of-type {\n\tgrid-area: reset;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2572,15 +2584,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `footer {
     gap: 10px;
 }
 
-/* footer form {
-    display: grid;
-    grid-template-rows: repeat(7, 50px);
-    grid-auto-flow: column;
-    align-items: center;
-    justify-items: center;
-    padding-top: 60px;
-} */
-
 footer > button {
     border: 0;
     border-radius: 14px;
@@ -2601,171 +2604,7 @@ button#new-reminder {
 button#openListModal {
     height: 70px;
     justify-items: center;
-}`, "",{"version":3,"sources":["webpack://./src/styles/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,gBAAgB;IAChB,SAAS;AACb;;AAEA;;;;;;;GAOG;;AAEH;IACI,SAAS;IACT,mBAAmB;IACnB,aAAa;IACb,YAAY;IACZ,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,oBAAoB;IACpB,QAAQ;AACZ;;AAEA;IACI,sCAAsC;;AAE1C;;AAEA;IACI,YAAY;IACZ,qBAAqB;AACzB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-items: end; \n    gap: 10px;\n}\n\n/* footer form {\n    display: grid;\n    grid-template-rows: repeat(7, 50px);\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n    padding-top: 60px;\n} */\n\nfooter > button {\n    border: 0;\n    border-radius: 14px;\n    padding: 10px;\n    width: 200px;\n    color: blue;\n    display: grid;\n    align-items: center;\n    justify-items: start;\n    gap: 5px;\n}\n\nbutton#new-reminder {\n    grid-template-columns: max-content 1fr;\n\n}\n\nbutton#openListModal {\n    height: 70px;\n    justify-items: center;\n}"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/forms.css":
-/*!********************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/forms.css ***!
-  \********************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, `#reminder-modal {
-	/* display: grid; */
-	min-height: 100vh;
-}
-
-#reminder-modal button {
-	width: 100px;
-}
-
-#reminder-modal button:first-of-type {
-	grid-area: done;
-	/* justify-self: end; */
-}
-
-#reminder-modal button:last-of-type {
-	grid-area: reset;
-}
-
-#reminder-modal form {
-	gap: 30px 0;
-	grid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);
-	grid-template-areas:
-		'. title titleInput .'
-		'. notes notesInput .'
-		'. date dateInput .'
-		'. time timeInput .'
-		'. priority prioritySelect .'
-		'. list listSelect .'
-		'. done reset .';
-}
-
-#reminder-modal label {
-    justify-self: end;
-}
-
-#reminder-modal input {
-	width: 150px;
-}
-
-#reminder-modal select {
-	text-align: center;
-	width: 150px;
-}
-
-#reminder-modal label:first-of-type {
-	grid-area: title;
-}
-
-#reminder-modal label:first-of-type::after {
-    content: '*';
-    color: red;
-}
-
-#reminder-modal input:first-of-type {
-	grid-area: titleInput;
-}
-
-#reminder-modal label:nth-of-type(2) {
-	grid-area: notes;
-}
-
-#reminder-modal input:nth-of-type(2) {
-	grid-area: notesInput;
-}
-
-#reminder-modal label:nth-of-type(3) {
-	grid-area: date;
-}
-
-#reminder-modal input:nth-of-type(3) {
-	grid-area: dateInput;
-}
-
-#reminder-modal label:nth-of-type(4) {
-	grid-area: time;
-}
-
-#reminder-modal input:nth-of-type(4) {
-	grid-area: timeInput;
-}
-
-#reminder-modal label:nth-of-type(5) {
-	grid-area: priority;
-}
-
-#reminder-modal select:nth-of-type(1) {
-	grid-area: prioritySelect;
-}
-
-#reminder-modal label:nth-of-type(6) {
-	grid-area: list;
-}
-
-#reminder-modal select:nth-of-type(2) {
-	grid-area: listSelect;
-}
-
-#list-modal form {
-    grid-template-areas: '. input input .' 
-                         '. color color .' 
-                         '. done reset .';
-}
-
-#list-modal input:first-of-type {
-    width: 250px;
-    grid-area: input;
-}
-
-#list-modal input:nth-of-type(2) {
-    grid-area: color;
-}
-
-#list-modal button:first-of-type {
-    grid-area: done;
-}
-
-#list-modal button:last-of-type {
-    grid-area: reset;
-}
-
-.modal {
-	grid-template-columns: repeat(3, 1fr);
-	background-color: var(--modal-background);
-	position: absolute;
-	inset: 0;
-	z-index: 10;
-	/* fixes issue with add list button icon showing on top of reminder modal */
-}
-
-.modal input {
-	padding: 6px;
-	border-radius: 12px;
-}
-
-input:invalid:focus {
-    outline: none;
-    border: 1px solid red;
-}`, "",{"version":3,"sources":["webpack://./src/styles/forms.css"],"names":[],"mappings":"AAAA;CACC,mBAAmB;CACnB,iBAAiB;AAClB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,eAAe;CACf,uBAAuB;AACxB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,WAAW;CACX,sEAAsE;CACtE;;;;;;;kBAOiB;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,kBAAkB;CAClB,YAAY;AACb;;AAEA;CACC,gBAAgB;AACjB;;AAEA;IACI,YAAY;IACZ,UAAU;AACd;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;IACI;;yCAEqC;AACzC;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,YAAY;CACZ,mBAAmB;AACpB;;AAEA;IACI,aAAa;IACb,qBAAqB;AACzB","sourcesContent":["#reminder-modal {\n\t/* display: grid; */\n\tmin-height: 100vh;\n}\n\n#reminder-modal button {\n\twidth: 100px;\n}\n\n#reminder-modal button:first-of-type {\n\tgrid-area: done;\n\t/* justify-self: end; */\n}\n\n#reminder-modal button:last-of-type {\n\tgrid-area: reset;\n}\n\n#reminder-modal form {\n\tgap: 30px 0;\n\tgrid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);\n\tgrid-template-areas:\n\t\t'. title titleInput .'\n\t\t'. notes notesInput .'\n\t\t'. date dateInput .'\n\t\t'. time timeInput .'\n\t\t'. priority prioritySelect .'\n\t\t'. list listSelect .'\n\t\t'. done reset .';\n}\n\n#reminder-modal label {\n    justify-self: end;\n}\n\n#reminder-modal input {\n\twidth: 150px;\n}\n\n#reminder-modal select {\n\ttext-align: center;\n\twidth: 150px;\n}\n\n#reminder-modal label:first-of-type {\n\tgrid-area: title;\n}\n\n#reminder-modal label:first-of-type::after {\n    content: '*';\n    color: red;\n}\n\n#reminder-modal input:first-of-type {\n\tgrid-area: titleInput;\n}\n\n#reminder-modal label:nth-of-type(2) {\n\tgrid-area: notes;\n}\n\n#reminder-modal input:nth-of-type(2) {\n\tgrid-area: notesInput;\n}\n\n#reminder-modal label:nth-of-type(3) {\n\tgrid-area: date;\n}\n\n#reminder-modal input:nth-of-type(3) {\n\tgrid-area: dateInput;\n}\n\n#reminder-modal label:nth-of-type(4) {\n\tgrid-area: time;\n}\n\n#reminder-modal input:nth-of-type(4) {\n\tgrid-area: timeInput;\n}\n\n#reminder-modal label:nth-of-type(5) {\n\tgrid-area: priority;\n}\n\n#reminder-modal select:nth-of-type(1) {\n\tgrid-area: prioritySelect;\n}\n\n#reminder-modal label:nth-of-type(6) {\n\tgrid-area: list;\n}\n\n#reminder-modal select:nth-of-type(2) {\n\tgrid-area: listSelect;\n}\n\n#list-modal form {\n    grid-template-areas: '. input input .' \n                         '. color color .' \n                         '. done reset .';\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}\n\n.modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.modal input {\n\tpadding: 6px;\n\tborder-radius: 12px;\n}\n\ninput:invalid:focus {\n    outline: none;\n    border: 1px solid red;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,gBAAgB;IAChB,SAAS;AACb;;AAEA;IACI,SAAS;IACT,mBAAmB;IACnB,aAAa;IACb,YAAY;IACZ,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,oBAAoB;IACpB,QAAQ;AACZ;;AAEA;IACI,sCAAsC;;AAE1C;;AAEA;IACI,YAAY;IACZ,qBAAqB;AACzB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-items: end; \n    gap: 10px;\n}\n\nfooter > button {\n    border: 0;\n    border-radius: 14px;\n    padding: 10px;\n    width: 200px;\n    color: blue;\n    display: grid;\n    align-items: center;\n    justify-items: start;\n    gap: 5px;\n}\n\nbutton#new-reminder {\n    grid-template-columns: max-content 1fr;\n\n}\n\nbutton#openListModal {\n    height: 70px;\n    justify-items: center;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2835,14 +2674,133 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.modal form {
+___CSS_LOADER_EXPORT___.push([module.id, `.modal {
+	grid-template-columns: repeat(3, 1fr);
+	background-color: var(--modal-background);
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+	/* fixes issue with add list button icon showing on top of reminder modal */
+}
+
+.modal input {
+	padding: 6px;
+	border-radius: 12px;
+}
+
+input:invalid:focus {
+    outline: none;
+    border: 1px solid red;
+}
+
+.modal form {
     display: grid;
     grid-template-rows: repeat(7, 50px);
     grid-auto-flow: column;
     align-items: center;
     justify-items: center;
     padding-top: 60px;
-}`, "",{"version":3,"sources":["webpack://./src/styles/modal.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,mCAAmC;IACnC,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;IACrB,iBAAiB;AACrB","sourcesContent":[".modal form {\n    display: grid;\n    grid-template-rows: repeat(7, 50px);\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n    padding-top: 60px;\n}"],"sourceRoot":""}]);
+    /*  */
+    gap: 30px 0;
+	grid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);
+	grid-template-areas:
+		'. title titleInput .'
+		'. notes notesInput .'
+		'. date dateInput .'
+		'. time timeInput .'
+		'. priority prioritySelect .'
+		'. list listSelect .'
+		'. done reset .';
+}
+
+.modal form label {
+    justify-self: end;
+}
+
+.modal form input {
+	width: 150px;
+}
+
+.modal form select {
+	text-align: center;
+	width: 150px;
+}
+
+.modal form label:first-of-type {
+	grid-area: title;
+}
+
+.modal form label:first-of-type::after {
+    content: '*';
+    color: red;
+}
+
+.modal form input:first-of-type {
+	grid-area: titleInput;
+}
+
+.modal form label:nth-of-type(2) {
+	grid-area: notes;
+}
+
+.modal form input:nth-of-type(2) {
+	grid-area: notesInput;
+}
+
+.modal form label:nth-of-type(3) {
+	grid-area: date;
+}
+
+.modal form input:nth-of-type(3) {
+	grid-area: dateInput;
+}
+
+.modal form label:nth-of-type(4) {
+	grid-area: time;
+}
+
+.modal form input:nth-of-type(4) {
+	grid-area: timeInput;
+}
+
+.modal form label:nth-of-type(5) {
+	grid-area: priority;
+}
+
+.modal form select:nth-of-type(1) {
+	grid-area: prioritySelect;
+}
+
+.modal form label:nth-of-type(6) {
+	grid-area: list;
+}
+
+.modal form select:nth-of-type(2) {
+	grid-area: listSelect;
+}
+
+#list-modal form {
+    grid-template-areas: '. input input .' 
+                         '. color color .' 
+                         '. done reset .';
+}
+
+#list-modal input:first-of-type {
+    width: 250px;
+    grid-area: input;
+}
+
+#list-modal input:nth-of-type(2) {
+    grid-area: color;
+}
+
+#list-modal button:first-of-type {
+    grid-area: done;
+}
+
+#list-modal button:last-of-type {
+    grid-area: reset;
+}`, "",{"version":3,"sources":["webpack://./src/styles/modal.css"],"names":[],"mappings":"AAAA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,YAAY;CACZ,mBAAmB;AACpB;;AAEA;IACI,aAAa;IACb,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,mCAAmC;IACnC,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;IACrB,iBAAiB;IACjB,KAAK;IACL,WAAW;CACd,sEAAsE;CACtE;;;;;;;kBAOiB;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,kBAAkB;CAClB,YAAY;AACb;;AAEA;CACC,gBAAgB;AACjB;;AAEA;IACI,YAAY;IACZ,UAAU;AACd;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;IACI;;yCAEqC;AACzC;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":[".modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.modal input {\n\tpadding: 6px;\n\tborder-radius: 12px;\n}\n\ninput:invalid:focus {\n    outline: none;\n    border: 1px solid red;\n}\n\n.modal form {\n    display: grid;\n    grid-template-rows: repeat(7, 50px);\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n    padding-top: 60px;\n    /*  */\n    gap: 30px 0;\n\tgrid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);\n\tgrid-template-areas:\n\t\t'. title titleInput .'\n\t\t'. notes notesInput .'\n\t\t'. date dateInput .'\n\t\t'. time timeInput .'\n\t\t'. priority prioritySelect .'\n\t\t'. list listSelect .'\n\t\t'. done reset .';\n}\n\n.modal form label {\n    justify-self: end;\n}\n\n.modal form input {\n\twidth: 150px;\n}\n\n.modal form select {\n\ttext-align: center;\n\twidth: 150px;\n}\n\n.modal form label:first-of-type {\n\tgrid-area: title;\n}\n\n.modal form label:first-of-type::after {\n    content: '*';\n    color: red;\n}\n\n.modal form input:first-of-type {\n\tgrid-area: titleInput;\n}\n\n.modal form label:nth-of-type(2) {\n\tgrid-area: notes;\n}\n\n.modal form input:nth-of-type(2) {\n\tgrid-area: notesInput;\n}\n\n.modal form label:nth-of-type(3) {\n\tgrid-area: date;\n}\n\n.modal form input:nth-of-type(3) {\n\tgrid-area: dateInput;\n}\n\n.modal form label:nth-of-type(4) {\n\tgrid-area: time;\n}\n\n.modal form input:nth-of-type(4) {\n\tgrid-area: timeInput;\n}\n\n.modal form label:nth-of-type(5) {\n\tgrid-area: priority;\n}\n\n.modal form select:nth-of-type(1) {\n\tgrid-area: prioritySelect;\n}\n\n.modal form label:nth-of-type(6) {\n\tgrid-area: list;\n}\n\n.modal form select:nth-of-type(2) {\n\tgrid-area: listSelect;\n}\n\n#list-modal form {\n    grid-template-areas: '. input input .' \n                         '. color color .' \n                         '. done reset .';\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4232,61 +4190,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_footer_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_footer_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_footer_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
-
-
-/***/ }),
-
-/***/ "./src/styles/forms.css":
-/*!******************************!*\
-  !*** ./src/styles/forms.css ***!
-  \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_forms_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./forms.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/forms.css");
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var options = {};
-
-options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
-options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
-
-      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
-    
-options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
-options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_forms_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
-
-
-
-
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_forms_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_forms_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_forms_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -5860,17 +5763,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_buttons_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/buttons.css */ "./src/styles/buttons.css");
 /* harmony import */ var _styles_banner_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/banner.css */ "./src/styles/banner.css");
 /* harmony import */ var _styles_card_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/card.css */ "./src/styles/card.css");
-/* harmony import */ var _styles_forms_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/forms.css */ "./src/styles/forms.css");
-/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/header.css */ "./src/styles/header.css");
-/* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/footer.css */ "./src/styles/footer.css");
-/* harmony import */ var _styles_reminder_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/reminder.css */ "./src/styles/reminder.css");
-/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
-/* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
-/* harmony import */ var _completed_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./completed.js */ "./src/completed.js");
-/* harmony import */ var _delete_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./delete.js */ "./src/delete.js");
-/* harmony import */ var _testing_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./testing.js */ "./src/testing.js");
-/* harmony import */ var _edit_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./edit.js */ "./src/edit.js");
+/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/header.css */ "./src/styles/header.css");
+/* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/footer.css */ "./src/styles/footer.css");
+/* harmony import */ var _styles_reminder_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/reminder.css */ "./src/styles/reminder.css");
+/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
+/* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
+/* harmony import */ var _completed_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./completed.js */ "./src/completed.js");
+/* harmony import */ var _delete_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./delete.js */ "./src/delete.js");
+/* harmony import */ var _testing_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./testing.js */ "./src/testing.js");
+/* harmony import */ var _edit_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./edit.js */ "./src/edit.js");
 
 
 
@@ -5888,8 +5790,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-(0,_testing_js__WEBPACK_IMPORTED_MODULE_15__.testReminder)()
+(0,_testing_js__WEBPACK_IMPORTED_MODULE_14__.testReminder)()
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
@@ -5898,21 +5799,21 @@ let publishReminderBtn = document.querySelector('button#publishReminder')
 
 let addListBtn = document.querySelector('button#addList')
 
-addListBtn.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_12__.appendBanner)
+addListBtn.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.appendBanner)
 
-document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_12__.expandCollapseBanner)
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.expandCollapseBanner)
 
-document.addEventListener('click', _delete_js__WEBPACK_IMPORTED_MODULE_14__.deleteReminderHtml)
+document.addEventListener('click', _delete_js__WEBPACK_IMPORTED_MODULE_13__.deleteReminderHtml)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_11__.closeModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.closeModal)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_11__.openModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.openModal)
 
-document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_12__.removeBanner)
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.removeBanner)
 
-document.addEventListener('click', _completed_js__WEBPACK_IMPORTED_MODULE_13__.crossOutCompleted)
+document.addEventListener('click', _completed_js__WEBPACK_IMPORTED_MODULE_12__.crossOutCompleted)
 
-document.addEventListener('click', _edit_js__WEBPACK_IMPORTED_MODULE_16__.editReminder)
+document.addEventListener('click', _edit_js__WEBPACK_IMPORTED_MODULE_15__.editReminder)
 
 })();
 

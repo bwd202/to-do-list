@@ -20,3 +20,15 @@
 	right: 5px;
 	top: 5px;
 }
+
+form button {
+	width: 100px;
+}
+
+form button:first-of-type {
+	grid-area: done;
+}
+
+form button:last-of-type {
+	grid-area: reset;
+}
