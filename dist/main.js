@@ -2683,17 +2683,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.modal {
 	/* fixes issue with add list button icon showing on top of reminder modal */
 }
 
-.modal input {
-	padding: 6px;
-	border-radius: 12px;
-}
+/* FORMS */
 
-input:invalid:focus {
-    outline: none;
-    border: 1px solid red;
-}
-
-.modal form {
+form {
     display: grid;
     grid-template-rows: repeat(7, 50px);
     grid-auto-flow: column;
@@ -2713,69 +2705,76 @@ input:invalid:focus {
 		'. done reset .';
 }
 
-.modal form label {
+form label {
     justify-self: end;
 }
 
-.modal form input {
+form input {
 	width: 150px;
+    padding: 6px;
+	border-radius: 12px;
 }
 
-.modal form select {
+input:invalid:focus {
+    outline: none;
+    border: 1px solid red;
+}
+
+form select {
 	text-align: center;
 	width: 150px;
 }
 
-.modal form label:first-of-type {
+form label:first-of-type {
 	grid-area: title;
 }
 
-.modal form label:first-of-type::after {
+form label:first-of-type::after {
     content: '*';
     color: red;
 }
 
-.modal form input:first-of-type {
+form input:first-of-type {
 	grid-area: titleInput;
 }
 
-.modal form label:nth-of-type(2) {
+form label:nth-of-type(2) {
 	grid-area: notes;
 }
 
-.modal form input:nth-of-type(2) {
+form input:nth-of-type(2) {
 	grid-area: notesInput;
 }
 
-.modal form label:nth-of-type(3) {
+form label:nth-of-type(3) {
 	grid-area: date;
 }
 
-.modal form input:nth-of-type(3) {
+form input:nth-of-type(3) {
 	grid-area: dateInput;
 }
 
-.modal form label:nth-of-type(4) {
+form label:nth-of-type(4) {
 	grid-area: time;
 }
 
-.modal form input:nth-of-type(4) {
+form input:nth-of-type(4) {
 	grid-area: timeInput;
 }
 
-.modal form label:nth-of-type(5) {
+form label:nth-of-type(5) {
 	grid-area: priority;
 }
 
-.modal form select:nth-of-type(1) {
+form select:nth-of-type(1) {
 	grid-area: prioritySelect;
 }
 
-.modal form label:nth-of-type(6) {
+form label:nth-of-type(6) {
 	grid-area: list;
 }
 
-.modal form select:nth-of-type(2) {
+form select:nth-of-type(2) {
 	grid-area: listSelect;
 }
 
@@ -2800,7 +2799,7 @@ input:invalid:focus {
 
 #list-modal button:last-of-type {
     grid-area: reset;
-}`, "",{"version":3,"sources":["webpack://./src/styles/modal.css"],"names":[],"mappings":"AAAA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA;CACC,YAAY;CACZ,mBAAmB;AACpB;;AAEA;IACI,aAAa;IACb,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,mCAAmC;IACnC,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;IACrB,iBAAiB;IACjB,KAAK;IACL,WAAW;CACd,sEAAsE;CACtE;;;;;;;kBAOiB;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,kBAAkB;CAClB,YAAY;AACb;;AAEA;CACC,gBAAgB;AACjB;;AAEA;IACI,YAAY;IACZ,UAAU;AACd;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;IACI;;yCAEqC;AACzC;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":[".modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n.modal input {\n\tpadding: 6px;\n\tborder-radius: 12px;\n}\n\ninput:invalid:focus {\n    outline: none;\n    border: 1px solid red;\n}\n\n.modal form {\n    display: grid;\n    grid-template-rows: repeat(7, 50px);\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n    padding-top: 60px;\n    /*  */\n    gap: 30px 0;\n\tgrid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);\n\tgrid-template-areas:\n\t\t'. title titleInput .'\n\t\t'. notes notesInput .'\n\t\t'. date dateInput .'\n\t\t'. time timeInput .'\n\t\t'. priority prioritySelect .'\n\t\t'. list listSelect .'\n\t\t'. done reset .';\n}\n\n.modal form label {\n    justify-self: end;\n}\n\n.modal form input {\n\twidth: 150px;\n}\n\n.modal form select {\n\ttext-align: center;\n\twidth: 150px;\n}\n\n.modal form label:first-of-type {\n\tgrid-area: title;\n}\n\n.modal form label:first-of-type::after {\n    content: '*';\n    color: red;\n}\n\n.modal form input:first-of-type {\n\tgrid-area: titleInput;\n}\n\n.modal form label:nth-of-type(2) {\n\tgrid-area: notes;\n}\n\n.modal form input:nth-of-type(2) {\n\tgrid-area: notesInput;\n}\n\n.modal form label:nth-of-type(3) {\n\tgrid-area: date;\n}\n\n.modal form input:nth-of-type(3) {\n\tgrid-area: dateInput;\n}\n\n.modal form label:nth-of-type(4) {\n\tgrid-area: time;\n}\n\n.modal form input:nth-of-type(4) {\n\tgrid-area: timeInput;\n}\n\n.modal form label:nth-of-type(5) {\n\tgrid-area: priority;\n}\n\n.modal form select:nth-of-type(1) {\n\tgrid-area: prioritySelect;\n}\n\n.modal form label:nth-of-type(6) {\n\tgrid-area: list;\n}\n\n.modal form select:nth-of-type(2) {\n\tgrid-area: listSelect;\n}\n\n#list-modal form {\n    grid-template-areas: '. input input .' \n                         '. color color .' \n                         '. done reset .';\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/modal.css"],"names":[],"mappings":"AAAA;CACC,qCAAqC;CACrC,yCAAyC;CACzC,kBAAkB;CAClB,QAAQ;CACR,WAAW;CACX,2EAA2E;AAC5E;;AAEA,UAAU;;AAEV;IACI,aAAa;IACb,mCAAmC;IACnC,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;IACrB,iBAAiB;IACjB,KAAK;IACL,WAAW;CACd,sEAAsE;CACtE;;;;;;;kBAOiB;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;CACC,YAAY;IACT,YAAY;CACf,mBAAmB;AACpB;;AAEA;IACI,aAAa;IACb,qBAAqB;AACzB;;AAEA;CACC,kBAAkB;CAClB,YAAY;AACb;;AAEA;CACC,gBAAgB;AACjB;;AAEA;IACI,YAAY;IACZ,UAAU;AACd;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,oBAAoB;AACrB;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;IACI;;yCAEqC;AACzC;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,gBAAgB;AACpB","sourcesContent":[".modal {\n\tgrid-template-columns: repeat(3, 1fr);\n\tbackground-color: var(--modal-background);\n\tposition: absolute;\n\tinset: 0;\n\tz-index: 10;\n\t/* fixes issue with add list button icon showing on top of reminder modal */\n}\n\n/* FORMS */\n\nform {\n    display: grid;\n    grid-template-rows: repeat(7, 50px);\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n    padding-top: 60px;\n    /*  */\n    gap: 30px 0;\n\tgrid-template-columns: minmax(50px, 1fr) 100px 200px minmax(50px, 1fr);\n\tgrid-template-areas:\n\t\t'. title titleInput .'\n\t\t'. notes notesInput .'\n\t\t'. date dateInput .'\n\t\t'. time timeInput .'\n\t\t'. priority prioritySelect .'\n\t\t'. list listSelect .'\n\t\t'. done reset .';\n}\n\nform label {\n    justify-self: end;\n}\n\nform input {\n\twidth: 150px;\n    padding: 6px;\n\tborder-radius: 12px;\n}\n\ninput:invalid:focus {\n    outline: none;\n    border: 1px solid red;\n}\n\nform select {\n\ttext-align: center;\n\twidth: 150px;\n}\n\nform label:first-of-type {\n\tgrid-area: title;\n}\n\nform label:first-of-type::after {\n    content: '*';\n    color: red;\n}\n\nform input:first-of-type {\n\tgrid-area: titleInput;\n}\n\nform label:nth-of-type(2) {\n\tgrid-area: notes;\n}\n\nform input:nth-of-type(2) {\n\tgrid-area: notesInput;\n}\n\nform label:nth-of-type(3) {\n\tgrid-area: date;\n}\n\nform input:nth-of-type(3) {\n\tgrid-area: dateInput;\n}\n\nform label:nth-of-type(4) {\n\tgrid-area: time;\n}\n\nform input:nth-of-type(4) {\n\tgrid-area: timeInput;\n}\n\nform label:nth-of-type(5) {\n\tgrid-area: priority;\n}\n\nform select:nth-of-type(1) {\n\tgrid-area: prioritySelect;\n}\n\nform label:nth-of-type(6) {\n\tgrid-area: list;\n}\n\nform select:nth-of-type(2) {\n\tgrid-area: listSelect;\n}\n\n#list-modal form {\n    grid-template-areas: '. input input .' \n                         '. color color .' \n                         '. done reset .';\n}\n\n#list-modal input:first-of-type {\n    width: 250px;\n    grid-area: input;\n}\n\n#list-modal input:nth-of-type(2) {\n    grid-area: color;\n}\n\n#list-modal button:first-of-type {\n    grid-area: done;\n}\n\n#list-modal button:last-of-type {\n    grid-area: reset;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
