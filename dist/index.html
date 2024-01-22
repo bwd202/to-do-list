@@ -68,7 +68,7 @@
 			<span id="reminder-modal-close-btn" class="button modal-close-btn">&times;</span>
 			<form id="reminderForm" class="modal-content" action="/">
 				<label for="title">Title</label>
-				<input id="title" type="text" placeholder="walk dog" name="reminderTitle" maxlength="20" required />
+				<input id="title" type="text" placeholder="Walk dog" name="reminderTitle" maxlength="20" required />
 				<label for="notes">Notes</label>
 				<input id="notes" type="text" name="reminderNotes" maxlength="20" />
 				<label for="date">Due Date</label>
@@ -97,8 +97,10 @@
 		<div id="list-modal" class="modal" hidden>
 			<span id="list-modal-close-btn" class="button modal-close-btn">&times;</span>
 			<form id="listForm" class="modal-content" action="/">
-				<input type="text" placeholder="List name" maxlength="30" required />
-				<input type="color" />
+				<label for="projectName">Project</label>
+				<input id="projectName" type="text" placeholder="Bestest project" maxlength="30" required />
+				<label for="color">Color</label>
+				<input id="color" type="color" />
 				<button id="addList" type="submit">Done</button>
 				<button type="reset">Reset</button>
 			</form>
@@ -108,7 +110,7 @@
 		<div class="modal-close-btn button">&times;</div>
 		<form class="modal-content" action="/">
 			<label for="title">Title</label>
-			<input id="title" type="text" placeholder="walk dog" name="reminderTitle" maxlength="20" required />
+			<input id="title" type="text" name="reminderTitle" maxlength="20" required />
 			<label for="notes">Notes</label>
 			<input id="notes" type="text" name="reminderNotes" maxlength="20" />
 			<label for="date">Due Date</label>
