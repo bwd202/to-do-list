@@ -68,21 +68,21 @@
 			<span id="reminder-modal-close-btn" class="button modal-close-btn">&times;</span>
 			<form id="reminderForm" class="modal-content" action="/">
 				<label for="title">Title</label>
-				<input id="title" type="text" placeholder="Walk dog" name="reminderTitle" maxlength="20" required />
+				<input id="title" type="text" placeholder="Walk dog" name="reminder-title" maxlength="20" required />
 				<label for="notes">Notes</label>
-				<input id="notes" type="text" name="reminderNotes" maxlength="20" />
+				<input id="notes" type="text" name="reminder-notes" maxlength="20" />
 				<label for="date">Due Date</label>
-				<input id="date" type="date" name="reminderDueDate" />
+				<input id="date" type="date" name="reminder-due-date" />
 				<label for="time">Due Time</label>
-				<input id="time" type="time" name="reminderDueTime" />
+				<input id="time" type="time" name="reminder-due-time" />
 				<label for="priority">Priority</label>
-				<select id="priority" name="reminderPriority">
+				<select id="priority" name="reminder-priority">
 					<option value="1">low</option>
 					<option value="2" selected>medium</option>
 					<option value="3">high</option>
 				</select>
 				<label for="list">List</label>
-				<select id="list" name="listOptions">
+				<select id="list" name="reminder-list">
 					<option value="reminders">Reminders</option>
 				</select>
 				<button id="publishReminder" type="submit">
@@ -97,10 +97,10 @@
 		<div id="list-modal" class="modal" hidden>
 			<span id="list-modal-close-btn" class="button modal-close-btn">&times;</span>
 			<form id="listForm" class="modal-content" action="/">
-				<label for="projectName">Project</label>
-				<input id="projectName" type="text" placeholder="Bestest project" maxlength="30" required />
+				<label for="projec">Project</label>
+				<input id="project" type="text" name="project-name" placeholder="Bestest project" maxlength="30" required />
 				<label for="color">Color</label>
-				<input id="color" type="color" />
+				<input id="color" type="color" name="project-color"/>
 				<button id="addList" type="submit">Done</button>
 				<button type="reset">Reset</button>
 			</form>
@@ -109,22 +109,22 @@
 	<div id="edit-reminder" class="modal" hidden>
 		<div class="modal-close-btn button">&times;</div>
 		<form class="modal-content" action="/">
-			<label for="title">Title</label>
-			<input id="title" type="text" name="reminderTitle" maxlength="20" required />
-			<label for="notes">Notes</label>
-			<input id="notes" type="text" name="reminderNotes" maxlength="20" />
-			<label for="date">Due Date</label>
-			<input id="date" type="date" name="reminderDueDate" />
-			<label for="time">Due Time</label>
-			<input id="time" type="time" name="reminderDueTime" />
-			<label for="priority">Priority</label>
-			<select id="priority" name="reminderPriority">
+			<label for="title-edit">Title</label>
+			<input id="title-edit" type="text" name="title-edit" maxlength="20" required />
+			<label for="notes-edit">Notes</label>
+			<input id="notes-edit" type="text" name="notes-edit" maxlength="20" />
+			<label for="date-edit">Due Date</label>
+			<input id="date-edit" type="date" name="due-date-edit" />
+			<label for="time-edit">Due Time</label>
+			<input id="time-edit" type="time" name="due-time-edit" />
+			<label for="priority-edit">Priority</label>
+			<select id="priority-edit" name="priority-edit">
 				<option value="1">low</option>
 				<option value="2" selected>medium</option>
 				<option value="3">high</option>
 			</select>
-			<label for="list">List</label>
-			<select id="list" name="listOptions">
+			<label for="list-edit">List</label>
+			<select id="list-edit" name="list-edit">
 				<option value="reminders">Reminders</option>
 			</select>
 			<button id="save" type="submit">
