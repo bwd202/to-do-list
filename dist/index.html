@@ -106,7 +106,30 @@
 	</footer>
 	<div id="edit-reminder" class="modal" hidden>
 		<div class="modal-close-btn button">&times;</div>
-		<div class="modal-content"></div>
+		<form class="modal-content" action="/">
+			<label for="title">Title</label>
+			<input id="title" type="text" placeholder="walk dog" name="reminderTitle" maxlength="20" required />
+			<label for="notes">Notes</label>
+			<input id="notes" type="text" name="reminderNotes" maxlength="20" />
+			<label for="date">Due Date</label>
+			<input id="date" type="date" name="reminderDueDate" />
+			<label for="time">Due Time</label>
+			<input id="time" type="time" name="reminderDueTime" />
+			<label for="priority">Priority</label>
+			<select id="priority" name="reminderPriority">
+				<option value="1">low</option>
+				<option value="2" selected>medium</option>
+				<option value="3">high</option>
+			</select>
+			<label for="list">List</label>
+			<select id="list" name="listOptions">
+				<option value="reminders">Reminders</option>
+			</select>
+			<button id="save" type="submit">
+				Save
+			</button>
+			<button type="reset">Reset</button>
+		</form>
 	</div>
 </body>
 </html>

@@ -2572,14 +2572,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `footer {
     gap: 10px;
 }
 
-footer form {
+/* footer form {
     display: grid;
     grid-template-rows: repeat(7, 50px);
     grid-auto-flow: column;
     align-items: center;
     justify-items: center;
     padding-top: 60px;
-}
+} */
 
 footer > button {
     border: 0;
@@ -2601,7 +2601,7 @@ button#new-reminder {
 button#openListModal {
     height: 70px;
     justify-items: center;
-}`, "",{"version":3,"sources":["webpack://./src/styles/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,gBAAgB;IAChB,SAAS;AACb;;AAEA;IACI,aAAa;IACb,mCAAmC;IACnC,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;IACrB,iBAAiB;AACrB;;AAEA;IACI,SAAS;IACT,mBAAmB;IACnB,aAAa;IACb,YAAY;IACZ,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,oBAAoB;IACpB,QAAQ;AACZ;;AAEA;IACI,sCAAsC;;AAE1C;;AAEA;IACI,YAAY;IACZ,qBAAqB;AACzB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-items: end; \n    gap: 10px;\n}\n\nfooter form {\n    display: grid;\n    grid-template-rows: repeat(7, 50px);\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n    padding-top: 60px;\n}\n\nfooter > button {\n    border: 0;\n    border-radius: 14px;\n    padding: 10px;\n    width: 200px;\n    color: blue;\n    display: grid;\n    align-items: center;\n    justify-items: start;\n    gap: 5px;\n}\n\nbutton#new-reminder {\n    grid-template-columns: max-content 1fr;\n\n}\n\nbutton#openListModal {\n    height: 70px;\n    justify-items: center;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/footer.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,8BAA8B;IAC9B,gBAAgB;IAChB,SAAS;AACb;;AAEA;;;;;;;GAOG;;AAEH;IACI,SAAS;IACT,mBAAmB;IACnB,aAAa;IACb,YAAY;IACZ,WAAW;IACX,aAAa;IACb,mBAAmB;IACnB,oBAAoB;IACpB,QAAQ;AACZ;;AAEA;IACI,sCAAsC;;AAE1C;;AAEA;IACI,YAAY;IACZ,qBAAqB;AACzB","sourcesContent":["footer {\n    grid-area: footer;\n    display: grid;\n    grid-auto-flow: column;\n    justify-content: space-between;\n    align-items: end; \n    gap: 10px;\n}\n\n/* footer form {\n    display: grid;\n    grid-template-rows: repeat(7, 50px);\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n    padding-top: 60px;\n} */\n\nfooter > button {\n    border: 0;\n    border-radius: 14px;\n    padding: 10px;\n    width: 200px;\n    color: blue;\n    display: grid;\n    align-items: center;\n    justify-items: start;\n    gap: 5px;\n}\n\nbutton#new-reminder {\n    grid-template-columns: max-content 1fr;\n\n}\n\nbutton#openListModal {\n    height: 70px;\n    justify-items: center;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2809,6 +2809,40 @@ header {
     grid-area: header;
     align-items: start;
 }`, "",{"version":3,"sources":["webpack://./src/styles/header.css"],"names":[],"mappings":"AAAA;IACI,6EAAgF;IAChF,aAAa;IACb,kBAAkB;CACrB,mBAAmB;AACpB;;AAEA;IACI,aAAa;IACb,iBAAiB;IACjB,kBAAkB;AACtB","sourcesContent":["#search {\n    background: white url('../icons/magnifying-glass-solid.svg') no-repeat 10px 10px;\n    outline: none;\n    padding: 10px 35px; \n\tborder-radius: 14px; \n}\n\nheader {\n    display: grid;\n    grid-area: header;\n    align-items: start;\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/modal.css":
+/*!********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/modal.css ***!
+  \********************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.modal form {
+    display: grid;
+    grid-template-rows: repeat(7, 50px);
+    grid-auto-flow: column;
+    align-items: center;
+    justify-items: center;
+    padding-top: 60px;
+}`, "",{"version":3,"sources":["webpack://./src/styles/modal.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,mCAAmC;IACnC,sBAAsB;IACtB,mBAAmB;IACnB,qBAAqB;IACrB,iBAAiB;AACrB","sourcesContent":[".modal form {\n    display: grid;\n    grid-template-rows: repeat(7, 50px);\n    grid-auto-flow: column;\n    align-items: center;\n    justify-items: center;\n    padding-top: 60px;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3885,7 +3919,7 @@ var ___HTML_LOADER_REPLACEMENT_2___ = _node_modules_html_loader_dist_runtime_get
 var ___HTML_LOADER_REPLACEMENT_3___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_3___);
 var ___HTML_LOADER_REPLACEMENT_4___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_4___);
 var ___HTML_LOADER_REPLACEMENT_5___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_5___);
-var code = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n\t<title>To-Do List</title>\n\t<link rel=\"shortcut icon\" href=\"#\" />\n</head>\n<body>\n\t<header>\n\t\t<input id=\"search\" type=\"text\" placeholder=\"Search\" class=\"input\" maxlength=\"50\" />\n\t</header>\n\t<main>\n\t\t<div id=\"today\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\" />\n\t\t\t<p>Today</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<div id=\"scheduled\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\" />\n\t\t\t<p>Scheduled</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<div id=\"all\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\" />\n\t\t\t<p>All</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<div id=\"completed\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\" />\n\t\t\t<p>Completed</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<article id=\"lists\">\n\t\t\t<h2>My Lists</h2>\n\t\t\t<div id=\"reminder-list\" class=\"button banner shadow\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\" />\n\t\t\t\t<p>Reminders</p>\n\t\t\t\t<span class=\"counter\"></span>\n\t\t\t\t<span class=\"chevron\"></span>\n\t\t\t\t<span class=\"banner-close-btn\">&times;</span>\n\t\t\t\t<div id=\"reminders\" class=\"drop-down\" hidden></div>\n\t\t\t</div>\n\t\t</article>\n\t</main>\n\t<footer>\n\t\t<button id=\"new-reminder\" class=\"button modal-btn shadow\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\" />New Reminder\n\t\t</button>\n\t\t<div id=\"reminder-modal\" class=\"modal\" hidden>\n\t\t\t<span id=\"reminder-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t<form id=\"reminderForm\" class=\"modal-content\" action=\"/\">\n\t\t\t\t<label for=\"title\">Title</label>\n\t\t\t\t<input id=\"title\" type=\"text\" placeholder=\"walk dog\" name=\"reminderTitle\" maxlength=\"20\" required />\n\t\t\t\t<label for=\"notes\">Notes</label>\n\t\t\t\t<input id=\"notes\" type=\"text\" name=\"reminderNotes\" maxlength=\"20\" />\n\t\t\t\t<label for=\"date\">Due Date</label>\n\t\t\t\t<input id=\"date\" type=\"date\" name=\"reminderDueDate\" />\n\t\t\t\t<label for=\"time\">Due Time</label>\n\t\t\t\t<input id=\"time\" type=\"time\" name=\"reminderDueTime\" />\n\t\t\t\t<label for=\"priority\">Priority</label>\n\t\t\t\t<select id=\"priority\" name=\"reminderPriority\">\n\t\t\t\t\t<option value=\"1\">low</option>\n\t\t\t\t\t<option value=\"2\" selected>medium</option>\n\t\t\t\t\t<option value=\"3\">high</option>\n\t\t\t\t</select>\n\t\t\t\t<label for=\"list\">List</label>\n\t\t\t\t<select id=\"list\" name=\"listOptions\">\n\t\t\t\t\t<option value=\"reminders\">Reminders</option>\n\t\t\t\t</select>\n\t\t\t\t<button id=\"publishReminder\" type=\"submit\">\n\t\t\t\t\tDone\n\t\t\t\t</button>\n\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t</form>\n\t\t</div>\n\t\t<button id=\"openListModal\" class=\"button modal-btn shadow\">\n\t\t\tAdd List\n\t\t</button>\n\t\t<div id=\"list-modal\" class=\"modal\" hidden>\n\t\t\t<span id=\"list-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t<form id=\"listForm\" class=\"modal-content\" action=\"/\">\n\t\t\t\t<input type=\"text\" placeholder=\"List name\" maxlength=\"30\" required />\n\t\t\t\t<input type=\"color\" />\n\t\t\t\t<button id=\"addList\" type=\"submit\">Done</button>\n\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t</form>\n\t\t</div>\n\t</footer>\n\t<div id=\"edit-reminder\" class=\"modal\" hidden>\n\t\t<div class=\"modal-close-btn button\">&times;</div>\n\t\t<div class=\"modal-content\"></div>\n\t</div>\n</body>\n</html>";
+var code = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n\t<title>To-Do List</title>\n\t<link rel=\"shortcut icon\" href=\"#\" />\n</head>\n<body>\n\t<header>\n\t\t<input id=\"search\" type=\"text\" placeholder=\"Search\" class=\"input\" maxlength=\"50\" />\n\t</header>\n\t<main>\n\t\t<div id=\"today\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\" />\n\t\t\t<p>Today</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<div id=\"scheduled\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\" />\n\t\t\t<p>Scheduled</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<div id=\"all\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\" />\n\t\t\t<p>All</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<div id=\"completed\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\" />\n\t\t\t<p>Completed</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<article id=\"lists\">\n\t\t\t<h2>My Lists</h2>\n\t\t\t<div id=\"reminder-list\" class=\"button banner shadow\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\" />\n\t\t\t\t<p>Reminders</p>\n\t\t\t\t<span class=\"counter\"></span>\n\t\t\t\t<span class=\"chevron\"></span>\n\t\t\t\t<span class=\"banner-close-btn\">&times;</span>\n\t\t\t\t<div id=\"reminders\" class=\"drop-down\" hidden></div>\n\t\t\t</div>\n\t\t</article>\n\t</main>\n\t<footer>\n\t\t<button id=\"new-reminder\" class=\"button modal-btn shadow\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\" />New Reminder\n\t\t</button>\n\t\t<div id=\"reminder-modal\" class=\"modal\" hidden>\n\t\t\t<span id=\"reminder-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t<form id=\"reminderForm\" class=\"modal-content\" action=\"/\">\n\t\t\t\t<label for=\"title\">Title</label>\n\t\t\t\t<input id=\"title\" type=\"text\" placeholder=\"walk dog\" name=\"reminderTitle\" maxlength=\"20\" required />\n\t\t\t\t<label for=\"notes\">Notes</label>\n\t\t\t\t<input id=\"notes\" type=\"text\" name=\"reminderNotes\" maxlength=\"20\" />\n\t\t\t\t<label for=\"date\">Due Date</label>\n\t\t\t\t<input id=\"date\" type=\"date\" name=\"reminderDueDate\" />\n\t\t\t\t<label for=\"time\">Due Time</label>\n\t\t\t\t<input id=\"time\" type=\"time\" name=\"reminderDueTime\" />\n\t\t\t\t<label for=\"priority\">Priority</label>\n\t\t\t\t<select id=\"priority\" name=\"reminderPriority\">\n\t\t\t\t\t<option value=\"1\">low</option>\n\t\t\t\t\t<option value=\"2\" selected>medium</option>\n\t\t\t\t\t<option value=\"3\">high</option>\n\t\t\t\t</select>\n\t\t\t\t<label for=\"list\">List</label>\n\t\t\t\t<select id=\"list\" name=\"listOptions\">\n\t\t\t\t\t<option value=\"reminders\">Reminders</option>\n\t\t\t\t</select>\n\t\t\t\t<button id=\"publishReminder\" type=\"submit\">\n\t\t\t\t\tDone\n\t\t\t\t</button>\n\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t</form>\n\t\t</div>\n\t\t<button id=\"openListModal\" class=\"button modal-btn shadow\">\n\t\t\tAdd List\n\t\t</button>\n\t\t<div id=\"list-modal\" class=\"modal\" hidden>\n\t\t\t<span id=\"list-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t<form id=\"listForm\" class=\"modal-content\" action=\"/\">\n\t\t\t\t<input type=\"text\" placeholder=\"List name\" maxlength=\"30\" required />\n\t\t\t\t<input type=\"color\" />\n\t\t\t\t<button id=\"addList\" type=\"submit\">Done</button>\n\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t</form>\n\t\t</div>\n\t</footer>\n\t<div id=\"edit-reminder\" class=\"modal\" hidden>\n\t\t<div class=\"modal-close-btn button\">&times;</div>\n\t\t<form class=\"modal-content\" action=\"/\">\n\t\t\t<label for=\"title\">Title</label>\n\t\t\t<input id=\"title\" type=\"text\" placeholder=\"walk dog\" name=\"reminderTitle\" maxlength=\"20\" required />\n\t\t\t<label for=\"notes\">Notes</label>\n\t\t\t<input id=\"notes\" type=\"text\" name=\"reminderNotes\" maxlength=\"20\" />\n\t\t\t<label for=\"date\">Due Date</label>\n\t\t\t<input id=\"date\" type=\"date\" name=\"reminderDueDate\" />\n\t\t\t<label for=\"time\">Due Time</label>\n\t\t\t<input id=\"time\" type=\"time\" name=\"reminderDueTime\" />\n\t\t\t<label for=\"priority\">Priority</label>\n\t\t\t<select id=\"priority\" name=\"reminderPriority\">\n\t\t\t\t<option value=\"1\">low</option>\n\t\t\t\t<option value=\"2\" selected>medium</option>\n\t\t\t\t<option value=\"3\">high</option>\n\t\t\t</select>\n\t\t\t<label for=\"list\">List</label>\n\t\t\t<select id=\"list\" name=\"listOptions\">\n\t\t\t\t<option value=\"reminders\">Reminders</option>\n\t\t\t</select>\n\t\t\t<button id=\"save\" type=\"submit\">\n\t\t\t\tSave\n\t\t\t</button>\n\t\t\t<button type=\"reset\">Reset</button>\n\t\t</form>\n\t</div>\n</body>\n</html>";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
@@ -4308,6 +4342,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_header_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_header_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_header_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/styles/modal.css":
+/*!******************************!*\
+  !*** ./src/styles/modal.css ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_modal_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./modal.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/modal.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_modal_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_modal_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_modal_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_modal_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -5767,20 +5856,21 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.html */ "./src/index.html");
 /* harmony import */ var _styles_body_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/body.css */ "./src/styles/body.css");
-/* harmony import */ var _styles_buttons_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/buttons.css */ "./src/styles/buttons.css");
-/* harmony import */ var _styles_banner_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/banner.css */ "./src/styles/banner.css");
-/* harmony import */ var _styles_card_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/card.css */ "./src/styles/card.css");
-/* harmony import */ var _styles_forms_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/forms.css */ "./src/styles/forms.css");
-/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/header.css */ "./src/styles/header.css");
-/* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/footer.css */ "./src/styles/footer.css");
-/* harmony import */ var _styles_reminder_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/reminder.css */ "./src/styles/reminder.css");
-/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
-/* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
-/* harmony import */ var _completed_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./completed.js */ "./src/completed.js");
-/* harmony import */ var _delete_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./delete.js */ "./src/delete.js");
-/* harmony import */ var _testing_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./testing.js */ "./src/testing.js");
-/* harmony import */ var _edit_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./edit.js */ "./src/edit.js");
+/* harmony import */ var _styles_modal_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/modal.css */ "./src/styles/modal.css");
+/* harmony import */ var _styles_buttons_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/buttons.css */ "./src/styles/buttons.css");
+/* harmony import */ var _styles_banner_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/banner.css */ "./src/styles/banner.css");
+/* harmony import */ var _styles_card_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/card.css */ "./src/styles/card.css");
+/* harmony import */ var _styles_forms_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/forms.css */ "./src/styles/forms.css");
+/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/header.css */ "./src/styles/header.css");
+/* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/footer.css */ "./src/styles/footer.css");
+/* harmony import */ var _styles_reminder_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles/reminder.css */ "./src/styles/reminder.css");
+/* harmony import */ var _reminder_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./reminder.js */ "./src/reminder.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
+/* harmony import */ var _banner_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./banner.js */ "./src/banner.js");
+/* harmony import */ var _completed_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./completed.js */ "./src/completed.js");
+/* harmony import */ var _delete_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./delete.js */ "./src/delete.js");
+/* harmony import */ var _testing_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./testing.js */ "./src/testing.js");
+/* harmony import */ var _edit_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./edit.js */ "./src/edit.js");
 
 
 
@@ -5798,7 +5888,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_testing_js__WEBPACK_IMPORTED_MODULE_14__.testReminder)()
+
+(0,_testing_js__WEBPACK_IMPORTED_MODULE_15__.testReminder)()
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
@@ -5807,21 +5898,21 @@ let publishReminderBtn = document.querySelector('button#publishReminder')
 
 let addListBtn = document.querySelector('button#addList')
 
-addListBtn.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.appendBanner)
+addListBtn.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_12__.appendBanner)
 
-document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.expandCollapseBanner)
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_12__.expandCollapseBanner)
 
-document.addEventListener('click', _delete_js__WEBPACK_IMPORTED_MODULE_13__.deleteReminderHtml)
+document.addEventListener('click', _delete_js__WEBPACK_IMPORTED_MODULE_14__.deleteReminderHtml)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.closeModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_11__.closeModal)
 
-document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_10__.openModal)
+document.addEventListener('click', _modal__WEBPACK_IMPORTED_MODULE_11__.openModal)
 
-document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.removeBanner)
+document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_12__.removeBanner)
 
-document.addEventListener('click', _completed_js__WEBPACK_IMPORTED_MODULE_12__.crossOutCompleted)
+document.addEventListener('click', _completed_js__WEBPACK_IMPORTED_MODULE_13__.crossOutCompleted)
 
-document.addEventListener('click', _edit_js__WEBPACK_IMPORTED_MODULE_15__.editReminder)
+document.addEventListener('click', _edit_js__WEBPACK_IMPORTED_MODULE_16__.editReminder)
 
 })();
 

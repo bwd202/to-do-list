@@ -1,5 +1,6 @@
 import './index.html'
 import './styles/body.css'
+import './styles/modal.css'
 import './styles/buttons.css'
 import './styles/banner.css'
 import './styles/card.css'
