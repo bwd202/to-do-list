@@ -7,112 +7,106 @@
 	<title>To-Do List</title>
 	<link rel="shortcut icon" href="#" />
 <script defer src="main.js"></script></head>
-
 <body>
-		<header>
-			<input id="search" type="text" placeholder="Search" class="input" maxlength="50" />
-		</header>
-		<main>
-			<div id="today" class="card button modal-btn">
-				<img src="cb0e65bd516b4b5f5d06.svg" alt="" width="50" height="50" class="filter-blue" />
-				<p>Today</p>
+	<header>
+		<input id="search" type="text" placeholder="Search" class="input" maxlength="50" />
+	</header>
+	<main>
+		<div id="today" class="card button modal-btn">
+			<img src="cb0e65bd516b4b5f5d06.svg" alt="" width="50" height="50" class="filter-blue" />
+			<p>Today</p>
+			<span class="counter"></span>
+		</div>
+		<div class="modal" hidden>
+				<span class="modal-close-btn button">&times;</span>
+				<div class="modal-content"></div>
+		</div>
+		<div id="scheduled" class="card button modal-btn">
+			<img src="0afa66342b0e5f53443f.svg" alt="" width="50" height="50" class="filter-red" />
+			<p>Scheduled</p>
+			<span class="counter"></span>
+		</div>
+		<div class="modal" hidden>
+				<span class="modal-close-btn button">&times;</span>
+				<div class="modal-content"></div>
+		</div>
+		<div id="all" class="card button modal-btn">
+			<img src="7c08cb4f6d6cfe3d09d7.svg" alt="" width="50" height="50" />
+			<p>All</p>
+			<span class="counter"></span>
+		</div>
+		<div class="modal" hidden>
+				<span class="modal-close-btn button">&times;</span>
+				<div class="modal-content"></div>
+		</div>
+		<div id="completed" class="card button modal-btn">
+			<img src="61238fdaf03dcdcfb315.svg" alt="" width="50" height="50" class="filter-gray" />
+			<p>Completed</p>
+			<span class="counter"></span>
+		</div>
+		<div class="modal" hidden>
+				<span class="modal-close-btn button">&times;</span>
+				<div class="modal-content"></div>
+		</div>
+		<article id="lists">
+			<h2>My Lists</h2>
+			<div id="reminder-list" class="button banner shadow">
+				<img src="219cb3f5774dc4da59ea.svg" width="50" height="50" alt="" class="filter-green" />
+				<p>Reminders</p>
 				<span class="counter"></span>
+				<span class="chevron"></span>
+				<span class="banner-close-btn">&times;</span>
+				<div id="reminders" class="drop-down" hidden></div>
 			</div>
-
-			<div class="modal" hidden>
-					<span class="modal-close-btn button">&times;</span>
-					<div class="modal-content"></div>
-			</div>
-
-			<div id="scheduled" class="card button modal-btn">
-				<img src="0afa66342b0e5f53443f.svg" alt="" width="50" height="50" class="filter-red" />
-				<p>Scheduled</p>
-				<span class="counter"></span>
-			</div>
-
-			<div class="modal" hidden>
-					<span class="modal-close-btn button">&times;</span>
-					<div class="modal-content"></div>
-			</div>
-
-			<div id="all" class="card button modal-btn">
-				<img src="7c08cb4f6d6cfe3d09d7.svg" alt="" width="50" height="50" />
-				<p>All</p>
-				<span class="counter"></span>
-			</div>
-
-			<div class="modal" hidden>
-					<span class="modal-close-btn button">&times;</span>
-					<div class="modal-content"></div>
-			</div>
-
-			<div id="completed" class="card button modal-btn">
-				<img src="61238fdaf03dcdcfb315.svg" alt="" width="50" height="50" class="filter-gray" />
-				<p>Completed</p>
-				<span class="counter"></span>
-			</div>
-
-			<div class="modal" hidden>
-					<span class="modal-close-btn button">&times;</span>
-					<div class="modal-content"></div>
-			</div>
-
-			<article id="lists">
-				<h2>My Lists</h2>
-				<div id="reminder-list" class="button banner shadow">
-					<img src="219cb3f5774dc4da59ea.svg" width="50" height="50" alt="" class="filter-green" />
-					<p>Reminders</p>
-					<span class="counter"></span>
-					<span class="chevron"></span>
-					<span class="banner-close-btn">&times;</span>
-					<div id="reminders" class="drop-down" hidden></div>
-				</div>
-			</article>
-		</main>
-		<footer>
-			<button id="new-reminder" class="button modal-btn shadow">
-				<img src="ab58307c4579e18946a8.svg" width="50" height="50" alt="" class="filter-blue" />New Reminder
-			</button>
-			<div id="reminder-modal" class="modal" hidden>
-					<span id="reminder-modal-close-btn" class="button modal-close-btn">&times;</span>
-					<form id="reminderForm" class="modal-content" action="/">
-						<label for="title">Title</label>
-						<input id="title" type="text" placeholder="walk dog" name="reminderTitle" maxlength="20" required />
-						<label for="notes">Notes</label>
-						<input id="notes" type="text" name="reminderNotes" maxlength="20" />
-						<label for="date">Due Date</label>
-						<input id="date" type="date" name="reminderDueDate" />
-						<label for="time">Due Time</label>
-						<input id="time" type="time" name="reminderDueTime" />
-						<label for="priority">Priority</label>
-						<select id="priority" name="reminderPriority">
-							<option value="1">low</option>
-							<option value="2" selected>medium</option>
-							<option value="3">high</option>
-						</select>
-						<label for="list">List</label>
-						<select id="list" name="listOptions">
-							<option value="reminders">Reminders</option>
-						</select>
-						<button id="publishReminder" type="submit">
-							Done
-						</button>
-						<button type="reset">Reset</button>
-					</form>
-			</div>
-			<button id="openListModal" class="button modal-btn shadow">
-				Add List
-			</button>
-			<div id="list-modal" class="modal" hidden>
-					<span id="list-modal-close-btn" class="button modal-close-btn">&times;</span>
-					<form id="listForm" class="modal-content" action="/">
-						<input type="text" placeholder="List name" maxlength="30" required />
-						<input type="color" />
-						<button id="addList" type="submit">Done</button>
-						<button type="reset">Reset</button>
-					</form>
-			</div>
-		</footer>
+		</article>
+	</main>
+	<footer>
+		<button id="new-reminder" class="button modal-btn shadow">
+			<img src="ab58307c4579e18946a8.svg" width="50" height="50" alt="" class="filter-blue" />New Reminder
+		</button>
+		<div id="reminder-modal" class="modal" hidden>
+			<span id="reminder-modal-close-btn" class="button modal-close-btn">&times;</span>
+			<form id="reminderForm" class="modal-content" action="/">
+				<label for="title">Title</label>
+				<input id="title" type="text" placeholder="walk dog" name="reminderTitle" maxlength="20" required />
+				<label for="notes">Notes</label>
+				<input id="notes" type="text" name="reminderNotes" maxlength="20" />
+				<label for="date">Due Date</label>
+				<input id="date" type="date" name="reminderDueDate" />
+				<label for="time">Due Time</label>
+				<input id="time" type="time" name="reminderDueTime" />
+				<label for="priority">Priority</label>
+				<select id="priority" name="reminderPriority">
+					<option value="1">low</option>
+					<option value="2" selected>medium</option>
+					<option value="3">high</option>
+				</select>
+				<label for="list">List</label>
+				<select id="list" name="listOptions">
+					<option value="reminders">Reminders</option>
+				</select>
+				<button id="publishReminder" type="submit">
+					Done
+				</button>
+				<button type="reset">Reset</button>
+			</form>
+		</div>
+		<button id="openListModal" class="button modal-btn shadow">
+			Add List
+		</button>
+		<div id="list-modal" class="modal" hidden>
+			<span id="list-modal-close-btn" class="button modal-close-btn">&times;</span>
+			<form id="listForm" class="modal-content" action="/">
+				<input type="text" placeholder="List name" maxlength="30" required />
+				<input type="color" />
+				<button id="addList" type="submit">Done</button>
+				<button type="reset">Reset</button>
+			</form>
+		</div>
+	</footer>
+	<div id="edit-reminder" class="modal" hidden>
+		<div class="modal-close-btn button">&times;</div>
+		<div class="modal-content"></div>
+	</div>
 </body>
-
 </html>
