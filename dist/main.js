@@ -2478,9 +2478,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.button {
 	position: absolute;
 	color: white;
 	scale: 1.5;
-	right: -1;
-	top: 1;
-}`, "",{"version":3,"sources":["webpack://./src/styles/buttons.css"],"names":[],"mappings":"AAAA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,YAAY;CACZ,UAAU;CACV,SAAS;CACT,MAAM;AACP","sourcesContent":[".button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tcolor: white;\n\tscale: 1.5;\n\tright: -1;\n\ttop: 1;\n}"],"sourceRoot":""}]);
+	right: 5px;
+	top: 5px;
+}`, "",{"version":3,"sources":["webpack://./src/styles/buttons.css"],"names":[],"mappings":"AAAA;CACC,eAAe;AAChB;;AAEA;CACC,qBAAqB;CACrB,YAAY;CACZ,kBAAkB;CAClB,cAAc;AACf;;AAEA;CACC,UAAU;AACX;;AAEA;CACC,kBAAkB;CAClB,YAAY;CACZ,UAAU;CACV,UAAU;CACV,QAAQ;AACT","sourcesContent":[".button {\n\tcursor: pointer;\n}\n\n.del-btn {\n\tbackground-color: red;\n\tcolor: white;\n\tborder-radius: 5px;\n\tpadding: 0 2px;\n}\n\n.del-btn:hover {\n\tscale: 1.2;\n}\n\n.modal-close-btn {\n\tposition: absolute;\n\tcolor: white;\n\tscale: 1.5;\n\tright: 5px;\n\ttop: 5px;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
