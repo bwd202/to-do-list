@@ -4993,6 +4993,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   editReminder: () => (/* binding */ editReminder)
 /* harmony export */ });
+/* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+
 
 
 function editReminder(e) {
@@ -5001,6 +5003,58 @@ function editReminder(e) {
 
         document.querySelector('#edit-reminder').classList.toggle('visible')
     }
+
+    let reminderName = getReminderName(e.target)
+
+    let reminderObject = selectReminder(reminderName)
+
+    populateModal(reminderObject)
+}
+
+function getReminderName(htmlObject) {
+
+    return htmlObject.children[1].innerHTML
+}
+
+function selectReminder(reminderName) {
+
+    for(let item of _storage__WEBPACK_IMPORTED_MODULE_0__.reminders) {
+
+        if(item.reminderTitle == reminderName) {
+
+            return item
+        }
+    }
+}
+
+function populateModal(reminderObject) {
+
+    let modal = document.querySelector('#edit-reminder')
+
+    let reminderTitle = modal.querySelector('#title-edit')
+
+    let reminderNotes = modal.querySelector('#notes-edit')
+
+    let reminderDueDate = modal.querySelector('#date-edit')
+
+    let reminderDueTime = modal.querySelector('#time-edit')
+
+    let reminderPriority = modal.querySelector('#priority-edit')
+
+    let reminderList = modal.querySelector('#list-edit')
+
+    reminderTitle.value = reminderObject.reminderTitle
+
+    reminderNotes.value = reminderObject.reminderNotes
+
+    reminderDueDate.value = reminderObject.reminderDueDate
+
+    reminderDueTime.value = reminderObject.reminderDueTime
+
+    reminderPriority.value = reminderObject.reminderPriority
+
+    reminderList.value = reminderObject.reminderList
+
 }
 
 /***/ }),
@@ -5766,12 +5820,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_testing_js__WEBPACK_IMPORTED_MODULE_14__.testReminder)()
+// testReminder()
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
 
-// publishReminderBtn.addEventListener('click', publishReminder())
+publishReminderBtn.addEventListener('click', (0,_reminder_js__WEBPACK_IMPORTED_MODULE_9__.publishReminder)())
 
 let addListBtn = document.querySelector('button#addList')
 
