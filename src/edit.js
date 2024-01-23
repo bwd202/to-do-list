@@ -6,13 +6,13 @@ function editReminder(e) {
     if(e.target.classList.contains('reminder-short')) {
 
         document.querySelector('#edit-reminder').classList.toggle('visible')
+    
+        let reminderName = getReminderName(e.target)
+
+        let reminderObject = selectReminder(reminderName)
+
+        populateModal(reminderObject)
     }
-
-    let reminderName = getReminderName(e.target)
-
-    let reminderObject = selectReminder(reminderName)
-
-    populateModal(reminderObject)
 }
 
 function getReminderName(htmlObject) {
