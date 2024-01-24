@@ -3853,7 +3853,7 @@ var ___HTML_LOADER_REPLACEMENT_2___ = _node_modules_html_loader_dist_runtime_get
 var ___HTML_LOADER_REPLACEMENT_3___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_3___);
 var ___HTML_LOADER_REPLACEMENT_4___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_4___);
 var ___HTML_LOADER_REPLACEMENT_5___ = _node_modules_html_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_0___default()(___HTML_LOADER_IMPORT_5___);
-var code = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n\t<title>To-Do List</title>\n\t<link rel=\"shortcut icon\" href=\"#\" />\n</head>\n<body>\n\t<header>\n\t\t<input id=\"search\" type=\"text\" placeholder=\"Search\" class=\"input\" maxlength=\"50\" />\n\t</header>\n\t<main>\n\t\t<div id=\"today\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\" />\n\t\t\t<p>Today</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<div id=\"scheduled\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\" />\n\t\t\t<p>Scheduled</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<div id=\"all\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\" />\n\t\t\t<p>All</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<div id=\"completed\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\" />\n\t\t\t<p>Completed</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<article id=\"lists\">\n\t\t\t<h2>My Lists</h2>\n\t\t\t<div id=\"reminder-list\" class=\"button banner shadow\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\" />\n\t\t\t\t<p>Reminders</p>\n\t\t\t\t<span class=\"counter\"></span>\n\t\t\t\t<span class=\"chevron\"></span>\n\t\t\t\t<span class=\"banner-close-btn\">&times;</span>\n\t\t\t\t<div id=\"reminders\" class=\"drop-down\" hidden></div>\n\t\t\t</div>\n\t\t</article>\n\t</main>\n\t<footer>\n\t\t<button id=\"new-reminder\" class=\"button modal-btn shadow\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\" />New Reminder\n\t\t</button>\n\t\t<div id=\"reminder-modal\" class=\"modal\" hidden>\n\t\t\t<span id=\"reminder-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t<form id=\"reminderForm\" class=\"modal-content\" action=\"/\">\n\t\t\t\t<label for=\"title\">Title</label>\n\t\t\t\t<input id=\"title\" type=\"text\" placeholder=\"Walk dog\" name=\"reminder-title\" maxlength=\"20\" required />\n\t\t\t\t<label for=\"notes\">Notes</label>\n\t\t\t\t<input id=\"notes\" type=\"text\" name=\"reminder-notes\" maxlength=\"20\" />\n\t\t\t\t<label for=\"date\">Due Date</label>\n\t\t\t\t<input id=\"date\" type=\"date\" name=\"reminder-due-date\" />\n\t\t\t\t<label for=\"time\">Due Time</label>\n\t\t\t\t<input id=\"time\" type=\"time\" name=\"reminder-due-time\" />\n\t\t\t\t<label for=\"priority\">Priority</label>\n\t\t\t\t<select id=\"priority\" name=\"reminder-priority\">\n\t\t\t\t\t<option value=\"1\">low</option>\n\t\t\t\t\t<option value=\"2\" selected>medium</option>\n\t\t\t\t\t<option value=\"3\">high</option>\n\t\t\t\t</select>\n\t\t\t\t<label for=\"list\">List</label>\n\t\t\t\t<select id=\"list\" name=\"reminder-list\">\n\t\t\t\t\t<option value=\"reminders\">Reminders</option>\n\t\t\t\t</select>\n\t\t\t\t<button id=\"publishReminder\" type=\"submit\">\n\t\t\t\t\tDone\n\t\t\t\t</button>\n\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t</form>\n\t\t</div>\n\t\t<button id=\"openListModal\" class=\"button modal-btn shadow\">\n\t\t\tAdd List\n\t\t</button>\n\t\t<div id=\"list-modal\" class=\"modal\" hidden>\n\t\t\t<span id=\"list-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t<form id=\"listForm\" class=\"modal-content\" action=\"/\">\n\t\t\t\t<label for=\"projec\">Project</label>\n\t\t\t\t<input id=\"project\" type=\"text\" name=\"project-name\" placeholder=\"Bestest project\" maxlength=\"30\" required />\n\t\t\t\t<label for=\"color\">Color</label>\n\t\t\t\t<input id=\"color\" type=\"color\" name=\"project-color\"/>\n\t\t\t\t<button id=\"addList\" type=\"submit\">Done</button>\n\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t</form>\n\t\t</div>\n\t</footer>\n\t<div id=\"edit-reminder\" class=\"modal\" hidden>\n\t\t<div class=\"modal-close-btn button\">&times;</div>\n\t\t<form class=\"modal-content\" action=\"/\">\n\t\t\t<label for=\"title-edit\">Title</label>\n\t\t\t<input id=\"title-edit\" type=\"text\" name=\"title-edit\" maxlength=\"20\" required />\n\t\t\t<label for=\"notes-edit\">Notes</label>\n\t\t\t<input id=\"notes-edit\" type=\"text\" name=\"notes-edit\" maxlength=\"20\" />\n\t\t\t<label for=\"date-edit\">Due Date</label>\n\t\t\t<input id=\"date-edit\" type=\"date\" name=\"due-date-edit\" />\n\t\t\t<label for=\"time-edit\">Due Time</label>\n\t\t\t<input id=\"time-edit\" type=\"time\" name=\"due-time-edit\" />\n\t\t\t<label for=\"priority-edit\">Priority</label>\n\t\t\t<select id=\"priority-edit\" name=\"priority-edit\">\n\t\t\t\t<option value=\"1\">low</option>\n\t\t\t\t<option value=\"2\" selected>medium</option>\n\t\t\t\t<option value=\"3\">high</option>\n\t\t\t</select>\n\t\t\t<label for=\"list-edit\">List</label>\n\t\t\t<select id=\"list-edit\" name=\"list-edit\">\n\t\t\t\t<option value=\"reminders\">Reminders</option>\n\t\t\t</select>\n\t\t\t<button id=\"save\" type=\"submit\">\n\t\t\t\tSave\n\t\t\t</button>\n\t\t\t<button type=\"reset\">Reset</button>\n\t\t</form>\n\t</div>\n</body>\n</html>";
+var code = "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n\t<title>To-Do List</title>\n\t<link rel=\"shortcut icon\" href=\"#\" />\n</head>\n<body>\n\t<header>\n\t\t<input id=\"search\" type=\"text\" placeholder=\"Search\" class=\"input\" maxlength=\"50\" />\n\t</header>\n\t<main>\n\t\t<div id=\"today\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_0___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-blue\" />\n\t\t\t<p>Today</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<div id=\"scheduled\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_1___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-red\" />\n\t\t\t<p>Scheduled</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<div id=\"all\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_2___ + "\" alt=\"\" width=\"50\" height=\"50\" />\n\t\t\t<p>All</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<div id=\"completed\" class=\"card button modal-btn\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_3___ + "\" alt=\"\" width=\"50\" height=\"50\" class=\"filter-gray\" />\n\t\t\t<p>Completed</p>\n\t\t\t<span class=\"counter\"></span>\n\t\t</div>\n\t\t<div class=\"modal\" hidden>\n\t\t\t\t<span class=\"modal-close-btn button\">&times;</span>\n\t\t\t\t<div class=\"modal-content\"></div>\n\t\t</div>\n\t\t<article id=\"lists\">\n\t\t\t<h2>My Lists</h2>\n\t\t\t<div id=\"reminder-list\" class=\"button banner shadow\">\n\t\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_4___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-green\" />\n\t\t\t\t<p>Reminders</p>\n\t\t\t\t<span class=\"counter\"></span>\n\t\t\t\t<span class=\"chevron\"></span>\n\t\t\t\t<span class=\"banner-close-btn\">&times;</span>\n\t\t\t\t<div id=\"reminders\" class=\"drop-down\" hidden></div>\n\t\t\t</div>\n\t\t</article>\n\t</main>\n\t<footer>\n\t\t<button id=\"new-reminder\" class=\"button modal-btn shadow\">\n\t\t\t<img src=\"" + ___HTML_LOADER_REPLACEMENT_5___ + "\" width=\"50\" height=\"50\" alt=\"\" class=\"filter-blue\" />New Reminder\n\t\t</button>\n\t\t<div id=\"reminder-modal\" class=\"modal\" hidden>\n\t\t\t<span id=\"reminder-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t<form id=\"reminderForm\" class=\"modal-content\" action=\"/\">\n\t\t\t\t<label for=\"title\">Title</label>\n\t\t\t\t<input id=\"title\" type=\"text\" placeholder=\"Walk dog\" name=\"reminder-title\" maxlength=\"20\" required />\n\t\t\t\t<label for=\"notes\">Notes</label>\n\t\t\t\t<input id=\"notes\" type=\"text\" name=\"reminder-notes\" maxlength=\"20\" />\n\t\t\t\t<label for=\"date\">Due Date</label>\n\t\t\t\t<input id=\"date\" type=\"date\" name=\"reminder-due-date\" />\n\t\t\t\t<label for=\"time\">Due Time</label>\n\t\t\t\t<input id=\"time\" type=\"time\" name=\"reminder-due-time\" />\n\t\t\t\t<label for=\"priority\">Priority</label>\n\t\t\t\t<select id=\"priority\" name=\"reminder-priority\">\n\t\t\t\t\t<option value=\"1\">low</option>\n\t\t\t\t\t<option value=\"2\" selected>medium</option>\n\t\t\t\t\t<option value=\"3\">high</option>\n\t\t\t\t</select>\n\t\t\t\t<label for=\"list\">List</label>\n\t\t\t\t<select id=\"list\" name=\"reminder-list\">\n\t\t\t\t\t<option value=\"reminders\">Reminders</option>\n\t\t\t\t</select>\n\t\t\t\t<button id=\"publishReminder\" type=\"submit\">\n\t\t\t\t\tDone\n\t\t\t\t</button>\n\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t</form>\n\t\t</div>\n\t\t<button id=\"openListModal\" class=\"button modal-btn shadow\">\n\t\t\tAdd List\n\t\t</button>\n\t\t<div id=\"list-modal\" class=\"modal\" hidden>\n\t\t\t<span id=\"list-modal-close-btn\" class=\"button modal-close-btn\">&times;</span>\n\t\t\t<form id=\"listForm\" class=\"modal-content\" action=\"/\">\n\t\t\t\t<label for=\"projec\">Project</label>\n\t\t\t\t<input id=\"project\" type=\"text\" name=\"project-name\" placeholder=\"Bestest project\" maxlength=\"30\" required />\n\t\t\t\t<label for=\"color\">Color</label>\n\t\t\t\t<input id=\"color\" type=\"color\" name=\"project-color\"/>\n\t\t\t\t<button id=\"addList\" type=\"submit\">Done</button>\n\t\t\t\t<button type=\"reset\">Reset</button>\n\t\t\t</form>\n\t\t</div>\n\t</footer>\n\t<div id=\"edit-reminder\" class=\"modal\" hidden>\n\t\t<div class=\"modal-close-btn button\">&times;</div>\n\t\t<form class=\"modal-content\" action=\"/\">\n\t\t\t<label for=\"title-edit\">Title</label>\n\t\t\t<input id=\"title-edit\" type=\"text\" name=\"title-edit\" maxlength=\"20\" required />\n\t\t\t<label for=\"notes-edit\">Notes</label>\n\t\t\t<input id=\"notes-edit\" type=\"text\" name=\"notes-edit\" maxlength=\"20\" />\n\t\t\t<label for=\"date-edit\">Due Date</label>\n\t\t\t<input id=\"date-edit\" type=\"date\" name=\"due-date-edit\" />\n\t\t\t<label for=\"time-edit\">Due Time</label>\n\t\t\t<input id=\"time-edit\" type=\"time\" name=\"due-time-edit\" />\n\t\t\t<label for=\"priority-edit\">Priority</label>\n\t\t\t<select id=\"priority-edit\" name=\"priority-edit\">\n\t\t\t\t<option value=\"1\">low</option>\n\t\t\t\t<option value=\"2\" selected>medium</option>\n\t\t\t\t<option value=\"3\">high</option>\n\t\t\t</select>\n\t\t\t<label for=\"list-edit\">List</label>\n\t\t\t<select id=\"list-edit\" name=\"list-edit\">\n\t\t\t\t<option value=\"reminders\">Reminders</option>\n\t\t\t</select>\n\t\t\t<button id=\"save-edit\" type=\"submit\">\n\t\t\t\tSave\n\t\t\t</button>\n\t\t\t<button type=\"reset\">Reset</button>\n\t\t</form>\n\t</div>\n</body>\n</html>";
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (code);
 
@@ -4991,11 +4991,26 @@ function deleteFromStorage(reminder, array) {    //removes from array
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   editReminder: () => (/* binding */ editReminder)
+/* harmony export */   editReminder: () => (/* binding */ editReminder),
+/* harmony export */   saveEdit: () => (/* binding */ saveEdit)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
 
 
+
+let modal = document.querySelector('#edit-reminder')
+
+let reminderTitle = modal.querySelector('#title-edit')
+
+let reminderNotes = modal.querySelector('#notes-edit')
+
+let reminderDueDate = modal.querySelector('#date-edit')
+
+let reminderDueTime = modal.querySelector('#time-edit')
+
+let reminderPriority = modal.querySelector('#priority-edit')
+
+let reminderList = modal.querySelector('#list-edit')
 
 function editReminder(e) {
 
@@ -5029,20 +5044,6 @@ function selectReminder(reminderName) {
 
 function populateModal(reminderObject) {
 
-    let modal = document.querySelector('#edit-reminder')
-
-    let reminderTitle = modal.querySelector('#title-edit')
-
-    let reminderNotes = modal.querySelector('#notes-edit')
-
-    let reminderDueDate = modal.querySelector('#date-edit')
-
-    let reminderDueTime = modal.querySelector('#time-edit')
-
-    let reminderPriority = modal.querySelector('#priority-edit')
-
-    let reminderList = modal.querySelector('#list-edit')
-
     reminderTitle.value = reminderObject.reminderTitle
 
     reminderNotes.value = reminderObject.reminderNotes
@@ -5055,6 +5056,13 @@ function populateModal(reminderObject) {
 
     reminderList.value = reminderObject.reminderList
 
+}
+
+function saveEdit(e) {
+
+    e.preventDefault()
+
+    
 }
 
 /***/ }),
@@ -5844,6 +5852,10 @@ document.addEventListener('click', _banner_js__WEBPACK_IMPORTED_MODULE_11__.remo
 document.addEventListener('click', _completed_js__WEBPACK_IMPORTED_MODULE_12__.crossOutCompleted)
 
 document.addEventListener('click', _edit_js__WEBPACK_IMPORTED_MODULE_15__.editReminder)
+
+let saveEditBtn = document.querySelector('#save-edit')
+
+saveEditBtn.addEventListener('click', _edit_js__WEBPACK_IMPORTED_MODULE_15__.saveEdit)
 
 })();
 

@@ -1,5 +1,19 @@
 import { reminders } from "./storage"
-export {editReminder}
+export {editReminder, saveEdit}
+
+let modal = document.querySelector('#edit-reminder')
+
+let reminderTitle = modal.querySelector('#title-edit')
+
+let reminderNotes = modal.querySelector('#notes-edit')
+
+let reminderDueDate = modal.querySelector('#date-edit')
+
+let reminderDueTime = modal.querySelector('#time-edit')
+
+let reminderPriority = modal.querySelector('#priority-edit')
+
+let reminderList = modal.querySelector('#list-edit')
 
 function editReminder(e) {
 
@@ -33,20 +47,6 @@ function selectReminder(reminderName) {
 
 function populateModal(reminderObject) {
 
-    let modal = document.querySelector('#edit-reminder')
-
-    let reminderTitle = modal.querySelector('#title-edit')
-
-    let reminderNotes = modal.querySelector('#notes-edit')
-
-    let reminderDueDate = modal.querySelector('#date-edit')
-
-    let reminderDueTime = modal.querySelector('#time-edit')
-
-    let reminderPriority = modal.querySelector('#priority-edit')
-
-    let reminderList = modal.querySelector('#list-edit')
-
     reminderTitle.value = reminderObject.reminderTitle
 
     reminderNotes.value = reminderObject.reminderNotes
@@ -59,4 +59,11 @@ function populateModal(reminderObject) {
 
     reminderList.value = reminderObject.reminderList
 
+}
+
+function saveEdit(e) {
+
+    e.preventDefault()
+
+    
 }

@@ -13,7 +13,7 @@ import { expandCollapseBanner, appendBanner, removeBanner } from './banner.js'
 import {crossOutCompleted} from './completed.js'
 import { deleteReminderHtml } from './delete.js'
 import { testReminder } from './testing.js'
-import { editReminder } from './edit.js'
+import { editReminder, saveEdit } from './edit.js'
 
 // testReminder()
 
@@ -39,3 +39,7 @@ document.addEventListener('click', removeBanner)
 document.addEventListener('click', crossOutCompleted)
 
 document.addEventListener('click', editReminder)
+
+let saveEditBtn = document.querySelector('#save-edit')
+
+saveEditBtn.addEventListener('click', saveEdit)
