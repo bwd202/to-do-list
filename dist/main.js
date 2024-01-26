@@ -5348,6 +5348,10 @@ function makeShortReminder(obj) {   //makes reminder html to be shown in list ac
 
     title.innerHTML = obj.reminderTitle
 
+    // title.setAttribute('contenteditable', true)
+
+    // title.addEventListener('focusout', () => console.log(reminders))
+
     // let notes = document.createElement('p')
 
     // notes.innerHTML = obj.reminderNotes
@@ -5827,6 +5831,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import { reminders } from './storage.js'
+
+// console.log(reminders)
 
 // testReminder()
 

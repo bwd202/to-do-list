@@ -14,6 +14,9 @@ import {crossOutCompleted} from './completed.js'
 import { deleteReminderHtml } from './delete.js'
 import { testReminder } from './testing.js'
 import { editReminder, saveEdit } from './edit.js'
+// import { reminders } from './storage.js'
+
+// console.log(reminders)
 
 // testReminder()
 

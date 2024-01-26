@@ -71,6 +71,10 @@ function makeShortReminder(obj) {   //makes reminder html to be shown in list ac
 
     title.innerHTML = obj.reminderTitle
 
+    // title.setAttribute('contenteditable', true)
+
+    // title.addEventListener('focusout', () => console.log(reminders))
+
     // let notes = document.createElement('p')
 
     // notes.innerHTML = obj.reminderNotes
