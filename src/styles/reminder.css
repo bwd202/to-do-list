@@ -50,6 +50,7 @@
     padding: 10px;
     border-top: 1px solid darkgrey;
     grid-template-areas: 'checkbox title date time priority button';
+    gap: 0 10px;
     grid-template-columns: max-content 1fr 100px 100px 100px max-content;
     /* justify-items: center; */
 }

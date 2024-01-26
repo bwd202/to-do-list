@@ -18,7 +18,7 @@ import { editReminder, saveEdit } from './edit.js'
 
 // console.log(reminders)
 
-// testReminder()
+testReminder()
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
