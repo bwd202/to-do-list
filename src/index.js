@@ -8,7 +8,7 @@ import './styles/header.css'
 import './styles/footer.css'
 import './styles/reminder.css'
 import { publishReminder} from './reminder.js'
-import { openModal, closeModal} from './modal'
+import { openModal, closeModal, resetForm} from './modal'
 import { expandCollapseBanner, appendBanner, removeBanner } from './banner.js'
 import {crossOutCompleted} from './completed.js'
 import { deleteReminderHtml } from './delete.js'
@@ -18,7 +18,7 @@ import { editReminder, saveEdit } from './edit.js'
 
 // console.log(reminders)
 
-testReminder()
+// testReminder()
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')
@@ -46,3 +46,5 @@ document.addEventListener('click', editReminder)
 let saveEditBtn = document.querySelector('#save-edit')
 
 saveEditBtn.addEventListener('click', saveEdit)
+
+document.addEventListener('click', resetForm)

@@ -1,5 +1,5 @@
-export {openModal,closeModal,showInModal, chooseModal, removeFromModal}
 import { reminderForModal } from "./reminder"
+export {openModal,closeModal,showInModal, chooseModal, removeFromModal, resetForm}
 
 function chooseModal(name) {    //returns appropriate html element
 
@@ -56,4 +56,12 @@ function removeFromModal(reminder, modalName) {
             item.remove()
         }
     }
+}
+
+function resetForm(e) {
+
+    if(e.target.classList.contains('reset-btn')) {
+
+        console.log('success')
+    } 
 }

@@ -65,5 +65,23 @@ function saveEdit(e) {
 
     e.preventDefault()
 
+    let reminderName = reminderTitle.value
+
+    let reminder = selectReminder(reminderName)
+
+    reminder.reminderTitle = reminderName
+
+    reminder.reminderNotes = reminderNotes.value
+
+    reminder.reminderDueDate = reminderDueDate.value
+
+    reminder.reminderDueTime = reminderDueTime.value
+
+    reminder.reminderPriority = reminderPriority.value
+
+    reminder.reminderList = reminderList.value
+
+    console.log(reminders)
+
     
 }

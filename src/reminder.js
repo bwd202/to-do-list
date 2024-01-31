@@ -204,7 +204,7 @@ function publishReminder(test) {
         
             updateCounter(banner)
     
-            reminderForm.reset()
+            // reminderForm.reset()
     }
 
 }
