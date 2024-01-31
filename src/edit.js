@@ -83,5 +83,7 @@ function saveEdit(e) {
 
     console.log(reminders)
 
-    
+    let editForm = document.querySelector('#editForm')
+
+    editForm.reset()
 }

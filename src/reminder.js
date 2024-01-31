@@ -2,7 +2,7 @@ export {publishReminder,Reminder,reminderForModal}
 import {reminders} from "./storage"
 import { appendChevronIcon} from "./banner"
 import { updateCounter, updateModalCounter } from "./counter"
-import { showInModal } from "./modal"
+import { showInModal, resetForm } from "./modal"
 
 class Reminder {
 
@@ -203,8 +203,10 @@ function publishReminder(test) {
             updateModalCounter('all')
         
             updateCounter(banner)
-    
-            // reminderForm.reset()
+
+            let reminderForm = document.querySelector('#reminderForm')
+
+            reminderForm.reset()
     }
 
 }

@@ -1,10 +1,60 @@
 import {Icon} from "./icon"
-import {storeList} from './list'
 import { lists} from "./storage"
 import chevronDown from './icons/chevron-down-solid.svg'
 import chevronUp from './icons/chevron-up-solid.svg'
 import bannerIcon from './icons/calendar-text.svg'
 export {expandCollapseBanner,appendBanner,appendChevronIcon, removeBanner}
+
+class List {
+    constructor({name = 'New List', color = '#0f0'}={}) {
+        this._name = name
+        this.listColor = color
+    }
+
+    get name() {
+
+        return this._name
+    }
+
+    set name(str) {
+
+       if (str === '') this._name = 'New List'
+       else this._name = str
+    }
+
+    get id() {
+        return this.camelCase(this.name)
+    }
+
+    // for ID
+    camelCase(str) {
+
+        let splitted = str.split(' ')   //array
+
+        let camelized = splitted.map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
+
+        let newStr = camelized.join('')
+
+        return newStr
+    }
+
+}
+
+function storeList() {
+
+    lists.push(getListInputs())
+}
+
+function getListInputs() {   //creates obj from list modal inputs, returns obj
+
+    let obj = new List()
+
+    obj.name = document.querySelector("#project").value.trim()
+
+    obj.listColor = document.querySelector("#color").value
+
+    return obj
+}
 
 function makeBanner(obj) {    //creates html representation of list
 
@@ -88,7 +138,7 @@ function removeListName(string) {   //removes name from options in reminder form
 
 function addNewListOption(obj) {   //adds new input to reminder modal form
 
-    let container = document.querySelector('[name="listOptions"]')
+    let container = document.querySelector('#list')
 
     let newListOption = document.createElement('option')
 
@@ -102,7 +152,7 @@ function addNewListOption(obj) {   //adds new input to reminder modal form
 
 function appendBanner(e) { //adds new banner to document
 
-    // e.preventDefault()
+    e.preventDefault()
 
     storeList()
 

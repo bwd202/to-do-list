@@ -60,8 +60,9 @@ function removeFromModal(reminder, modalName) {
 
 function resetForm(e) {
 
-    if(e.target.classList.contains('reset-btn')) {
+        if(e.target.classList.contains('reset-btn')) {
 
-        console.log('success')
-    } 
-}
+            e.target.parentElement.reset()
+        } 
+        
+    }

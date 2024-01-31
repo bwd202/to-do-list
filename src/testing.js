@@ -15,3 +15,12 @@ function testReminder() {
 // document.querySelector('#list-modal').classList.add('visible')  
 
 // addList.dispatchEvent(clickEvent)
+
+// function autoReset(fn) {
+
+//     let click = new Event('click')
+
+//     let target = 
+
+    
+// }
