@@ -1,4 +1,5 @@
 import { reminders } from "./storage"
+import { Reminder } from "./reminder"
 export {editReminder, saveEdit}
 
 let modal = document.querySelector('#edit-reminder')
@@ -15,23 +16,23 @@ let reminderPriority = modal.querySelector('#priority-edit')
 
 let reminderList = modal.querySelector('#list-edit')
 
+let tempStorage = []
+
 function editReminder(e) {
 
     if(e.target.classList.contains('reminder-short')) {
 
         document.querySelector('#edit-reminder').classList.toggle('visible')
     
-        let reminderName = getReminderName(e.target)
+        let name = e.target.children[1].innerHTML
 
-        let reminderObject = selectReminder(reminderName)
+        let reminder = selectReminder(name)
 
-        populateModal(reminderObject)
+        populateModal(reminder)
+
+        tempStorage.push(reminder)
+
     }
-}
-
-function getReminderName(htmlObject) {
-
-    return htmlObject.children[1].innerHTML
 }
 
 function selectReminder(reminderName) {
@@ -43,6 +44,11 @@ function selectReminder(reminderName) {
             return item
         }
     }
+}
+
+function overwriteReminder(original, edit) {
+
+    Object.assign(original, edit)
 }
 
 function populateModal(reminderObject) {
@@ -65,21 +71,21 @@ function saveEdit(e) {
 
     e.preventDefault()
 
-    let reminderName = reminderTitle.value
+    let edit = new Reminder()
 
-    let reminder = selectReminder(reminderName)
+    edit.reminderTitle = reminderTitle.value
 
-    reminder.reminderTitle = reminderName
+    edit.reminderNotes = reminderNotes.value
 
-    reminder.reminderNotes = reminderNotes.value
+    edit.reminderDueDate = reminderDueDate.value
 
-    reminder.reminderDueDate = reminderDueDate.value
+    edit.reminderDueTime = reminderDueTime.value
 
-    reminder.reminderDueTime = reminderDueTime.value
+    edit.reminderPriority = reminderPriority.value
 
-    reminder.reminderPriority = reminderPriority.value
+    edit.reminderList = reminderList.value
 
-    reminder.reminderList = reminderList.value
+    overwriteReminder(tempStorage[0],edit)
 
     console.log(reminders)
 

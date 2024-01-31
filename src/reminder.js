@@ -1,8 +1,8 @@
-export {publishReminder,Reminder,reminderForModal}
 import {reminders} from "./storage"
 import { appendChevronIcon} from "./banner"
 import { updateCounter, updateModalCounter } from "./counter"
-import { showInModal, resetForm } from "./modal"
+import { showInModal} from "./modal"
+export {publishReminder,Reminder,reminderForModal}
 
 class Reminder {
 

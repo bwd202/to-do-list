@@ -5045,6 +5045,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   saveEdit: () => (/* binding */ saveEdit)
 /* harmony export */ });
 /* harmony import */ var _storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage */ "./src/storage.js");
+/* harmony import */ var _reminder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reminder */ "./src/reminder.js");
+
 
 
 
@@ -5062,23 +5064,23 @@ let reminderPriority = modal.querySelector('#priority-edit')
 
 let reminderList = modal.querySelector('#list-edit')
 
+let tempStorage = []
+
 function editReminder(e) {
 
     if(e.target.classList.contains('reminder-short')) {
 
         document.querySelector('#edit-reminder').classList.toggle('visible')
     
-        let reminderName = getReminderName(e.target)
+        let name = e.target.children[1].innerHTML
 
-        let reminderObject = selectReminder(reminderName)
+        let reminder = selectReminder(name)
 
-        populateModal(reminderObject)
+        populateModal(reminder)
+
+        tempStorage.push(reminder)
+
     }
-}
-
-function getReminderName(htmlObject) {
-
-    return htmlObject.children[1].innerHTML
 }
 
 function selectReminder(reminderName) {
@@ -5090,6 +5092,11 @@ function selectReminder(reminderName) {
             return item
         }
     }
+}
+
+function overwriteReminder(original, edit) {
+
+    Object.assign(original, edit)
 }
 
 function populateModal(reminderObject) {
@@ -5112,21 +5119,21 @@ function saveEdit(e) {
 
     e.preventDefault()
 
-    let reminderName = reminderTitle.value
+    let edit = new _reminder__WEBPACK_IMPORTED_MODULE_1__.Reminder()
 
-    let reminder = selectReminder(reminderName)
+    edit.reminderTitle = reminderTitle.value
 
-    reminder.reminderTitle = reminderName
+    edit.reminderNotes = reminderNotes.value
 
-    reminder.reminderNotes = reminderNotes.value
+    edit.reminderDueDate = reminderDueDate.value
 
-    reminder.reminderDueDate = reminderDueDate.value
+    edit.reminderDueTime = reminderDueTime.value
 
-    reminder.reminderDueTime = reminderDueTime.value
+    edit.reminderPriority = reminderPriority.value
 
-    reminder.reminderPriority = reminderPriority.value
+    edit.reminderList = reminderList.value
 
-    reminder.reminderList = reminderList.value
+    overwriteReminder(tempStorage[0],edit)
 
     console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders)
 
@@ -5134,6 +5141,7 @@ function saveEdit(e) {
 
     editForm.reset()
 }
+
 
 /***/ }),
 
@@ -5288,7 +5296,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _counter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./counter */ "./src/counter.js");
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modal */ "./src/modal.js");
 
-;
+
 
 
 
