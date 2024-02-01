@@ -1,9 +1,9 @@
 import { publishReminder} from "./reminder"
 export {testReminder}
 
-function testReminder() {
+function testReminder(obj) {
 
-    document.querySelector('button#publishReminder').addEventListener('click', publishReminder(1))
+    document.querySelector('button#publishReminder').addEventListener('click', publishReminder(obj))
 
     let clickEvent = new Event('click')
 
@@ -12,15 +12,4 @@ function testReminder() {
     document.querySelector('#reminders').classList.add('visible')
 }
 
-// document.querySelector('#list-modal').classList.add('visible')  
 
-// addList.dispatchEvent(clickEvent)
-
-// function autoReset(fn) {
-
-//     let click = new Event('click')
-
-//     let target = 
-
-    
-// }

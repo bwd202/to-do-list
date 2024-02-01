@@ -1,5 +1,5 @@
 import { reminders } from "./storage"
-import { Reminder } from "./reminder"
+import { Reminder, publishReminder } from "./reminder"
 export {editReminder, saveEdit}
 
 let modal = document.querySelector('#edit-reminder')
@@ -87,7 +87,11 @@ function saveEdit(e) {
 
     overwriteReminder(tempStorage[0],edit)
 
+    // reminders.push(edit)
+
     console.log(reminders)
+
+    publishReminder(edit)
 
     let editForm = document.querySelector('#editForm')
 

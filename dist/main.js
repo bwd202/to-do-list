@@ -5135,7 +5135,11 @@ function saveEdit(e) {
 
     overwriteReminder(tempStorage[0],edit)
 
+    // reminders.push(edit)
+
     console.log(_storage__WEBPACK_IMPORTED_MODULE_0__.reminders)
+
+    ;(0,_reminder__WEBPACK_IMPORTED_MODULE_1__.publishReminder)(edit)
 
     let editForm = document.querySelector('#editForm')
 
@@ -5453,17 +5457,27 @@ function reminderForModal(obj) {
 
 }
 
-function publishReminder(test) {
+function publishReminder(obj) {
 
    return function(e) { 
 
-        if(test) {  //test function
+        if(obj) {  //override
 
             e.preventDefault()
 
+            // document.querySelector('button#publishReminder').addEventListener('click', publishReminder(obj))
+
+            let click = new Event('click')
+        
+            document.querySelector('#publishReminder').dispatchEvent(click)
+        
+            document.querySelector('#reminders').classList.add('visible')
+
             let defaultList = document.querySelector('#reminders')
 
-            defaultList.append(makeShortReminder(new Reminder()))
+            // defaultList.append(makeShortReminder(new Reminder()))
+
+            defaultList.append(makeShortReminder(obj))
 
             return
         }
@@ -5505,8 +5519,20 @@ function publishReminder(test) {
 
             reminderForm.reset()
     }
-
 }
+/* 
+
+fn showReminder() {
+
+    for(let reminder of reminders) {
+
+        document.append(reminder)
+    }
+}
+
+
+
+*/
 
 /***/ }),
 
@@ -5548,9 +5574,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function testReminder() {
+function testReminder(obj) {
 
-    document.querySelector('button#publishReminder').addEventListener('click', (0,_reminder__WEBPACK_IMPORTED_MODULE_0__.publishReminder)(1))
+    document.querySelector('button#publishReminder').addEventListener('click', (0,_reminder__WEBPACK_IMPORTED_MODULE_0__.publishReminder)(obj))
 
     let clickEvent = new Event('click')
 
@@ -5559,18 +5585,7 @@ function testReminder() {
     document.querySelector('#reminders').classList.add('visible')
 }
 
-// document.querySelector('#list-modal').classList.add('visible')  
 
-// addList.dispatchEvent(clickEvent)
-
-// function autoReset(fn) {
-
-//     let click = new Event('click')
-
-//     let target = 
-
-    
-// }
 
 
 /***/ }),
@@ -5866,7 +5881,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // console.log(reminders)
 
-// testReminder()
+(0,_testing_js__WEBPACK_IMPORTED_MODULE_14__.testReminder)()
 
 // EVENT LISTENERS
 let publishReminderBtn = document.querySelector('button#publishReminder')

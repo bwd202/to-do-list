@@ -156,17 +156,27 @@ function reminderForModal(obj) {
 
 }
 
-function publishReminder(test) {
+function publishReminder(obj) {
 
    return function(e) { 
 
-        if(test) {  //test function
+        if(obj) {  //override
 
             e.preventDefault()
 
+            // document.querySelector('button#publishReminder').addEventListener('click', publishReminder(obj))
+
+            let click = new Event('click')
+        
+            document.querySelector('#publishReminder').dispatchEvent(click)
+        
+            document.querySelector('#reminders').classList.add('visible')
+
             let defaultList = document.querySelector('#reminders')
 
-            defaultList.append(makeShortReminder(new Reminder()))
+            // defaultList.append(makeShortReminder(new Reminder()))
+
+            defaultList.append(makeShortReminder(obj))
 
             return
         }
@@ -208,5 +218,17 @@ function publishReminder(test) {
 
             reminderForm.reset()
     }
-
 }
+/* 
+
+fn showReminder() {
+
+    for(let reminder of reminders) {
+
+        document.append(reminder)
+    }
+}
+
+
+
+*/
